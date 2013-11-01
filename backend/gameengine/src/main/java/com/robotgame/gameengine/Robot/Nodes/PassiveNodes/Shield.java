@@ -1,4 +1,4 @@
-package Robot.Nodes.PassiveNodes;
+package com.robotgame.gameengine.Robot.Nodes.PassiveNodes;
 
 
 /**

@@ -1,4 +1,6 @@
-package Match;
+package com.robotgame.gameengine.Match;
+
+import com.robotgame.gameengine.Match.PlayerStats;
 
 /**
  * Created with IntelliJ IDEA.

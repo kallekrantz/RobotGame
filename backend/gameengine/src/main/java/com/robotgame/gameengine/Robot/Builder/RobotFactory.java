@@ -1,7 +1,7 @@
-package Robot.Builder;
+package com.robotgame.gameengine.Robot.Builder;
 
-import Robot.*;
-import Robot.Nodes.*;
+import com.robotgame.gameengine.Robot.Robot;
+import com.robotgame.gameengine.Robot.Nodes.*;
 
 /**
  * Created with IntelliJ IDEA.

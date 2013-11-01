@@ -1,52 +1,60 @@
+package com.robotgame.gameengine.tests.RobotTests;
 
-import Robot.Builder.*;
-import Robot.Nodes.NodeConnection;
-import Robot.Robot;
-import Match.*;
+import com.robotgame.gameengine.Match.IMatchHandler;
+import com.robotgame.gameengine.Match.Match;
+import com.robotgame.gameengine.Match.MatchResult;
+import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
+import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
+import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created with IntelliJ IDEA.
- * User: Oskar
- * Date: 2013-10-14
- * Time: 11:37
+ * User: KarlJohan
+ * Date: 10/31/13
+ * Time: 3:57 PM
  * To change this template use File | Settings | File Templates.
-**/
+ */
 
-public class RobotTester implements IMatchHandler
+public class CompleteRobotTest implements IMatchHandler
 {
     Match match;
 
-    public RobotTester()
+    public CompleteRobotTest()
     {
         match = new Match(this);
     }
 
-    public static void main(String[] args)
+    @Test
+    public void RobotComplete()
     {
-        RobotTester rt = new RobotTester();
+        CompleteRobotTest rt = new CompleteRobotTest();
 
         RobotBlueprint blueprint = new RobotBlueprint();
         RobotBlueprint blueprint2 = new RobotBlueprint();
         //Todo: Fill blueprint with nodes
 
         /***** Implemented Nodes ********
-        //Sensor nodes
-        S_DistanceSensor,
-        //Logic nodes
-        L_And, L_Or, L_Not, L_And3, L_Or3, L_Delay, L_True, L_False, L_Default, L_TicTac, L_Clock, L_MajorityOf3,
-        //Action nodes
-        A_Debug,
-        //Default node
-        Default
-        */
+         //Sensor nodes
+         S_DistanceSensor,
+         //Logic nodes
+         L_And, L_Or, L_Not, L_And3, L_Or3, L_Delay, L_True, L_False, L_Default, L_TicTac, L_Clock, L_MajorityOf3,
+         //Action nodes
+         A_Debug,
+         //Default node
+         Default
+         */
 
         blueprint.AddNode("L_Clock", 2, 0, 0);                 blueprint.AddNode("L_TicTac", 7, 0, 1);
 //                            |                                /
         blueprint.AddNode("L_Delay", 30, 0, 2);//             /
 //                            |                              /
-                             blueprint.AddNode("L_Or", 0, 0, 3);
+        blueprint.AddNode("L_Or", 0, 0, 3);
 //                                             |
-                             blueprint.AddNode("A_Debug", 0, 0, 4);
+        blueprint.AddNode("A_Debug", 0, 0, 4);
 
         blueprint.AddConnection(new NodeConnection(0, 0, 2, 0));
         blueprint.AddConnection(new NodeConnection(2, 0, 3, 0));
@@ -68,17 +76,14 @@ public class RobotTester implements IMatchHandler
 
 
         rt.match.SetRunning(true);
-        new Thread(rt.match).start();
+        rt.match.run();
     }
 
 
     @Override
     public void MatchEnded(MatchResult results)
     {
-        System.out.println();
-        System.out.println("Match ended");
-        System.out.println("Winner is " + results.winningTeam);
-
-
+        assertThat(results.winningTeam, is(2));
+        assertThat(results.winningTeam, not(is(1)));
     }
 }

@@ -1,4 +1,4 @@
-package Robot.Builder;
+package com.robotgame.gameengine.Robot.Builder;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,7 +8,7 @@ package Robot.Builder;
  * To change this template use File | Settings | File Templates.
  */
 
-import Robot.Nodes.*;
+import com.robotgame.gameengine.Robot.Nodes.*;
 import java.util.*;
 
 public class RobotBlueprint

@@ -1,6 +1,7 @@
-package Match;
+package com.robotgame.gameengine.Match;
 
-import Robot.*;
+
+import com.robotgame.gameengine.Robot.Robot;
 
 /**
  * Created with IntelliJ IDEA.

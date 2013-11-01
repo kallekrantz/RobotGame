@@ -1,11 +1,8 @@
-package Robot.Nodes;
+package com.robotgame.gameengine.Robot.Nodes;
 
-import Robot.MatchContext;
-import Robot.Nodes.*;
+import com.robotgame.gameengine.Robot.MatchContext;
 
-import java.awt.*;
-import java.util.*;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Created with IntelliJ IDEA.

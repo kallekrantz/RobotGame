@@ -1,4 +1,4 @@
-package Util;
+package com.robotgame.gameengine.Util;
 
 /**
  * Created with IntelliJ IDEA.

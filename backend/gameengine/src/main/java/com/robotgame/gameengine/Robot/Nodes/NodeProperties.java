@@ -1,8 +1,7 @@
-package Robot.Nodes;
+package com.robotgame.gameengine.Robot.Nodes;
 
-import Robot.Nodes.NodeType;
-import Robot.Robot;
-import Util.*;
+
+import com.robotgame.gameengine.Util.Vector2;
 
 /**
  * Created with IntelliJ IDEA.

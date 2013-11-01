@@ -1,11 +1,11 @@
-package Robot.Nodes.ActionNodes;
+package com.robotgame.gameengine.Robot.Nodes.ActionNodes;
 
-import Robot.MatchContext;
-import Robot.Nodes.Actions.DebugAction;
-import Robot.Nodes.Node;
-import Robot.Nodes.NodeAction;
-import Robot.Nodes.NodeCategory;
-import Robot.Nodes.NodeType;
+import com.robotgame.gameengine.Robot.MatchContext;
+import com.robotgame.gameengine.Robot.Nodes.Actions.DebugAction;
+import com.robotgame.gameengine.Robot.Nodes.Node;
+import com.robotgame.gameengine.Robot.Nodes.NodeAction;
+import com.robotgame.gameengine.Robot.Nodes.NodeCategory;
+import com.robotgame.gameengine.Robot.Nodes.NodeType;
 
 import java.util.LinkedList;
 

@@ -1,9 +1,11 @@
-package Match;
+package com.robotgame.gameengine.Match;
 
-import Robot.Builder.RobotBlueprint;
-import Robot.Builder.RobotFactory;
-import Robot.*;
-import Robot.Nodes.NodeAction;
+import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
+import com.robotgame.gameengine.Robot.Builder.RobotFactory;
+import com.robotgame.gameengine.Robot.MatchContext;
+import com.robotgame.gameengine.Robot.Nodes.NodeAction;
+import com.robotgame.gameengine.Robot.Robot;
+
 
 import java.util.LinkedList;
 

@@ -1,4 +1,4 @@
-package Projectile;
+package com.robotgame.gameengine.Projectile;
 
 /**
  * Created with IntelliJ IDEA.

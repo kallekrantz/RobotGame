@@ -1,7 +1,10 @@
-package Robot;
+package com.robotgame.gameengine.Robot;
 
-import Robot.Nodes.*;
-import Util.Vector2;
+import com.robotgame.gameengine.Robot.Nodes.Node;
+import com.robotgame.gameengine.Robot.Nodes.NodeAction;
+import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
+import com.robotgame.gameengine.Robot.Nodes.NodeSystem;
+import com.robotgame.gameengine.Util.Vector2;
 
 import java.util.LinkedList;
 

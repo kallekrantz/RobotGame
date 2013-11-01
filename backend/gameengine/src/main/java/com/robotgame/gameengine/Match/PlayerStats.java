@@ -1,4 +1,4 @@
-package Match;
+package com.robotgame.gameengine.Match;
 
 /**
  * Created with IntelliJ IDEA.

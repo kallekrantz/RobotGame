@@ -1,6 +1,4 @@
-package Robot.Nodes;
-
-import Robot.Robot;
+package com.robotgame.gameengine.Robot.Nodes;
 
 /**
  * @(#)Robot.Nodes.NodeConnection.java

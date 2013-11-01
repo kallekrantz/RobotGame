@@ -1,7 +1,7 @@
-package Robot.Nodes.Actions;
+package com.robotgame.gameengine.Robot.Nodes.Actions;
 
-import Robot.Nodes.NodeAction;
-import Robot.Robot;
+import com.robotgame.gameengine.Robot.Nodes.NodeAction;
+import com.robotgame.gameengine.Robot.Robot;
 
 /**
  * Created with IntelliJ IDEA.

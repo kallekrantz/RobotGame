@@ -1,6 +1,7 @@
-package Robot;
+package com.robotgame.gameengine.Robot;
 
-import Util.*;
+
+import com.robotgame.gameengine.Util.Vector2;
 
 /**
  * Created with IntelliJ IDEA.

@@ -1,4 +1,4 @@
-package Robot;
+package com.robotgame.gameengine.Robot;
 
 /**
  * Created with IntelliJ IDEA.

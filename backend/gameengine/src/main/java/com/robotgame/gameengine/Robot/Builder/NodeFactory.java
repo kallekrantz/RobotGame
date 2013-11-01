@@ -1,10 +1,12 @@
-package Robot.Builder;
+package com.robotgame.gameengine.Robot.Builder;
 
-import Robot.Nodes.SensorNodes.DistanceSensor;
-import Robot.Nodes.*;
-import Robot.Nodes.ActionNodes.*;
-import Robot.Nodes.LogicNodes.*;
 //import Robot.Nodes.PassiveNodes.*;
+
+import com.robotgame.gameengine.Robot.Nodes.LogicNodes.*;
+import com.robotgame.gameengine.Robot.Nodes.ActionNodes.*;
+import com.robotgame.gameengine.Robot.Nodes.*;
+import com.robotgame.gameengine.Robot.Nodes.NodeProperties;
+import com.robotgame.gameengine.Robot.Nodes.SensorNodes.DistanceSensor;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +21,7 @@ import Robot.Nodes.LogicNodes.*;
 public class NodeFactory
 {
 
-    static Node Create(NodeProperties properties, int ownerIndex)
+    public static Node Create(NodeProperties properties, int ownerIndex)
     {
         switch (properties.get_type())
         {

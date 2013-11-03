@@ -1,4 +1,4 @@
-package com.robotgame.database;
+package com.robotgame.storage;
 
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
@@ -13,7 +13,7 @@ import java.net.URI;
  */
 public class Main {
     // Base URI the Grizzly HTTP server will listen on
-    public static final String BASE_URI = "http://localhost:8080/";
+    public static final String BASE_URI = "http://localhost:8080/root/";
 
     /**
      * Starts Grizzly HTTP server exposing JAX-RS resources defined in this application.
@@ -21,8 +21,8 @@ public class Main {
      */
     public static HttpServer startServer() {
         // create a resource config that scans for JAX-RS resources and providers
-        // in com.robotgame.database package
-        final ResourceConfig rc = new ResourceConfig().packages("com.robotgame.database");
+        // in com.robotgame.storage package
+        final ResourceConfig rc = new ResourceConfig().packages("com.robotgame.storage.restserver");
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

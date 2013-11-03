@@ -1,4 +1,4 @@
-package com.robotgame.database;
+package com.robotgame.storage;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;

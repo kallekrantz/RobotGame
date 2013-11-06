@@ -1,9 +1,12 @@
 package com.robotgame.storage.entities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.codehaus.jettison.json.JSONObject;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,56 +15,91 @@ import javax.persistence.Table;
  * Time: 4:54 PM
  * To change this template use File | Settings | File Templates.
  */
+
 @Entity
-@Table(name="User")
+@Table(name="Users")
+@XmlRootElement
 public class User{
-    String username, firstname, lastname;
-    int userId;
-    String pwdHash;
-    public User(String usrName, String frstName, String lstName, int id, String hash){
-        username = usrName;
-        firstname = frstName;
-        lastname = lstName;
-        userId = id;
-        pwdHash = hash;
+    private String _username, _firstname, _lastname;
+    private int _userId;
+    private String _pwdHash;
+
+    public User()
+    {
+        _username = "";
+        _firstname = "";
+        _lastname = "";
+        _userId = -1;
+        _pwdHash = "";
     }
-    public String getPwdHash() {
-        return pwdHash;
+    public User(String usrName, String frstName, String lstName, String hash)
+    {
+        _username = usrName;
+        _firstname = frstName;
+        _lastname = lstName;
+        _pwdHash = hash;
     }
 
-    public void setPwdHash(String pwdHash) {
-        this.pwdHash = pwdHash;
+    @XmlTransient
+    public String getPwdHash()
+    {
+        return _pwdHash;
     }
 
-    public String getUsername() {
-        return username;
+    public void setPwdHash(String pwdHash)
+    {
+        this._pwdHash = pwdHash;
+    }
+    @Column(unique = true)
+    public String getUsername()
+    {
+        return _username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUsername(String username)
+    {
+        this._username = username;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstname()
+    {
+        return _firstname;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstname(String firstname)
+    {
+        this._firstname = firstname;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastname()
+    {
+        return _lastname;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setlastname(String lastname)
+    {
+        this._lastname = lastname;
     }
+
     @Id
-    public int getUserId() {
-        return userId;
+    @GeneratedValue(generator="increment")
+    @GenericGenerator(name="increment", strategy = "increment")
+    public int getuserId()
+    {
+        return _userId;
+    }
+    public void setuserId(int userId){
+        this._userId = userId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    @Override
+    public String toString() {
+        return "User{" +
+                "_username='" + _username + '\'' +
+                ", _firstname='" + _firstname + '\'' +
+                ", _lastname='" + _lastname + '\'' +
+                ", _userId=" + _userId +
+                ", _pwdHash='" + _pwdHash + '\'' +
+                '}';
     }
 }

@@ -1,7 +1,7 @@
-package com.robotgame.gameengine.Robot.Nodes.LogicNodes;
-
+package com.robotgame.gameengine.Robot.Nodes.ActionNodes;
 
 import com.robotgame.gameengine.Robot.MatchContext;
+import com.robotgame.gameengine.Robot.Nodes.Actions.DebugAction;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeCategory;
@@ -18,7 +18,7 @@ import java.util.LinkedList;
  */
 
 //GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
-public class MajorityOf3Node extends Node
+public class MovementNode extends Node
 {
     /*
     protected boolean _isUpdated;
@@ -28,26 +28,26 @@ public class MajorityOf3Node extends Node
     protected int _numInput;
     protected NodeCategory _category;
     protected NodeType _type;
-    protected int _ownerIndex;
     */
 
-    public MajorityOf3Node(int ownerIndex)
+    public MovementNode(int ownerIndex)
     {
         _isUpdated = false;
-        _numInput = 2;
-        _numOutput = 1;
+        _numInput = 1;
+        _numOutput = 0;
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_MajorityOf3;
+        _type = NodeType.L_True;
         _ownerIndex = ownerIndex;
+
     }
 
-    @Override
+
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (input == null) _output[0] = false;
-        else _output[0] = (input[0] && input[1]) || (input[2] && input[1]) || (input[0] && input[2]);
+        String out = String.valueOf(input[0]);
+        actions.add(new DebugAction("Value of connection " + _connectionToInput[0] + ": " + out));
         _isUpdated = true;
     }
 }

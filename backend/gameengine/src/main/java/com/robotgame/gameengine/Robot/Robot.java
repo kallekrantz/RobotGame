@@ -47,7 +47,12 @@ public class Robot
 
     public int[] GetHotConnections()
     {
-        return _nodeSystem.GetHotConnections();
+        return _nodeSystem.GetHotConnections();  //Fungerar inte korrekt!!
+    }
+
+    public RobotState GetCurrentState()
+    {
+        return _currentState;
     }
 
 

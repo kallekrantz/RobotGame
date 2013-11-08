@@ -1,5 +1,7 @@
 package com.robotgame.gameengine.Match;
 
+import com.robotgame.gameengine.Network.MatchState;
+import com.robotgame.gameengine.Network.NetworkInterface;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.MatchContext;
@@ -27,15 +29,24 @@ public class Match implements Runnable
     private int _clock;
     private IMatchHandler _matchHandler;
     private MatchResult _matchResult;
+    private NetworkInterface _networkInterface;
+    private MatchState _matchState;
+    private int _matchId;
     //private ProjectileSystem _projectileSystem;
 
-    public Match(IMatchHandler matchHandler)
+
+
+    //Public methods
+
+
+    public Match(IMatchHandler matchHandler, NetworkInterface networkInterface, int matchId)
     {
+        _matchId = matchId;
         _clock = 0;
         _numRobots = 0;
         _running = false;
         _matchHandler = matchHandler;
-
+        _networkInterface = networkInterface;
     }
 
     public boolean BuildRobots(RobotBlueprint[] blueprints)
@@ -50,13 +61,44 @@ public class Match implements Runnable
         }
 
         _context = new MatchContext(_numRobots);
+        _matchState = new MatchState(_matchId, _numRobots);
         _matchResult = new MatchResult(_numRobots);
         return true;
     }
 
 
+    public void SetRunning(boolean v)
+    {
+        _running = v;
+    }
+
+    public void start()
+    {
+        _running = true;
+    }
+
+
+    public void run()
+    {
+        _running = true;
+        while(_running)
+        {
+            Update();
+
+            try { Thread.sleep(33); // Max 30 updates per sec
+            } catch(InterruptedException e) {};
+        }
+    }
+
+
+
+
+    //Private methods
+
     private void Update()
     {
+        CreateMatchContext();
+
         for (int n = 0; n < _numRobots; n++)
         {
             _robots[n].UpdateNodes(_context);
@@ -72,6 +114,8 @@ public class Match implements Runnable
             //System.out.println("Hot connections: " + _robots[n].GetHotConnections());
         }
 
+        _networkInterface.SendMatchState(_matchState);
+
         if (_clock > 120)
         {
             _matchResult.winningTeam = 2;
@@ -80,26 +124,27 @@ public class Match implements Runnable
         }
         _clock++;
 
-
     }
 
-    public void SetRunning(boolean v)
+    //Creates en MatchContext with all the info for the sensor nodes.
+    private void CreateMatchContext()
     {
-        _running = v;
-    }
-
-    public void run()
-    {
-        while(_running)
+        for (int n = 0; n < _numRobots; n++)
         {
-            Update();
-
-
-
-            try { Thread.sleep(33); // Max 30 updates per sec
-            } catch(InterruptedException e) {};
+            _context.robotStates[n] = _robots[n].GetCurrentState();
+            _context.A[n] = _networkInterface.GetInputA(n);
+            _context.B[n] = _networkInterface.GetInputB(n);
         }
+
+
+        //ToDo: Lägga till lista över projektiler?
     }
 
+    //Creates a MatchState object that contains the information that is to be sent to the players
+    private void CreateMatchState()
+    {
+        for (int n = 0; n < _numRobots; n++)
+            _matchState.robotStates[n] = _robots[n].GetCurrentState();
+    }
 
 }

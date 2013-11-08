@@ -3,6 +3,7 @@ package com.robotgame.gameengine.tests.RobotTests;
 import com.robotgame.gameengine.Match.IMatchHandler;
 import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Match.MatchResult;
+import com.robotgame.gameengine.Network.NetworkMockup;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class CompleteRobotTest implements IMatchHandler
 
     public CompleteRobotTest()
     {
-        match = new Match(this);
+        match = new Match(this, new NetworkMockup(), 0);
     }
 
     @Test
@@ -52,10 +53,10 @@ public class CompleteRobotTest implements IMatchHandler
 //                            |                                /
         blueprint.AddNode("L_Delay", 30, 0, 2);//             /
 //                            |                              /
-        blueprint.AddNode("L_Or", 0, 0, 3);
-//                                             |
-        blueprint.AddNode("A_Debug", 0, 0, 4);
-
+                            blueprint.AddNode("L_Or", 0, 0, 3);
+//                            |
+                            blueprint.AddNode("A_Debug", 0, 0, 4);
+                                             //From node, From channel
         blueprint.AddConnection(new NodeConnection(0, 0, 2, 0));
         blueprint.AddConnection(new NodeConnection(2, 0, 3, 0));
         blueprint.AddConnection(new NodeConnection(1, 0, 3, 1));

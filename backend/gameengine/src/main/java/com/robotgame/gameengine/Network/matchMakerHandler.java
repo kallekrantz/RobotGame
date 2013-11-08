@@ -2,7 +2,9 @@ package com.robotgame.gameengine.Network;
 
 import java.io.IOException;
 
+import com.robotgame.gameengine.Robot.testRobot;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
+
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
@@ -48,7 +50,11 @@ public class matchMakerHandler {
     
     private RobotBlueprint constructRobot(int robotId) {
 		// koppla till databas och tolka dess JSON
-		return new RobotBlueprint();
+    	testRobot test= new testRobot();
+    	Gson g=new Gson();
+    	
+    	RobotBlueprint robot = g.fromJson(test.json, RobotBlueprint.class);
+		return robot;
 	}
 
 	private class joinRequest{

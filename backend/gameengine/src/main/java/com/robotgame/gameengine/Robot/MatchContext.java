@@ -12,6 +12,8 @@ package com.robotgame.gameengine.Robot;
 public class MatchContext
 {
     public RobotState[] robotStates;
+    public boolean[] A;
+    public boolean[] B;
     private int numRobots;
     public float eastArenaBoundary, westArenaBoundary, northArenaBoundary, southArenaBoundary;
 
@@ -19,6 +21,8 @@ public class MatchContext
     {
         this.numRobots = numRobots;
         robotStates = new RobotState[numRobots];
+        A = new boolean[numRobots];
+        B = new boolean[numRobots];
     }
 
 

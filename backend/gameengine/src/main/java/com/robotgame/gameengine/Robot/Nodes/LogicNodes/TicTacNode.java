@@ -16,7 +16,7 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//A default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
 public class TicTacNode extends Node
 {
     /*
@@ -37,7 +37,7 @@ public class TicTacNode extends Node
         _numInput = 0;
         _numOutput = 1;
         _output = new boolean[_numOutput];
-        // _connectionToInput =    //N/A because of 0 inputs
+        // _connectionToInput =    //N/GetInputA because of 0 inputs
         _category = NodeCategory.Logic;
         _type = NodeType.L_TicTac;
         _ownerIndex = ownerIndex;

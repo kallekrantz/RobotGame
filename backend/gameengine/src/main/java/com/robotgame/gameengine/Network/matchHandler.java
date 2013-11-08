@@ -1,10 +1,13 @@
 package com.robotgame.gameengine.Network;
 
 import java.util.Vector;
+
+import com.robotgame.gameengine.Match.IMatchHandler;
+import com.robotgame.gameengine.Match.MatchResult;
 import com.robotgame.gameengine.Robot.Builder.*;
 
 
-public class matchHandler {
+public class matchHandler implements IMatchHandler {
 	private static final int STANDBY = 0;
 	private static final int RUNNING = 1;
 	private int _matchState = STANDBY;
@@ -64,4 +67,9 @@ public class matchHandler {
 		
 	}
 
+    public void SendMatchState(MatchState matchState) {
+    }
+
+    public void MatchEnded(MatchResult matchResult) {
+    }
 }

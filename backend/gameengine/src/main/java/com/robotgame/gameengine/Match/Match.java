@@ -2,6 +2,7 @@ package com.robotgame.gameengine.Match;
 
 import com.robotgame.gameengine.Network.MatchState;
 import com.robotgame.gameengine.Network.NetworkInterface;
+import com.robotgame.gameengine.Network.matchHandler;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.MatchContext;
@@ -10,6 +11,7 @@ import com.robotgame.gameengine.Robot.Robot;
 
 
 import java.util.LinkedList;
+import java.util.Vector;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,7 +31,6 @@ public class Match implements Runnable
     private int _clock;
     private IMatchHandler _matchHandler;
     private MatchResult _matchResult;
-    private NetworkInterface _networkInterface;
     private MatchState _matchState;
     private int _matchId;
     //private ProjectileSystem _projectileSystem;
@@ -39,24 +40,23 @@ public class Match implements Runnable
     //Public methods
 
 
-    public Match(IMatchHandler matchHandler, NetworkInterface networkInterface, int matchId)
+    public Match(IMatchHandler matchHandler, int matchId)
     {
         _matchId = matchId;
         _clock = 0;
         _numRobots = 0;
         _running = false;
         _matchHandler = matchHandler;
-        _networkInterface = networkInterface;
     }
 
-    public boolean BuildRobots(RobotBlueprint[] blueprints)
+    public boolean BuildRobots(Vector<RobotBlueprint> blueprints)
     {
-        _numRobots = blueprints.length;
+        _numRobots = blueprints.size();
         _robots = new Robot[_numRobots];
 
         for (int n = 0; n < _numRobots; n++)
         {
-            _robots[n] = RobotFactory.CreateRobot(blueprints[n], n);
+            _robots[n] = RobotFactory.CreateRobot(blueprints.get(n), n);
             if (_robots[n] == null) return false;
         }
 
@@ -72,10 +72,13 @@ public class Match implements Runnable
         _running = v;
     }
 
+
     public void start()
     {
         _running = true;
     }
+
+
 
 
     public void run()
@@ -99,6 +102,7 @@ public class Match implements Runnable
     {
         CreateMatchContext();
 
+        //Uppdatera noder utifrån nuvarande context
         for (int n = 0; n < _numRobots; n++)
         {
             _robots[n].UpdateNodes(_context);
@@ -114,7 +118,14 @@ public class Match implements Runnable
             //System.out.println("Hot connections: " + _robots[n].GetHotConnections());
         }
 
-        _networkInterface.SendMatchState(_matchState);
+        for (int n = 0; n < _numRobots; n++)
+        {
+            _robots[n].UpdateState();
+        }
+
+        CreateMatchState();
+
+        _matchHandler.SendMatchState(_matchState);
 
         if (_clock > 120)
         {
@@ -132,8 +143,8 @@ public class Match implements Runnable
         for (int n = 0; n < _numRobots; n++)
         {
             _context.robotStates[n] = _robots[n].GetCurrentState();
-            _context.A[n] = _networkInterface.GetInputA(n);
-            _context.B[n] = _networkInterface.GetInputB(n);
+            //_context.A[n] = _networkInterface.GetInputA(n);
+            //_context.B[n] = _networkInterface.GetInputB(n);
         }
 
 

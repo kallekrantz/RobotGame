@@ -51,4 +51,9 @@ public class Vector2
         return c;
     }
 
+    public void Add(Vector2 a)
+    {
+        x += a.x;
+        y += a.y;
+    }
 }

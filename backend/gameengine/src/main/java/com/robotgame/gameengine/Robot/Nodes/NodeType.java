@@ -19,7 +19,7 @@ public enum NodeType
     L_And, L_Or, L_Not, L_And3, L_Or3, L_Delay, L_True, L_False, L_Default, L_TicTac, L_Clock, L_MajorityOf3,
 
     //Action nodes
-    A_Debug,
+    A_Debug, A_Movement, // A_Melee, A_Cannon,
     //Default node
     Default
 }

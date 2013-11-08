@@ -73,6 +73,9 @@ public class NodeFactory
             case A_Debug:
                 return new DebugNode(ownerIndex);
 
+            case A_Movement:
+                return new MovementNode(ownerIndex);
+
 
 
             //Passive nodes

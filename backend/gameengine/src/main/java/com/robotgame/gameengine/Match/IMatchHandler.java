@@ -1,5 +1,7 @@
 package com.robotgame.gameengine.Match;
 
+import com.robotgame.gameengine.Network.MatchState;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Oskar
@@ -10,4 +12,6 @@ package com.robotgame.gameengine.Match;
 public interface IMatchHandler
 {
     public void MatchEnded(MatchResult results);
+    public void SendMatchState(MatchState matchState);
+
 }

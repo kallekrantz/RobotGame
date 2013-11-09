@@ -1,4 +1,4 @@
-package com.robotgame.storage.restserver;
+package com.robotgame.storage.restserver.User;
 
 import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.database.SessionCreator;
@@ -51,18 +51,17 @@ public class UserResource {
             session.save(u);
             session.flush();
             tx.commit();
-            return Response.ok(u).build();
         }
         catch(Exception ex){
             ex.printStackTrace();
             tx.rollback();
-            throw ex;
         }
         finally{
             if(session != null && session.isOpen()){
                 session.close();
             }
         }
+        return Response.ok(u).build();
     }
 
     @GET
@@ -79,6 +78,8 @@ public class UserResource {
             tx = session.beginTransaction();
 
             userList = session.createQuery("from User").list();
+            session.flush();
+            tx.commit();
         }
         catch(Exception ex){
             ex.printStackTrace();
@@ -87,9 +88,6 @@ public class UserResource {
         finally{
             if(session != null){
                 session.close();
-            }
-            if(sessionFactory != null){
-                sessionFactory.close();
             }
         }
 

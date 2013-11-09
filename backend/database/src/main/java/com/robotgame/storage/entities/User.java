@@ -76,7 +76,7 @@ public class User{
         return _lastname;
     }
 
-    public void setlastname(String lastname)
+    public void setLastname(String lastname)
     {
         this._lastname = lastname;
     }

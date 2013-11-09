@@ -1,4 +1,4 @@
-package com.robotgame.storage.restserver;
+package com.robotgame.storage.restserver.User.Auth;
 
 import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.database.SessionCreator;

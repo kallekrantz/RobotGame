@@ -92,7 +92,8 @@ public class UserResource {
                 sessionFactory.close();
             }
         }
-        return Response.ok(userList).build();
+
+        return Response.ok(userList.toArray(new User[userList.size()])).build();
 
     }
 }

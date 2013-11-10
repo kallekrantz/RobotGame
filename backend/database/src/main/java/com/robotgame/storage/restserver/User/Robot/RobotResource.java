@@ -1,8 +1,6 @@
 package com.robotgame.storage.restserver.User.Robot;
 
-import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.database.SessionCreator;
-import com.robotgame.storage.entities.AuthToken;
 import com.robotgame.storage.entities.Robot;
 import com.robotgame.storage.entities.User;
 import org.codehaus.jettison.json.JSONException;
@@ -10,7 +8,6 @@ import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -30,7 +27,7 @@ public class RobotResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("userid") int userid){
+    public Response getList(@PathParam("userid") int userid){
         Session session = null;
         Transaction tx = null;
         SessionFactory sessionFactory = null;
@@ -39,7 +36,7 @@ public class RobotResource {
             sessionFactory = SessionCreator.getSessionFactory();
             session = sessionFactory.openSession();
             tx = session.beginTransaction();
-            robotList = session.createQuery("from Robot r where r.user.userId = :userid").setInteger("userid", userid).list();
+            robotList = session.createQuery("from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
             session.flush();
             tx.commit();
         }catch(Exception e){
@@ -52,6 +49,7 @@ public class RobotResource {
         }
         return Response.ok(robotList.toArray(new Robot[robotList.size()])).build();
     }
+
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
@@ -83,4 +81,5 @@ public class RobotResource {
         }
         return Response.ok(r).build();
     }
+
 }

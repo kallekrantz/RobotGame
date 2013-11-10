@@ -1,7 +1,6 @@
 package com.robotgame.storage.entities;
 
 
-import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -21,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Robot{
     private String robotName;
     private User user;
-    private int robotId;
+    private int id;
     private String robotDesign;
     public Robot(String robotName, User user, String robotDesign){
         this.robotName = robotName;
@@ -52,12 +51,12 @@ public class Robot{
     @Id
     @GeneratedValue(generator="increment")
     @GenericGenerator(name="increment", strategy = "increment")
-    public int getRobotId() {
-        return robotId;
+    public int getId() {
+        return id;
     }
 
-    public void setRobotId(int robotId) {
-        this.robotId = robotId;
+    public void setId(int robotId) {
+        this.id = robotId;
     }
 
     public String getRobotDesign() {
@@ -73,7 +72,7 @@ public class Robot{
         return "Robot{" +
                 "robotName='" + robotName + '\'' +
                 ", user=" + user +
-                ", robotId=" + robotId +
+                ", robotId=" + id +
                 ", robotDesign=" + robotDesign +
                 '}';
     }

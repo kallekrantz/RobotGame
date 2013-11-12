@@ -57,3 +57,6 @@ function ready(){
 function sendKey(key){
 	match.send("2"+key);
 }
+function setReady(){
+	match.send("1");
+}

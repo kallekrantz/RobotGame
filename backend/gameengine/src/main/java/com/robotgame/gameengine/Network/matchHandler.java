@@ -1,6 +1,10 @@
 package com.robotgame.gameengine.Network;
 
 import java.util.Vector;
+
+import com.google.gson.Gson;
+import com.robotgame.gameengine.Match.Match;
+import com.robotgame.gameengine.Match.MatchResult;
 import com.robotgame.gameengine.Robot.Builder.*;
 
 
@@ -37,6 +41,9 @@ public class matchHandler {
 	}
 	public void startMatch(){
 		sendToAll("Game on!");
+		Match match = new Match(this,1);
+		match.BuildRobots(_robots);
+		match.run();
 	}
 	public void sendToAll(String message){
 		for(matchSocket s:_connectedClients){
@@ -63,5 +70,15 @@ public class matchHandler {
 		}
 		
 	}
+	public void SendMatchState(MatchState _matchState2) {
+		Gson gson= new Gson();
+		sendToAll(gson.toJson(_matchState2));
+		
+	}
+	public void MatchEnded(MatchResult _matchResult) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
 }

@@ -3,7 +3,7 @@ package com.robotgame.gameengine.tests.RobotTests;
 import com.robotgame.gameengine.Match.IMatchHandler;
 import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Match.MatchResult;
-import com.robotgame.gameengine.Network.NetworkMockup;
+//import com.robotgame.gameengine.Network.NetworkMockup;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class CompleteRobotTest implements IMatchHandler
 
     public CompleteRobotTest()
     {
-        match = new Match(this, new NetworkMockup(), 0);
+       // match = new Match(this, new NetworkMockup(), 0);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CompleteRobotTest implements IMatchHandler
         blueprints[1] = blueprint2;
 
 
-        rt.match.BuildRobots(blueprints);
+      //  rt.match.BuildRobots(blueprints);
 
 
 
@@ -81,7 +81,6 @@ public class CompleteRobotTest implements IMatchHandler
     }
 
 
-    @Override
     public void MatchEnded(MatchResult results)
     {
         assertThat(results.winningTeam, is(2));

@@ -83,6 +83,7 @@ public class User{
 
     @Id
     @GeneratedValue(generator="increment")
+    @Column(unique = true)
     @GenericGenerator(name="increment", strategy = "increment")
     public int getuserId()
     {

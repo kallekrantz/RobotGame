@@ -50,6 +50,7 @@ public class Robot{
 
     @Id
     @GeneratedValue(generator="increment")
+    @Column(unique = true)
     @GenericGenerator(name="increment", strategy = "increment")
     public int getId() {
         return id;

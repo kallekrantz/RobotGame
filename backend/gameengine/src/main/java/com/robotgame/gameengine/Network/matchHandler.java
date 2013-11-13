@@ -4,11 +4,14 @@ import java.util.Vector;
 
 import com.google.gson.Gson;
 import com.robotgame.gameengine.Match.Match;
+import com.google.gson.Gson;
+import com.robotgame.gameengine.Match.Match;
+import com.robotgame.gameengine.Match.IMatchHandler;
 import com.robotgame.gameengine.Match.MatchResult;
 import com.robotgame.gameengine.Robot.Builder.*;
 
 
-public class matchHandler {
+public class matchHandler implements IMatchHandler {
 	private static final int STANDBY = 0;
 	private static final int RUNNING = 1;
 	private int _matchState = STANDBY;
@@ -80,5 +83,4 @@ public class matchHandler {
 		
 	}
 	
-
 }

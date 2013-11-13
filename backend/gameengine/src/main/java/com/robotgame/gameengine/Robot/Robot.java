@@ -40,6 +40,15 @@ public class Robot
         _actions = _nodeSystem.Update(context);
     }
 
+    public void UpdateState()
+    {
+        _currentState.w *= 0.9;
+        _currentState.vel.x *= 0.9;
+        _currentState.vel.y *= 0.9;
+        _currentState.rot += _currentState.w;
+        _currentState.pos.Add(_currentState.vel);
+    }
+
     public LinkedList<NodeAction> GetActions()
     {
         return _actions;

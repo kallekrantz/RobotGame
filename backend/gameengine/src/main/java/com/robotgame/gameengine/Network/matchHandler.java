@@ -2,7 +2,12 @@ package com.robotgame.gameengine.Network;
 
 import java.util.Vector;
 
+<<<<<<< HEAD
+import com.google.gson.Gson;
+import com.robotgame.gameengine.Match.Match;
+=======
 import com.robotgame.gameengine.Match.IMatchHandler;
+>>>>>>> Fixat för att fungera ihop med network
 import com.robotgame.gameengine.Match.MatchResult;
 import com.robotgame.gameengine.Robot.Builder.*;
 
@@ -40,6 +45,9 @@ public class matchHandler implements IMatchHandler {
 	}
 	public void startMatch(){
 		sendToAll("Game on!");
+		Match match = new Match(this,1);
+		match.BuildRobots(_robots);
+		match.run();
 	}
 	public void sendToAll(String message){
 		for(matchSocket s:_connectedClients){
@@ -66,6 +74,16 @@ public class matchHandler implements IMatchHandler {
 		}
 		
 	}
+	public void SendMatchState(MatchState _matchState2) {
+		Gson gson= new Gson();
+		sendToAll(gson.toJson(_matchState2));
+		
+	}
+	public void MatchEnded(MatchResult _matchResult) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 
     public void SendMatchState(MatchState matchState) {
     }

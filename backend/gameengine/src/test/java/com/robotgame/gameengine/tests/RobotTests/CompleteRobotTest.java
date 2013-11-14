@@ -52,22 +52,22 @@ public class CompleteRobotTest implements IMatchHandler
 
         /***** Implemented Nodes ********
          //Sensor nodes
-         S_DistanceSensor,
+         DistanceSensor,
          //Logic nodes
-         L_And, L_Or, L_Not, L_And3, L_Or3, L_Delay, L_True, L_False, L_Default, L_TicTac, L_Clock, L_MajorityOf3,
+         And, Or, Not, And3, Or3, Delay, True, False, Default, TicTac, Clock, Majority,
          //Action nodes
-         A_Debug, A_Movement
+         Debug, MoveForward
          //Default node
          Default
          */
 
-        blueprint.AddNode("L_Clock", 2, 0, 0);                 blueprint.AddNode("L_TicTac", 7, 0, 1);
+        blueprint.AddNode("Clock", 2, 0, 0);                 blueprint.AddNode("TicTac", 7, 0, 1);
 //                            |                                /
-        blueprint.AddNode("L_Delay", 30, 0, 2);//             /
+        blueprint.AddNode("Delay", 30, 0, 2);//             /
 //                            |                              /
-                            blueprint.AddNode("L_Or", 0, 0, 3);
+                            blueprint.AddNode("Or", 0, 0, 3);
 //                            |
-                            blueprint.AddNode("A_Debug", 0, 0, 4);
+                            blueprint.AddNode("Debug", 0, 0, 4);
                                              //From node, From channel
         blueprint.AddConnection(new NodeConnection(0, 0, 2, 0));
         blueprint.AddConnection(new NodeConnection(2, 0, 3, 0));

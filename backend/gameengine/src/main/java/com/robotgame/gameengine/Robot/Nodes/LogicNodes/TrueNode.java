@@ -37,7 +37,7 @@ public class TrueNode extends Node
         _numOutput = 1;
         _output = new boolean[_numOutput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_True;
+        _type = NodeType.True;
         _output[0] = true;
         _ownerIndex = ownerIndex;
     }

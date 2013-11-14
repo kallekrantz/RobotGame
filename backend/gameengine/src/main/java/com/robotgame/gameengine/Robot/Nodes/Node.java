@@ -20,6 +20,7 @@ public abstract class Node
     protected int _numOutput;
     protected int[] _connectionToInput;
     protected int _numInput;
+    protected int _maxInputs;
     protected NodeCategory _category;
     protected NodeType _type;
     protected int _ownerIndex;
@@ -49,6 +50,12 @@ public abstract class Node
     {
         if (channel >= 0 && channel < _numInput)
             _connectionToInput[channel] = connection;
+    }
+
+    public void AddInput(int connection)
+    {
+        if (_numInput < _maxInputs)
+            _connectionToInput[++_numInput] = connection;
     }
 
     public int GetInputConnection(int channel)

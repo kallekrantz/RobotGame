@@ -38,7 +38,7 @@ public class DebugNode extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_True;
+        _type = NodeType.True;
         _ownerIndex = ownerIndex;
 
     }

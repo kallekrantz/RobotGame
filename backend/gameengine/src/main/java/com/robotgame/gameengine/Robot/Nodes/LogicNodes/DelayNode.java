@@ -45,7 +45,7 @@ public class DelayNode extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Delay;
+        _type = NodeType.Delay;
         _ownerIndex = ownerIndex;
     }
 

@@ -37,7 +37,7 @@ public class Or3Node extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Or3;
+        _type = NodeType.Or3;
         _ownerIndex = ownerIndex;
     }
 

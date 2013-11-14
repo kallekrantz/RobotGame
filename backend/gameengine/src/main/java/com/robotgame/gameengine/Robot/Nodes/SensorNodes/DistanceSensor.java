@@ -42,7 +42,7 @@ public class DistanceSensor extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Sensor;
-        _type = NodeType.S_DistanceSensor;
+        _type = NodeType.DistanceSensor;
 
         _ownerIndex = ownerIndex;
         _minDist = minDist;

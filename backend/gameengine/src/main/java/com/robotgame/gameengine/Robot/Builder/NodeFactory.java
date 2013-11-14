@@ -27,53 +27,53 @@ public class NodeFactory
         {
 
             //Sensor nodes
-            case S_DistanceSensor:
+            case DistanceSensor:
                 return new DistanceSensor(properties.get_propertyValue1(), properties.get_propertyValue2(), ownerIndex);
 
 
             //Logic Nodes
-            case L_And:
+            case And:
                 return new AndNode(ownerIndex);
 
-            case L_And3:
+            case And3:
                 return new And3Node(ownerIndex);
 
-            case L_Or:
+            case Or:
                 return new OrNode(ownerIndex);
 
-            case L_Or3:
+            case Or3:
                 return new Or3Node(ownerIndex);
 
-            case L_True:
+            case True:
                 return new TrueNode(ownerIndex);
 
-            case L_False:
+            case False:
                 return new FalseNode(ownerIndex);
 
-            case L_Not:
+            case Not:
                 return new NotNode(ownerIndex);
 
-            case L_Delay:
+            case Delay:
                 return new DelayNode(ownerIndex, properties.get_propertyValue1());
 
-            case L_Default:
+            case Default:
                 return new DefaultNode(ownerIndex);
 
-            case L_Clock:
+            case Clock:
                 return new ClockNode(ownerIndex, properties.get_propertyValue1());
 
-            case L_TicTac:
+            case TicTac:
                 return new TicTacNode(ownerIndex, properties.get_propertyValue1());
 
-            case L_MajorityOf3:
+            case Majority:
                 return new MajorityOf3Node(ownerIndex);
 
 
             //Action nodes
-            case A_Debug:
+            case Debug:
                 return new DebugNode(ownerIndex);
 
-            case A_Movement:
+            case MoveForward:
                 return new MovementNode(ownerIndex);
 
 

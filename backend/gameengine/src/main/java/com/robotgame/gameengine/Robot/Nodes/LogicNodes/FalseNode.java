@@ -36,7 +36,7 @@ public class FalseNode extends Node
         _numOutput = 1;
         _output = new boolean[_numOutput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_False;
+        _type = NodeType.False;
         _output[0] = false;
         _ownerIndex = ownerIndex;
     }

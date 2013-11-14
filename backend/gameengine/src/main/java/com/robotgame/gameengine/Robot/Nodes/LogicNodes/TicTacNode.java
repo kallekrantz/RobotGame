@@ -39,7 +39,7 @@ public class TicTacNode extends Node
         _output = new boolean[_numOutput];
         // _connectionToInput =    //N/GetInputA because of 0 inputs
         _category = NodeCategory.Logic;
-        _type = NodeType.L_TicTac;
+        _type = NodeType.TicTac;
         _ownerIndex = ownerIndex;
 
         _output[0] = true;

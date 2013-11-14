@@ -25,7 +25,7 @@ public class DefaultNode extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Default;
+        _type = NodeType.Default;
         _ownerIndex = ownerIndex;
     }
 

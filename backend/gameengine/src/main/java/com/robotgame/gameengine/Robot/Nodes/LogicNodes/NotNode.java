@@ -39,7 +39,7 @@ public class NotNode extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Not;
+        _type = NodeType.Not;
         _ownerIndex = ownerIndex;
     }
 

@@ -38,7 +38,7 @@ public class AndNode extends Node
         _output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_And;
+        _type = NodeType.And;
         _ownerIndex = ownerIndex;
     }
 

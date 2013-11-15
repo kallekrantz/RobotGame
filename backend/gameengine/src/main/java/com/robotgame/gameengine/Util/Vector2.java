@@ -56,4 +56,12 @@ public class Vector2
         x += a.x;
         y += a.y;
     }
+
+
+
+    public void Multiply(float a)
+    {
+        x *= a;
+        y *= a;
+    }
 }

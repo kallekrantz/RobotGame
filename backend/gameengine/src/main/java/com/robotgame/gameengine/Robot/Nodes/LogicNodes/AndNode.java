@@ -20,23 +20,18 @@ import java.util.LinkedList;
 public class AndNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
-    protected int _ownerIndex;
+    To be defined in constructor:
+    _maxInputs = 0;
+    _connectionToInput = new int[_maxInputs];
+    _category = NodeCategory.Logic;
+    _type = NodeType.And;
+     _ownerIndex = ownerIndex;
     */
 
     public AndNode(int ownerIndex)
     {
-        _isUpdated = false;
-        _numInput = 2;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
+        _maxInputs = 5;
+        _connectionToInput = new int[_maxInputs];
         _category = NodeCategory.Logic;
         _type = NodeType.And;
         _ownerIndex = ownerIndex;
@@ -45,8 +40,13 @@ public class AndNode extends Node
     @Override
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (input == null) _output[0] = false;
-        else _output[0] = input[0] && input[1];
+        if (input == null || _numInput == 0) _output = false;
+        else
+        {
+            _output = true;
+            for (int n = 0; n < _numInput; n++)
+                _output = input[n] && _output;
+        }
         _isUpdated = true;
     }
 }

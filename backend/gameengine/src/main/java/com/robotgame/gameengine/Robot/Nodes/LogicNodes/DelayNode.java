@@ -21,32 +21,30 @@ import java.util.LinkedList;
 public class DelayNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
-    protected int _ownerIndex;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
+
     private int _timer;
     private boolean[] _delayBank;
     private int _delay;
 
     public DelayNode(int ownerIndex, int delay)
     {
-        _timer = 0;
-        _delay = delay;
-        _delayBank = new boolean[delay + 1];
-        _isUpdated = false;
-        _numInput = 1;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
+        _maxInputs = 1;
+        _connectionToInput = new int[_maxInputs];
         _category = NodeCategory.Logic;
         _type = NodeType.Delay;
         _ownerIndex = ownerIndex;
+
+        _timer = 0;
+        _delay = delay;
+        _delayBank = new boolean[delay + 1];
+
     }
 
     @Override
@@ -54,11 +52,11 @@ public class DelayNode extends Node
     {
         if (_isUpdated) return;
 
-        if (input == null) _output[0] = false;
+        if (input == null) _output = false;
         else
         {
             _delayBank[(_timer + _delay) % (_delay +1)] = input[0];
-            _output[0] = _delayBank[_timer];
+            _output = _delayBank[_timer];
             _timer++;
             _timer %= _delay + 1;
         }

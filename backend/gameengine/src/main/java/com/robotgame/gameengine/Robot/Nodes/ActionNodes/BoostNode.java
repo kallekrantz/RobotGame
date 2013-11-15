@@ -1,7 +1,7 @@
-package com.robotgame.gameengine.Robot.Nodes.LogicNodes;
-
+package com.robotgame.gameengine.Robot.Nodes.ActionNodes;
 
 import com.robotgame.gameengine.Robot.MatchContext;
+import com.robotgame.gameengine.Robot.Nodes.Actions.DebugAction;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeCategory;
@@ -17,40 +17,33 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-
-public class ClockNode extends Node
+//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+public class BoostNode extends Node
 {
     /*
     Members of parent class Node to be defined in constructor:
     _maxInputs = ?;
-    _connectionToInput = new int[_maxInputs];
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
     _category = NodeCategory.?;
     _type = NodeType.?;
     _ownerIndex = ownerIndex;
     */
-    private int _time;
-    private int _period;
 
-    public ClockNode(int ownerIndex, int period)
+    public BoostNode(int ownerIndex)
     {
-        _maxInputs = 0;
-        _category = NodeCategory.Logic;
-        _type = NodeType.Clock;
+        _maxInputs = 1;
+        _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+        _category = NodeCategory.Action;
+        _type = NodeType.Boost;
         _ownerIndex = ownerIndex;
 
-        _time = 0;
-        _period = period/33;
-        if (_period == 0) _period = 1;
     }
 
-    @Override
+
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        _time++;
-        _time %= _period;
-        if (_time == 0) _output = true;
-        else _output = false;
-
+        //String out = String.valueOf(input[0]);
+        //actions.add(new DebugAction("Value of connection " + _connectionToInput[0] + ": " + out));
         _isUpdated = true;
     }
 }

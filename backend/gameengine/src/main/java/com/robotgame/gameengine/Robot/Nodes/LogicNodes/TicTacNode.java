@@ -20,31 +20,28 @@ import java.util.LinkedList;
 public class TicTacNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
     private int _time;
     private int _period;
 
     public TicTacNode(int ownerIndex, int period)
     {
-        _isUpdated = false;
-        _numInput = 0;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        // _connectionToInput =    //N/GetInputA because of 0 inputs
+        _maxInputs = 0;
         _category = NodeCategory.Logic;
         _type = NodeType.TicTac;
         _ownerIndex = ownerIndex;
 
-        _output[0] = true;
+        _output = true;
         _time = 0;
-        _period = period;
+        _period = period / 33;
+
+        if (_period < 0) _period = 1;
     }
 
     @Override
@@ -53,7 +50,7 @@ public class TicTacNode extends Node
         _time++;
         if (_time >= _period)
         {
-            _output[0] = !_output[0];
+            _output = !_output;
             _time = 0;
         }
         _isUpdated = true;

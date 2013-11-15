@@ -19,6 +19,6 @@ public enum NodeType
     And, Or, Not, Delay, True, False, Default, TicTac, Clock, Majority, //ProlongTrue, ProlongFalse
 
     //Action nodes
-    Debug, MoveForward, // MoveBackwards, TurnLeft, TurnRight, FireWeapon1, FireWeapon2, FireWeapon3, TurnTurretLeft, TurnTurretRight
+    Debug, MoveForward, MoveBackwards, TurnLeft, TurnRight, Boost  //, FireWeapon1, FireWeapon2, FireWeapon3, TurnTurretLeft, TurnTurretRight
 
 }

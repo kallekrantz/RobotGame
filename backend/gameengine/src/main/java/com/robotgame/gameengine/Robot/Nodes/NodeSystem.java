@@ -18,7 +18,7 @@ public class NodeSystem
 {
     private Node[] _nodes;
     private NodeConnection[] _connections;
-    private int _numNodes;
+    private int _numNodes, _numConnections;
     private MatchContext _currentMatchContext;
     private LinkedList<NodeAction> _actions;
 
@@ -27,6 +27,7 @@ public class NodeSystem
         _nodes = nodes;
         _connections = connections;
         _numNodes = _nodes.length;
+        _numConnections = _connections.length;
         _actions = new LinkedList<NodeAction>();
     }
 
@@ -45,7 +46,7 @@ public class NodeSystem
 
         for (n = 0; n < _numNodes; n++)
         {
-            if (!_nodes[n].IsUpdated()) GetOutputOfNode(n, 0);
+            if (!_nodes[n].IsUpdated()) GetOutputOfNode(n);
         }
 
         return _actions;
@@ -55,14 +56,13 @@ public class NodeSystem
      * Recursive function to update and evaluate nodes.
      *
      * @param  nodeIndex  the index of the node
-     * @param  channel which channel on the node to query
      * @return      the output of the specified node
      */
-    private boolean GetOutputOfNode(int nodeIndex, int channel)
+    private boolean GetOutputOfNode(int nodeIndex)
     {
         if (_nodes[nodeIndex].IsUpdated())
         {
-            return _nodes[nodeIndex].GetOutput(channel);
+            return _nodes[nodeIndex].GetOutput();
         }
         else
         {
@@ -70,7 +70,7 @@ public class NodeSystem
             {
                 boolean[] temp = { false };
                 _nodes[nodeIndex].Update(_currentMatchContext, _actions, temp);
-                return _nodes[nodeIndex].GetOutput(channel);
+                return _nodes[nodeIndex].GetOutput();
             }
             else
             {
@@ -81,11 +81,11 @@ public class NodeSystem
                 for (int n = 0; n < numInputs; n++)
                 {
                     inputConnection = _nodes[nodeIndex].GetInputConnection(n);
-                    temp[n] = GetOutputOfNode(_connections[inputConnection].FromNode(), _connections[inputConnection].FromNodeChannel());
+                    temp[n] = GetOutputOfNode(_connections[inputConnection].FromNode());
 
                 }
                 _nodes[nodeIndex].Update(_currentMatchContext, _actions, temp);
-                return _nodes[nodeIndex].GetOutput(channel);
+                return _nodes[nodeIndex].GetOutput();
             }
 
 
@@ -95,21 +95,15 @@ public class NodeSystem
 
 
     //Returns an array of the indexes of the currently hot connections
-    public int[] GetHotConnections()
+    public boolean[] GetHotConnections()
     {
-
-        LinkedList<Integer> out = new LinkedList<Integer>();
+        boolean[] out = new boolean[_numConnections];
         for (int n = 0; n < _connections.length; n++)
         {
-            if (_nodes[_connections[n].FromNode()].GetOutput(_connections[n].FromNodeChannel())) out.add(Integer.valueOf(n));
+            out[n] = _nodes[_connections[n].FromNode()].GetOutput();
         }
-        int[] outArray = new int[out.size()];
-        int index = 0;
-        for (Integer i : out)
-        {
-            outArray[index++] = i.intValue();
-        }
-        return outArray;
+
+        return out;
     }
 
 

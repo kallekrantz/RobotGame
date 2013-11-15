@@ -21,23 +21,18 @@ import java.util.LinkedList;
 public class NotNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
-    protected int _ownerIndex;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
 
     public NotNode(int ownerIndex)
     {
-        _isUpdated = false;
-        _numInput = 1;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
+        _maxInputs = 1;
+        _connectionToInput = new int[_maxInputs];
         _category = NodeCategory.Logic;
         _type = NodeType.Not;
         _ownerIndex = ownerIndex;
@@ -46,8 +41,8 @@ public class NotNode extends Node
     @Override
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (input == null) _output[0] = true;
-        else _output[0] = !input[0];
+        if (input == null) _output = true;
+        else _output = !input[0];
         _isUpdated = true;
     }
 }

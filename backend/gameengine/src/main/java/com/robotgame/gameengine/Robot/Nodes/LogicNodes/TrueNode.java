@@ -21,25 +21,22 @@ import java.util.LinkedList;
 public class TrueNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
 
     public TrueNode(int ownerIndex)
     {
-        _isUpdated = false;
-        _numInput = 0;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
+        _maxInputs = 0;
         _category = NodeCategory.Logic;
         _type = NodeType.True;
-        _output[0] = true;
         _ownerIndex = ownerIndex;
+
+        _output = true;
     }
 
     @Override

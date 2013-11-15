@@ -1,7 +1,7 @@
 package com.robotgame.gameengine.Robot.Nodes.ActionNodes;
 
 import com.robotgame.gameengine.Robot.MatchContext;
-import com.robotgame.gameengine.Robot.Nodes.Actions.DebugAction;
+import com.robotgame.gameengine.Robot.Nodes.Actions.ImpulseAction;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeCategory;
@@ -18,36 +18,30 @@ import java.util.LinkedList;
  */
 
 //GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
-public class MovementNode extends Node
+public class MoveBackwardsNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
 
-    public MovementNode(int ownerIndex)
+    public MoveBackwardsNode(int ownerIndex)
     {
-        _isUpdated = false;
-        _numInput = 1;
-        _numOutput = 0;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
-        _category = NodeCategory.Logic;
-        _type = NodeType.True;
+        _maxInputs = 1;
+        _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+        _category = NodeCategory.Action;
+        _type = NodeType.MoveBackwards;
         _ownerIndex = ownerIndex;
-
     }
 
 
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        String out = String.valueOf(input[0]);
-        actions.add(new DebugAction("Value of connection " + _connectionToInput[0] + ": " + out));
+        actions.add(new ImpulseAction(0.8f, (float)Math.toRadians(180)));
         _isUpdated = true;
     }
 }

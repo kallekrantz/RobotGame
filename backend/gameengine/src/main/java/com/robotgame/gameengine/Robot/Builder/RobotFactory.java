@@ -17,19 +17,19 @@ public class RobotFactory
         int numNodes = blueprint.GetNumNodes();
         Node[] nodes = new Node[numNodes];
 
-        for (NodeProperties n : blueprint.GetNodeList())
+        for (NodeData n : blueprint.nodes)
         {
-            nodes[n.get_id()] = NodeFactory.Create(n, robotIndex);
+            nodes[n.id] = NodeFactory.Create(n, robotIndex);
         }
 
         int numConnections = blueprint.GetNumConnections();
         NodeConnection[] connections = new NodeConnection[numConnections];
         int index = 0;
 
-        for (NodeConnection c : blueprint.GetConnectionList())
+        for (ConnectionData c : blueprint.connections)
         {
-            connections[index] = c;
-            nodes[c.ToNode()].SetInput(c.ToNodeChannel(), index);
+            connections[index] = new NodeConnection(c.sourceId, c.targetId);
+            nodes[c.targetId].AddInput(index);
             index++;
         }
 

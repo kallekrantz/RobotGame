@@ -21,22 +21,18 @@ import java.util.LinkedList;
 public class DebugNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
 
     public DebugNode(int ownerIndex)
     {
-        _isUpdated = false;
-        _numInput = 1;
-        _numOutput = 0;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
+        _maxInputs = 1;
+        _connectionToInput = new int[_maxInputs];
         _category = NodeCategory.Logic;
         _type = NodeType.True;
         _ownerIndex = ownerIndex;

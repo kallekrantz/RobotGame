@@ -2,7 +2,6 @@ package com.robotgame.gameengine.Robot.Nodes.Actions;
 
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Robot;
-import com.robotgame.gameengine.Util.Vector2;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,21 +11,20 @@ import com.robotgame.gameengine.Util.Vector2;
  * To change this template use File | Settings | File Templates.
  */
 
-public class ImpulseAction extends NodeAction
+public class SetBoostAction extends NodeAction
 {
-    private float _thrust, _relativeAngle;
+    private boolean _boost;
 
-    public ImpulseAction(float thrust, float angle)
+    public SetBoostAction(boolean boost)
     {
-        _relativeAngle = angle;
-        _thrust = thrust;
+        _boost = boost;
     }
 
 
 
     public void PerformAction(Robot robot)
     {
-        robot.AddSpeed(_thrust / robot.GetMass() * robot.GetMaxThrust(), _relativeAngle);
+        robot.SetBoost(_boost);
     }
 
 

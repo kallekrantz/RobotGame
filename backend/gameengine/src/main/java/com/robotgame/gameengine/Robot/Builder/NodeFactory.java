@@ -21,28 +21,30 @@ import com.robotgame.gameengine.Robot.Nodes.SensorNodes.DistanceSensor;
 public class NodeFactory
 {
 
-    public static Node Create(NodeProperties properties, int ownerIndex)
+    public static Node Create(NodeData properties, int ownerIndex)
     {
-        switch (properties.get_type())
+        NodeType type;
+        try { type = NodeType.valueOf(properties.nodeType); }
+        catch (Exception e)
+        {
+            type = NodeType.Default;
+        }
+
+
+        switch (type)
         {
 
             //Sensor nodes
             case DistanceSensor:
-                return new DistanceSensor(properties.get_propertyValue1(), properties.get_propertyValue2(), ownerIndex);
+                return new DistanceSensor(ownerIndex, properties.val);
 
 
             //Logic Nodes
             case And:
                 return new AndNode(ownerIndex);
 
-            case And3:
-                return new And3Node(ownerIndex);
-
             case Or:
                 return new OrNode(ownerIndex);
-
-            case Or3:
-                return new Or3Node(ownerIndex);
 
             case True:
                 return new TrueNode(ownerIndex);
@@ -54,19 +56,19 @@ public class NodeFactory
                 return new NotNode(ownerIndex);
 
             case Delay:
-                return new DelayNode(ownerIndex, properties.get_propertyValue1());
+                return new DelayNode(ownerIndex, properties.val);
 
             case Default:
                 return new DefaultNode(ownerIndex);
 
             case Clock:
-                return new ClockNode(ownerIndex, properties.get_propertyValue1());
+                return new ClockNode(ownerIndex, properties.val);
 
             case TicTac:
-                return new TicTacNode(ownerIndex, properties.get_propertyValue1());
+                return new TicTacNode(ownerIndex, properties.val);
 
             case Majority:
-                return new MajorityOf3Node(ownerIndex);
+                return new MajorityNode(ownerIndex);
 
 
             //Action nodes
@@ -74,8 +76,16 @@ public class NodeFactory
                 return new DebugNode(ownerIndex);
 
             case MoveForward:
-                return new MovementNode(ownerIndex);
+                return new MoveForwardNode(ownerIndex);
 
+            case MoveBackwards:
+                return new MoveBackwardsNode(ownerIndex);
+
+            case TurnLeft:
+                return new TurnLeftNode(ownerIndex);
+
+            case TurnRight:
+                return new TurnRightNode(ownerIndex);
 
 
             //Passive nodes

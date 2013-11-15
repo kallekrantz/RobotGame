@@ -16,8 +16,8 @@ import java.util.*;
 public abstract class Node
 {
     protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
+    protected boolean _output;
+    protected int _numOutput;    //Obsolete
     protected int[] _connectionToInput;
     protected int _numInput;
     protected int _maxInputs;
@@ -27,7 +27,9 @@ public abstract class Node
 
     public Node()
     {
-
+        _numInput = 0;
+        _output = false;
+        _isUpdated = false;
     }
 
 
@@ -46,7 +48,7 @@ public abstract class Node
         return _numInput;
     }
 
-    public void SetInput(int channel, int connection)
+    public void SetInput(int channel, int connection) //Obsolete
     {
         if (channel >= 0 && channel < _numInput)
             _connectionToInput[channel] = connection;
@@ -55,7 +57,7 @@ public abstract class Node
     public void AddInput(int connection)
     {
         if (_numInput < _maxInputs)
-            _connectionToInput[++_numInput] = connection;
+            _connectionToInput[_numInput++] = connection;
     }
 
     public int GetInputConnection(int channel)
@@ -65,11 +67,9 @@ public abstract class Node
         else return -1;
     }
 
-    public boolean GetOutput(int channel)
+    public boolean GetOutput()
     {
-        if (channel >= 0 && channel < _numOutput && _output != null)
-            return _output[channel];
-        else return false;
+        return _output;
     }
 
     //This method is overridden by the sensor subclasses

@@ -9,7 +9,6 @@ import com.robotgame.gameengine.Robot.Nodes.NodeType;
 import org.junit.Test;
 
 import java.util.Vector;
-
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;

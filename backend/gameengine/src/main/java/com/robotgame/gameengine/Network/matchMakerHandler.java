@@ -42,6 +42,7 @@ public class matchMakerHandler {
     @OnWebSocketMessage
     public void onMessage(String message) {
     	Gson g=new Gson();
+    	System.out.println("Message: "+message);
     	joinRequest req=g.fromJson(message, joinRequest.class);
     	_robot = constructRobot(req.robotId);
     	_user = req.user;

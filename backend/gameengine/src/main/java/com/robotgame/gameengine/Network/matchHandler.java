@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Match.IMatchHandler;
 import com.robotgame.gameengine.Match.MatchResult;
+import com.robotgame.gameengine.Robot.RobotState;
 import com.robotgame.gameengine.Robot.Builder.*;
 
 
@@ -27,6 +28,7 @@ public class matchHandler implements IMatchHandler {
 				return true;
 			}
 		}
+		socket._session.getRemote().sendStringByFuture("NetworkError:: Unexpected user");
 		return false;
 	}
 	public void setExpectedParticipants(Vector<matchMakerHandler> match) {
@@ -73,14 +75,23 @@ public class matchHandler implements IMatchHandler {
 		}
 		
 	}
-	public void SendMatchState(MatchState _matchState2) {
+	public void SendMatchState(MatchState _matchState) {
 		Gson gson= new Gson();
-		sendToAll(gson.toJson(_matchState2));
+		sendToAll("UpdateState::"+gson.toJson(_matchState));
 		
 	}
 	public void MatchEnded(MatchResult _matchResult) {
 		// TODO Auto-generated method stub
-		
+		Gson gson= new Gson();
+		sendToAll("MatchEnded::"+gson.toJson(_matchResult));
+	}
+	public void requestStartState(matchSocket socket) {
+		MatchState state  = new MatchState(0,_robots.size());
+		for(int robots = 0; robots<_robots.size(); robots++){
+			state.robotStates[robots] = new RobotState();
+		}
+		Gson gson = new Gson();
+		socket._session.getRemote().sendStringByFuture("StartingState::"+gson.toJson(state));
 	}
 	
 }

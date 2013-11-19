@@ -51,7 +51,7 @@ public class matchSocket {
             _user = req.user;
             _handler = MatchMaker.getInstance().getHandler(req.port);
             if (_handler.join(this)) {
-
+            	_handler.requestStartState(this);
             } else {
                 System.out.println("halp " + _user);
             }

@@ -41,42 +41,50 @@ public class MatchMaker {
 			System.out.println("one added");
 			if(_1v1.size()==participants[mode]){
 				launch1v1();
+				_1v1.clear();
 			}
 			break;
 		 case _2V2MODE:	
 			_2v2.add(socket);
 			if(_2v2.size()==participants[mode]){
 				launch2v2();
+				_2v2.clear();
 			}
 			break;
 		 case _2V1MODE:
 			_2v1.add(socket);
 			if(_2v1.size()==participants[mode]){
 				launch2v1();
+				_2v1.clear();
 			}
 			break;
 		 case _BATTLEROYALEMODE:
 			_battleRoyale.add(socket);
 			if(_battleRoyale.size()==participants[mode]){
 				launchBattleRoyale();
+				_battleRoyale.clear();
 			}
 			break;
 		 }
 		 
 	 }
 	 private void launchBattleRoyale() {
-		// makeGameServer();
-			String message = "port:"+(_INITIALPORT+_serverIndex);
-			matchHandler match=new matchHandler();
-			match.setExpectedParticipants(_battleRoyale);
-			_matchHandlers.add(_serverIndex,match);
-			writeAllMembers(message,_BATTLEROYALEMODE);
-			_matchHandlers.get(_serverIndex).generateUnpackingRoutine();
-			_serverIndex++;
+		 GameServer game=new GameServer(_serverIndex);
+		Thread t=new Thread(game);
+		t.start();
+		String message = "port:"+(_INITIALPORT+_serverIndex);
+		matchHandler match=new matchHandler();
+		match.setExpectedParticipants(_battleRoyale);
+		_matchHandlers.add(_serverIndex,match);
+		writeAllMembers(message,_BATTLEROYALEMODE);
+		_matchHandlers.get(_serverIndex).generateUnpackingRoutine();
+		_serverIndex++;
 		
 	}
 	private void launch2v1() {
-		//makeGameServer();
+		GameServer game=new GameServer(_serverIndex);
+		Thread t=new Thread(game);
+		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
 		matchHandler match=new matchHandler();
 		match.setExpectedParticipants(_2v1);
@@ -87,7 +95,9 @@ public class MatchMaker {
 		
 	}
 	private void launch2v2() {
-		//makeGameServer();
+		GameServer game=new GameServer(_serverIndex);
+		Thread t=new Thread(game);
+		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
 		matchHandler match=new matchHandler();
 		match.setExpectedParticipants(_2v2);
@@ -97,7 +107,7 @@ public class MatchMaker {
 		_serverIndex++;
 	}
 	private void launch1v1() {
-		GameServer game=new GameServer();
+		GameServer game=new GameServer(_serverIndex);
 		Thread t=new Thread(game);
 		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
@@ -179,8 +189,12 @@ public class MatchMaker {
 	        System.out.println("end");
 	 }
 	 public class GameServer implements Runnable{
+		 private int serverIndex;
+		 public GameServer(int index){
+			 serverIndex=index;
+		 }
 		 public void run(){
-			 makeGameServer(_serverIndex);
+			 makeGameServer(serverIndex);
 		 }
 	 }
 	 public void closeGameServer(int serverIndex){

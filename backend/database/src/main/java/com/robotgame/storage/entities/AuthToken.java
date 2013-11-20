@@ -9,7 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import java.sql.Timestamp;
+
 @Entity
 @Table(name="AuthTokens")
 @XmlRootElement

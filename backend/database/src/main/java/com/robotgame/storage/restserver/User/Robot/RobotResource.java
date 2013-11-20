@@ -36,7 +36,7 @@ public class RobotResource {
             sessionFactory = SessionCreator.getSessionFactory();
             session = sessionFactory.openSession();
             tx = session.beginTransaction();
-            robotList = session.createQuery("from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
+            robotList = session.createQuery("select distinct r from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
             session.flush();
             tx.commit();
         }catch(Exception e){
@@ -54,32 +54,39 @@ public class RobotResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response post(String jsonstr, @PathParam("userid") int userid) throws JSONException {
+    public Response post(JSONObject jsonObj, @PathParam("userid") int userid){
         Session session = null;
         Transaction tx = null;
-        SessionFactory sessionFactory = null;
-        JSONObject jsonObj = new JSONObject(jsonstr);
         Robot r = new Robot();
-        r.setRobotDesign((String)jsonObj.get("robotDesign"));
-        r.setRobotName((String)jsonObj.get("robotName"));
+
         try{
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
+            r.merge(jsonObj);
+        }catch(JSONException e){
+            throw new BadRequestException();
+        }
+
+        try{
+            session = SessionCreator.getSessionFactory().openSession();
             tx = session.beginTransaction();
             User u = (User) session.get(User.class, userid);
             r.setUser(u);
             session.save(r);
             session.flush();
             tx.commit();
+            return Response.ok(r).build();
+        }catch(WebApplicationException ex){
+            ex.printStackTrace();
+            tx.rollback();
+            throw ex;
         }catch(Exception e){
             e.printStackTrace();
             tx.rollback();
+            throw new InternalServerErrorException();
         }finally{
             if(session != null){
                 session.close();
             }
         }
-        return Response.ok(r).build();
     }
 
 }

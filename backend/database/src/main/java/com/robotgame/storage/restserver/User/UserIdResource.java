@@ -6,10 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -29,22 +26,27 @@ public class UserIdResource {
         Session session = null;
         Transaction tx = null;
         SessionFactory sessionFactory;
-        User u = null;
         try {
             sessionFactory = SessionCreator.getSessionFactory();
             session = sessionFactory.openSession();
             tx = session.beginTransaction();
-            u = (User) session.createQuery("from Robot r where r.user.id = :userid").setInteger("userid", userid).uniqueResult();
+            User u = (User) session.createQuery("from User u where u.id = :userid").setInteger("userid", userid).uniqueResult();
             session.flush();
             tx.commit();
-        } catch (Exception e) {
+            return Response.ok(u).build();
+        } catch (WebApplicationException e) {
             e.printStackTrace();
             tx.rollback();
-        } finally {
+            throw e;
+        }catch (Exception ex){
+            ex.printStackTrace();
+            tx.rollback();
+            throw new InternalServerErrorException();
+        }
+        finally {
             if (session != null) {
                 session.close();
             }
         }
-        return Response.ok(u).build();
     }
 }

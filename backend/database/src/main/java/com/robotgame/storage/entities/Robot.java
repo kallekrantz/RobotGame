@@ -1,6 +1,8 @@
 package com.robotgame.storage.entities;
 
 
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -17,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Robots")
 @XmlRootElement
-public class Robot{
+public class Robot implements EntityInterface{
     private String robotName;
     private User user;
     private int id;
@@ -29,6 +31,12 @@ public class Robot{
     }
 
     public Robot() {
+    }
+
+    public Robot(Robot robot) {
+        robotName = robot.getRobotName();
+        user = robot.getUser();
+        robotDesign = robot.getRobotDesign();
     }
 
     public String getRobotName() {
@@ -76,5 +84,17 @@ public class Robot{
                 ", robotId=" + id +
                 ", robotDesign=" + robotDesign +
                 '}';
+    }
+
+    @Override
+    public Robot merge(JSONObject obj) throws JSONException {
+        Robot merge = new Robot(this);
+        if(obj.has("robotDesign")){
+            merge.setRobotDesign(obj.getString("robotDesign"));
+        }
+        if(obj.has("robotName")){
+            merge.setRobotName(obj.getString("robotName"));
+        }
+        return merge;  //To change body of implemented methods use File | Settings | File Templates.
     }
 }

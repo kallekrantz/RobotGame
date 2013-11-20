@@ -50,10 +50,16 @@ public class AuthResource {
             }else{
                 throw new UnauthorizedException();
             }
-        }catch(Exception e){
+        }
+        catch(WebApplicationException e){
             e.printStackTrace();
             tx.rollback();
             throw e;
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            tx.rollback();
+            throw new InternalServerErrorException();
         }finally{
             if(session != null){
                 session.close();

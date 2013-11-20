@@ -1,7 +1,19 @@
+/*
+	*Author: Mikael Pettersson & Christoffer Wern
+	*
+	*
+	*This file is intended to cover all functions needed for the garage.html-page aswell as some communication
+	*with its' child page(the 3d-scene). It loads some needed variables as soon as the page is loaded, to keep
+	*track of the users' robot parts.
+	*
+*/
+
 $(document).ready(function() {
 
 	addComponents();
 	
+	//TODO - fix so this works with correct variable names, maybe make a function with an array 
+	//that contains {'chassi', 'wheels' ......} etc.
 	$("#weapon").droppable({
 		accept: ".weapon",
 		drop: function (event, ui) {

@@ -1,11 +1,15 @@
 $(document).ready(function() {
 
+	addComponents();
+	
 	$("#weapon").droppable({
 		accept: ".weapon",
 		drop: function (event, ui) {
             if (ui.draggable.is('.dropped')) return false;
 			$("#weapon").text("");
+			parent.components[2] = ui.draggable[0].id;
             $("#weapon").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
+			document.getElementById("robot3D").contentWindow.hasChanged("TEMPWEAPON");
 		}
 	});
 	
@@ -14,7 +18,9 @@ $(document).ready(function() {
 		drop: function (event, ui) {
             if (ui.draggable.is('.dropped')) return false;
 			$("#chassi").text("");
+			parent.components[0] = ui.draggable[0].id;
             $("#chassi").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
+			document.getElementById("robot3D").contentWindow.hasChanged(ui.draggable[0].id);
         }
 	});
 	
@@ -23,6 +29,8 @@ $(document).ready(function() {
 		drop: function (event, ui) {
             if (ui.draggable.is('.dropped')) return false;
 			$("#wheels").text("");
+			parent.components[1] = ui.draggable[0].id;
+			parent.saveFile();
             $("#wheels").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
         }
 	});
@@ -43,3 +51,26 @@ $(document).ready(function() {
     });
 	
 });
+
+function addComponents(){
+	if(parent.components[0] != null){
+		$("#chassi").text("");
+		$("#chassi").append("<img src='Style/"+parent.components[0]+".jpg' height='100px' width='100px'>");
+	}
+	if(parent.components[1] != null){
+		$("#wheels").text("");	
+		$("#wheels").append("<img src='Style/"+parent.components[1]+".jpg' height='100px' width='100px'>");
+	}
+	if(parent.components[2] != null){
+		$("#weapon").text("");
+		$("#weapon").append("<img src='Style/"+parent.components[2]+".jpg' height='100px' width='100px'>");
+	}
+	if(parent.components[3] != null){
+		$("#weapon").text("");
+		$("#weapon").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
+	}
+	if(parent.components[4] != null){
+		$("#weapon").text("");
+		$("#weapon").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
+	}
+}

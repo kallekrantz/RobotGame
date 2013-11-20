@@ -1,3 +1,11 @@
+/*
+	*Authors: Mikael Pettersson & Christoffer Wern
+	*
+	*The intention of logic.js is to handle all functionality of the logic.html-file, this includes 
+	*dragging and dropping logic nodes and handling input to global variables amongst others.
+	*
+*/
+
 var logicInstance;
 var arrayOfConnections = new Array();
 var selectedList = new Array();
@@ -130,22 +138,22 @@ $(document).ready(function() {
 	//These four lines reads the stored arrays from the global list, so files can be stored.
 	//Should be exchanged when database is implemented(Or implement the DB in variables.js)
 	
-	//När en connection görs så sparas den undan i arrayOfConnections, för att kunna spara till DB.
+	//Nï¿½r en connection gï¿½rs sï¿½ sparas den undan i arrayOfConnections, fï¿½r att kunna spara till DB.
 	logicInstance.bind("jsPlumbConnection", function(conn){
 		arrayOfConnections.push(conn);
 		}
 	);
 	
-	//När en connection tas bort (t.ex. om man tar bort en nod) tas den även bort från arrayen.
+	//Nï¿½r en connection tas bort (t.ex. om man tar bort en nod) tas den ï¿½ven bort frï¿½n arrayen.
 	logicInstance.bind("jsPlumbConnectionDetached", function(conn){
 		arrayOfConnections.splice(arrayOfConnections.indexOf(conn),1);
 		//typ logicInstance.connect(arrayOfConnections[0]);
 		}
 	);
 	
-	//Om man klickar på en div ska den bli "selected"
-	//Sparas undan i global variable "selected" och får röd ram
-	//Om man klickar på den igen blir inte "selected" längre
+	//Om man klickar pï¿½ en div ska den bli "selected"
+	//Sparas undan i global variable "selected" och fï¿½r rï¿½d ram
+	//Om man klickar pï¿½ den igen blir inte "selected" lï¿½ngre
 	/*
 	$('#myCanvas').click(function(event){
 		var tar = '#'+event.target.id;
@@ -156,7 +164,7 @@ $(document).ready(function() {
 				selectedList.splice(selectedList.indexOf(event.target.id),1);
 			}
 			else{
-				//Nya selected får röd ram
+				//Nya selected fï¿½r rï¿½d ram
 				$(tar).css("border", "2px solid red");
 				selectedList.push(event.target.id);
 			}
@@ -246,7 +254,7 @@ window.onbeforeunload = function (e) {
 	parent.saveFile();
 }
 
-//Jsplumb.ready är när sidan laddat klart, så att jsplumb får köras med alla divvar
+//Jsplumb.ready ï¿½r nï¿½r sidan laddat klart, sï¿½ att jsplumb fï¿½r kï¿½ras med alla divvar
 jsPlumb.ready(function() {
 	logicInstance = jsPlumb.getInstance();
 	addSavedDivs();

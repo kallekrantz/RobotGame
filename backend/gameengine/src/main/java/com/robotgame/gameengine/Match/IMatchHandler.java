@@ -9,9 +9,28 @@ import com.robotgame.gameengine.Network.MatchState;
  * Time: 13:02
  * To change this template use File | Settings | File Templates.
  */
+
+/**
+ * This interface provides ways for a match to communicate with a match handler.
+ */
 public interface IMatchHandler
 {
+    /**
+     * This method is called when the match is ended.
+     * @param results Contains information about the outcome of the game.
+     */
     public void MatchEnded(MatchResult results);
+
+
+    /**
+     * Sends updated info to server.
+     * Make sure matchState is up to date.
+     * @param matchState contains states of all robots (and other objects
+     */
     public void SendMatchState(MatchState matchState);
+
+    //Implement these in MatchHandler
+    //public boolean GetInputA(int playerNumber);
+    //public boolean GetInputB(int playerNumber);
 
 }

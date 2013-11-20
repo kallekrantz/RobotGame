@@ -18,7 +18,12 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * When activated this node adds forward movement to the robot using ImpulseAction.
+ * This node accepts 1 input.
+ * @see ImpulseAction
+ * @see Node
+ */
 public class MoveForwardNode extends Node
 {
     /*

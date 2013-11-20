@@ -12,8 +12,15 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//Main class for handling and updating all nodes
-//The Update() method returns a list of action objects that the nodes have triggered.
+/**
+ * A class for handling systems of nodes that can be continually updated.
+ * After updating, the resulting actions of the nodes can be retrieved as the return object of Update().
+ * @see Node
+ * @see NodeConnection
+ * @see com.robotgame.gameengine.Robot.Robot
+ * @see com.robotgame.gameengine.Robot.Builder.RobotFactory
+ * @see com.robotgame.gameengine.Robot.Builder.NodeFactory
+ */
 public class NodeSystem
 {
     private Node[] _nodes;
@@ -22,6 +29,11 @@ public class NodeSystem
     private MatchContext _currentMatchContext;
     private LinkedList<NodeAction> _actions;
 
+    /**
+     * Constructor for node systems.
+     * @param nodes array of Node objects of varying subclasses.
+     * @param connections array of NodeConnection objects.
+     */
     public NodeSystem(Node[] nodes,  NodeConnection[] connections)
     {
         _nodes = nodes;
@@ -31,6 +43,11 @@ public class NodeSystem
         _actions = new LinkedList<NodeAction>();
     }
 
+    /**
+     * Updates the entire node system.
+     * @param context should contain updated information about robots and environmental factors.
+     * @return a list of NodeAction objects to execute.
+     */
     public LinkedList<NodeAction> Update(MatchContext context)
     {
         _actions.clear();
@@ -54,9 +71,9 @@ public class NodeSystem
 
     /**
      * Recursive function to update and evaluate nodes.
-     *
-     * @param  nodeIndex  the index of the node
-     * @return      the output of the specified node
+     * By using recursion this function traverses the entire node graph if needed to acquire the inputs needed for a node to update.
+     * @param  nodeIndex  the index of the node to query
+     * @return the output of the specified node
      */
     private boolean GetOutputOfNode(int nodeIndex)
     {
@@ -94,7 +111,11 @@ public class NodeSystem
     }
 
 
-    //Returns an array of the indexes of the currently hot connections
+    /**
+     * Gets a list of the status of all node connections.
+     * Not usable yet.
+     * @return an array of boolean values.
+     */
     public boolean[] GetHotConnections()
     {
         boolean[] out = new boolean[_numConnections];

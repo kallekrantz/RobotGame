@@ -17,7 +17,10 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * Node that constantly outputs true.
+ * @see Node
+ */
 public class TrueNode extends Node
 {
     /*

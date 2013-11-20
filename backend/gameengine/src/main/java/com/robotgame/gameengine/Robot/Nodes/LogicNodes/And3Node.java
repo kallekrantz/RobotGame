@@ -16,7 +16,9 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//OBSOLETE
+/**
+ * OBSOLETE!
+ */
 public class And3Node extends Node
 {
     /*

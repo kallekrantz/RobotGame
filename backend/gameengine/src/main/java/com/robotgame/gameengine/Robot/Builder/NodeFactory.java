@@ -17,10 +17,20 @@ import com.robotgame.gameengine.Robot.Nodes.SensorNodes.DistanceSensor;
  */
 
 
-
+/**
+ * Helper class for creating Node objects
+ */
 public class NodeFactory
 {
-
+    /**
+     * A factory method for creating Node objects och various sub classes
+     * @param properties The description of the node to be created
+     * @param ownerIndex The index of the parent Robot
+     * @return A node as described by properties
+     * @see Node
+     * @see NodeData
+     *
+     */
     public static Node Create(NodeData properties, int ownerIndex)
     {
         NodeType type;

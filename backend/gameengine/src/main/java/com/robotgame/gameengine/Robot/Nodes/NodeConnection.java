@@ -8,7 +8,9 @@ package com.robotgame.gameengine.Robot.Nodes;
  * @version 1.00 2013/10/10
  */
 
-
+/**
+ * Class representing node connections in the game engine.
+ */
 public class NodeConnection
 {
 	private int _fromNode, _toNode;

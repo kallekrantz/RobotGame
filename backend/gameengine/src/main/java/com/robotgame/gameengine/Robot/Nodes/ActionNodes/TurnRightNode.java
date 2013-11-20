@@ -17,7 +17,12 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * When activated this node adds rotation to the robot using RotationalImpulseAction.
+ * This node accepts 1 input.
+ * @see RotationalImpulseAction
+ * @see Node
+ */
 public class TurnRightNode extends Node
 {
     /*

@@ -12,7 +12,12 @@ import com.robotgame.gameengine.Util.Vector2;
  */
 
 
-//Class that represents a single node in a Robot.Builder.RobotBlueprint.
+/**
+ * Class to store information about nodes as a part of a RobotBlueprint.
+ * By using NodeFactory.CreateNode() Node objects can be created using NodeData objects as blueprints.
+ * @see com.robotgame.gameengine.Robot.Builder.NodeFactory
+ * @see com.robotgame.gameengine.Robot.Builder.RobotBlueprint
+ */
 public class NodeData
 {
     public String className, nodeType, valueTitle;

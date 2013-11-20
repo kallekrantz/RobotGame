@@ -16,7 +16,11 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * Logic node that produces a "true" output if all incoming connections is true.
+ * @see Node
+ * @see package
+ */
 public class AndNode extends Node
 {
     /*

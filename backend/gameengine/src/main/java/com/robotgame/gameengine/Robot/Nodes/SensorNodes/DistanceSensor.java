@@ -18,7 +18,9 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//Detects whether any other robots are found between distances minDist and maxDist
+/**
+ * Detects whether any other robots are found within a certain distance.
+ */
 public class DistanceSensor extends Node
 {
     /*
@@ -32,6 +34,11 @@ public class DistanceSensor extends Node
 
     private float _minDist, _maxDist;
 
+    /**
+     * Creates a distance sensor.
+     * @param ownerIndex
+     * @param maxDist    The radius in cm within which the sensor checks for other robots.
+     */
     public DistanceSensor(int ownerIndex, float maxDist)
     {
         _maxInputs = 0;
@@ -40,7 +47,7 @@ public class DistanceSensor extends Node
         _ownerIndex = ownerIndex;
 
         _minDist = 0;
-        _maxDist = maxDist;
+        _maxDist = Math.abs(maxDist/100);
     }
 
     @Override

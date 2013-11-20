@@ -17,7 +17,10 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//Passes through the incoming signal with a delay defined in update steps
+/**
+ * Delays the input with a constant delay.
+ * @see Node
+ */
 public class DelayNode extends Node
 {
     /*
@@ -33,6 +36,11 @@ public class DelayNode extends Node
     private boolean[] _delayBank;
     private int _delay;
 
+    /**
+     * Creates a delay node.
+     * @param ownerIndex
+     * @param delay      Delay in ms. Not very precise.
+     */
     public DelayNode(int ownerIndex, int delay)
     {
         _maxInputs = 1;
@@ -42,7 +50,8 @@ public class DelayNode extends Node
         _ownerIndex = ownerIndex;
 
         _timer = 0;
-        _delay = delay;
+        _delay = delay/33;
+        if (_delay <= 0) _delay = 1;
         _delayBank = new boolean[delay + 1];
 
     }

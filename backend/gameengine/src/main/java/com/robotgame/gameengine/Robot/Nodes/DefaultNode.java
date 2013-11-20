@@ -13,8 +13,9 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//OBSOLETE
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * Dummy node that simply passes the input to the output.
+ */
 public class DefaultNode extends Node
 {
 

@@ -16,7 +16,10 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * Node that alternates its output with a set period.
+ * @see Node
+ */
 public class TicTacNode extends Node
 {
     /*
@@ -30,6 +33,11 @@ public class TicTacNode extends Node
     private int _time;
     private int _period;
 
+    /**
+     * Creates a TicTac node.
+     * @param ownerIndex
+     * @param period     time between each alteration in ms. Not very precise.
+     */
     public TicTacNode(int ownerIndex, int period)
     {
         _maxInputs = 0;
@@ -41,7 +49,7 @@ public class TicTacNode extends Node
         _time = 0;
         _period = period / 33;
 
-        if (_period < 0) _period = 1;
+        if (_period <= 0) _period = 1;
     }
 
     @Override

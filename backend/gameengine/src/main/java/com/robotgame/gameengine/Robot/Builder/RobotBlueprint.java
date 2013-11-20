@@ -12,6 +12,12 @@ import com.robotgame.gameengine.Robot.Nodes.*;
 import java.util.*;
 import com.google.gson.Gson;
 
+/**
+ * Contains a complete specification of a robot.
+ * Constructed using the JavaScript GUI.
+ * Stored as json strings in database.
+ * A vector<RobotBlueprint> should be provided to Match.BuildRobots() to create functional Robot objects.
+ */
 public class RobotBlueprint
 {
 
@@ -21,6 +27,12 @@ public class RobotBlueprint
     //private int _numNodes;
 
 
+    /**
+     * Constructor is only used when creating blueprints for testing purposes.
+     * Normally blueprints are created from json strings.
+     * @param numNodes
+     * @param numConnections
+     */
     public RobotBlueprint(int numNodes, int numConnections)
     {
         components = new String[5];
@@ -52,7 +64,10 @@ public class RobotBlueprint
     }
 
 
-    //This method inspects the list of nodes and connections and returns whether all looks god or not.
+    /**
+     * Not implemented!
+     * @return True if the blueprint is a legit working robot.
+     */
     public boolean CheckIfLegal()
     {
         int numNodes = nodes.length;

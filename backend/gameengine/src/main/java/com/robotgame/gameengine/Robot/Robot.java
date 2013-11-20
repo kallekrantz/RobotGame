@@ -8,7 +8,13 @@ import com.robotgame.gameengine.Util.Vector2;
 
 import java.util.LinkedList;
 
-
+/**
+ * Represents a robot in a match. Important parts is the NodeSystem handling sensors and logic, and the RobotState describing the robots current state.
+ * Created with the static factory RobotFactory.CreateRobot().
+ * @see NodeSystem
+ * @see RobotState
+ * @see com.robotgame.gameengine.Robot.Builder.RobotFactory
+ */
 public class Robot
 {
     private NodeSystem _nodeSystem;
@@ -23,7 +29,12 @@ public class Robot
     private Vector2 _impulse;
 
 
-    //Constructor for Robot class. Use Robot.Builder.RobotFactory to create Robot objects in a more practical way.
+    /**
+     * Constructor should not be used directly. Robot objects are best created by
+     * @param nodes
+     * @param connections
+     * @param index
+     */
     public Robot(Node[] nodes,  NodeConnection[] connections, int index)
     {
         _nodeSystem = new NodeSystem(nodes, connections);
@@ -38,18 +49,30 @@ public class Robot
         _impulse = new Vector2(0, 0);
     }
 
+    /**
+     * Sets the starting position of the robot.
+     * @param pos Two-dimensional vector.
+     */
     public void SetStartPos(Vector2 pos)
     {
         //_futureState.pos =
         _currentState.pos = pos;
     }
 
+    /**
+     *
+     * @param context
+     */
     public void UpdateNodes(MatchContext context)
     {
         _actions.clear();
         _actions = _nodeSystem.Update(context);
     }
 
+
+    /**
+     * Updates the current state of the robot according to impulses
+     */
     public void UpdateState()
     {
         _impulse.Multiply(_boost);
@@ -70,6 +93,11 @@ public class Robot
         return _actions;
     }
 
+    /**
+     * Gets a list of the values sent through every connection.
+     * To use this for real time visualization of the node system the connections need to have matching indices in front and backend. This may not be the case.
+     * @return Array of boolean values, one for each connection.
+     */
     public boolean[] GetHotConnections()
     {
         return _nodeSystem.GetHotConnections();  //Fungerar inte korrekt!!

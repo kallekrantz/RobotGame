@@ -17,7 +17,10 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-
+/**
+ * Outputs a short periodic impulse with a set period.
+ * @see Node
+ */
 public class ClockNode extends Node
 {
     /*
@@ -31,6 +34,11 @@ public class ClockNode extends Node
     private int _time;
     private int _period;
 
+    /**
+     * Creates a ClockNode
+     * @param ownerIndex
+     * @param period The approximate period in ms. Will not be very exact.
+     */
     public ClockNode(int ownerIndex, int period)
     {
         _maxInputs = 0;
@@ -40,7 +48,7 @@ public class ClockNode extends Node
 
         _time = 0;
         _period = period/33;
-        if (_period == 0) _period = 1;
+        if (_period <= 0) _period = 1;
     }
 
     @Override

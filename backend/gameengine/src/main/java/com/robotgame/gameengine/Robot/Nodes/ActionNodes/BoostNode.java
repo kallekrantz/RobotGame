@@ -2,6 +2,7 @@ package com.robotgame.gameengine.Robot.Nodes.ActionNodes;
 
 import com.robotgame.gameengine.Robot.MatchContext;
 import com.robotgame.gameengine.Robot.Nodes.Actions.DebugAction;
+import com.robotgame.gameengine.Robot.Nodes.Actions.SetBoostAction;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeCategory;
@@ -17,7 +18,13 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * When activated this node amplifies the movement of the robot.
+ * Uses the Action SetBoostAction.
+ * This node accepts 1 input.
+ * @see SetBoostAction
+ * @see Node
+ */
 public class BoostNode extends Node
 {
     /*
@@ -43,7 +50,7 @@ public class BoostNode extends Node
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
         //String out = String.valueOf(input[0]);
-        //actions.add(new DebugAction("Value of connection " + _connectionToInput[0] + ": " + out));
+        actions.add(new SetBoostAction(input[0]));
         _isUpdated = true;
     }
 }

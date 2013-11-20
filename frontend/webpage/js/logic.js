@@ -1,3 +1,10 @@
+/*
+	*Authors: Mikael Pettersson & Christoffer Wern
+	*
+	*The intention of logic.js is to handle all functionality of the logic.html-file, this includes 
+	*dragging and dropping logic nodes and handling input to global variables amongst others.
+	*
+*/
 var logicInstance;
 var selectedList = new Array();
 	

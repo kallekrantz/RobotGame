@@ -1,5 +1,7 @@
 package com.robotgame.storage.restserver.User;
 
+import com.robotgame.storage.database.DatabaseRequest;
+import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.User;
@@ -22,88 +24,43 @@ import java.util.List;
 @Path("/user")
 public class UserResource {
 
-    /**
-     * Method handling HTTP GET requests. The returned object will be sent
-     * to the client as "text/plain" media type.
-     *
-     * @return String that will be returned as a text/plain response.
-     */
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(JSONObject jsonObj){
-        Session session = null;
-        Transaction tx = null;
-        SessionFactory sessionFactory = null;
-        Response.ResponseBuilder response;
-        User merged;
         User u = new User();
         try {
             u = u.merge(jsonObj);
         } catch (JSONException e) {
-            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+            e.printStackTrace();
             throw new BadRequestException();
         }
-        try{
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
-            tx = session.beginTransaction();
-            merged = (User) session.merge(u);
-            session.saveOrUpdate(merged);
-            session.flush();
-            tx.commit();
-            response = Response.ok(merged);
-        }
-        catch(ServerErrorException ex){
-            ex.printStackTrace();
-            tx.rollback();
-            throw ex;
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            tx.rollback();
-            throw new InternalServerErrorException();
-        }
-        finally{
-            if(session != null && session.isOpen()){
-                session.close();
+
+        final User finalU = u;
+        User outUser = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                User merged = (User) session.merge(finalU);
+                session.saveOrUpdate(merged);
+                return merged;
             }
-        }
-        return response.build();
+        });
+        return Response.ok(outUser).build();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response get() {
-        Session session = null;
-        Transaction tx = null;
-        SessionFactory sessionFactory = null;
-        try{
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
-            tx = session.beginTransaction();
-
-            List<User> userList = session.createQuery("from User").list();
-            session.flush();
-            tx.commit();
-            return Response.ok(userList.toArray(new User[userList.size()])).build();
-        }
-        catch(WebApplicationException ex){
-            ex.printStackTrace();
-            tx.rollback();
-            throw ex;
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            tx.rollback();
-            throw new InternalServerErrorException();
-        }
-        finally{
-            if(session != null){
-                session.close();
+        List<User> userList = (List<User>) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                return session.createQuery("from User").list();
             }
+        });
+        if(userList == null){
+            throw new NotFoundException();
         }
+        return Response.ok(userList.toArray(new User[userList.size()])).build();
     }
 }
 

@@ -22,7 +22,11 @@ public class RobotIdResource {
         Robot r = (Robot) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override
             public Object request(Session session) {
-                return session.createQuery("from Robot r where r.user.id = :userid and r.id = :robotid").setInteger("userid", userid).setInteger("robotid", robotid).uniqueResult();
+                Robot r = (Robot) session.createQuery("from Robot r where r.user.id = :userid and r.id = :robotid").setInteger("userid", userid).setInteger("robotid", robotid).uniqueResult();
+                if(r == null){
+                    throw new NotFoundException();
+                }
+                return r;
             }
         });
         return Response.ok(r).build();

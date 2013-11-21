@@ -33,7 +33,11 @@ public class RobotResource {
         List<Robot> robotList = (List<Robot>) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override
             public Object request(Session session) {
-                return session.createQuery("select distinct r from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
+                List<Robot> robotList = session.createQuery("select distinct r from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
+                if(robotList == null){
+                    throw new NotFoundException();
+                }
+                return robotList;
             }
         });
         return Response.ok(robotList.toArray(new Robot[robotList.size()])).build();
@@ -54,6 +58,9 @@ public class RobotResource {
             @Override
             public Object request(Session session) {
                 User u = (User) session.get(User.class, userid);
+                if(u == null){
+                    throw new NotFoundException();
+                }
                 r.setUser(u);
                 return session.save(r);
             }

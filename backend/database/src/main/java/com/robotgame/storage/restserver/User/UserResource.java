@@ -28,7 +28,7 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(JSONObject jsonObj){
-        User u;
+        final User u;
         try {
             u = User.create(jsonObj);
         } catch (JSONException e) {
@@ -36,11 +36,10 @@ public class UserResource {
             throw new BadRequestException();
         }
 
-        final User finalU = u;
         User outUser = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override
             public Object request(Session session) {
-                User merged = (User) session.merge(finalU);
+                User merged = (User) session.merge(u);
                 session.saveOrUpdate(merged);
                 return merged;
             }
@@ -54,12 +53,13 @@ public class UserResource {
         List<User> userList = (List<User>) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override
             public Object request(Session session) {
-                return session.createQuery("from User").list();
+                List<User> userList = session.createQuery("from User").list();
+                if(userList == null){
+                    throw new NotFoundException();
+                }
+                return userList;
             }
         });
-        if(userList == null){
-            throw new NotFoundException();
-        }
         return Response.ok(userList.toArray(new User[userList.size()])).build();
     }
 }

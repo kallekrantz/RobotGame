@@ -1,0 +1,282 @@
+{
+    "Laser2_2/Laser2_2.group": {
+        "libraryRefs": [
+            "Laser2_2/materials/Cylinder00Mat.material",
+            "Laser2_2/entities/Fbx_Root.entity",
+            "Laser2_2/entities/RootNode.entity",
+            "Laser2_2/entities/Cylinder00_0.entity",
+            "Laser2_2/meshes/Cylinder00_0.mesh",
+            "Laser2_2/binaries/1385025333_data.bin"
+        ],
+        "name": "Laser2_2",
+        "ref": "Laser2_2/Laser2_2.group"
+    },
+    "Laser2_2/entities/Cylinder00_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Laser2_2/meshes/Cylinder00_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Laser2_2/materials/Cylinder00Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Laser2_2/entities/Fbx_Root.entity",
+                "rotation": [
+                    81.88677498876989,
+                    -89.99998771482899,
+                    0.0
+                ],
+                "scale": [
+                    0.11519618332386017,
+                    0.11519618332386018,
+                    0.11519618332386018
+                ],
+                "translation": [
+                    -6.470590114593506,
+                    17.462587356567383,
+                    -9.670221328735352
+                ]
+            }
+        },
+        "name": "Cylinder00",
+        "nodeType": "Mesh"
+    },
+    "Laser2_2/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "Laser2_2/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "Laser2_2/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Laser2_2",
+        "nodeType": "Null"
+    },
+    "Laser2_2/materials/Cylinder00Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Cylinder00Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Laser2_2/meshes/Cylinder00_0.mesh": {
+        "binaryRef": "Laser2_2/binaries/1385025333_data.bin",
+        "boundingVolume": {
+            "max": [
+                123.47865671230235,
+                -6.14910719515845,
+                39.8850489637057
+            ],
+            "min": [
+                -88.23616831641573,
+                -92.22285237353002,
+                -10.17827716360216
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            9888
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            9888,
+            "uint16"
+        ],
+        "name": "Cylinder00",
+        "normals": [
+            66216,
+            11610,
+            "float32"
+        ],
+        "tangents": [
+            112656,
+            15480,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                174576,
+                7740,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 3870,
+        "vertices": [
+            19776,
+            11610,
+            "float32"
+        ]
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-21T09:14:53.136616",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "Laser2_2/entities/Cylinder00_0.entity",
+            "Laser2_2/entities/Fbx_Root.entity",
+            "Laser2_2/entities/RootNode.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "Laser2_2/Laser2_2.group"
+        ],
+        "id": "_IasP1z_REiq6Sx4_8aijA",
+        "licenseType": "CC0",
+        "modified": "2013-11-21T09:14:53.136616",
+        "name": "Laser2_2",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    }
+}

@@ -129,7 +129,7 @@ require([
 		//var entityUtils = new EntityUtils();
 		var entityStrings = new Array();
 		entityStrings[0] = "TankGroup2";
-		//entityStrings[1] = "weapon";
+		entityStrings[1] = "Laser2_2";
 		//entityStrings[2] = "Box";
 		
 		// The Loader takes care of loading data from a URL...
@@ -157,6 +157,30 @@ require([
 						//gets the entity by its referance
 						var objectReference = "entities/Cylinder.entity";
 						getGoo(goo.world);
+						var cog = loader.getCachedObjectForRef("CogWheel/entities/RootNode.entity");
+						if(entityName == "CogWheel"){
+							cog.setComponent(new ScriptComponent({
+							run: function (entity) {
+								entity.transformComponent.setRotation(
+								0,
+								goo.world.time*1.2,
+								0);
+								entity.transformComponent.setUpdated();
+							}}));
+						}
+						else{
+							var ent = loader.getCachedObjectForRef(entityName + "/entities/RootNode.entity");
+							
+							console.log(entityName);
+							console.log(chassi);
+							EntityUtils.hide(ent);
+							if(entityName == chassi || entityName == weapon || entityName == wheel){
+							EntityUtils.show(ent);
+							}
+							cog.transformComponent.attachChild(ent.getComponent('transformComponent'));
+							
+							
+						}
 						//console.log(objectReference);
 						// push to the entity array
 						//loadedEntities.push(entity);
@@ -201,7 +225,7 @@ require([
 						
 		cameraEntity.addToWorld();
 		
-				loaderModule.importEntity("Cylinder");
+				loaderModule.importEntity("CogWheel");
 					for(var i = 0; i < entityStrings.length; i++){
 						loaderModule.importEntity(entityStrings[i]);
 					}
@@ -216,9 +240,9 @@ require([
 		boxEntity.setComponent(new ScriptComponent({
 					run: function (boxEntity) {
 							if(changeInProgress){
-								alert("oldPart: "+oldPart);
-								alert("changedPart: "+changedPart);
-								if(changedPart == "TankGroup2"/*loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden*/){
+								//alert("oldPart: "+oldPart);
+								//alert("changedPart: "+changedPart);
+								if(changedPart == "TankGroup2" || changedPart == "Laser2_2"/*loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden*/){
 									if(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden)EntityUtils.show(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
 									else EntityUtils.hide(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"))
 								}

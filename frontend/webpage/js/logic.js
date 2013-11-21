@@ -54,23 +54,23 @@ var Node = (function(){
 				logicInstance.draggable(divId, {
 				containment:"parent",
 				stop:function(event, ui){
-				var thisIndex = indexOfObjectId(parent.divArray, this.id);
+				var thisIndex = indexOfObjectId(parent.nodes, this.id);
 				/*
 				Our object that the array/website keeps track of, also the object that should be stored
 				within the database
 				*/
 				
-				//TODO: ÄNDRA VARIABELNAMN PÅ DIVARRAY OCH ALLA DESS VARIABELNAMN SOM ÖVERRENSKOMMET
+				//TODO: ÄNDRA VARIABELNAMN PÅ nodes OCH ALLA DESS VARIABELNAMN SOM ÖVERRENSKOMMET
 				var movedObject = {
-					id:			parent.divArray[thisIndex].id,
-					className: 	parent.divArray[thisIndex].className,
-					name: 		parent.divArray[thisIndex].name,
+					id:			parent.nodes[thisIndex].id,
+					className: 	parent.nodes[thisIndex].className,
+					name: 		parent.nodes[thisIndex].name,
 					x:			this.style.left,
 					y:			this.style.top,
-					maxInput: 	parent.divArray[thisIndex].maxInput,
-					maxOutput:	parent.divArray[thisIndex].maxOutput
+					maxInput: 	parent.nodes[thisIndex].maxInput,
+					maxOutput:	parent.nodes[thisIndex].maxOutput
 					};
-					parent.divArray.splice(thisIndex,1,movedObject);
+					parent.nodes.splice(thisIndex,1,movedObject);
 				}
 				
 			});
@@ -116,8 +116,8 @@ var Node = (function(){
 				maxOutput: 	divMaxOutput
 			 };
 			  
-			parent.divArray.push(obj);	
-			console.log(parent.divArray);
+			parent.nodes.push(obj);	
+			console.log(parent.nodes);
 		},
 	}
 	
@@ -130,13 +130,13 @@ $(document).ready(function() {
 	
 	//När en connection görs så sparas den undan i arrayOfConnections, för att kunna spara till DB.
 	logicInstance.bind("jsPlumbConnection", function(conn){
-		parent.connectionArray.push(conn);
+		parent.connections.push(conn);
 		}
 	);
 	
 	//När en connection tas bort (t.ex. om man tar bort en nod) tas den även bort från arrayen.
 	logicInstance.bind("jsPlumbConnectionDetached", function(conn){
-		parent.connectionArray.splice(parent.connectionArray.indexOf(conn),1);
+		parent.connections.splice(parent.connections.indexOf(conn),1);
 		//typ logicInstance.connect(arrayOfConnections[0]);
 		}
 	);
@@ -178,8 +178,8 @@ $(document).ready(function() {
 				remove
 
 				//TA BORT FRÅN PARENT-LISTAN
-				parentIndex = indexOfObjectId(parent.divArray, selectedList[i]);
-				parent.divArray.splice(parentIndex,1);
+				parentIndex = indexOfObjectId(parent.nodes, selectedList[i]);
+				parent.nodes.splice(parentIndex,1);
 				
 				//TA BORT FRÅN SELECTED-LIST
 				selectedList.splice(i,1);
@@ -204,11 +204,11 @@ function arrayContains(array,obj){
 
 function addLatestConnections(){
 
-	if(parent.connectionArray.length != 0){
-		for(var i=0;i<parent.connectionArray.length;i++){
+	if(parent.connections.length != 0){
+		for(var i=0;i<parent.connections.length;i++){
 			logicInstance.connect({
-			source: parent.connectionArray[i].sourceId,
-			target: parent.connectionArray[i].targetId,
+			source: parent.connections[i].sourceId,
+			target: parent.connections[i].targetId,
 			anchors: ["BottomCenter","TopCenter"],
 			endpointStyles:[{radius: 7, fillStyle:"green", outlineColor:"black", outlineWidth:1},
 							{radius: 7, fillStyle:"red", outlineColor:"black", outlineWidth:1}],
@@ -224,39 +224,39 @@ function addLatestConnections(){
 }
 
 function addSavedDivs(){
-	if(parent.divArray.length != 0){
-		for(var i=0;i<parent.divArray.length;i++)
+	if(parent.nodes.length != 0){
+		for(var i=0;i<parent.nodes.length;i++)
 		{
-			$('#myCanvas').append("<div id='"+parent.divArray[i].id+"'></div>");
-			var elem = 			document.getElementById(parent.divArray[i].id);
-			elem.className = 	parent.divArray[i].className;
-			elem.innerHTML = 	"<p>"+parent.divArray[i].name+"</p>";
-			elem.style.left = 	parent.divArray[i].x;
-			elem.style.top = 	parent.divArray[i].y;
+			$('#myCanvas').append("<div id='"+parent.nodes[i].id+"'></div>");
+			var elem = 			document.getElementById(parent.nodes[i].id);
+			elem.className = 	parent.nodes[i].className;
+			elem.innerHTML = 	"<p>"+parent.nodes[i].name+"</p>";
+			elem.style.left = 	parent.nodes[i].x;
+			elem.style.top = 	parent.nodes[i].y;
 			
-			logicInstance.draggable(parent.divArray[i].id, {
+			logicInstance.draggable(parent.nodes[i].id, {
 			containment:"parent",
 			stop:function(event, ui){	
-				var thisIndex = indexOfObjectId(parent.divArray, this.id);
+				var thisIndex = indexOfObjectId(parent.nodes, this.id);
 				
 				var movedObject = {
-					id:			parent.divArray[thisIndex].id,
-					className: 	parent.divArray[thisIndex].className,
-					name: 		parent.divArray[thisIndex].name,
+					id:			parent.nodes[thisIndex].id,
+					className: 	parent.nodes[thisIndex].className,
+					name: 		parent.nodes[thisIndex].name,
 					x:			this.style.left,
 					y:			this.style.top,
-					maxInput: 	parent.divArray[thisIndex].maxInput,
-					maxOutput:  parent.divArray[thisIndex].maxOutput
+					maxInput: 	parent.nodes[thisIndex].maxInput,
+					maxOutput:  parent.nodes[thisIndex].maxOutput
 				};
-				parent.divArray.splice(thisIndex,1,movedObject);
+				parent.nodes.splice(thisIndex,1,movedObject);
 				}
 			});
 			
 			//ADD ENDPOINTS
-			if(parent.divArray[i].maxInput!= 0){
+			if(parent.nodes[i].maxInput!= 0){
 				var input = {
 					anchor: ["TopCenter"],
-					maxConnections: parent.divArray[i].maxInput,
+					maxConnections: parent.nodes[i].maxInput,
 					isSource:false, 
 					isTarget:true,
 					connector : "Bezier",
@@ -265,13 +265,13 @@ function addSavedDivs(){
 					scope:"blueline",
 					dragAllowedWhenFull:false     
 				};
-				logicInstance.addEndpoint(parent.divArray[i].id, input);
+				logicInstance.addEndpoint(parent.nodes[i].id, input);
 			}
 			
-			if(parent.divArray[i].maxOutput!= 0){
+			if(parent.nodes[i].maxOutput!= 0){
 				var output = {
 					anchor: ["BottomCenter"],
-					maxConnections:  parent.divArray[i].maxOutput,
+					maxConnections:  parent.nodes[i].maxOutput,
 					isSource:true, 
 					isTarget:false,
 					connector : "Bezier",
@@ -280,11 +280,11 @@ function addSavedDivs(){
 					scope:"blueline",
 					dragAllowedWhenFull:false     
 				}; 
-				logicInstance.addEndpoint(parent.divArray[i].id, output);
+				logicInstance.addEndpoint(parent.nodes[i].id, output);
 			}
 			
 		}
-	parent.setCreatedNodes(parent.divArray[parent.divArray.length-1].id);	
+	parent.setCreatedNodes(parent.nodes[parent.nodes.length-1].id);	
 	}
 	
 }

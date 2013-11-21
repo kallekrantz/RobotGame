@@ -47,7 +47,6 @@ public class RobotIdResource {
         Transaction tx = null;
         SessionFactory sessionFactory;
         Robot r = null;
-        System.out.println(jsonObj);
         try {
             sessionFactory = SessionCreator.getSessionFactory();
             session = sessionFactory.openSession();

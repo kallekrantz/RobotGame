@@ -25,28 +25,19 @@ public class UserIdResource {
     public Response get(@PathParam("userid") int userid) {
         Session session = null;
         Transaction tx = null;
-        SessionFactory sessionFactory;
+        User u;
         try {
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
+            session = SessionCreator.getSessionFactory().openSession();
             tx = session.beginTransaction();
-            User u = (User) session.createQuery("from User u where u.id = :userid").setInteger("userid", userid).uniqueResult();
+            u = (User) session.createQuery("from User u where u.id = :userid").setInteger("userid", userid).uniqueResult();
             session.flush();
             tx.commit();
-            return Response.ok(u).build();
-        } catch (WebApplicationException e) {
-            e.printStackTrace();
-            tx.rollback();
-            throw e;
-        }catch (Exception ex){
-            ex.printStackTrace();
-            tx.rollback();
-            throw new InternalServerErrorException();
         }
         finally {
             if (session != null) {
                 session.close();
             }
         }
+        return Response.ok(u).build();
     }
 }

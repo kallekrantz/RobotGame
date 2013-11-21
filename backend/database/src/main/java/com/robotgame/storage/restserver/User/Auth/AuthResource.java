@@ -1,5 +1,7 @@
 package com.robotgame.storage.restserver.User.Auth;
 
+import com.robotgame.storage.database.DatabaseRequest;
+import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.AuthToken;
@@ -29,41 +31,27 @@ public class AuthResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response authenticate(@PathParam("userid") int userid, String jsonstr) throws Exception {
-        Session session = null;
-        Transaction tx = null;
-        SessionFactory sessionFactory = null;
-
-        JSONObject jsonObj = new JSONObject(jsonstr);
-
-        try{
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
-            tx = session.beginTransaction();
-            User user = (User) session.get(User.class, userid);
-            if(user.getPwdHash().equals(PasswordHasher.hash((String) jsonObj.get("password")))){
-                AuthToken token = new AuthToken(user);
-                session.save(token);
-                session.flush();
-                tx.commit();
-                return Response.ok(token).build();
-            }else{
-                throw new UnauthorizedException();
+    public Response authenticate(@PathParam("userid") final int userid, final JSONObject jsonObj){
+        if(!jsonObj.has("password")){
+            throw new BadRequestException();
+        }
+        AuthToken token = (AuthToken) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                User user = (User) session.get(User.class, userid);
+                if (user == null) {
+                    throw new NotFoundException();
+                }
+                String password = jsonObj.optString("password", "");
+                if (user.getPwdHash().equals(PasswordHasher.hash(password))) {
+                    AuthToken token = new AuthToken(user);
+                    session.save(token);
+                    return token;
+                } else {
+                    throw new UnauthorizedException();
+                }
             }
-        }
-        catch(WebApplicationException e){
-            e.printStackTrace();
-            tx.rollback();
-            throw e;
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            tx.rollback();
-            throw new InternalServerErrorException();
-        }finally{
-            if(session != null){
-                session.close();
-            }
-        }
+        });
+        return Response.ok(token).build();
     }
 }

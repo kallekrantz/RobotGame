@@ -28,9 +28,9 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(JSONObject jsonObj){
-        User u = new User();
+        User u;
         try {
-            u = u.merge(jsonObj);
+            u = User.create(jsonObj);
         } catch (JSONException e) {
             e.printStackTrace();
             throw new BadRequestException();

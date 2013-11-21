@@ -1,5 +1,7 @@
 package com.robotgame.storage.restserver.User.Robot;
 
+import com.robotgame.storage.database.DatabaseRequest;
+import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.Robot;
 import com.robotgame.storage.entities.User;
@@ -27,26 +29,13 @@ public class RobotResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getList(@PathParam("userid") int userid){
-        Session session = null;
-        Transaction tx = null;
-        SessionFactory sessionFactory = null;
-        List<Robot> robotList = null;
-        try{
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
-            tx = session.beginTransaction();
-            robotList = session.createQuery("select distinct r from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
-            session.flush();
-            tx.commit();
-        }catch(Exception e){
-            e.printStackTrace();
-            tx.rollback();
-        }finally{
-            if(session != null){
-                session.close();
+    public Response getList(@PathParam("userid") final int userid){
+        List<Robot> robotList = (List<Robot>) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                return session.createQuery("select distinct r from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
             }
-        }
+        });
         return Response.ok(robotList.toArray(new Robot[robotList.size()])).build();
     }
 
@@ -54,39 +43,22 @@ public class RobotResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response post(JSONObject jsonObj, @PathParam("userid") int userid){
-        Session session = null;
-        Transaction tx = null;
-        Robot r = new Robot();
-
+    public Response post(JSONObject jsonObj, @PathParam("userid") final int userid){
+        final Robot r;
         try{
-            r.merge(jsonObj);
+            r = Robot.create(jsonObj);
         }catch(JSONException e){
             throw new BadRequestException();
         }
-
-        try{
-            session = SessionCreator.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-            User u = (User) session.get(User.class, userid);
-            r.setUser(u);
-            session.save(r);
-            session.flush();
-            tx.commit();
-            return Response.ok(r).build();
-        }catch(WebApplicationException ex){
-            ex.printStackTrace();
-            tx.rollback();
-            throw ex;
-        }catch(Exception e){
-            e.printStackTrace();
-            tx.rollback();
-            throw new InternalServerErrorException();
-        }finally{
-            if(session != null){
-                session.close();
+        Robot outRobot = (Robot) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                User u = (User) session.get(User.class, userid);
+                r.setUser(u);
+                return session.save(r);
             }
-        }
+        });
+        return Response.ok(outRobot).build();
     }
 
 }

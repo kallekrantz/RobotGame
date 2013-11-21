@@ -1,5 +1,7 @@
 package com.robotgame.storage.restserver.User.Robot;
 
+import com.robotgame.storage.database.DatabaseRequest;
+import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.Robot;
 import org.codehaus.jettison.json.JSONException;
@@ -16,69 +18,37 @@ import javax.ws.rs.core.Response;
 public class RobotIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("userid") int userid, @PathParam("robotid") int robotid) {
-        Session session = null;
-        Transaction tx = null;
-        SessionFactory sessionFactory;
-        Robot r = null;
-        try {
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
-            tx = session.beginTransaction();
-            r = (Robot) session.createQuery("from Robot r where r.user.id = :userid and r.id = :robotid").setInteger("userid", userid).setInteger("robotid", robotid).uniqueResult();
-            session.flush();
-            tx.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-            tx.rollback();
-        } finally {
-            if (session != null) {
-                session.close();
+    public Response get(@PathParam("userid") final int userid, @PathParam("robotid") final int robotid) {
+        Robot r = (Robot) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                return session.createQuery("from Robot r where r.user.id = :userid and r.id = :robotid").setInteger("userid", userid).setInteger("robotid", robotid).uniqueResult();
             }
-        }
+        });
         return Response.ok(r).build();
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response put(@PathParam("userid") int userid, @PathParam("robotid") int robotid, JSONObject jsonObj) throws Exception {
-        Session session = null;
-        Transaction tx = null;
-        SessionFactory sessionFactory;
-        Robot r = null;
-        try {
-            sessionFactory = SessionCreator.getSessionFactory();
-            session = sessionFactory.openSession();
-            tx = session.beginTransaction();
-            r = (Robot) session.createQuery("from Robot r where r.user.id = :userid and r.id = :robotid").setInteger("userid", userid).setInteger("robotid", robotid).uniqueResult();
-            if(r == null){
-                throw new NotFoundException();
+    public Response put(@PathParam("userid") final int userid, @PathParam("robotid") final int robotid, final JSONObject jsonObj){
+        Robot r = (Robot) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                Robot r = (Robot) session.createQuery("from Robot r where r.user.id = :userid and r.id = :robotid").setInteger("userid", userid).setInteger("robotid", robotid).uniqueResult();
+                if (r == null) {
+                    throw new NotFoundException();
+                }
+                try {
+                    Robot.merge(r, jsonObj);
+                } catch (JSONException e1) {
+                    e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                }
+                r = (Robot) session.merge(r);
+                session.saveOrUpdate(r);
+                return r;
             }
-            if (jsonObj.has("robotDesign")) {
-                r.setRobotDesign(jsonObj.getString("robotDesign"));
-            }
-            if(jsonObj.has("robotName")){
-                r.setRobotName(jsonObj.getString("robotName"));
-            }
-            r = (Robot) session.merge(r);
-            session.saveOrUpdate(r);
-            session.flush();
-            tx.commit();
-        }
-        catch (WebApplicationException we){
-            we.printStackTrace();
-            tx.rollback();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            tx.rollback();
-            return Response.serverError().build();
-        } finally {
-            if (session != null) {
-                session.close();
-            }
-        }
+        });
         return Response.ok(r).build();
     }
 }

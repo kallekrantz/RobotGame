@@ -1,5 +1,7 @@
 package com.robotgame.storage.restserver.User;
 
+import com.robotgame.storage.database.DatabaseRequest;
+import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.User;
 import org.hibernate.Session;
@@ -22,22 +24,13 @@ import javax.ws.rs.core.Response;
 public class UserIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("userid") int userid) {
-        Session session = null;
-        Transaction tx = null;
-        User u;
-        try {
-            session = SessionCreator.getSessionFactory().openSession();
-            tx = session.beginTransaction();
-            u = (User) session.createQuery("from User u where u.id = :userid").setInteger("userid", userid).uniqueResult();
-            session.flush();
-            tx.commit();
-        }
-        finally {
-            if (session != null) {
-                session.close();
+    public Response get(@PathParam("userid") final int userid) {
+        User u = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                return (User) session.createQuery("from User u where u.id = :userid").setInteger("userid", userid).uniqueResult();  //To change body of implemented methods use File | Settings | File Templates.
             }
-        }
+        });
         return Response.ok(u).build();
     }
 }

@@ -1,0 +1,39 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="js/popup.js"></script>
+
+<div id="settingsPopup" class="popup">
+
+	<h2>Create Account</h2>
+	
+	<form> 
+		<input class="design1" size="35" value="Username" name="textfield" type="text" /> 
+		<input class="design1" size="35" value="Password" name="textfield" type="text" />
+		<input class="design1" size="35" value="E-Mail" name="textfield" type="text" />
+		
+	</form>
+
+	<button onclick="closepopup('settingsPopup')">Back</button>
+	<button onclick="return parent.changeFrame('login.html');" >Sing Up</button>
+</div>
+
+<div id="loginBox">
+
+<form> 
+	<input class="design1" size="45" value="Username" name="textfield" type="text" /> 
+	<input class="design1" size="45" value="Password" name="textfield" type="text" />
+</form>
+
+<button id="loginButton" style="" onclick="return parent.changeFrame('garage.html');" type="button" >Login</button>
+<button id="garageButton" onclick="openpopup('settingsPopup')" >Create Account</button>
+
+</div>
+
+
+
+
+
+<div id="bg" class="popup_bg">
+</div>

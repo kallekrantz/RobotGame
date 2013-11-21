@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name="Users")
 @XmlRootElement
-public class User implements EntityInterface{
+public class User{
     private String _username, _firstname, _lastname;
     private int _userId;
     private String _pwdHash;
@@ -113,9 +113,9 @@ public class User implements EntityInterface{
                 '}';
     }
 
-    @Override
-    public User merge(JSONObject obj) throws JSONException{
-        User merge = new User(this);
+
+    public static User merge(User u,JSONObject obj) throws JSONException{
+        User merge = new User(u);
         if(obj.has("username")){
             merge.setUsername(obj.getString("username"));
         }
@@ -129,5 +129,15 @@ public class User implements EntityInterface{
             merge.setPwdHash(PasswordHasher.hash(obj.getString("password")));
         }
         return merge;
+    }
+    public static User create(JSONObject jsonObj) throws JSONException{
+        return new User(
+                jsonObj.getString("username"),
+                jsonObj.getString("firstname"),
+                jsonObj.getString("lastname"),
+                PasswordHasher.hash(
+                        jsonObj.getString("password")
+                )
+        );
     }
 }

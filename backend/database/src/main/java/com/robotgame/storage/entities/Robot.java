@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "Robots")
 @XmlRootElement
-public class Robot implements EntityInterface{
+public class Robot{
     private String robotName;
     private User user;
     private int id;
@@ -86,9 +86,16 @@ public class Robot implements EntityInterface{
                 '}';
     }
 
-    @Override
-    public Robot merge(JSONObject obj) throws JSONException {
-        Robot merge = new Robot(this);
+    public static Robot create(JSONObject jsonObj) throws JSONException{
+        return new Robot(
+                jsonObj.getString("robotName"),
+                null,
+                jsonObj.getString("robotDesign")
+        );
+    }
+
+    public static Robot merge(Robot r, JSONObject obj) throws JSONException {
+        Robot merge = new Robot(r);
         if(obj.has("robotDesign")){
             merge.setRobotDesign(obj.getString("robotDesign"));
         }

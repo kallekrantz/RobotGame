@@ -26,26 +26,21 @@
 
 <div id="tableOfContent">
 
-<table id="weaponTable">
-<tr><td><h3>Weapons</h3></td></tr>
-<!-------addNode kommer att ha 4 variabler in, dessa är (1:Nodtyp, 2:Namn på nod, 3:Maximala inputs, 4: Maximala outputs) [OBS!!!! -1 = INF CONNECTIONS]----->
-<tr><td><button class="weaponButton" onclick="addNode('weaponNode', 'Lazer','1','0')" >Lazer</button></td></tr>
-<tr><td><button class="weaponButton" onclick="addNode('weaponNode','PotatoGun','1','0')" >PotatoGun</button></td></tr>
-<tr><td><button class="weaponButton" onclick="addNode('weaponNode','BaseballBat','1','0')" >BaseballBat</button></td></tr>
-<tr><td><button class="weaponButton" onclick="addNode('weaponNode','Chainsaw','1','0')" >Chainsaw</button></td></tr>
-</table>
 
-<table id="logicTable">
+<table id="tableId">
 <tr><td><h3>Sensor Nodes</h3></td></tr>
-<tr><td><button class="logicButton" onclick="addNode('sensorNode','SectorSensor','0', '1')" >Sector Sensor</button></td></tr>
+<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '1','Angle','true')" >Sector Sensor</button></td></tr>
+<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '1','Distance','true')" >Distance Sensor</button></td></tr>
+<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '1','Distance','true')" >Mirrored Sector Sensor</button></td></tr>
 
 <tr><td><h3>Logic Nodes</h3></td></tr>
 
-<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1')" >Or</button></td></tr>
-<tr><td><button class="logicButton" onclick="addNode('logicNode','And','2','1')" >And</button></td></tr>
+<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
+<tr><td><button class="logicButton" onclick="addNode('logicNode','And','2','1','','false')" >And</button></td></tr>
 
 <tr><td><h3>Action Nodes</h3></td></tr>
-
+<!-------addNode kommer att ha 4 variabler in, dessa Ã¤r (1:Nodtyp, 2:Namn pÃ¥ nod, 3:Maximala inputs, 4: Maximala outputs) [OBS!!!! -1 = INF CONNECTIONS]----->
+<tr><td><button class="weaponButton" onclick="addNode('weaponNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
 
 </table>
 

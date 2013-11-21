@@ -21,7 +21,7 @@ $(document).ready(function() {
 			$("#weapon").text("");
 			parent.components[2] = ui.draggable[0].id;
             $("#weapon").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
-			document.getElementById("robot3D").contentWindow.hasChanged("TEMPWEAPON");
+			document.getElementById("robot3D").contentWindow.hasChanged(ui.draggable[0].id);
 		}
 	});
 	

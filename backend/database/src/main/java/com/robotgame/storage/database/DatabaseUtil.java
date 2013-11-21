@@ -2,13 +2,14 @@ package com.robotgame.storage.database;
 
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.WebApplicationException;
 
 public class DatabaseUtil {
-    public static Object runRequest(final DatabaseRequest strategy) {
-        Session session = SessionCreator.getSessionFactory().openSession();
+    public static Object runRequest(final DatabaseRequest strategy, SessionFactory factory) {
+        Session session = factory.openSession();
         session.beginTransaction();
         try {
             Object object = strategy.request(session);
@@ -25,5 +26,8 @@ public class DatabaseUtil {
         } finally {
             session.disconnect();
         }
+    }
+    public static Object runRequest(final DatabaseRequest strategy) {
+        return runRequest(strategy, SessionCreator.getSessionFactory());
     }
 }

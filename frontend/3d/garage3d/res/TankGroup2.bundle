@@ -1,0 +1,282 @@
+{
+    "TankGroup2/TankGroup2.group": {
+        "libraryRefs": [
+            "TankGroup2/meshes/Object001_0.mesh",
+            "TankGroup2/entities/RootNode.entity",
+            "TankGroup2/materials/Object001Mat.material",
+            "TankGroup2/entities/Fbx_Root.entity",
+            "TankGroup2/entities/Object001_0.entity",
+            "TankGroup2/binaries/1385025428_data.bin"
+        ],
+        "name": "TankGroup2",
+        "ref": "TankGroup2/TankGroup2.group"
+    },
+    "TankGroup2/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "TankGroup2/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "TankGroup2/entities/Object001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "TankGroup2/meshes/Object001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "TankGroup2/materials/Object001Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "TankGroup2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.5562634468078614,
+                    -8.619058609008789,
+                    -1.3720682859420776
+                ]
+            }
+        },
+        "name": "Object001",
+        "nodeType": "Mesh"
+    },
+    "TankGroup2/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "TankGroup2",
+        "nodeType": "Null"
+    },
+    "TankGroup2/materials/Object001Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Object001Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "TankGroup2/meshes/Object001_0.mesh": {
+        "binaryRef": "TankGroup2/binaries/1385025428_data.bin",
+        "boundingVolume": {
+            "max": [
+                8.657238483428955,
+                15.681177139282227,
+                13.893298029899597
+            ],
+            "min": [
+                -7.499999523162842,
+                8.63072395324707,
+                -11.106701970100403
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            2232
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            2232,
+            "uint16"
+        ],
+        "name": "Object001",
+        "normals": [
+            18996,
+            3633,
+            "float32"
+        ],
+        "tangents": [
+            33528,
+            4844,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                52904,
+                2422,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 1211,
+        "vertices": [
+            4464,
+            3633,
+            "float32"
+        ]
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-21T09:17:08.994817",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "TankGroup2/entities/Object001_0.entity",
+            "TankGroup2/entities/Fbx_Root.entity",
+            "TankGroup2/entities/RootNode.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "TankGroup2/TankGroup2.group"
+        ],
+        "id": "etgo5l9vT0CaIyPGRG5KOA",
+        "licenseType": "CC0",
+        "modified": "2013-11-21T09:17:08.994817",
+        "name": "TankGroup2",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    }
+}

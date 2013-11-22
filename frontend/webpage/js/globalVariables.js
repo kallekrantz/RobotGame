@@ -1,10 +1,12 @@
-var divArray = new Array();
-var connectionArray = new Array();
+var nodes = new Array();
+var connections = new Array();
+var components = new Array();
+components.splice(0,0, null,null,null,null,null);
 var createdNodes=0;
 
 
 function saveFile(){
-var json = JSON.stringify(divArray);
+var json = JSON.stringify(nodes);
 loadJSONfile(json);
 }
 
@@ -12,7 +14,7 @@ loadJSONfile(json);
 function loadJSONfile(jsonFile){
 	//need to load createdNodes variable aswell, it should contain the number of nodes created by
 	//the user, so that we can have an ID on all divs
-	divArray = JSON.parse(jsonFile);
+	nodes = JSON.parse(jsonFile);
 }
 
 function getCreatedNodes(){

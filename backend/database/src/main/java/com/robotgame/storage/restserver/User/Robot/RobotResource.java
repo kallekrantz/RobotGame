@@ -2,14 +2,12 @@ package com.robotgame.storage.restserver.User.Robot;
 
 import com.robotgame.storage.database.DatabaseRequest;
 import com.robotgame.storage.database.DatabaseUtil;
-import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.Robot;
 import com.robotgame.storage.entities.User;
+import com.robotgame.storage.services.RobotService;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -29,17 +27,12 @@ public class RobotResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getList(@PathParam("userid") final int userid){
-        List<Robot> robotList = (List<Robot>) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                List<Robot> robotList = session.createQuery("select distinct r from Robot r where r.user.id = :userid").setInteger("userid", userid).list();
-                if(robotList == null){
-                    throw new NotFoundException();
-                }
-                return robotList;
-            }
-        });
+    public Response get(@PathParam("userid") final int userid){
+        RobotService service = new RobotService();
+        List<Robot> robotList = service.getAllRobots(userid);
+        if(robotList == null){
+            throw new NotFoundException();
+        }
         return Response.ok(robotList.toArray(new Robot[robotList.size()])).build();
     }
 
@@ -47,25 +40,10 @@ public class RobotResource {
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response post(JSONObject jsonObj, @PathParam("userid") final int userid){
-        final Robot r;
-        try{
-            r = Robot.create(jsonObj);
-        }catch(JSONException e){
-            throw new BadRequestException();
-        }
-        Robot outRobot = (Robot) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                User u = (User) session.get(User.class, userid);
-                if(u == null){
-                    throw new NotFoundException();
-                }
-                r.setUser(u);
-                return session.save(r);
-            }
-        });
-        return Response.ok(outRobot).build();
+    public Response post(@PathParam("userid") final int userid, JSONObject jsonObj){
+        RobotService service = new RobotService();
+        Robot r = service.createRobot(userid, jsonObj);
+        return Response.ok(r).build();
     }
 
 }

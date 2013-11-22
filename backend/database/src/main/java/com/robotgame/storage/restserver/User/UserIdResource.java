@@ -1,14 +1,8 @@
 package com.robotgame.storage.restserver.User;
 
-import com.robotgame.storage.database.DatabaseRequest;
-import com.robotgame.storage.database.DatabaseUtil;
-import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.User;
-import org.codehaus.jettison.json.JSONException;
+import com.robotgame.storage.services.UserService;
 import org.codehaus.jettison.json.JSONObject;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -27,17 +21,11 @@ public class UserIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@PathParam("userid") final int userid) {
-        User u = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                User user = (User) session.get(User.class, userid);
-                System.out.println(user);
-                if(user == null){
-                    throw new NotFoundException();
-                }
-                return user;  //To change body of implemented methods use File | Settings | File Templates.
-            }
-        });
+        UserService service = new UserService();
+        User u = service.getUser(userid);
+        if(u == null){
+            throw new NotFoundException();
+        }
         return Response.ok(u).build();
     }
 
@@ -45,22 +33,11 @@ public class UserIdResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response put(@PathParam("userid") final int userid, final JSONObject jsonObj){
-        User u = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                User u = (User) session.get(User.class, userid);
-                if (u == null) {
-                    throw new NotFoundException();
-                }
-                User merged;
-                try {
-                    merged = (User) session.merge(User.merge(u, jsonObj));
-                } catch (JSONException e) {
-                    throw new BadRequestException();
-                }
-                return merged;
-            }
-        });
+        UserService service = new UserService();
+        User u = service.editUser(userid, jsonObj);
+        if(u == null){
+            throw new NotFoundException();
+        }
         return Response.ok(u).build();
     }
 }

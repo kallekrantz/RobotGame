@@ -1,21 +1,12 @@
 package com.robotgame.storage.restserver.User;
 
-import com.robotgame.storage.database.DatabaseRequest;
-import com.robotgame.storage.database.DatabaseUtil;
-import com.robotgame.storage.database.PasswordHasher;
-import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.User;
-import org.codehaus.jettison.json.JSONException;
+import com.robotgame.storage.services.UserService;
 import org.codehaus.jettison.json.JSONObject;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import javax.ws.rs.*;
-import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.xml.bind.JAXBElement;
 import java.util.List;
 
 /**
@@ -28,38 +19,22 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(JSONObject jsonObj){
-        final User u;
-        try {
-            u = User.create(jsonObj);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            throw new BadRequestException();
+        UserService service = new UserService();
+        User u = service.createUser(jsonObj);
+        if(u == null){
+            throw new NotFoundException();
         }
-
-        User outUser = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                User merged = (User) session.merge(u);
-                session.saveOrUpdate(merged);
-                return merged;
-            }
-        });
-        return Response.ok(outUser).build();
+        return Response.ok(u).build();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response get() {
-        List<User> userList = (List<User>) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                List<User> userList = session.createQuery("from User").list();
-                if(userList == null){
-                    throw new NotFoundException();
-                }
-                return userList;
-            }
-        });
+        UserService service = new UserService();
+        List<User> userList = service.getAllUsers();
+        if(userList == null){
+            throw new NotFoundException();
+        }
         return Response.ok(userList.toArray(new User[userList.size()])).build();
     }
 }

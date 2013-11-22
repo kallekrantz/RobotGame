@@ -73,7 +73,7 @@ public class MatchMaker {
 		Thread t=new Thread(game);
 		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
-		matchHandler match=new matchHandler();
+		matchHandler match=new matchHandler(_serverIndex);
 		match.setExpectedParticipants(_battleRoyale);
 		_matchHandlers.add(_serverIndex,match);
 		writeAllMembers(message,_BATTLEROYALEMODE);
@@ -86,7 +86,7 @@ public class MatchMaker {
 		Thread t=new Thread(game);
 		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
-		matchHandler match=new matchHandler();
+		matchHandler match=new matchHandler(_serverIndex);
 		match.setExpectedParticipants(_2v1);
 		_matchHandlers.add(_serverIndex,match);
 		writeAllMembers(message,_2V1MODE);
@@ -99,7 +99,7 @@ public class MatchMaker {
 		Thread t=new Thread(game);
 		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
-		matchHandler match=new matchHandler();
+		matchHandler match=new matchHandler(_serverIndex);
 		match.setExpectedParticipants(_2v2);
 		_matchHandlers.add(_serverIndex,match);
 		writeAllMembers(message,_2V2MODE);
@@ -111,7 +111,7 @@ public class MatchMaker {
 		Thread t=new Thread(game);
 		t.start();
 		String message = "port:"+(_INITIALPORT+_serverIndex);
-		matchHandler match=new matchHandler();
+		matchHandler match=new matchHandler(_serverIndex);
 		match.setExpectedParticipants(_1v1);
 		_matchHandlers.add(_serverIndex,match);
 		writeAllMembers(message,_1V1MODE);
@@ -199,6 +199,7 @@ public class MatchMaker {
 	 }
 	 public void closeGameServer(int serverIndex){
 		 try {
+			 Thread.sleep(300);
 			_servers.get(serverIndex).stop();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -210,6 +211,7 @@ public class MatchMaker {
 		 if(_numberOfServers==0){
 			 _serverIndex=0;
 		 }
+		 System.out.println("Skiten funkar iallafall");
 	 }
 	public matchHandler getHandler(int port) {
 		return _matchHandlers.get(port-49500);

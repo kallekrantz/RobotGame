@@ -21,6 +21,7 @@ public class matchHandler implements IMatchHandler {
 	private Vector<matchSocket> _connectedClients = new Vector<matchSocket>();
 	private String unpackingRoutine;
 	private int clientsReady=0;
+	private int id;
 	public boolean join(matchSocket socket){
 		for(String expected: _expectedClients ){
 			if(socket.getUser().equals(expected)){
@@ -30,6 +31,9 @@ public class matchHandler implements IMatchHandler {
 		}
 		socket._session.getRemote().sendStringByFuture("NetworkError:: Unexpected user");
 		return false;
+	}
+	public matchHandler(int matchId){
+		id=matchId;
 	}
 	public void setExpectedParticipants(Vector<matchMakerHandler> match) {
 		for(matchMakerHandler client : match){
@@ -84,6 +88,7 @@ public class matchHandler implements IMatchHandler {
 		// TODO Auto-generated method stub
 		Gson gson= new Gson();
 		sendToAll("MatchEnded::"+gson.toJson(_matchResult));
+		MatchMaker.getInstance().closeGameServer(id);
 	}
 	public void requestStartState(matchSocket socket) {
 		MatchState state  = new MatchState(0,_robots.size());

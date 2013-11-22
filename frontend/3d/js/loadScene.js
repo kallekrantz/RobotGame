@@ -148,10 +148,7 @@ require([
 				document.body.appendChild(goo.renderer.domElement);
 				
 				goo.startGameLoop();
-				
-			
-				
-				console.log(cameraEntity);
+				parent.setReady();
 				cameraEntity.transformComponent.setTranslation(0,80,200);
 				cameraEntity.transformComponent.lookAt(camLookAt,worldUp);
 				robot.transformComponent.attachChild(cameraEntity.getComponent('transformComponent'));

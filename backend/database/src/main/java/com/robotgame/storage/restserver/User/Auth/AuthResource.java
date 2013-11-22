@@ -3,15 +3,11 @@ package com.robotgame.storage.restserver.User.Auth;
 import com.robotgame.storage.database.DatabaseRequest;
 import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.PasswordHasher;
-import com.robotgame.storage.database.SessionCreator;
 import com.robotgame.storage.entities.AuthToken;
 import com.robotgame.storage.entities.User;
 import com.robotgame.storage.restserver.exceptions.UnauthorizedException;
-import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

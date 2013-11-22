@@ -4,7 +4,6 @@ import com.robotgame.storage.database.SessionCreator;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
-import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.io.IOException;

@@ -10,8 +10,6 @@ import com.sun.jersey.api.client.WebResource;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.glassfish.grizzly.http.server.HttpServer;
-
-import org.hamcrest.Matcher;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 import org.junit.After;
@@ -20,12 +18,7 @@ import org.junit.Test;
 
 import javax.ws.rs.core.MediaType;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
 import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsNot.not;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class UserPathTest {

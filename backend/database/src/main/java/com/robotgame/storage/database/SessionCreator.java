@@ -17,12 +17,14 @@ import java.util.Properties;
  * To change this template use File | Settings | File Templates.
  */
 public class SessionCreator {
-
+    private static Configuration config = null;
+    public static void setConfig(Configuration config){
+        SessionCreator.config = config.configure();
+    }
     public static SessionFactory getSessionFactory() throws HibernateException {
-        Configuration configuration = new Configuration().configure();
-        ServiceRegistryBuilder serviceRegistryBuilder = new ServiceRegistryBuilder().applySettings(configuration
+        ServiceRegistryBuilder serviceRegistryBuilder = new ServiceRegistryBuilder().applySettings(config
                 .getProperties());
-        SessionFactory sessionFactory = configuration
+        SessionFactory sessionFactory = config
                 .buildSessionFactory(serviceRegistryBuilder.buildServiceRegistry());
         return sessionFactory;
     }

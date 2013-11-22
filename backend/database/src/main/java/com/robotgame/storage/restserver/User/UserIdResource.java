@@ -30,7 +30,12 @@ public class UserIdResource {
         User u = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override
             public Object request(Session session) {
-                return session.createQuery("from User u where u.id = :userid").setInteger("userid", userid).uniqueResult();  //To change body of implemented methods use File | Settings | File Templates.
+                User user = (User) session.get(User.class, userid);
+                System.out.println(user);
+                if(user == null){
+                    throw new NotFoundException();
+                }
+                return user;  //To change body of implemented methods use File | Settings | File Templates.
             }
         });
         return Response.ok(u).build();

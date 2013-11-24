@@ -52,14 +52,6 @@ public class UserPathTest {
     @After
     public void tearDown() throws Exception {
         server.stop();
-        DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
-            public Object request(Session session) {
-                session.createQuery("delete from Users");
-                return null;
-            }
-        });
-        SessionCreator.getSessionFactory().close();
     }
 
     /**
@@ -72,19 +64,30 @@ public class UserPathTest {
 
         r = webResource.path("user").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).post(ClientResponse.class, obj);
         assertThat(r.getStatus(), is(200));
+    }
 
-        r = webResource.path("user").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+    @Test
+    public void testGetUser(){
+        ClientResponse r = webResource.path("user").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
         assertThat(r.getStatus(), is(200));
-
     }
 
     @Test
     public void testGetNonExistingUser() throws JSONException {
-        ClientResponse r = webResource.path("user/0").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
+        ClientResponse r = webResource.path("user/1").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).get(ClientResponse.class);
         assertThat(r.getStatus(), is(404));
     }
+
     @Test
     public void testPutExistingUser() throws JSONException{
-
+        JSONObject obj = new JSONObject("{username:'krantz'}");
+        ClientResponse r = webResource.path("user/0").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).put(ClientResponse.class, obj);
+        assertThat(r.getStatus(), is(200));
+    }
+    @Test
+    public void testPutNonExistingUser() throws JSONException{
+        JSONObject obj = new JSONObject("{username:'krantz'}");
+        ClientResponse r = webResource.path("user/1").type(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).put(ClientResponse.class, obj);
+        assertThat(r.getStatus(), is(404));
     }
 }

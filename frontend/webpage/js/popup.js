@@ -20,7 +20,9 @@ function closepopup(id){
 }
 
 function changeFrame(id){
-
 	document.getElementById('frame').src = id;
+	
+	$('#frame').css("background-image", "weapon1.jpg");
+	
 	return false;
 } 

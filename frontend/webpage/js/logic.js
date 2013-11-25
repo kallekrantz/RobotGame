@@ -335,6 +335,7 @@ window.onbeforeunload = function (e) {
 	}
 	console.log(parent.nodes);
 	parent.saveFile();
+	
 }
 
 //Jsplumb.ready är när sidan laddat klart, så att jsplumb får köras med alla divvar

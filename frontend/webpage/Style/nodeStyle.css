@@ -22,6 +22,7 @@
 	border-radius:20%;
 	background: lightblue;
 	vertical-align:middle;
+	text-align:center;
 }
 
 .sensorNode p, .logicNode p, .weaponNode p{

@@ -67,7 +67,7 @@ $(document).ready(function() {
 	$('#Laser2_2').hover(
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("<h1>This is your standard futuristic awesome lazer. It shoots huge holes in the enemy armor and is awesome. </h1>");
+			$("#robotView").append("<p>This is your standard futuristic awesome lazer. It shoots huge holes in the enemy armor and is awesome. </p>");
 	});
 	$('#weapon2').hover(
 		function(){
@@ -79,7 +79,7 @@ $(document).ready(function() {
 	$('#TankGroup2').hover(
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("<h1>This is your standard robot chassi.</h1>");
+			$("#robotView").append("<p>This is your standard robot chassi.</p>");
 	});
 	$('#chassi2').hover(
 		function(){

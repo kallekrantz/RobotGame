@@ -127,6 +127,9 @@ require([
 		goo.world.setSystem(new HowlerSystem());
 		
 		//var entityUtils = new EntityUtils();
+		var worldUp = new Vector3(0,1,0);
+		var cameraLookAt = new Vector3(0,0,0);
+		var cameraPos = new Vector3(0, 140, 220);
 		var entityStrings = new Array();
 		entityStrings[0] = "TankGroup2";
 		entityStrings[1] = "Laser2_2";
@@ -134,7 +137,7 @@ require([
 		
 		// The Loader takes care of loading data from a URL...
 		var loader = new DynamicLoader({world: goo.world, rootPath: 'res'});
-	goo.renderer.domElement.id = 'goo';
+		goo.renderer.domElement.id = 'goo';
 						document.body.appendChild(goo.renderer.domElement);
 						goo.startGameLoop();
 		var loaderModule = (function() {
@@ -217,11 +220,18 @@ require([
 		});
 		
 		var camera = new Camera(35, 1, 0.1, 1000);
+		//camera.lookAt(cameraLookAt, worldUp);
+
 		var cameraEntity = goo.world.createEntity('Camera');
+		
 		cameraEntity.setComponent(new CameraComponent(camera));
-		cameraEntity.transformComponent.transform.translation.set(0, 10, 100);
-		var camScript = new OrbitCamControlScript();
-		cameraEntity.setComponent(new ScriptComponent(camScript));
+		cameraEntity.transformComponent.transform.translation.set(cameraPos);
+		cameraEntity.transformComponent.lookAt(cameraLookAt, worldUp);
+
+		
+		//var camScript = new OrbitCamControlScript();
+		//cameraEntity.setComponent(new ScriptComponent(camScript));
+		
 						
 		cameraEntity.addToWorld();
 		

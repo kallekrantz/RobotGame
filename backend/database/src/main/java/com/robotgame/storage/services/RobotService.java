@@ -71,7 +71,8 @@ public class RobotService {
             public Object request(Session session) {
                 User u = (User) session.get(User.class, userId);
                 r.setUser(u);
-                return session.save(r);
+                session.saveOrUpdate(r);
+                return r;
             }
         });
     }

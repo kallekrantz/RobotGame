@@ -10,6 +10,11 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+
+/**
+ * AuthToken is an entity class that will manage most authentication. If OAuth does not work.
+ * Currently does not work and is not implemented
+ */
 @Entity
 @Table(name="AuthTokens")
 @XmlRootElement

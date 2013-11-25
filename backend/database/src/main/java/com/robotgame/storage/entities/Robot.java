@@ -9,11 +9,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Created with IntelliJ IDEA.
- * User: KarlJohan
- * Date: 10/24/13
- * Time: 5:19 PM
- * To change this template use File | Settings | File Templates.
+ * Robot is the entity containing the RobotBlueprint, and robotname. Currently Robot maps to user, and not the other way around.
  */
 
 @Entity

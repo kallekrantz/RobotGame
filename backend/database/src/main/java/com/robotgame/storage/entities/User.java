@@ -11,11 +11,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * Created with IntelliJ IDEA.
- * User: KarlJohan
- * Date: 10/24/13
- * Time: 4:54 PM
- * To change this template use File | Settings | File Templates.
+ * User Entity class contains everything that's needed for a single user.
  */
 
 @Entity

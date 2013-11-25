@@ -13,11 +13,7 @@ import java.util.List;
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: kallekrantz
- * Date: 22/11/13
- * Time: 10:56
- * To change this template use File | Settings | File Templates.
+ * Userservice for rest endpoint -> database. Currently maps to Hibernate.
  */
 public class UserService {
     public User getUser(final int userId){

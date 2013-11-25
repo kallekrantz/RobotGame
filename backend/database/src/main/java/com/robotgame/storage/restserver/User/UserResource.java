@@ -10,8 +10,9 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 /**
- *
+ * Endpoint that manages all users. Including creating a single one.
  */
+
 @Path("/user")
 public class UserResource {
 

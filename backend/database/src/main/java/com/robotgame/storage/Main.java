@@ -46,7 +46,7 @@ public class Main {
     }
 
     /**
-     * Main method.
+     * Main method. Starts the HttpServer
      * @param args
      * @throws IOException
      */

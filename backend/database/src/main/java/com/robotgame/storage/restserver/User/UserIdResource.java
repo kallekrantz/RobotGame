@@ -10,11 +10,7 @@ import javax.ws.rs.core.Response;
 
 
 /**
- * Created with IntelliJ IDEA.
- * User: kallekrantz
- * Date: 10/11/13
- * Time: 16:37
- * To change this template use File | Settings | File Templates.
+ * Resource that manages all UserEndpoints that require an id.
  */
 @Path("/user/{userid}")
 public class UserIdResource {

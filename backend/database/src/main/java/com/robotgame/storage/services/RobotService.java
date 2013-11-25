@@ -13,17 +13,11 @@ import javax.ws.rs.NotFoundException;
 import java.util.List;
 
 /**
- * Created with IntelliJ IDEA.
- * User: kallekrantz
- * Date: 22/11/13
- * Time: 11:13
- * To change this template use File | Settings | File Templates.
+ * RobotService for rest endpoint -> database. Currently maps to Hibernate.
  */
 public class RobotService {
 
-    /*public List<Robot> getAllRobots(){
-        throw NotImplement
-    }*/
+
 
     public List<Robot> getAllRobots(final int userId){
         return (List<Robot>) DatabaseUtil.runRequest(new DatabaseRequest() {

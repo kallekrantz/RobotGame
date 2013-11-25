@@ -8,6 +8,9 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+/**
+ * Resource that manages all RobotEndpoints that require an id.
+ */
 @Path("user/{userid}/robot/{robotid}")
 public class RobotIdResource {
     @GET

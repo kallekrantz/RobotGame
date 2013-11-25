@@ -9,12 +9,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
+
 /**
- * Created with IntelliJ IDEA.
- * User: kallekrantz
- * Date: 08/11/13
- * Time: 15:21
- * To change this template use File | Settings | File Templates.
+ * Endpoint that manages all robots. Including creating a single one.
  */
 
 @Path("user/{userid}/robot")

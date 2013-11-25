@@ -7,6 +7,10 @@ import org.hibernate.SessionFactory;
 import javax.ws.rs.InternalServerErrorException;
 import javax.ws.rs.WebApplicationException;
 
+/**
+ * Class for running a specific DatabaseRequest.
+ * May also contain other things.
+ */
 public class DatabaseUtil {
     public static Object runRequest(final DatabaseRequest strategy, SessionFactory factory) {
         Session session = factory.openSession();

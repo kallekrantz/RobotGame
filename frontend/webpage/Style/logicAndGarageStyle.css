@@ -41,6 +41,33 @@ height:30%;
 background-image: url('robotInfo.png');
 }
 
+#robotInfoTable{
+text-align: center;
+margin: 0px auto;
+}
+
+#robotInfoTable p{
+	font-family: "subtitleFont";
+	font-size: 14px;
+	margin-top: 10px;
+
+}
+
+#robotView{
+float:left;
+width:30%;
+height:30%;
+background-image: url('robotInfo.png');
+}
+
+#robotView p{
+	margin-left: 30px;
+	margin-right: 30px;
+	font-family: "subtitleFont";
+	font-size: 14px;
+	margin-top: 10px;
+}
+
 #robotView{
 float:left;
 width:30%;

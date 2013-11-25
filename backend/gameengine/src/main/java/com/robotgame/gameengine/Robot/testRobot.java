@@ -6,7 +6,11 @@ import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
 import com.robotgame.gameengine.Robot.Nodes.NodeType;
 
 import java.util.Vector;
-
+/**
+ * Creates a robot for testing purposes only.
+ * @author Rickard Gräntzelius
+ *
+ */
 public class testRobot {
 	public String json;
 	public testRobot(){

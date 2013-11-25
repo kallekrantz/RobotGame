@@ -10,15 +10,28 @@ import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
 import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 
 import com.google.gson.Gson;
-
+/**
+ * Websocket for matches. 
+ * @author Rickard Gräntzelius
+ *
+ */
 @WebSocket
-public class matchSocket {
+public class MatchSocket {
+	/**
+	 * Constant signifying a clients message as a join-request
+	 */
 	private static final String JOIN="0";
+	/**
+	 * Constant signifying a clients message as a ready-statement
+	 */
 	private static final String READY="1";
+	/**
+	 * Constant signifying a clients message as a keypress
+	 */
 	private static final String KEYPRESS="2";
 	Session _session;
 	String _user;
-	matchHandler _handler;
+	MatchHandler _handler;
 	public boolean ready;
 	@OnWebSocketClose
     public void onClose(int statusCode, String reason) {
@@ -41,6 +54,10 @@ public class matchSocket {
         }
     }
 
+    /**
+     * Handler for client messages. The first token of every message is used to determine what kind of message has been sent, according to the defined constants
+     * @param message
+     */
     @OnWebSocketMessage
     public void onMessage(String message) {
     	System.out.println(message.substring(0,1));
@@ -62,7 +79,6 @@ public class matchSocket {
             _handler.setReady();
 
         } else if (s.equals(KEYPRESS)) {
-            System.out.println("nu hï¿½nder det");
             _handler.sendToAll(_user + " pressed " + message.substring(1));
 
         } else {
@@ -73,9 +89,13 @@ public class matchSocket {
     }
 
 	public String getUser() {
-		// TODO Auto-generated method stub
 		return _user;
 	}
+	/**
+	 * Class used to interpret the clients json-object
+	 * @author Rickard Gräntzelius
+	 *
+	 */
 	private class joinRequest{
 		String user;
 		int port;

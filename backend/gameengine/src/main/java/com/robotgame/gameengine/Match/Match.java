@@ -2,7 +2,7 @@ package com.robotgame.gameengine.Match;
 
 import com.robotgame.gameengine.Network.MatchState;
 import com.robotgame.gameengine.Network.NetworkInterface;
-import com.robotgame.gameengine.Network.matchHandler;
+import com.robotgame.gameengine.Network.MatchHandler;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.MatchContext;

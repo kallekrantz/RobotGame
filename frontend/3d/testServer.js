@@ -1,9 +1,20 @@
 matchMakerSocket = new WebSocket("ws://127.0.0.1:61989/");
 userName = "bla";
+/**
+ * Called when the websocket has connected to the server. 
+ * @method onopen
+ * @return 
+ */
 matchMakerSocket.onopen = function() {
 	document.getElementById("messages").innerHTML+="Welcome!";
 };
 
+/**
+ * Handler for incoming messages from the server. Writes the message in debug, and if a port is sent, starts a connection to a matchsocket
+ * @method onmessage
+ * @param {} evt
+ * @return 
+ */
 matchMakerSocket.onmessage = function (evt) {
     document.getElementById("debug").innerHTML+="<br>"+evt.data;
 	if(evt.data.indexOf("port:") !== -1){
@@ -12,13 +23,30 @@ matchMakerSocket.onmessage = function (evt) {
 		startNewMatch(PORT);
 	}
 };
+/**
+ * Starts a new matchSocket.
+ * @method startNewMatch
+ * @param {} port
+ * @return 
+ */
 function startNewMatch (port){
 	matchSocket = new WebSocket("ws://127.0.0.1:"+port);
+	/**
+	 * When the socket is connected, responds with a request to join a matchhandler
+	 * @method onopen
+	 * @return 
+	 */
 	matchSocket.onopen = function() {
 		matchMakerSocket.close();
 		matchSocket.send("0"+makeReq(port,userName));
 		document.getElementById("messages").innerHTML="Messages: Loading scene";
 	}
+	/**
+	 * Handles messages from the matchsocket
+	 * @method onmessage
+	 * @param {} evt
+	 * @return 
+	 */
 	matchSocket.onmessage = function (evt){
 		if(evt.data.indexOf("NetworkError::")!=-1){
 			
@@ -38,18 +66,44 @@ function startNewMatch (port){
 		}
 		//document.getElementById("debug").innerHTML+="   "+evt.data;
 	}
+	/**
+	 * Description
+	 * @method onclose
+	 * @return 
+	 */
 	matchSocket.onclose = function(){
 	};
+	/**
+	 * Description
+	 * @method onerror
+	 * @return 
+	 */
 	matchSocket.onerror = function(){
 	};
 }
+/**
+ * Description
+ * @method onclose
+ * @return 
+ */
 matchMakerSocket.onclose = function() {
 };
 
+/**
+ * Description
+ * @method onerror
+ * @param {} err
+ * @return 
+ */
 matchMakerSocket.onerror = function(err) {
     alert("Error: " + err);
 };
 
+/**
+ * Make a json-object containing username, matchtype and robot id as a request to join a match-lobby.
+ * @method makeMatchMakerRequest
+ * @return 
+ */
 function makeMatchMakerRequest(){
 	userName = document.getElementById("username").value;
 	matchType  = document.getElementById("matchtype").selectedIndex;
@@ -57,25 +111,56 @@ function makeMatchMakerRequest(){
 	matchMakerSocket.send(message);
 	document.getElementById("messages").innerHTML="Messages: Entering "+document.getElementById("matchtype").options[document.getElementById("matchtype").selectedIndex].value+" lobby";
 }
+/**
+ * Request to join the matchhandler associated with the connected port.
+ * @method makeReq
+ * @param {} port
+ * @param {} username
+ * @return message
+ */
 function makeReq(port,username){
 	message=JSON.stringify(new joinRequest(username,port));
 	return message;
 }
-function request(name, id, model){
+/**
+ * prototype for the json-object used to join a matchlobby
+ * @method request
+ * @param {} name
+ * @param {} id
+ * @param {} type
+ * @return 
+ */
+function request(name, id, type){
 	this.user=name;
 	this.robotId=id;
-	this.type=model;
+	this.type=type;
 }
+/**
+ * prototype for the json-object used to join a matchhandler
+ * @method joinRequest
+ * @param {} name
+ * @param {} port
+ * @return 
+ */
 function joinRequest(name, port){
 	this.user=name;
 	this.port=port;
 }
-function ready(){
-	matchSocket.send("1");
-}
+
+/**
+ * Send a keypress to the server
+ * @method sendKey
+ * @param {} key
+ * @return 
+ */
 function sendKey(key){
 	matchSocket.send("2"+key);
 }
+/**
+ * Method to tell the server you are ready.
+ * @method setReady
+ * @return 
+ */
 function setReady(){
 	document.getElementById("messages").innerHTML="Messages: Waiting for other players";
 	matchSocket.send("1");

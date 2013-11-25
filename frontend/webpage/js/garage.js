@@ -62,6 +62,38 @@ $(document).ready(function() {
         helper: "clone"
     });
 	
+	//Hover Functionality for part information
+	/*******WEAPONS*******/
+	$('#Laser2_2').hover(
+		function(){
+			$("#robotView").text("");
+			$("#robotView").append("<p>This is your standard futuristic awesome lazer. It shoots huge holes in the enemy armor and is awesome. </p>");
+	});
+	$('#weapon2').hover(
+		function(){
+			$("#robotView").text("");
+			$("#robotView").append("PLACEHOLDER");
+	});
+	
+	/*******CHASSIS*******/
+	$('#TankGroup2').hover(
+		function(){
+			$("#robotView").text("");
+			$("#robotView").append("<p>This is your standard robot chassi.</p>");
+	});
+	$('#chassi2').hover(
+		function(){
+			$("#robotView").text("");
+			$("#robotView").append("PLACEHOLDER");
+	});
+	
+	/*******MOBILITY*******/
+	$('#wheels1').hover(
+		function(){
+			$("#robotView").text("");
+			$("#robotView").append("PLACEHOLDER");
+	});
+	
 });
 
 function addComponents(){
@@ -86,3 +118,5 @@ function addComponents(){
 		$("#weapon").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
 	}
 }
+
+

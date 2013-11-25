@@ -8,17 +8,9 @@
 var logicInstance;
 var selectedList = new Array();
 	
-function indexOfObjectId(array, obj){
-	for(var i=0;i<array.length;i++){
-		if(array[i].id==obj){
-			return i;
-		}
-	}
-	return -1;
-}
-	
-function addNode(nodeType,name,maxInput,maxOutput,txtFieldVal,txtFieldBool){
-	Node.createNode(nodeType,name,maxInput,maxOutput,txtFieldVal,txtFieldBool);
+
+function addNode(nodeType,name,maxInput,maxOutput,txtFieldLabel,txtFieldBool){
+	Node.createNode(nodeType,name,maxInput,maxOutput,txtFieldLabel,txtFieldBool);
 } 
 	
 	
@@ -26,31 +18,44 @@ function addNode(nodeType,name,maxInput,maxOutput,txtFieldVal,txtFieldBool){
 var Node = (function(){
 	
 	//Private variables
+	var divContext;
+	
 	var divId; 
-	var divClass;
-	var divName;
-	var divText;
-	var divMaxInput;
-	var divMaxOutput;
+	var divClassName;
+	var divNodeType;
+	var divMaxInputs;
+	var divMaxOutputs;
+	var divVal;
+	var divValLabel;
+	var divX;
+	var divY;
 	
 	//Member Functions
 	return{
 		
-		//Creates the div
-		createNode:function(nodeType,name,maxInput,maxOutput, txtFieldVal, txtFieldBool){
+		createNode:function(nodeType,name,maxInput,maxOutput, txtFieldLabel, txtFieldBool){
+		
+			//Sets all local parameters to its original values
 			divId = parent.getCreatedNodes() + ""; 
-			divClass = nodeType;
-			divName = name;
-			divText = "<div id='" + divId + "' class='"+divClass+"'><p>"+divName;
+			divClassName = nodeType;
+			divNodeType = name;
+			divMaxInputs = maxInput;
+			divMaxOutputs = maxOutput;
+			divValLabel = txtFieldLabel;
+			divVal = 0;
+			divX = 10;
+			divY = 1;
+			
+			//Create the div
+			divContext = "<div id='" + divId + "' class='"+divClassName+"'><p>"+divNodeType;
 			if(txtFieldBool=='true'){
-				divText = divText + "<br/>" + txtFieldVal + ": <input class='textFieldClass' name='textfield' type='text' />";
+				divContext = divContext + "<br/>" + txtFieldLabel + ": <input id='val"+divId+"'class='textFieldClass' value='0' name='textfield' type='text' />";
 			}
-			divText = divText+"</p></div>";
-			divMaxInput = maxInput;
-			divMaxOutput = maxOutput;
+			divContext = divContext+"</p></div>";
+
 			
 			/*creates the draggable object inside myCanvas*/
-			$('#myCanvas').append(divText);
+			$('#myCanvas').append(divContext);
 				logicInstance.draggable(divId, {
 				containment:"parent",
 				stop:function(event, ui){
@@ -62,24 +67,27 @@ var Node = (function(){
 				
 				//TODO: ÄNDRA VARIABELNAMN PÅ nodes OCH ALLA DESS VARIABELNAMN SOM ÖVERRENSKOMMET
 				var movedObject = {
-					id:			parent.nodes[thisIndex].id,
-					className: 	parent.nodes[thisIndex].className,
-					name: 		parent.nodes[thisIndex].name,
+					
+					nodeType: 	parent.nodes[thisIndex].nodeType,
 					x:			this.style.left,
 					y:			this.style.top,
-					maxInput: 	parent.nodes[thisIndex].maxInput,
-					maxOutput:	parent.nodes[thisIndex].maxOutput
+					id:			parent.nodes[thisIndex].id,
+					maxInputs: 	parent.nodes[thisIndex].maxInputs,
+					maxOutputs:	parent.nodes[thisIndex].maxOutputs,
+					val: 		parent.nodes[thisIndex].val,
+					valLabel:   parent.nodes[thisIndex].valLabel,
+					className: 	parent.nodes[thisIndex].className
 					};
 					parent.nodes.splice(thisIndex,1,movedObject);
 				}
 				
 			});
 			
-			//SET CONNECTIONS
-			if(divMaxInput != 0){
+			//Creates the endpoints and its settings to the div.
+			if(divMaxInputs != 0){
 				var input = {
 					anchor: ["TopCenter"],
-					maxConnections: divMaxInput,
+					maxConnections: divMaxInputs,
 					isSource:false, 
 					isTarget:true,
 					connector : "Bezier",
@@ -91,10 +99,10 @@ var Node = (function(){
 				logicInstance.addEndpoint(divId, input);
 			}
 			
-			if(divMaxOutput != 0){
+			if(divMaxOutputs != 0){
 				var output = {
 					anchor: ["BottomCenter"],
-					maxConnections:divMaxOutput,
+					maxConnections:divMaxOutputs,
 					isSource:true, 
 					isTarget:false,
 					connector : "Bezier",
@@ -106,14 +114,18 @@ var Node = (function(){
 				logicInstance.addEndpoint(divId, output);
 			}
 			
+			
+			
 			var obj = {
-				id: 		divId,
-				className: 	divClass,
-				name: 		divName,
-				x: 			1,
-				y: 			1,
-				maxInput: 	divMaxInput,
-				maxOutput: 	divMaxOutput
+				nodeType: 	divNodeType,
+				x:			divX,
+				y:			divY,
+				id:			divId,
+				maxInputs: 	divMaxInputs,
+				maxOutputs:	divMaxOutputs,
+				val: 		divVal,
+				valLabel:   divValLabel,
+				className: 	divClassName
 			 };
 			  
 			parent.nodes.push(obj);	
@@ -122,6 +134,15 @@ var Node = (function(){
 	}
 	
 }());	
+
+function indexOfObjectId(array, obj){
+	for(var i=0;i<array.length;i++){
+		if(array[i].id==obj){
+			return i;
+		}
+	}
+	return -1;
+}
 	
 
 $(document).ready(function() {
@@ -130,16 +151,31 @@ $(document).ready(function() {
 	
 	//När en connection görs så sparas den undan i arrayOfConnections, för att kunna spara till DB.
 	logicInstance.bind("jsPlumbConnection", function(conn){
-		parent.connections.push(conn);
+		var myConn = {
+			sourceId : conn.sourceId,
+			targetId : conn.targetId
 		}
-	);
+		parent.connections.push(myConn);
+		console.log(parent.connections);
+	});
 	
 	//När en connection tas bort (t.ex. om man tar bort en nod) tas den även bort från arrayen.
 	logicInstance.bind("jsPlumbConnectionDetached", function(conn){
-		parent.connections.splice(parent.connections.indexOf(conn),1);
-		//typ logicInstance.connect(arrayOfConnections[0]);
+		var idx = -1;
+		for(var i=0;i<parent.connections.length;i++){
+			if( (parent.connections[i].sourceId == conn.sourceId) && (parent.connections[i].targetId == conn.targetId)){
+				idx = i;
+			}
 		}
-	);
+		
+		if(idx >=0){
+			parent.connections.splice(idx,1);
+			console.log(parent.connections);
+		}
+		else{
+			alert("Error, something went wrong!");
+		}
+	});
 	
 	//Om man klickar på en div ska den bli "selected"
 	//Sparas undan i global variable "selected" och får röd ram
@@ -147,8 +183,8 @@ $(document).ready(function() {
 	
 	$('#myCanvas').click(function(event){
 		var tar = '#'+event.target.id;
-		
-		if(tar!='#myCanvas'){
+		console.log(event);
+		if(tar!='#myCanvas' && event.target.className!='textFieldClass' ){
 			//Om diven redan är selectad och man klickar på den igen,
 			//så ska den inte bli selectad längre
 			if(arrayContains(selectedList,event.target.id)){
@@ -163,9 +199,9 @@ $(document).ready(function() {
 		}
 	});
 	
-	/*
+	
 	$(document).keydown(function(e){
-		if (e.keyCode == 46) { 
+	if (e.keyCode == 46) { 
 			var parentIndex;
 			for(var i=0;i<selectedList.length;i++){
 				//Först ta bort alla grafiska connections-delar
@@ -174,20 +210,18 @@ $(document).ready(function() {
 				
 				//TA BORT SJÄLVA BOXEN
 				$("#" + selectedList[i]).remove();
-				
-				remove
 
 				//TA BORT FRÅN PARENT-LISTAN
 				parentIndex = indexOfObjectId(parent.nodes, selectedList[i]);
 				parent.nodes.splice(parentIndex,1);
 				
 				//TA BORT FRÅN SELECTED-LIST
-				selectedList.splice(i,1);
+				//selectedList.splice(i,1);
 			}
+			selectedList.splice(0,selectedList.length);
 		   return false;
 		}
 	});
-	*/
 	
 });
 
@@ -203,22 +237,20 @@ function arrayContains(array,obj){
 //LOADS THE CONNECTIONS AND DIVS FROM THE GLOBAL VARIABLES
 
 function addLatestConnections(){
-
 	if(parent.connections.length != 0){
 		for(var i=0;i<parent.connections.length;i++){
-			logicInstance.connect({
-			source: parent.connections[i].sourceId,
-			target: parent.connections[i].targetId,
-			anchors: ["BottomCenter","TopCenter"],
-			endpointStyles:[{radius: 7, fillStyle:"green", outlineColor:"black", outlineWidth:1},
-							{radius: 7, fillStyle:"red", outlineColor:"black", outlineWidth:1}],
-			paintStyle:{ lineWidth:2, strokeStyle:'blue'},
-			maxConnections: "1" 
-			
-			/*MAN KAN ALLTID LÄGGA TILL EN TILL CONNECTION PGA ATT DET TYP SKAPA EN TILL ENDPOINT PÅ
-			SAMMA POSITION..... BALLE... BORDE KUNNA LÖSA GENOM ATT KOLLA NUVARANDE CONNECTIONS.*/
-			
-			});
+			if(logicInstance.getEndpoints(parent.connections[i].sourceId).length == 1){
+				logicInstance.connect({
+					source: logicInstance.getEndpoints(parent.connections[i].sourceId)[0],
+					target: logicInstance.getEndpoints(parent.connections[i].targetId)[0],
+				});
+			}
+			else{
+				logicInstance.connect({
+					source: logicInstance.getEndpoints(parent.connections[i].sourceId)[1],
+					target: logicInstance.getEndpoints(parent.connections[i].targetId)[0],
+				});
+			}
 		}
 	}		
 }
@@ -230,7 +262,12 @@ function addSavedDivs(){
 			$('#myCanvas').append("<div id='"+parent.nodes[i].id+"'></div>");
 			var elem = 			document.getElementById(parent.nodes[i].id);
 			elem.className = 	parent.nodes[i].className;
-			elem.innerHTML = 	"<p>"+parent.nodes[i].name+"</p>";
+				var thisInnerHtml = "<p>"+parent.nodes[i].nodeType;
+				if(parent.nodes[i].valLabel != ""){
+					thisInnerHtml = thisInnerHtml+"<br/>"+parent.nodes[i].valLabel+": <input id='val"+parent.nodes[i].id+"'class='textFieldClass' name='textfield' type='text' value='"+parent.nodes[i].val+"'/>";
+				}
+				thisInnerHtml = thisInnerHtml+"</p>";
+			elem.innerHTML = thisInnerHtml;
 			elem.style.left = 	parent.nodes[i].x;
 			elem.style.top = 	parent.nodes[i].y;
 			
@@ -239,24 +276,27 @@ function addSavedDivs(){
 			stop:function(event, ui){	
 				var thisIndex = indexOfObjectId(parent.nodes, this.id);
 				
-				var movedObject = {
-					id:			parent.nodes[thisIndex].id,
-					className: 	parent.nodes[thisIndex].className,
-					name: 		parent.nodes[thisIndex].name,
-					x:			this.style.left,
-					y:			this.style.top,
-					maxInput: 	parent.nodes[thisIndex].maxInput,
-					maxOutput:  parent.nodes[thisIndex].maxOutput
-				};
+					var movedObject = {
+						
+						nodeType: 	parent.nodes[thisIndex].nodeType,
+						x:			this.style.left,
+						y:			this.style.top,
+						id:			parent.nodes[thisIndex].id,
+						maxInputs: 	parent.nodes[thisIndex].maxInputs,
+						maxOutputs:	parent.nodes[thisIndex].maxOutputs,
+						val: 		parent.nodes[thisIndex].val,
+						valLabel:   parent.nodes[thisIndex].valLabel,
+						className: 	parent.nodes[thisIndex].className
+					};			
 				parent.nodes.splice(thisIndex,1,movedObject);
 				}
-			});
+		});
 			
 			//ADD ENDPOINTS
-			if(parent.nodes[i].maxInput!= 0){
+			if(parent.nodes[i].maxInputs!= 0){
 				var input = {
 					anchor: ["TopCenter"],
-					maxConnections: parent.nodes[i].maxInput,
+					maxConnections: parent.nodes[i].maxInputs,
 					isSource:false, 
 					isTarget:true,
 					connector : "Bezier",
@@ -268,10 +308,10 @@ function addSavedDivs(){
 				logicInstance.addEndpoint(parent.nodes[i].id, input);
 			}
 			
-			if(parent.nodes[i].maxOutput!= 0){
+			if(parent.nodes[i].maxOutputs!= 0){
 				var output = {
 					anchor: ["BottomCenter"],
-					maxConnections:  parent.nodes[i].maxOutput,
+					maxConnections:  parent.nodes[i].maxOutputs,
 					isSource:true, 
 					isTarget:false,
 					connector : "Bezier",
@@ -282,7 +322,6 @@ function addSavedDivs(){
 				}; 
 				logicInstance.addEndpoint(parent.nodes[i].id, output);
 			}
-			
 		}
 	parent.setCreatedNodes(parent.nodes[parent.nodes.length-1].id);	
 	}
@@ -291,6 +330,10 @@ function addSavedDivs(){
 
 //When the user leaves the page
 window.onbeforeunload = function (e) {
+	for(var i=0;i<parent.nodes.length;i++){
+		parent.nodes[i].val = document.getElementById('val'+parent.nodes[i].id).value;
+	}
+	console.log(parent.nodes);
 	parent.saveFile();
 }
 

@@ -9,6 +9,7 @@
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/popup.css">
 <link rel="stylesheet" type="text/css" href="Style/nodeStyle.css">
 <link rel="stylesheet" type="text/css" href="Style/logicAndGarageStyle.css">
 
@@ -22,7 +23,9 @@
 	</table>
 </div>
 
+<div id="outerCanvas">
 <div id="myCanvas"></div>
+</div>
 
 <div id="tableOfContent">
 
@@ -50,12 +53,12 @@
 <div id="robotInformation"></div>
 
 <div id="changeView">
-	<button class="changeScreen" onclick="return parent.changeFrame('garage.html');" >To Garage</button>
+	<button id="toGarageButton" onclick="return parent.changeFrame('garage.html');" ></button>
 	
 </div>
 
 <div id="toBattle">
-	<button id="battleButton" onclick="return parent.changeFrame('connection.html');" >Go</button>
+	<button id="battleButton" onclick="return parent.changeFrame('connection.html');" ></button>
 </div>
 
 <div id="robotView"></div>
@@ -69,10 +72,10 @@
 	</br></br>
 	<input class="txtFieldClass" size="35" value="New Password" name="textfield" type="text" />
 	</br></br>
-	<button onclick="closepopup('settingsPopup')">Change</button>
+	<button id="changeButton" onclick="closepopup('settingsPopup')"></button>
 	</br></br>
-	<button onclick="closepopup('settingsPopup')">Back</button>
-	<button onclick="return parent.changeFrame('login.html');" >Logout</button>
+	<button id="backButton" onclick="closepopup('settingsPopup')"></button>
+	<button id="logoutButton" onclick="return parent.changeFrame('login.html');" ></button>
 	
 </div>
 

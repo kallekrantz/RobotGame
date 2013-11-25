@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
 <link rel="stylesheet" type="text/css" href="Style/nodeStyle.css">
 <link rel="stylesheet" type="text/css" href="Style/logicAndGarageStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/popup.css">
 
 
 <div id="menuHeader">
@@ -21,14 +22,14 @@
 	</table>
 </div>
 
-<div id="myCanvas">
-
-<iframe id="robot3D" style="position:relative;" width = "100%" height = "100%" src="../3d/garage3d/index.html">
-</iframe>
-<div id="weapon">your weapon</div>
-<div id="chassi">your chassi</div>
-<div id="wheels">your wheels</div>
-
+<div id="outerCanvas">
+	<div id="myCanvas">
+		<iframe id="robot3D" style="position:relative;" width = "100%" height = "100%" src="../3d/garage3d/index.html">
+		</iframe>
+		<div id="weapon">your weapon</div>
+		<div id="chassi">your chassi</div>
+		<div id="wheels">your wheels</div>
+	</div>
 </div>
 
 <div id="tableOfContent">
@@ -52,11 +53,11 @@
 <div id="robotInformation"></div>
 
 <div id="changeView">
-	<button class="changeScreen" onclick="return parent.changeFrame('logic.html');" >To Logic</button>
+	<button id="toLogicButton" onclick="return parent.changeFrame('logic.html');" ></button>
 </div>
 
 <div id="toBattle">
-	<button id="battleButton"  onclick="return parent.changeFrame('connection.html');" >Go</button>
+	<button id="battleButton"  onclick="return parent.changeFrame('connection.html');" ></button>
 </div>
 
 <div id="robotView"></div>
@@ -70,10 +71,10 @@
 	</br></br>
 	<input class="txtFieldClass" size="35" value="New Password" name="textfield" type="text" />
 	</br></br>
-	<button onclick="closepopup('settingsPopup')">Change</button>
+	<button id="changeButton" onclick="closepopup('settingsPopup')"></button>
 	</br></br>
-	<button onclick="closepopup('settingsPopup')">Back</button>
-	<button onclick="return parent.changeFrame('login.html');" >Logout</button>
+	<button id="backButton" onclick="closepopup('settingsPopup')"></button>
+	<button id="logoutButton" onclick="return parent.changeFrame('login.html');" ></button>
 </div>
 
 <div id="bg" class="popup_bg">

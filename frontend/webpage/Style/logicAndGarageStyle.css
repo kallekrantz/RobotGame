@@ -19,11 +19,19 @@ height:65%;
 background-image: url('logicTable.png');
 }
 
-#myCanvas {
+#outerCanvas{
 float: right;
 width:70%;
 height:70%;
 background-image: url('canvas.png');
+}
+
+#myCanvas {
+background-image: none;
+margin-left: 47px;
+margin-top: 33px; 
+width:87%;
+height:87%;
 }
 
 #robotInformation{
@@ -111,6 +119,7 @@ height:30%;
     border:none;
 	width:20;
     height:20;
+	outline: none;
 }
 
 #settingButton:hover {
@@ -124,25 +133,62 @@ height:30%;
 }
 
 #battleButton{
-	font-family:"subtitleFont";
-	font-weight:bold;
-	font-size:30px;
 	background:url(battle1.png) no-repeat;
 	background-size: 100% 100%;
 	cursor:pointer;
     border:none;
-	height:100px;
-	width:100px;
+	height:150px;
+	width:150px;
+	outline: none;
 	
 	position: absolute;
-	margin-left: 55px;
-	margin-top: 55px;
+	margin-left: 35px;
+	margin-top: 35px;
 }
 
 #battleButton:hover {
      background:url(battle2.png) no-repeat;
 	 background-size: 100% 100%;
 }
+
+#toLogicButton{
+	background:url(logic1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	height:150px;
+	width:150px;
+	
+	position: absolute;
+	margin-left: 40px;
+	margin-top: 35px;
+	outline: none;
+}
+
+#toLogicButton:hover{
+     background:url(logic2.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
+#toGarageButton{
+	background:url(garage1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	height:150px;
+	width:150px;
+	outline: none;
+	
+	position: absolute;
+	margin-left: 40px;
+	margin-top: 35px;
+}
+
+#toGarageButton:hover{
+     background:url(garage2.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
 
 /*KNAPPAR*/
 .toBattle{
@@ -183,8 +229,9 @@ width: 100;
 height: 100;
 border:1px solid black;
 background-color: green;
-margin-left: 50;
-margin-top: 53;
+margin-left: 20;
+margin-top: 30;
+margin-bottom: 20;
 box-shadow: 5px 5px 20px black;
 float:left;
 }
@@ -201,14 +248,15 @@ position: relative;
 }
 
 #robot3D{
-width: 459;
-height:409;
+width: 450;
+height:404;
 border:1px solid black;
-margin-right: 50;
-margin-top: 53;
+margin-right: 20;
+margin-top: 30;
 box-shadow: 5px 5px 20px black;
 float: right;
 }
+
 
 
 

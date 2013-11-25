@@ -35,7 +35,7 @@ function hasChanged(changedVal){
 
 function getGoo(goo){
 	globalGoo = goo;
-	console.log(globalGoo.entityManager.getEntities());
+	//console.log(globalGoo.entityManager.getEntities());
 }
 
 
@@ -174,8 +174,8 @@ require([
 						else{
 							var ent = loader.getCachedObjectForRef(entityName + "/entities/RootNode.entity");
 							
-							console.log(entityName);
-							console.log(chassi);
+							//console.log(entityName);
+							//console.log(chassi);
 							EntityUtils.hide(ent);
 							if(entityName == chassi || entityName == weapon || entityName == wheel){
 							EntityUtils.show(ent);
@@ -188,7 +188,7 @@ require([
 						// push to the entity array
 						//loadedEntities.push(entity);
 						
-						console.log(loader.getCachedObjectForRef(entityName+"/entities/RootNode.entity"));
+						//console.log(loader.getCachedObjectForRef(entityName+"/entities/RootNode.entity"));
 						
 						
 						//console.log(entity);

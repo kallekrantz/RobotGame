@@ -72,7 +72,7 @@ $(document).ready(function() {
 	$('#weapon2').hover(
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("PLACEHOLDER");
+			$("#robotView").append("<p>PLACEHOLDER</p>");
 	});
 	
 	/*******CHASSIS*******/
@@ -84,14 +84,14 @@ $(document).ready(function() {
 	$('#chassi2').hover(
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("PLACEHOLDER");
+			$("#robotView").append("<p>PLACEHOLDER</p>");
 	});
 	
 	/*******MOBILITY*******/
 	$('#wheels1').hover(
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("PLACEHOLDER");
+			$("#robotView").append("<p>PLACEHOLDER</p>");
 	});
 	
 });

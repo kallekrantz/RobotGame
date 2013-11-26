@@ -1,12 +1,14 @@
 package com.robotgame.gameengine.tests.RobotTests;
 
-import com.robotgame.gameengine.Match.IMatchHandler;
-import com.robotgame.gameengine.Match.Match;
-import com.robotgame.gameengine.Match.MatchResult;
+import com.google.gson.Gson;
+import com.robotgame.gameengine.Match.*;
+import com.robotgame.gameengine.Network.*;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
+import com.robotgame.gameengine.Robot.Nodes.NodeType;
 import org.junit.Test;
 
+import java.util.Vector;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.assertThat;
@@ -25,7 +27,11 @@ public class CompleteRobotTest implements IMatchHandler
 
     public CompleteRobotTest()
     {
-        match = new Match(this);
+
+       // match = new Match(this, new NetworkMockup(), 0);
+
+        match = new Match(this, 1);
+
     }
 
     @Test
@@ -33,43 +39,44 @@ public class CompleteRobotTest implements IMatchHandler
     {
         CompleteRobotTest rt = new CompleteRobotTest();
 
-        RobotBlueprint blueprint = new RobotBlueprint();
-        RobotBlueprint blueprint2 = new RobotBlueprint();
+        RobotBlueprint blueprint = new RobotBlueprint(6, 4);
+
         //Todo: Fill blueprint with nodes
 
-        /***** Implemented Nodes ********
-         //Sensor nodes
-         S_DistanceSensor,
-         //Logic nodes
-         L_And, L_Or, L_Not, L_And3, L_Or3, L_Delay, L_True, L_False, L_Default, L_TicTac, L_Clock, L_MajorityOf3,
-         //Action nodes
-         A_Debug,
-         //Default node
-         Default
-         */
 
-        blueprint.AddNode("L_Clock", 2, 0, 0);                 blueprint.AddNode("L_TicTac", 7, 0, 1);
-//                            |                                /
-        blueprint.AddNode("L_Delay", 30, 0, 2);//             /
-//                            |                              /
-        blueprint.AddNode("L_Or", 0, 0, 3);
-//                                             |
-        blueprint.AddNode("A_Debug", 0, 0, 4);
-
-        blueprint.AddConnection(new NodeConnection(0, 0, 2, 0));
-        blueprint.AddConnection(new NodeConnection(2, 0, 3, 0));
-        blueprint.AddConnection(new NodeConnection(1, 0, 3, 1));
-        blueprint.AddConnection(new NodeConnection(3, 0, 4, 0));
+/*
+        blueprint.AddNode(NodeType.Clock, 200, 0);                 blueprint.AddNode(NodeType.TicTac, 700, 1);
+//                            |                                   /
+          blueprint.AddNode(NodeType.Delay, 30, 2);//            /
+//                               |                              /
+                            blueprint.AddNode(NodeType.Or, 0, 3);
+//                                          |
+                            blueprint.AddNode(NodeType.Debug, 0, 4);
+*/
+        //Test robot that drives in circles, alternating left and right.
+                            blueprint.AddNode(NodeType.TicTac, 2000, 0);                            blueprint.AddNode(NodeType.True, 0, 1);
+//                                 |                           |                                             |
+        blueprint.AddNode(NodeType.Not, 0, 2);//               |                                             |
+//                                 |                           |                                             |
+        blueprint.AddNode(NodeType.TurnRight, 0, 4);   blueprint.AddNode(NodeType.TurnLeft, 0, 3);  blueprint.AddNode(NodeType.MoveForward, 0, 5);
 
 
+                   //From node, From channel, index
+        blueprint.AddConnection(0, 2, 0);
+        blueprint.AddConnection(0, 3, 1);
+        blueprint.AddConnection(2, 4, 2);
+        blueprint.AddConnection(1, 5, 3);
 
 
 
 
-        RobotBlueprint[] blueprints = new RobotBlueprint[2];
-        blueprints[0] = blueprint;
-        blueprints[1] = blueprint2;
 
+
+        Vector<RobotBlueprint> blueprints = new Vector<RobotBlueprint>();
+        blueprints.add(blueprint);
+
+        Gson gson = new Gson();
+        System.out.println(gson.toJson(blueprint));
 
         rt.match.BuildRobots(blueprints);
 
@@ -80,10 +87,14 @@ public class CompleteRobotTest implements IMatchHandler
     }
 
 
-    @Override
     public void MatchEnded(MatchResult results)
     {
         assertThat(results.winningTeam, is(2));
         assertThat(results.winningTeam, not(is(1)));
+    }
+
+    public void SendMatchState(MatchState matchState)
+    {
+
     }
 }

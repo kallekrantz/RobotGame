@@ -8,10 +8,14 @@ package com.robotgame.gameengine.Robot;
  * To change this template use File | Settings | File Templates.
  */
 
-
+/**
+ * Contains information used by sensor nodes to evaluate their criteria.
+ */
 public class MatchContext
 {
     public RobotState[] robotStates;
+    public boolean[] A;
+    public boolean[] B;
     private int numRobots;
     public float eastArenaBoundary, westArenaBoundary, northArenaBoundary, southArenaBoundary;
 
@@ -19,6 +23,8 @@ public class MatchContext
     {
         this.numRobots = numRobots;
         robotStates = new RobotState[numRobots];
+        A = new boolean[numRobots];
+        B = new boolean[numRobots];
     }
 
 

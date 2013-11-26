@@ -16,7 +16,9 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//A default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * OBSOLETE!
+ */
 public class Or3Node extends Node
 {
     /*
@@ -32,20 +34,19 @@ public class Or3Node extends Node
     public Or3Node(int ownerIndex)
     {
         _isUpdated = false;
-        _numInput = 2;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
+        _maxInputs = 2;
+
+
+        _connectionToInput = new int[_maxInputs];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Or3;
+        _type = NodeType.Or;
         _ownerIndex = ownerIndex;
     }
 
     @Override
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (input == null) _output[0] = false;
-        else _output[0] = input[0] || input[1] || input[2];
-        _isUpdated = true;
+        _output = false;
+
     }
 }

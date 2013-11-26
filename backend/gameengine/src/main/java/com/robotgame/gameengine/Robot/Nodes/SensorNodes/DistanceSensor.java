@@ -18,50 +18,51 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//Detects whether any other robots are found between distances minDist and maxDist
+/**
+ * Detects whether any other robots are found within a certain distance.
+ */
 public class DistanceSensor extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
-    protected int _ownerIndex;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
 
     private float _minDist, _maxDist;
 
-    public DistanceSensor(int ownerIndex, float minDist, float maxDist)
+    /**
+     * Creates a distance sensor.
+     * @param ownerIndex
+     * @param maxDist    The radius in cm within which the sensor checks for other robots.
+     */
+    public DistanceSensor(int ownerIndex, float maxDist)
     {
-        _isUpdated = false;
-        _numInput = 0;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        _connectionToInput = new int[_numInput];
+        _maxInputs = 0;
         _category = NodeCategory.Sensor;
-        _type = NodeType.S_DistanceSensor;
-
+        _type = NodeType.DistanceSensor;
         _ownerIndex = ownerIndex;
-        _minDist = minDist;
-        _maxDist = maxDist;
+
+        _minDist = 0;
+        _maxDist = Math.abs(maxDist/100);
     }
 
     @Override
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (context == null) _output[0] = false;
+        if (context == null) _output = false;
         else
         {
             Vector2 myPos = context.robotStates[_ownerIndex].pos;
-            _output[0] = false;
+            _output = false;
             for (int n = 0; n < context.GetNumRobots(); n++)
             {
                 if (n != _ownerIndex) //Only check distance to other robots, not to the owner.
                     if (myPos.DistanceToIsBetween(context.robotStates[n].pos, _minDist, _maxDist)) //Use Vector2.DistanceToIsBetween to check if robot n is within the specified distance.
-                        _output[0] = true;
+                        _output = true;
             }
 
         }

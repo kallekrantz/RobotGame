@@ -11,6 +11,12 @@ import com.robotgame.gameengine.Robot.Robot;
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Used for testing only.
+ * This action prints a message string using System.out.println().
+ * @see com.robotgame.gameengine.Robot.Nodes.ActionNodes.DebugNode
+ * @see NodeAction
+ */
 public class DebugAction extends NodeAction
 {
     private String _message;

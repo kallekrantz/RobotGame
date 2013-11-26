@@ -130,7 +130,7 @@ public class MatchHandler implements IMatchHandler {
 	public void MatchEnded(MatchResult _matchResult) {
 		Gson gson= new Gson();
 		sendToAll("MatchEnded::"+gson.toJson(_matchResult));
-		MatchMaker.getInstance().closeGameServer(id);
+		/*MatchMaker.getInstance().closeGameServer(id);   Fungerar dåligt just nu*/
 	}
 	/**
 	 * Temporary solution to initating the robots states. Should be changed to work with the initation of the match instead

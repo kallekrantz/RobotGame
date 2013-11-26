@@ -1,14 +1,14 @@
-/*
+/**
 	*Authors: Mikael Pettersson & Christoffer Wern
 	*
 	*The intention of logic.js is to handle all functionality of the logic.html-file, this includes 
 	*dragging and dropping logic nodes and handling input to global variables amongst others.
 	*
-*/
+**/
 var logicInstance;
 var selectedList = new Array();
 	
-
+//Function to create nodes so that it is similar to a class.
 function addNode(nodeType,name,maxInput,maxOutput,txtFieldLabel,txtFieldBool){
 	Node.createNode(nodeType,name,maxInput,maxOutput,txtFieldLabel,txtFieldBool);
 } 
@@ -43,8 +43,8 @@ var Node = (function(){
 			divMaxOutputs = maxOutput;
 			divValLabel = txtFieldLabel;
 			divVal = 0;
-			divX = 10;
-			divY = 1;
+			divX = 354;
+			divY = 33;
 			
 			//Create the div
 			divContext = "<div id='" + divId + "' class='"+divClassName+"'><p>"+divNodeType;
@@ -90,7 +90,7 @@ var Node = (function(){
 					maxConnections: divMaxInputs,
 					isSource:false, 
 					isTarget:true,
-					connector : "Bezier",
+					connector : "Flowchart",
 					paintStyle:{ radius: 7, fillStyle:"red", outlineColor:"black", outlineWidth:1 },
 					connectorStyle: { lineWidth:2, strokeStyle:'blue' },
 					scope:"blueline",
@@ -105,7 +105,7 @@ var Node = (function(){
 					maxConnections:divMaxOutputs,
 					isSource:true, 
 					isTarget:false,
-					connector : "Bezier",
+					connector : "Flowchart",
 					paintStyle:{ radius: 7, fillStyle:"green", outlineColor:"black", outlineWidth:1},
 					connectorStyle: { lineWidth:2, strokeStyle:'blue' },
 					scope:"blueline",
@@ -127,9 +127,14 @@ var Node = (function(){
 				valLabel:   divValLabel,
 				className: 	divClassName
 			 };
-			  
-			parent.nodes.push(obj);	
-			console.log(parent.nodes);
+			 
+			if(divClassName == "sensorNode"){
+				parent.nrOfSensorNodes = parent.nrOfSensorNodes+1;
+				if(parent.nrOfSensorNodes == parent.maxNrOfSensorNodes){
+					$(".sensorButton").hide();
+				}
+			}
+			parent.nodes.push(obj);
 		},
 	}
 	
@@ -146,20 +151,29 @@ function indexOfObjectId(array, obj){
 	
 
 $(document).ready(function() {
-	//These four lines reads the stored arrays from the global list, so files can be stored.
-	//Should be exchanged when database is implemented(Or implement the DB in variables.js)
+	//Calls function to show or hide node buttons depending on robot components.
+	showHide();
 	
 	//När en connection görs så sparas den undan i arrayOfConnections, för att kunna spara till DB.
+	//When a connection is added duplicately, it will instantly be removed, AS IF IT NEVER EXISTED.
 	logicInstance.bind("jsPlumbConnection", function(conn){
-		var myConn = {
-			sourceId : conn.sourceId,
-			targetId : conn.targetId
+		var idxbool = true;
+		for(var i=0;i<parent.connections.length;i++){
+			if( (parent.connections[i].sourceId == conn.sourceId) && (parent.connections[i].targetId == conn.targetId)){
+				idxbool = false;
+				logicInstance.detach(conn);
+			}
 		}
-		parent.connections.push(myConn);
-		console.log(parent.connections);
+		if(idxbool==true){
+			var myConn = {
+				sourceId : conn.sourceId,
+				targetId : conn.targetId
+			}
+			parent.connections.push(myConn);
+		}
 	});
 	
-	//När en connection tas bort (t.ex. om man tar bort en nod) tas den även bort från arrayen.
+	//Hi-jacks the function call to detach a connection to add functionality and remove it from the data model.
 	logicInstance.bind("jsPlumbConnectionDetached", function(conn){
 		var idx = -1;
 		for(var i=0;i<parent.connections.length;i++){
@@ -170,7 +184,6 @@ $(document).ready(function() {
 		
 		if(idx >=0){
 			parent.connections.splice(idx,1);
-			console.log(parent.connections);
 		}
 		else{
 			alert("Error, something went wrong!");
@@ -183,7 +196,6 @@ $(document).ready(function() {
 	
 	$('#myCanvas').click(function(event){
 		var tar = '#'+event.target.id;
-		console.log(event);
 		if(tar!='#myCanvas' && event.target.className!='textFieldClass' ){
 			//Om diven redan är selectad och man klickar på den igen,
 			//så ska den inte bli selectad längre
@@ -192,32 +204,32 @@ $(document).ready(function() {
 				selectedList.splice(selectedList.indexOf(event.target.id),1);
 			}
 			//Om den inte är selectad så ska den bli det
-			else{
+			else if(event.target.id != ""){
 				$(tar).css("border", "2px solid red");
 				selectedList.push(event.target.id);
 			}
 		}
 	});
 	
-	
+	//Deletes the selected nodes, key 46 = delete key on a windows pc.(not confirmed for other platforms)
 	$(document).keydown(function(e){
 	if (e.keyCode == 46) { 
 			var parentIndex;
 			for(var i=0;i<selectedList.length;i++){
-				//Först ta bort alla grafiska connections-delar
+				//Remove the graphical components of the GUI
 				logicInstance.removeAllEndpoints(selectedList[i]);
 				logicInstance.detachAllConnections(selectedList[i]);
-				
-				//TA BORT SJÄLVA BOXEN
 				$("#" + selectedList[i]).remove();
 
 				//TA BORT FRÅN PARENT-LISTAN
 				parentIndex = indexOfObjectId(parent.nodes, selectedList[i]);
+				if(parent.nodes[parentIndex].className == "sensorNode"){
+					parent.nrOfSensorNodes = parent.nrOfSensorNodes-1;
+					$(".sensorButton").show();
+				}
 				parent.nodes.splice(parentIndex,1);
-				
-				//TA BORT FRÅN SELECTED-LIST
-				//selectedList.splice(i,1);
 			}
+			//TA BORT FRÅN SELECTED-LIST
 			selectedList.splice(0,selectedList.length);
 		   return false;
 		}
@@ -233,6 +245,20 @@ function arrayContains(array,obj){
 	}
 	return false;
 }
+
+function showHide(){
+	$(".wheelButton").hide();
+	$(".weaponButton").hide();
+	if(parent.maxNrOfSensorNodes<=0){
+		$(".sensorButton").hide();
+	}
+	for(var i=0;i<parent.actionNodes.length;i++){
+		$('.'+ parent.actionNodes[i]).show();
+	}
+	
+	return false;
+}
+
 //DATABASE STUFF
 //LOADS THE CONNECTIONS AND DIVS FROM THE GLOBAL VARIABLES
 
@@ -299,7 +325,7 @@ function addSavedDivs(){
 					maxConnections: parent.nodes[i].maxInputs,
 					isSource:false, 
 					isTarget:true,
-					connector : "Bezier",
+					connector : "Flowchart",
 					paintStyle:{ radius: 7, fillStyle:"red", outlineColor:"black", outlineWidth:1 },
 					connectorStyle: { lineWidth:2, strokeStyle:'blue' },
 					scope:"blueline",
@@ -314,13 +340,20 @@ function addSavedDivs(){
 					maxConnections:  parent.nodes[i].maxOutputs,
 					isSource:true, 
 					isTarget:false,
-					connector : "Bezier",
+					connector : "Flowchart",
 					paintStyle:{ radius: 7, fillStyle:"green", outlineColor:"black", outlineWidth:1},
 					connectorStyle: { lineWidth:2, strokeStyle:'blue' },
 					scope:"blueline",
 					dragAllowedWhenFull:false     
 				}; 
 				logicInstance.addEndpoint(parent.nodes[i].id, output);
+			}
+			console.log(parent.nodes[i].className);
+			if(parent.nodes[i].className == "sensorNode"){
+				parent.nrOfSensorNodes = parent.nrOfSensorNodes+1;
+				if(parent.nrOfSensorNodes == parent.maxNrOfSensorNodes){
+					$(".sensorButton").hide();
+				}
 			}
 		}
 	parent.setCreatedNodes(parent.nodes[parent.nodes.length-1].id);	
@@ -331,15 +364,17 @@ function addSavedDivs(){
 //When the user leaves the page
 window.onbeforeunload = function (e) {
 	for(var i=0;i<parent.nodes.length;i++){
-		parent.nodes[i].val = document.getElementById('val'+parent.nodes[i].id).value;
+		if(parent.nodes[i].valLabel != ""){
+			parent.nodes[i].val = document.getElementById('val'+parent.nodes[i].id).value;
+		}
 	}
-	console.log(parent.nodes);
 	parent.saveFile();
 	
 }
 
 //Jsplumb.ready är när sidan laddat klart, så att jsplumb får köras med alla divvar
 jsPlumb.ready(function() {
+	
 	logicInstance = jsPlumb.getInstance();
 	addSavedDivs();
 	addLatestConnections();

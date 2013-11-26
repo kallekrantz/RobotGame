@@ -33,19 +33,22 @@
 	
 		<tr><td><p>Sensor Nodes</p></td></tr>
 		
-		<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '1','Angle','true')" >Sector Sensor</button></td></tr>
-		<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '1','Distance','true')" >Distance Sensor</button></td></tr>
-		<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '1','Angle','true')" >Mirrored Sector Sensor</button></td></tr>
+		<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '-1','Angle','true')" >Sector Sensor</button></td></tr>
+		<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '-1','Distance','true')" >Distance Sensor</button></td></tr>
+		<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '-1','Angle','true')" >Mirrored Sector Sensor</button></td></tr>
 
 		<tr><td><p>Logic Nodes</p></td></tr>
 
 		<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
-		<tr><td><button class="logicButton" onclick="addNode('logicNode','And','2','1','','false')" >And</button></td></tr>
+		<tr><td><button class="logicButton" onclick="addNode('logicNode','And','-1','1','','false')" >And</button></td></tr>
 
 		<tr><td><p>Action Nodes</p></td></tr>
 		<!-------addNode kommer att ha 4 variabler in, dessa är (1:Nodtyp, 2:Namn på nod, 3:Maximala inputs, 4: Maximala outputs) [OBS!!!! -1 = INF CONNECTIONS]----->
-		<tr><td><button class="weaponButton" onclick="addNode('weaponNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
-
+		<tr><td><button class="weaponButton" 	onclick="addNode('actionNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
+		<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnLeft','1','0','','false')" >Turn Left</button></td></tr>
+		<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnRight','1','0','','false')" >Turn Right</button></td></tr>
+		<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveForward','1','0','','false')" >Move Forward</button></td></tr>
+		<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveBackwards','1','0','','false')" >Move Backwards</button></td></tr>
 	</table>
 
 </div>

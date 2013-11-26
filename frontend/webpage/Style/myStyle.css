@@ -165,26 +165,5 @@ background-color:yellow;
 
 
 
-.weaponButton{
-width:100px;
-font-size:16px;
-background-color: #771d17;
-color: white;
-font-family: textFont;
-border-radius:25%;
-border:solid 1px black;
-}
-
-.logicButton{
-width:100px;
-font-size:16px;
-background-color: #381c46;
-color: white;
-font-family: textFont;
-border-radius:50%;
-border:solid 1px black;
-margin: 0 auto;
-}
-
 
 

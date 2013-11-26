@@ -20,6 +20,7 @@ $(document).ready(function() {
             if (ui.draggable.is('.dropped')) return false;
 			$("#weapon").text("");
 			parent.components[2] = ui.draggable[0].id;
+			parent.actionNodes.push("weaponButton");
             $("#weapon").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
 			document.getElementById("robot3D").contentWindow.hasChanged(ui.draggable[0].id);
 		}
@@ -31,6 +32,9 @@ $(document).ready(function() {
             if (ui.draggable.is('.dropped')) return false;
 			$("#chassi").text("");
 			parent.components[0] = ui.draggable[0].id;
+			parent.maxNrOfSensorNodes = 3;
+			//to show continuation with other chassis.
+			//if(ui.draggable[0].id == "chassi2") parent.maxnrOfSensorNodes = 5;
             $("#chassi").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
 			document.getElementById("robot3D").contentWindow.hasChanged(ui.draggable[0].id);
         }
@@ -41,8 +45,8 @@ $(document).ready(function() {
 		drop: function (event, ui) {
             if (ui.draggable.is('.dropped')) return false;
 			$("#wheels").text("");
+			parent.actionNodes.push("wheelButton");
 			parent.components[1] = ui.draggable[0].id;
-			parent.saveFile();
             $("#wheels").append("<img src='Style/"+ui.draggable[0].id+".jpg' height='100px' width='100px'>");
         }
 	});
@@ -96,24 +100,32 @@ $(document).ready(function() {
 	
 });
 
+
 function addComponents(){
 	if(parent.components[0] != null){
+		parent.maxNrOfSensorNodes = 3;
+		//to show continuation with other chassis.
+		//if(ui.draggable[0].id == "chassi2") parent.maxnrOfSensorNodes = 5;
 		$("#chassi").text("");
 		$("#chassi").append("<img src='Style/"+parent.components[0]+".jpg' height='100px' width='100px'>");
 	}
 	if(parent.components[1] != null){
+		parent.actionNodes.push("wheelButton");
 		$("#wheels").text("");	
 		$("#wheels").append("<img src='Style/"+parent.components[1]+".jpg' height='100px' width='100px'>");
 	}
 	if(parent.components[2] != null){
+		parent.actionNodes.push("weaponButton");
 		$("#weapon").text("");
 		$("#weapon").append("<img src='Style/"+parent.components[2]+".jpg' height='100px' width='100px'>");
 	}
 	if(parent.components[3] != null){
+		//parent.actionNodes.push("weaponButton2"); tills vidare
 		$("#weapon").text("");
 		$("#weapon").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
 	}
 	if(parent.components[4] != null){
+		//parent.actionNodes.push("weaponButton3"); tills vidare
 		$("#weapon").text("");
 		$("#weapon").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
 	}

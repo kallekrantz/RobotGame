@@ -150,5 +150,13 @@ public class MatchHandler implements IMatchHandler {
 		// TODO Auto-generated method stub
 		_firstState=_matchState;
 	}
+	public boolean GetInputA(int playerNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	public boolean GetInputB(int playerNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

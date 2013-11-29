@@ -1,6 +1,6 @@
 package com.robotgame.storage.restserver.User.Robot;
 
-import com.robotgame.storage.entities.Robot;
+import com.robotgame.storage.entities.RobotEntity;
 import com.robotgame.storage.services.RobotService;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -17,7 +17,7 @@ public class RobotIdResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@PathParam("userid") final int userid, @PathParam("robotid") final int robotid) {
         RobotService service = new RobotService();
-        Robot r = service.getRobot(userid, robotid);
+        RobotEntity r = service.getRobot(userid, robotid);
         if(r == null){
             throw new NotFoundException();
         }
@@ -29,7 +29,7 @@ public class RobotIdResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response put(@PathParam("userid") final int userid, @PathParam("robotid") final int robotid, final JSONObject jsonObj){
         RobotService service = new RobotService();
-        Robot r = service.editRobot(userid, robotid, jsonObj);
+        RobotEntity r = service.editRobot(userid, robotid, jsonObj);
         return Response.ok(r).build();
     }
 }

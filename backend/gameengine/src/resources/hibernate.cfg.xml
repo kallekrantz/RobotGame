@@ -18,6 +18,6 @@
 
         <mapping class="com.robotgame.storage.entities.User"/>
         <mapping class="com.robotgame.storage.entities.AuthToken"/>
-        <mapping class="com.robotgame.storage.entities.Robot"/>
+        <mapping class="com.robotgame.storage.entities.RobotEntity"/>
     </session-factory>
 </hibernate-configuration>

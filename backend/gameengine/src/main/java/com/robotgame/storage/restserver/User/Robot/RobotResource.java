@@ -1,6 +1,6 @@
 package com.robotgame.storage.restserver.User.Robot;
 
-import com.robotgame.storage.entities.Robot;
+import com.robotgame.storage.entities.RobotEntity;
 import com.robotgame.storage.services.RobotService;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -21,11 +21,11 @@ public class RobotResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@PathParam("userid") final int userid){
         RobotService service = new RobotService();
-        List<Robot> robotList = service.getAllRobots(userid);
-        if(robotList == null){
+        List<RobotEntity> robotEntityList = service.getAllRobots(userid);
+        if(robotEntityList == null){
             throw new NotFoundException();
         }
-        return Response.ok(robotList.toArray(new Robot[robotList.size()])).build();
+        return Response.ok(robotEntityList.toArray(new RobotEntity[robotEntityList.size()])).build();
     }
 
 
@@ -34,7 +34,7 @@ public class RobotResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response post(@PathParam("userid") final int userid, JSONObject jsonObj){
         RobotService service = new RobotService();
-        Robot r = service.createRobot(userid, jsonObj);
+        RobotEntity r = service.createRobot(userid, jsonObj);
         return Response.ok(r).build();
     }
 

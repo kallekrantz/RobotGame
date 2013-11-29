@@ -9,30 +9,30 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Robot is the entity containing the RobotBlueprint, and robotname. Currently Robot maps to user, and not the other way around.
+ * RobotEntity is the entity containing the RobotBlueprint, and robotname. Currently RobotEntity maps to user, and not the other way around.
  */
 
 @Entity
 @Table(name = "Robots")
 @XmlRootElement
-public class Robot{
+public class RobotEntity {
     private String robotName;
     private User user;
     private int id;
     private String robotDesign;
-    public Robot(String robotName, User user, String robotDesign){
+    public RobotEntity(String robotName, User user, String robotDesign){
         this.robotName = robotName;
         this.user = user;
         this.robotDesign = robotDesign;
     }
 
-    public Robot() {
+    public RobotEntity() {
     }
 
-    public Robot(Robot robot) {
-        robotName = robot.getRobotName();
-        user = robot.getUser();
-        robotDesign = robot.getRobotDesign();
+    public RobotEntity(RobotEntity robotEntity) {
+        robotName = robotEntity.getRobotName();
+        user = robotEntity.getUser();
+        robotDesign = robotEntity.getRobotDesign();
     }
 
     public String getRobotName() {
@@ -74,7 +74,7 @@ public class Robot{
 
     @Override
     public String toString() {
-        return "Robot{" +
+        return "RobotEntity{" +
                 "robotName='" + robotName + '\'' +
                 ", user=" + user +
                 ", robotId=" + id +
@@ -82,16 +82,16 @@ public class Robot{
                 '}';
     }
 
-    public static Robot create(JSONObject jsonObj) throws JSONException{
-        return new Robot(
+    public static RobotEntity create(JSONObject jsonObj) throws JSONException{
+        return new RobotEntity(
                 jsonObj.getString("robotName"),
                 null,
                 jsonObj.getString("robotDesign")
         );
     }
 
-    public static Robot merge(Robot r, JSONObject obj) throws JSONException {
-        Robot merge = new Robot(r);
+    public static RobotEntity merge(RobotEntity r, JSONObject obj) throws JSONException {
+        RobotEntity merge = new RobotEntity(r);
         if(obj.has("robotDesign")){
             merge.setRobotDesign(obj.getString("robotDesign"));
         }

@@ -8,6 +8,7 @@ import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.MatchContext;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Robot;
+import com.robotgame.gameengine.Util.Vector2;
 
 
 import java.util.AbstractList;
@@ -88,11 +89,15 @@ public class Match implements Runnable
         {
             _robots[n] = RobotFactory.CreateRobot(blueprints.get(n), n);
             if (_robots[n] == null) return false;
+            
+            _robots[n].SetStartPos(new Vector2(-1 + 2 * n, 0));
+            _robots[n].SetStartDir((float)Math.PI*n);
         }
 
         _context = new MatchContext(_numRobots);
         _matchState = new MatchState(_matchId, _numRobots);
         _matchResult = new MatchResult(_numRobots);
+        _matchHandler.SendFirstMatchState(_matchState);
         return true;
     }
 

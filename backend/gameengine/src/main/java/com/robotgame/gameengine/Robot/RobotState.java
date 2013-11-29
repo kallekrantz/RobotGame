@@ -17,6 +17,9 @@ public class RobotState
 
     public float rot;
     public float w;
+    public boolean[] firedWeapon = new boolean[3];
+    public float health;
+    public float turretAngle;
 
     public RobotState()
     {

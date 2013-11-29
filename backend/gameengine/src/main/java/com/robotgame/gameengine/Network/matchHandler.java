@@ -16,6 +16,8 @@ import com.robotgame.gameengine.Robot.Builder.*;
  *
  */
 public class MatchHandler implements IMatchHandler {
+	private Match _match;
+	private MatchState _firstState;
 	private boolean _isRunning = false;
 	/**
 	 * List of usernames of the clients associated to this match 
@@ -66,6 +68,8 @@ public class MatchHandler implements IMatchHandler {
 			_expectedClients.add(client._user);
 			_robots.add(client._robot);
 		}
+		_match = new Match(this,id);
+		_match.BuildRobots(_robots);
 		
 	}
 	/**
@@ -80,9 +84,7 @@ public class MatchHandler implements IMatchHandler {
 	 */
 	public void startMatch(){
 		sendToAll("Game on!");
-		Match match = new Match(this,id);
-		match.BuildRobots(_robots);
-		match.run();
+		_match.run();
 	}
 	/**
 	 * Sends a message to all connected clients. This should be the primary channel of communication during a match.
@@ -137,12 +139,16 @@ public class MatchHandler implements IMatchHandler {
 	 * @param socket
 	 */
 	public void requestStartState(MatchSocket socket) {
-		MatchState state  = new MatchState(0,_robots.size());
+		
 		for(int robots = 0; robots<_robots.size(); robots++){
-			state.robotStates[robots] = new RobotState();
+			_firstState.robotStates[robots] = new RobotState();
 		}
 		Gson gson = new Gson();
-		socket._session.getRemote().sendStringByFuture("StartingState::"+gson.toJson(state));
+		socket._session.getRemote().sendStringByFuture("StartingState::"+gson.toJson(_firstState));
+	}
+	public void SendFirstMatchState(MatchState _matchState) {
+		// TODO Auto-generated method stub
+		_firstState=_matchState;
 	}
 	
 }

@@ -9,6 +9,11 @@ import com.robotgame.gameengine.Match.PlayerStats;
  * Time: 12:31
  * To change this template use File | Settings | File Templates.
  */
+
+/**
+ * Contains all statistics about a match that could be of interest after it has ended
+ * @see     PlayerStats
+ */
 public class MatchResult
 {
     public PlayerStats[] playerStats;

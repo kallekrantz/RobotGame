@@ -35,7 +35,7 @@ function hasChanged(changedVal){
 
 function getGoo(goo){
 	globalGoo = goo;
-	console.log(globalGoo.entityManager.getEntities());
+	//console.log(globalGoo.entityManager.getEntities());
 }
 
 
@@ -127,14 +127,19 @@ require([
 		goo.world.setSystem(new HowlerSystem());
 		
 		//var entityUtils = new EntityUtils();
+		var worldUp = new Vector3(0,1,0);
+		var cameraLookAt = new Vector3(0,0,0);
+		var cameraPos = new Vector3(0, 140, 220);
 		var entityStrings = new Array();
-		entityStrings[0] = "TankGroup2";
-		//entityStrings[1] = "weapon";
+		entityStrings[0] = "Chassi1";
+		entityStrings[1] = "Chassi2";
+		entityStrings[2] = "Laser";
+		entityStrings[3] = "Wheels";
 		//entityStrings[2] = "Box";
 		
 		// The Loader takes care of loading data from a URL...
 		var loader = new DynamicLoader({world: goo.world, rootPath: 'res'});
-	goo.renderer.domElement.id = 'goo';
+		goo.renderer.domElement.id = 'goo';
 						document.body.appendChild(goo.renderer.domElement);
 						goo.startGameLoop();
 		var loaderModule = (function() {
@@ -157,16 +162,36 @@ require([
 						//gets the entity by its referance
 						var objectReference = "entities/Cylinder.entity";
 						getGoo(goo.world);
+						var cog = loader.getCachedObjectForRef("CogWheel/entities/RootNode.entity");
+						if(entityName == "CogWheel"){
+							cog.setComponent(new ScriptComponent({
+							run: function (entity) {
+								entity.transformComponent.setRotation(
+								0,
+								goo.world.time*1.2,
+								0);
+								entity.transformComponent.setUpdated();
+							}}));
+						}
+						else{
+							var ent = loader.getCachedObjectForRef(entityName + "/entities/RootNode.entity");
+							
+							//console.log(entityName);
+							//console.log(chassi);
+							EntityUtils.hide(ent);
+							if(entityName == chassi || entityName == weapon || entityName == wheel){
+							EntityUtils.show(ent);
+							}
+							cog.transformComponent.attachChild(ent.getComponent('transformComponent'));
+						}
 						//console.log(objectReference);
 						// push to the entity array
 						//loadedEntities.push(entity);
 						
-						console.log(loader.getCachedObjectForRef(entityName+"/entities/RootNode.entity"));
+						//console.log(loader.getCachedObjectForRef(entityName+"/entities/RootNode.entity"));
 						
 						
 						//console.log(entity);
-						
-			
 						
 					})
 					.then(null, function(e) {
@@ -193,15 +218,22 @@ require([
 		});
 		
 		var camera = new Camera(35, 1, 0.1, 1000);
+		//camera.lookAt(cameraLookAt, worldUp);
+
 		var cameraEntity = goo.world.createEntity('Camera');
+		
 		cameraEntity.setComponent(new CameraComponent(camera));
-		cameraEntity.transformComponent.transform.translation.set(0, 10, 100);
-		var camScript = new OrbitCamControlScript();
-		cameraEntity.setComponent(new ScriptComponent(camScript));
+		cameraEntity.transformComponent.transform.translation.set(cameraPos);
+		cameraEntity.transformComponent.lookAt(cameraLookAt, worldUp);
+
+		
+		//var camScript = new OrbitCamControlScript();
+		//cameraEntity.setComponent(new ScriptComponent(camScript));
+		
 						
 		cameraEntity.addToWorld();
 		
-				loaderModule.importEntity("Cylinder");
+				loaderModule.importEntity("CogWheel");
 					for(var i = 0; i < entityStrings.length; i++){
 						loaderModule.importEntity(entityStrings[i]);
 					}
@@ -215,25 +247,25 @@ require([
 		EntityUtils.hide(boxEntity);
 		boxEntity.setComponent(new ScriptComponent({
 					run: function (boxEntity) {
+						
 							if(changeInProgress){
-								alert("oldPart: "+oldPart);
-								alert("changedPart: "+changedPart);
-								if(changedPart == "TankGroup2"/*loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden*/){
-									if(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden)EntityUtils.show(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
-									else EntityUtils.hide(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"))
+								//alert("oldPart: "+oldPart);
+								//alert("changedPart: "+changedPart);
+								if(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden){
+									
+									EntityUtils.show(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
+									if(oldPart != null){
+										EntityUtils.hide(loader.getCachedObjectForRef(oldPart+"/entities/RootNode.entity"));
+									}
 								}
 								else{
 									//EntityUtils.hide(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
-									alert("wrong input");
+									//alert("wrong input");
 								}
 								changeInProgress = false;
 							}
 						}
 					}));
-
-		
-		
-		
 		
 		if(changeInProgress){
 			alert("ww");

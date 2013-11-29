@@ -1,34 +1,37 @@
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/loginStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/popup.css">
 
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="js/popup.js"></script>
 
 <div id="settingsPopup" class="popup">
 
+<br/>
 	<h2>Create Account</h2>
 	
-	<form> 
-		<input class="design1" size="35" value="Username" name="textfield" type="text" /> 
-		<input class="design1" size="35" value="Password" name="textfield" type="text" />
-		<input class="design1" size="35" value="E-Mail" name="textfield" type="text" />
-		
-	</form>
-
-	<button onclick="closepopup('settingsPopup')">Back</button>
-	<button onclick="return parent.changeFrame('login.html');" >Sing Up</button>
+	<p>Username</p>
+	<input class="txtFieldClass" value="" maxlength="20" name="textfield" type="text" /><br/>
+	<p>Password</p>
+	<input class="txtFieldClass" value="" maxlength="20" name="textfield" type="text" /><br/>
+	<p>E-Mail</p>
+	<input class="txtFieldClass" value="" maxlength="30" name="textfield" type="text" /><br/>
+	<br/>
+	<button id ="backButton" onclick="closepopup('settingsPopup')"></button>
+	<button id ="signupButton" onclick="return parent.changeFrame('login.html');" ></button>
 </div>
 
 <div id="loginBox">
-
-<form> 
-	<input class="design1" size="45" value="Username" name="textfield" type="text" /> 
-	<input class="design1" size="45" value="Password" name="textfield" type="text" />
-</form>
-
-<button id="loginButton" style="" onclick="return parent.changeFrame('garage.html');" type="button" >Login</button>
-<button id="garageButton" onclick="openpopup('settingsPopup')" >Create Account</button>
-
+	<div id="innerLoginBox">
+		<p>Username</p>
+		<input class="txtFieldClass" maxlength="20" value="" name="textfield" type="text" /> 
+		<p>Password</p>
+		<input class="txtFieldClass" maxlength="20" value="" name="textfield" type="text" />
+		</br></br>
+		<button id="loginButton" id="loginButton"  onclick="return parent.changeFrame('garage.html');" ></button>
+		<button id="createAccountButton" id="garageButton" onclick="openpopup('settingsPopup')" ></button>
+	</div>
 </div>
 
 

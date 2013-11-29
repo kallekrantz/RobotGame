@@ -4,13 +4,16 @@ import com.google.gson.Gson;
 import com.robotgame.gameengine.Match.*;
 import com.robotgame.gameengine.Network.*;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
+import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
 import com.robotgame.gameengine.Robot.Nodes.NodeType;
+import com.robotgame.gameengine.Robot.Robot;
 import org.junit.Test;
 
 import java.util.Vector;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -102,4 +105,28 @@ public class CompleteRobotTest implements IMatchHandler
 		// TODO Auto-generated method stub
 		
 	}
+
+
+
+    @Test
+    public void TestRobotFactory()
+    {
+        RobotBlueprint blueprint = new RobotBlueprint(3, 3);
+
+        blueprint.AddNode(NodeType.Or, 0, 0);
+        blueprint.AddNode(NodeType.Or, 0, 1);
+        blueprint.AddNode(NodeType.Or, 0, 2);
+
+        //From node, From channel, index
+        blueprint.AddConnection(0, 1, 0);
+        blueprint.AddConnection(1, 2, 1);
+        blueprint.AddConnection(2, 0, 2);
+
+
+        Robot robot = RobotFactory.CreateRobot(blueprint, 0);
+        //assertNull(robot);
+
+
+        //Todo: Skriv test för indexpackaren.
+    }
 }

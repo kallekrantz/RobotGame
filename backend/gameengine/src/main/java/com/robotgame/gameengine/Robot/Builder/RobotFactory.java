@@ -3,6 +3,11 @@ package com.robotgame.gameengine.Robot.Builder;
 import com.robotgame.gameengine.Robot.Robot;
 import com.robotgame.gameengine.Robot.Nodes.*;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Oskar
@@ -26,6 +31,7 @@ public class RobotFactory
      */
     public static Robot CreateRobot(RobotBlueprint blueprint, int robotIndex)
     {
+        PackIndices(blueprint);
         int numNodes = blueprint.GetNumNodes();
         Node[] nodes = new Node[numNodes];
 
@@ -49,6 +55,36 @@ public class RobotFactory
         Robot robot = new Robot(nodes, connections, robotIndex);
 
         return robot;
+    }
+
+
+    public static void PackIndices(RobotBlueprint blueprint)
+    {
+
+        Map<Integer, Integer> indexMap = new HashMap<Integer, Integer>();
+        Integer counter = 0;
+        for (NodeData n : blueprint.nodes)
+        {
+            indexMap.put(Integer.valueOf(n.id), counter);
+            n.id = counter.intValue();
+            counter++;
+        }
+
+        for (ConnectionData c : blueprint.connections)
+        {
+            c.targetId = indexMap.get(c.targetId).intValue();
+            c.sourceId = indexMap.get(c.sourceId).intValue();
+        }
+
+
+    }
+
+    public static boolean CheckBlueprint(RobotBlueprint blueprint)
+    {
+
+        //Kolla så att inga connections leder till sig själva
+
+        return true;
     }
 
 }

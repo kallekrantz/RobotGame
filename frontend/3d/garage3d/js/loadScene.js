@@ -131,8 +131,10 @@ require([
 		var cameraLookAt = new Vector3(0,0,0);
 		var cameraPos = new Vector3(0, 140, 220);
 		var entityStrings = new Array();
-		entityStrings[0] = "TankGroup2";
-		entityStrings[1] = "Laser2_2";
+		entityStrings[0] = "Chassi1";
+		entityStrings[1] = "Chassi2";
+		entityStrings[2] = "Laser";
+		entityStrings[3] = "Wheels";
 		//entityStrings[2] = "Box";
 		
 		// The Loader takes care of loading data from a URL...
@@ -181,8 +183,6 @@ require([
 							EntityUtils.show(ent);
 							}
 							cog.transformComponent.attachChild(ent.getComponent('transformComponent'));
-							
-							
 						}
 						//console.log(objectReference);
 						// push to the entity array
@@ -192,8 +192,6 @@ require([
 						
 						
 						//console.log(entity);
-						
-			
 						
 					})
 					.then(null, function(e) {
@@ -249,25 +247,25 @@ require([
 		EntityUtils.hide(boxEntity);
 		boxEntity.setComponent(new ScriptComponent({
 					run: function (boxEntity) {
+						
 							if(changeInProgress){
 								//alert("oldPart: "+oldPart);
 								//alert("changedPart: "+changedPart);
-								if(changedPart == "TankGroup2" || changedPart == "Laser2_2"/*loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden*/){
-									if(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden)EntityUtils.show(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
-									else EntityUtils.hide(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"))
+								if(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden){
+									
+									EntityUtils.show(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
+									if(oldPart != null){
+										EntityUtils.hide(loader.getCachedObjectForRef(oldPart+"/entities/RootNode.entity"));
+									}
 								}
 								else{
 									//EntityUtils.hide(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
-									alert("wrong input");
+									//alert("wrong input");
 								}
 								changeInProgress = false;
 							}
 						}
 					}));
-
-		
-		
-		
 		
 		if(changeInProgress){
 			alert("ww");

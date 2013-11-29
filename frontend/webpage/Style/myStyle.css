@@ -31,7 +31,7 @@ html, body {
 	margin:0px;
 	width: 70%;
 	height: 40;
-	border-radius: 20%;
+	border-radius: 5px;
 	border: 1px solid;
 	text-align: center;
 	font-family: "textFont";
@@ -99,35 +99,6 @@ height:40%;
 background-color:cyan;
 }
 
-/*ALLT I BATTLE SCREEN*/
-#battleScreen{
-width:100%;
-height:70%;
-background-color:cyan;
-}
-
-#nodeMap{
-float:left;
-width:25%;
-height:30%;
-background-color:blue;
-}
-
-#robotInfo{
-float:left;
-width:50%;
-height:30%;
-background-color:red;
-}
-
-#miniMap{
-float:right;
-width:25%;
-height:30%;
-background-color:yellow;
-}
-
-
 /*SETTINGS POPUP*/
 .popup {
       background-image: url('popup.png');
@@ -164,27 +135,6 @@ background-color:yellow;
 
 
 
-
-.weaponButton{
-width:100px;
-font-size:16px;
-background-color: #771d17;
-color: white;
-font-family: textFont;
-border-radius:25%;
-border:solid 1px black;
-}
-
-.logicButton{
-width:100px;
-font-size:16px;
-background-color: #381c46;
-color: white;
-font-family: textFont;
-border-radius:50%;
-border:solid 1px black;
-margin: 0 auto;
-}
 
 
 

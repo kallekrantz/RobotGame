@@ -1,5 +1,6 @@
 package com.robotgame.gameengine.Robot;
 
+import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
@@ -27,6 +28,7 @@ public class Robot
     private float _maxThrust;
     private float _maxTurn;
     private Vector2 _impulse;
+    private float _radius;
 
 
     /**
@@ -76,7 +78,7 @@ public class Robot
     public void UpdateState()
     {
         _impulse.Multiply(_boost);
-        _currentState.vel.Add(_impulse);
+        _currentState.vel.Add(Vector2.Multiply(_impulse, Match.DT));
 
         //Apply dampening
         _currentState.w *= 0.9;
@@ -84,8 +86,8 @@ public class Robot
         _currentState.vel.y *= 0.9;
 
         //Add changes to pos and rot
-        _currentState.rot += _currentState.w;
-        _currentState.pos.Add(_currentState.vel);
+        _currentState.rot += _currentState.w * Match.DT;
+        _currentState.pos.Add(Vector2.Multiply(_currentState.vel, Match.DT));
     }
 
     public LinkedList<NodeAction> GetActions()
@@ -114,7 +116,14 @@ public class Robot
         else _boost = 1;
     }
 
+    public void ApplyDamage(float amount)
+    {
+        _currentState.health -= amount;
+    }
+
     public float GetMass() {return _mass;}
+
+    public float GetRadius() {return _radius;}
 
     public float GetMaxThrust() {return _maxThrust;}
 

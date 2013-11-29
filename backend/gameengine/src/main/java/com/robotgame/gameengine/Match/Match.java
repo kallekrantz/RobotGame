@@ -44,6 +44,9 @@ import java.util.Vector;
  */
 public class Match implements Runnable
 {
+    public static final float DT = 0.04f;
+    public static final int DT_MS = (int)DT*10;
+
     private Robot[] _robots;
     private int _numRobots;
     private boolean _running;
@@ -125,12 +128,15 @@ public class Match implements Runnable
         if (_robots == null) _running = false;
         else _running = true;
 
+        long clock, elapsedTime;
 
         while(_running)
         {
+            clock = System.currentTimeMillis();
             Update();
+            elapsedTime = clock - System.currentTimeMillis();
 
-            try { Thread.sleep(33); //Max 30 updates per sec
+            try { Thread.sleep(DT_MS - elapsedTime); //Keeps a constant update freq.
             } catch(InterruptedException e) {};
         }
     }
@@ -205,8 +211,8 @@ public class Match implements Runnable
         for (int n = 0; n < _numRobots; n++)
         {
             _context.robotStates[n] = _robots[n].GetCurrentState();
-            //_context.A[n] = _networkInterface.GetInputA(n);
-            //_context.B[n] = _networkInterface.GetInputB(n);
+            _context.A[n] = _matchHandler.GetInputA(n);
+            _context.B[n] = _matchHandler.GetInputB(n);
         }
 
 

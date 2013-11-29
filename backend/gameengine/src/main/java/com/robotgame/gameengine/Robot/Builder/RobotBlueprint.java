@@ -10,66 +10,71 @@ package com.robotgame.gameengine.Robot.Builder;
 
 import com.robotgame.gameengine.Robot.Nodes.*;
 import java.util.*;
+import com.google.gson.Gson;
 
+/**
+ * Contains a complete specification of a robot.
+ * Constructed using the JavaScript GUI.
+ * Stored as json strings in database.
+ * A vector<RobotBlueprint> should be provided to Match.BuildRobots() to create functional Robot objects.
+ */
 public class RobotBlueprint
 {
 
-    private LinkedList<NodeProperties> _nodeList;
-    private LinkedList<NodeConnection> _connectionList;
+    public NodeData[] nodes;
+    public ConnectionData[] connections;
+    public String[] components;
     //private int _numNodes;
 
 
-    public     RobotBlueprint()
+    /**
+     * Constructor is only used when creating blueprints for testing purposes.
+     * Normally blueprints are created from json strings.
+     * @param numNodes
+     * @param numConnections
+     */
+    public RobotBlueprint(int numNodes, int numConnections)
     {
-        _nodeList = new LinkedList<NodeProperties>();
-        _connectionList = new LinkedList<NodeConnection>();
-        //_numNodes = 0;
+        components = new String[5];
+        nodes = new NodeData[numNodes];
+        connections = new ConnectionData[numConnections];
+
     }
 
-    public boolean AddNode(String type, int propertyValue1, int propertyValue2, int ID)
+    public boolean AddNode(NodeType type, int value, int ID)
     {
-        NodeType typeEnum;
-        try { typeEnum = NodeType.valueOf(type); }
-        catch (IllegalArgumentException e) { return false; }
-
-        _nodeList.add(new NodeProperties(typeEnum, propertyValue1, propertyValue2, ID));
+        nodes[ID] = new NodeData(type, value, ID);
         return true;
     }
 
-    public boolean AddConnection(NodeConnection connection)
+    public boolean AddConnection(int from, int to, int index)
     {
-        _connectionList.add(connection);
+        connections[index] = new ConnectionData(from, to);
         return true;
     }
 
     public int GetNumNodes()
     {
-        return _nodeList.size();
-    }
-
-    public LinkedList<NodeProperties> GetNodeList()
-    {
-        return _nodeList;
+        return nodes.length;
     }
 
     public int GetNumConnections()
     {
-        return _connectionList.size();
+        return connections.length;
     }
 
-    public LinkedList<NodeConnection> GetConnectionList()
-    {
-        return _connectionList;
-    }
 
-    //This method inspects the list of nodes and connections and returns whether all looks god or not.
+    /**
+     * Not implemented!
+     * @return True if the blueprint is a legit working robot.
+     */
     public boolean CheckIfLegal()
     {
-        int numNodes = _nodeList.size();
+        int numNodes = nodes.length;
 
-        for (NodeProperties n : _nodeList)
+        for (NodeData n : nodes)
         {
-            if (n.get_id() < 0 || n.get_id() >= numNodes) return false;
+            //if (n.get_id() < 0 || n.get_id() >= numNodes) return false;
 
         }
 
@@ -80,5 +85,17 @@ public class RobotBlueprint
         return true;
     }
 
+
+    public static RobotBlueprint BlueprintFromJson(String json)
+    {
+        Gson gson = new Gson();
+        return gson.fromJson(json, RobotBlueprint.class);
+    }
+
+    public String ToJson()
+    {
+        Gson gson = new Gson();
+        return gson.toJson(this);
+    }
 
 }

@@ -17,35 +17,38 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * Outputs a short periodic impulse with a set period.
+ * @see Node
+ */
 public class ClockNode extends Node
 {
     /*
-    protected boolean _isUpdated;
-    protected boolean[] _output;
-    protected int _numOutput;
-    protected int[] _connectionToInput;
-    protected int _numInput;
-    protected NodeCategory _category;
-    protected NodeType _type;
-    protected int _ownerIndex;
+    Members of parent class Node to be defined in constructor:
+    _maxInputs = ?;
+    _connectionToInput = new int[_maxInputs];
+    _category = NodeCategory.?;
+    _type = NodeType.?;
+    _ownerIndex = ownerIndex;
     */
     private int _time;
     private int _period;
 
+    /**
+     * Creates a ClockNode
+     * @param ownerIndex
+     * @param period The approximate period in ms. Will not be very exact.
+     */
     public ClockNode(int ownerIndex, int period)
     {
-        _isUpdated = false;
-        _numInput = 0;
-        _numOutput = 1;
-        _output = new boolean[_numOutput];
-        // _connectionToInput =    //N/GetInputA because of 0 inputs
+        _maxInputs = 0;
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Clock;
+        _type = NodeType.Clock;
         _ownerIndex = ownerIndex;
 
         _time = 0;
-        _period = period;
+        _period = period/33;
+        if (_period <= 0) _period = 1;
     }
 
     @Override
@@ -53,8 +56,8 @@ public class ClockNode extends Node
     {
         _time++;
         _time %= _period;
-        if (_time == 0) _output[0] = true;
-        else _output[0] = false;
+        if (_time == 0) _output = true;
+        else _output = false;
 
         _isUpdated = true;
     }

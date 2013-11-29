@@ -12,24 +12,42 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//Main class for handling and updating all nodes
-//The Update() method returns a list of action objects that the nodes have triggered.
+/**
+ * A class for handling systems of nodes that can be continually updated.
+ * After updating, the resulting actions of the nodes can be retrieved as the return object of Update().
+ * @see Node
+ * @see NodeConnection
+ * @see com.robotgame.gameengine.Robot.Robot
+ * @see com.robotgame.gameengine.Robot.Builder.RobotFactory
+ * @see com.robotgame.gameengine.Robot.Builder.NodeFactory
+ */
 public class NodeSystem
 {
     private Node[] _nodes;
     private NodeConnection[] _connections;
-    private int _numNodes;
+    private int _numNodes, _numConnections;
     private MatchContext _currentMatchContext;
     private LinkedList<NodeAction> _actions;
 
+    /**
+     * Constructor for node systems.
+     * @param nodes array of Node objects of varying subclasses.
+     * @param connections array of NodeConnection objects.
+     */
     public NodeSystem(Node[] nodes,  NodeConnection[] connections)
     {
         _nodes = nodes;
         _connections = connections;
         _numNodes = _nodes.length;
+        _numConnections = _connections.length;
         _actions = new LinkedList<NodeAction>();
     }
 
+    /**
+     * Updates the entire node system.
+     * @param context should contain updated information about robots and environmental factors.
+     * @return a list of NodeAction objects to execute.
+     */
     public LinkedList<NodeAction> Update(MatchContext context)
     {
         _actions.clear();
@@ -45,7 +63,7 @@ public class NodeSystem
 
         for (n = 0; n < _numNodes; n++)
         {
-            if (!_nodes[n].IsUpdated()) GetOutputOfNode(n, 0);
+            if (!_nodes[n].IsUpdated()) GetOutputOfNode(n);
         }
 
         return _actions;
@@ -53,16 +71,15 @@ public class NodeSystem
 
     /**
      * Recursive function to update and evaluate nodes.
-     *
-     * @param  nodeIndex  the index of the node
-     * @param  channel which channel on the node to query
-     * @return      the output of the specified node
+     * By using recursion this function traverses the entire node graph if needed to acquire the inputs needed for a node to update.
+     * @param  nodeIndex  the index of the node to query
+     * @return the output of the specified node
      */
-    private boolean GetOutputOfNode(int nodeIndex, int channel)
+    private boolean GetOutputOfNode(int nodeIndex)
     {
         if (_nodes[nodeIndex].IsUpdated())
         {
-            return _nodes[nodeIndex].GetOutput(channel);
+            return _nodes[nodeIndex].GetOutput();
         }
         else
         {
@@ -70,7 +87,7 @@ public class NodeSystem
             {
                 boolean[] temp = { false };
                 _nodes[nodeIndex].Update(_currentMatchContext, _actions, temp);
-                return _nodes[nodeIndex].GetOutput(channel);
+                return _nodes[nodeIndex].GetOutput();
             }
             else
             {
@@ -81,11 +98,11 @@ public class NodeSystem
                 for (int n = 0; n < numInputs; n++)
                 {
                     inputConnection = _nodes[nodeIndex].GetInputConnection(n);
-                    temp[n] = GetOutputOfNode(_connections[inputConnection].FromNode(), _connections[inputConnection].FromNodeChannel());
+                    temp[n] = GetOutputOfNode(_connections[inputConnection].FromNode());
 
                 }
                 _nodes[nodeIndex].Update(_currentMatchContext, _actions, temp);
-                return _nodes[nodeIndex].GetOutput(channel);
+                return _nodes[nodeIndex].GetOutput();
             }
 
 
@@ -94,22 +111,20 @@ public class NodeSystem
     }
 
 
-    //Returns an array of the indexes of the currently hot connections
-    public int[] GetHotConnections()
+    /**
+     * Gets a list of the status of all node connections.
+     * Not usable yet.
+     * @return an array of boolean values.
+     */
+    public boolean[] GetHotConnections()
     {
-
-        LinkedList<Integer> out = new LinkedList<Integer>();
+        boolean[] out = new boolean[_numConnections];
         for (int n = 0; n < _connections.length; n++)
         {
-            if (_nodes[_connections[n].FromNode()].GetOutput(_connections[n].FromNodeChannel())) out.add(Integer.valueOf(n));
+            out[n] = _nodes[_connections[n].FromNode()].GetOutput();
         }
-        int[] outArray = new int[out.size()];
-        int index = 0;
-        for (Integer i : out)
-        {
-            outArray[index++] = i.intValue();
-        }
-        return outArray;
+
+        return out;
     }
 
 

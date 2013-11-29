@@ -8,7 +8,9 @@ package com.robotgame.gameengine.Robot;
  * To change this template use File | Settings | File Templates.
  */
 
-
+/**
+ * Contains information used by sensor nodes to evaluate their criteria.
+ */
 public class MatchContext
 {
     public RobotState[] robotStates;

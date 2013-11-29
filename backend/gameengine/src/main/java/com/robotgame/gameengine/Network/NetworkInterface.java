@@ -7,6 +7,8 @@ package com.robotgame.gameengine.Network;
  * Time: 09:14
  * To change this template use File | Settings | File Templates.
  */
+
+
 public interface NetworkInterface
 {
     public void SendMatchState(MatchState matchState);

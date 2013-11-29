@@ -1,0 +1,63 @@
+#signupButton{
+	background:url(signupButton1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	width:100;
+    height:30;
+	outline: none;
+}
+
+#signupButton:hover {
+     background:url(signupButton2.png) no-repeat;
+	 background-size: 100% 100%;
+	 outline: none;
+}
+
+#backButton{
+	background:url(backButton1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	width:100;
+    height:30;
+	outline: none;
+}
+
+#backButton:hover {
+     background:url(backButton2.png) no-repeat;
+	 background-size: 100% 100%;
+	 outline: none;
+}
+
+#logoutButton{
+	background:url(logout1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	width:100;
+    height:30;
+	outline: none;
+}
+
+#logoutButton:hover {
+     background:url(logout2.png) no-repeat;
+	 background-size: 100% 100%;
+	 outline: none;
+}
+
+
+#changeButton{
+	background:url(change1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	width:100;
+    height:30;
+	outline: none;
+}
+
+#changeButton:hover {
+     background:url(change2.png) no-repeat;
+	 background-size: 100% 100%;
+	 outl

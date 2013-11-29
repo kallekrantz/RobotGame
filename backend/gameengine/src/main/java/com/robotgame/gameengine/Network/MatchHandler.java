@@ -49,15 +49,15 @@ public class MatchHandler implements IMatchHandler {
 	 * @param socket
 	 * @return Will return true if the user is accepted
 	 */
-	public boolean join(MatchSocket socket){
-		for(String expected: _expectedClients ){
-			if(socket.getUser().equals(expected)){
+	public int join(MatchSocket socket){
+		for(int client=0;client<_expectedClients.size();client++){
+			if(socket.getUser().equals(_expectedClients.get(client))){
 				_connectedClients.add(socket);
-				return true;
+				return client;
 			}
 		}
 		socket._session.getRemote().sendStringByFuture("NetworkError:: Unexpected user");
-		return false;
+		return -1;
 	}
 	/**
 	 * Called by the matchmaker before the user switches websocket, so only the intended participants can join
@@ -150,13 +150,11 @@ public class MatchHandler implements IMatchHandler {
 		// TODO Auto-generated method stub
 		_firstState=_matchState;
 	}
-	public boolean GetInputA(int playerNumber) {
-		// TODO Auto-generated method stub
-		return false;
+	public void setA(int index) {
+		_match.setA(index);
 	}
-	public boolean GetInputB(int playerNumber) {
-		// TODO Auto-generated method stub
-		return false;
+	public void setB(int index) {
+		_match.setB(index);	
 	}
 	
 }

@@ -32,7 +32,4 @@ public interface IMatchHandler
 
 	public void SendFirstMatchState(MatchState _matchState);
 
-	public boolean GetInputA(int playerNumber);
-    public boolean GetInputB(int playerNumber);
-
 }

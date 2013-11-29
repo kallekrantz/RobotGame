@@ -218,7 +218,6 @@ public class Match implements Runnable
 
             _context.A[n] = getInputA(n);
             _context.B[n] = getInputB(n);
-            //_context.B[n] = _networkInterface.GetInputB(n);
         }
 
 

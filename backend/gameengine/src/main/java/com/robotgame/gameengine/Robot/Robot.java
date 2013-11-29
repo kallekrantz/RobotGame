@@ -126,6 +126,12 @@ public class Robot
         _impulse.y += v * Math.sin(relativeDirection + _currentState.rot);
     }
 
+	public void SetStartDir(float dir)
+	{
+		_currentState.rot = dir;
+		
+	}
+
 
 
 

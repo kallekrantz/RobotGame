@@ -1,6 +1,6 @@
 package com.robotgame.gameengine;
 
-import com.robotgame.gameengine.Network.matchMakerHandler;
+import com.robotgame.gameengine.Network.MatchMakerSocket;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.websocket.server.WebSocketHandler;
 import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
@@ -19,7 +19,7 @@ public class GameServer
            WebSocketHandler wsHandler = new WebSocketHandler(){
                @Override
                 public void configure(WebSocketServletFactory factory){
-                   factory.register(matchMakerHandler.class);
+                   factory.register(MatchMakerSocket.class);
                }
            };
             server.setHandler(wsHandler);

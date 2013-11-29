@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="lobbystyle.css" type="text/css" />
+    <body>
+       <center> <h1>RobotGame lobby</h1></center>
+		<div id='content'>
+			<div id = 'interaction'>
+			<div><p>username:<input id ="username"></p></div>
+			<select id = "matchtype">
+			  <option value='1v1'>1v1</option>
+			  <option value='2v2'>2v2</option>
+			  <option value='2v1'>2v1</option>
+			  <option value='Battle Royale'>Battle Royale</option>
+			</select>
+			<button onClick="makeMatchMakerRequest();">Connect!</button>
+			<button onClick="sendKey('w');">w</button>
+			<button onClick="sendKey('a');">a</button>
+			<button onClick="sendKey('s');">s</button>
+			<button onClick="sendKey('d');">d</button>
+			<p id="messages"> Messages:  </p>
+			</div>
+			<div id = 'arena'></div>
+		</div>
+		<div id='debugbox'>
+		<p id="debug"> Debug:  </p>
+		</div>
+        <script src="testServer.js"></script>
+		<script src="grafikstub.js"></script>
+    </body>
+</html>

@@ -127,7 +127,7 @@ height:30%;
 	margin:0px;
 	width: 70%;
 	height: 40;
-	border-radius: 20%;
+	border-radius: 5px;
 	border: 1px solid;
 	text-align: center;
 	font-family: "textFont";
@@ -197,6 +197,11 @@ height:30%;
 	 background-size: 100% 100%;
 }
 
+#toLogicButton:active{
+     background:url(logic3.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
 #toGarageButton{
 	background:url(garage1.png) no-repeat;
 	background-size: 100% 100%;
@@ -213,6 +218,11 @@ height:30%;
 
 #toGarageButton:hover{
      background:url(garage2.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
+#toGarageButton:active{
+     background:url(garage3.png) no-repeat;
 	 background-size: 100% 100%;
 }
 
@@ -250,7 +260,7 @@ margin-top: 30px;
 
 /*Only Garage Screen*/
 
-#chassi, #weapon, #wheels{
+#chassiBox, #weaponBox, #wheelsBox{
 
 width: 100;
 height: 100;
@@ -271,6 +281,7 @@ background-color:blue;
 margin-top:5px;
 border: 1px solid black;
 position: relative;
+cursor:pointer;
 
 }
 

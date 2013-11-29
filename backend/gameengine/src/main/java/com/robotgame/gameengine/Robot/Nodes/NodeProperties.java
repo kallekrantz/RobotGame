@@ -12,7 +12,9 @@ import com.robotgame.gameengine.Util.Vector2;
  */
 
 
-//Class that represents a single node in a Robot.Builder.RobotBlueprint.
+/**
+ * OBSOLETE(?)
+ */
 public class NodeProperties
 {
     private NodeType _type;

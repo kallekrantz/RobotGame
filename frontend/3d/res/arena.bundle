@@ -1,0 +1,1018 @@
+{
+    "Arena/Arena.group": {
+        "libraryRefs": [
+            "Arena/entities/Box004_0.entity",
+            "Arena/materials/Gengon001Mat.material",
+            "Arena/entities/Box003_0.entity",
+            "Arena/entities/RootNode.entity",
+            "Arena/meshes/Gengon001_0.mesh",
+            "Arena/entities/Box002_0.entity",
+            "Arena/meshes/Box003_0.mesh",
+            "Arena/materials/Box004Mat.material",
+            "Arena/entities/Fbx_Root.entity",
+            "Arena/meshes/Box004_0.mesh",
+            "Arena/meshes/Box005_0.mesh",
+            "Arena/materials/Box002Mat.material",
+            "Arena/entities/Gengon001_0.entity",
+            "Arena/entities/Box005_0.entity",
+            "Arena/meshes/Box002_0.mesh",
+            "Arena/materials/Box005Mat.material",
+            "Arena/materials/Box003Mat.material",
+            "Arena/binaries/1384331055_data.bin",
+            "Arena/entities/PointLight.entity"
+        ],
+        "name": "Arena",
+        "ref": "Arena/Arena.group"
+    },
+    "Arena/entities/Box002_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Arena/meshes/Box002_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Arena/materials/Box002Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Arena/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0937920808792114,
+                    1.0,
+                    1.040152430534363
+                ],
+                "translation": [
+                    84.3533401489258,
+                    5.858633995056152,
+                    -72.55172729492188
+                ]
+            }
+        },
+        "name": "Box002",
+        "nodeType": "Mesh"
+    },
+    "Arena/entities/Box003_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Arena/meshes/Box003_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Arena/materials/Box003Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Arena/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0937920808792114,
+                    1.0,
+                    1.040152430534363
+                ],
+                "translation": [
+                    -43.14618682861328,
+                    5.858633995056152,
+                    -72.55172729492188
+                ]
+            }
+        },
+        "name": "Box003",
+        "nodeType": "Mesh"
+    },
+    "Arena/entities/Box004_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Arena/meshes/Box004_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Arena/materials/Box004Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Arena/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0937920808792114,
+                    1.0,
+                    1.040152430534363
+                ],
+                "translation": [
+                    -43.14618682861328,
+                    5.858633995056152,
+                    55.04351806640625
+                ]
+            }
+        },
+        "name": "Box004",
+        "nodeType": "Mesh"
+    },
+    "Arena/entities/Box005_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Arena/meshes/Box005_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Arena/materials/Box005Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Arena/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0937920808792114,
+                    1.0,
+                    1.040152430534363
+                ],
+                "translation": [
+                    85.44817352294922,
+                    5.858633995056152,
+                    55.04351806640625
+                ]
+            }
+        },
+        "name": "Box005",
+        "nodeType": "Mesh"
+    },
+    "Arena/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "Arena/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "Arena/entities/Gengon001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Arena/meshes/Gengon001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Arena/materials/Gengon001Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Arena/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.5224499702453616,
+                    1.5224499702453616,
+                    1.5224499702453616
+                ],
+                "translation": [
+                    20.775283813476566,
+                    -11.752949714660646,
+                    -8.808747291564941
+                ]
+            }
+        },
+        "name": "Gengon001",
+        "nodeType": "Mesh"
+    },
+    "Arena/entities/PointLight.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1.31,
+                "lightCookie": null,
+                "range": 1000,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 1000,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 0.62,
+                "type": "PointLight"
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    17.326873779296875,
+                    538.0458984375,
+                    0
+                ]
+            }
+        },
+        "name": "PointLight",
+        "ref": "Arena/entities/PointLight.entity"
+    },
+    "Arena/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -0.18231201171875,
+                    -13.895702362060547,
+                    0
+                ]
+            }
+        },
+        "name": "Arena",
+        "nodeType": "Null",
+        "ref": "Arena/entities/RootNode.entity"
+    },
+    "Arena/materials/Box002Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Box002Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Arena/materials/Box003Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Box003Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Arena/materials/Box004Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Box004Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Arena/materials/Box005Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Box005Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Arena/materials/Gengon001Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Gengon001Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Arena/meshes/Box002_0.mesh": {
+        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "boundingVolume": {
+            "max": [
+                12.095244748644546,
+                71.33900547027588,
+                12.584932480699237
+            ],
+            "min": [
+                -12.09524474864456,
+                0.0,
+                -12.584932480699223
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            360
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            22992,
+            360,
+            "uint8"
+        ],
+        "name": "Box002",
+        "normals": [
+            24744,
+            348,
+            "float32"
+        ],
+        "tangents": [
+            26136,
+            464,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                27992,
+                232,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 116,
+        "vertices": [
+            23352,
+            348,
+            "float32"
+        ]
+    },
+    "Arena/meshes/Box003_0.mesh": {
+        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "boundingVolume": {
+            "max": [
+                12.095248236233584,
+                71.33900547027588,
+                12.584932480699237
+            ],
+            "min": [
+                -12.095248236233587,
+                0.0,
+                -12.584932480699223
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            360
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            5208,
+            360,
+            "uint8"
+        ],
+        "name": "Box003",
+        "normals": [
+            6960,
+            348,
+            "float32"
+        ],
+        "tangents": [
+            8352,
+            464,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                10208,
+                232,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 116,
+        "vertices": [
+            5568,
+            348,
+            "float32"
+        ]
+    },
+    "Arena/meshes/Box004_0.mesh": {
+        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "boundingVolume": {
+            "max": [
+                12.095248236233584,
+                71.33900547027588,
+                12.584932480699237
+            ],
+            "min": [
+                -12.095248236233587,
+                0.0,
+                -12.58493248069923
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            360
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            11136,
+            360,
+            "uint8"
+        ],
+        "name": "Box004",
+        "normals": [
+            12888,
+            348,
+            "float32"
+        ],
+        "tangents": [
+            14280,
+            464,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                16136,
+                232,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 116,
+        "vertices": [
+            11496,
+            348,
+            "float32"
+        ]
+    },
+    "Arena/meshes/Box005_0.mesh": {
+        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "boundingVolume": {
+            "max": [
+                12.09524474864456,
+                71.33900547027588,
+                12.584932480699237
+            ],
+            "min": [
+                -12.095244748644546,
+                0.0,
+                -12.58493248069923
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            360
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            17064,
+            360,
+            "uint8"
+        ],
+        "name": "Box005",
+        "normals": [
+            18816,
+            348,
+            "float32"
+        ],
+        "tangents": [
+            20208,
+            464,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                22064,
+                232,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 116,
+        "vertices": [
+            17424,
+            348,
+            "float32"
+        ]
+    },
+    "Arena/meshes/Gengon001_0.mesh": {
+        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "boundingVolume": {
+            "max": [
+                130.00000438485355,
+                61.78835313982138,
+                130.0000050112612
+            ],
+            "min": [
+                -130.00000438485358,
+                11.825139555795538,
+                -130.00000375844593
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            552
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            552,
+            "uint8"
+        ],
+        "name": "Gengon001",
+        "normals": [
+            1716,
+            291,
+            "float32"
+        ],
+        "tangents": [
+            2880,
+            388,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                4432,
+                194,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 97,
+        "vertices": [
+            552,
+            291,
+            "float32"
+        ]
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-13T08:23:44.694685",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "Arena/entities/Box004_0.entity",
+            "Arena/entities/Box003_0.entity",
+            "Arena/entities/Box002_0.entity",
+            "Arena/entities/Gengon001_0.entity",
+            "Arena/entities/Box005_0.entity",
+            "Arena/entities/Fbx_Root.entity",
+            "Arena/entities/RootNode.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "Arena/Arena.group"
+        ],
+        "id": "Pm1zJ_iaTYu1KOrMHooK4g",
+        "licenseType": "CC0",
+        "modified": "2013-11-13T08:23:44.694685",
+        "name": "Default Goo Project",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    }
+}

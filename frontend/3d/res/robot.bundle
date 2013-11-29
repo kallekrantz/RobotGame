@@ -1,0 +1,5708 @@
+{
+    "FullTank/FullTank.group": {
+        "libraryRefs": [
+            "FullTank/entities/Fbx_Root.entity",
+            "FullTank/meshes/Cylinder06_0.mesh",
+            "FullTank/entities/Cylinder03_0.entity",
+            "FullTank/entities/Box003_0.entity",
+            "FullTank/entities/Cylinder04_0.entity",
+            "FullTank/entities/Cylinder01_0.entity",
+            "FullTank/entities/Box002_0.entity",
+            "FullTank/materials/Cylinder07Mat.material",
+            "FullTank/meshes/Object002_0.mesh",
+            "FullTank/entities/RootNode.entity",
+            "FullTank/entities/Object001_0.entity",
+            "FullTank/entities/Omni001.entity",
+            "FullTank/materials/hjul.material",
+            "FullTank/materials/Material_2.material",
+            "FullTank/meshes/Cylinder03_0.mesh",
+            "FullTank/materials/Material_39.material",
+            "FullTank/materials/Box004Mat.material",
+            "FullTank/meshes/Box003_0.mesh",
+            "FullTank/materials/Material_3.material",
+            "FullTank/meshes/Box004_0.mesh",
+            "FullTank/entities/Cylinder00_0.entity",
+            "FullTank/meshes/Box002_0.mesh",
+            "FullTank/entities/Cylinder08_0.entity",
+            "FullTank/textures/HJUL.texture",
+            "FullTank/materials/Cylinder08Mat.material",
+            "FullTank/meshes/Cylinder08_0.mesh",
+            "FullTank/meshes/Object001_0.mesh",
+            "FullTank/materials/Material_38.material",
+            "FullTank/meshes/Cylinder01_0.mesh",
+            "FullTank/meshes/Box001_0.mesh",
+            "FullTank/meshes/Cylinder05_0.mesh",
+            "FullTank/materials/Box001Mat.material",
+            "FullTank/meshes/Cylinder07_0.mesh",
+            "FullTank/meshes/Cylinder04_0.mesh",
+            "FullTank/meshes/Cylinder00_0.mesh",
+            "FullTank/entities/Cylinder02_0.entity",
+            "FullTank/entities/Cylinder05_0.entity",
+            "FullTank/entities/Omni002.entity",
+            "FullTank/materials/Cylinder06Mat.material",
+            "FullTank/entities/Box001_0.entity",
+            "FullTank/entities/Cylinder07_0.entity",
+            "FullTank/entities/Object002_0.entity",
+            "FullTank/entities/Cylinder06_0.entity",
+            "FullTank/entities/Box004_0.entity",
+            "FullTank/materials/Material_21.material",
+            "FullTank/meshes/Cylinder02_0.mesh",
+            "FullTank/binaries/1384082440_data.bin",
+            "FullTank/images/hjul.png"
+        ],
+        "name": "FullTank",
+        "ref": "FullTank/FullTank.group"
+    },
+    "FullTank/entities/Box001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Box001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank/materials/Box001Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0.7257757186889648,
+                    -15.693887710571289,
+                    0.13224411010742188
+                ]
+            }
+        },
+        "name": "Box001",
+        "nodeType": "Mesh",
+        "ref": "FullTank/entities/Box001_0.entity"
+    },
+    "FullTank/entities/Box002_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Box002_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank/materials/Material_2.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0.26163721084594727,
+                    0.0015190504491329195,
+                    0.3689948320388794
+                ]
+            }
+        },
+        "name": "Box002",
+        "nodeType": "Mesh",
+        "ref": "FullTank/entities/Box002_0.entity"
+    },
+    "FullTank/entities/Box003_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Box003_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Material_38.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.21100740134716034,
+                    -3.989020109176636,
+                    1.8651180267333984
+                ]
+            }
+        },
+        "name": "Box003",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Box004_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Box004_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Box004Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    90.00000192794838,
+                    -89.9999912016366,
+                    0.0
+                ],
+                "scale": [
+                    0.11675193905830385,
+                    0.16395485401153567,
+                    0.14373984932899475
+                ],
+                "translation": [
+                    1.7912178039550783,
+                    10.866239547729494,
+                    -13.417209625244142
+                ]
+            }
+        },
+        "name": "Box004",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder00_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder00_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Material_39.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0.0
+                ],
+                "scale": [
+                    1.0000003576278687,
+                    0.8236396312713624,
+                    0.9999998807907107
+                ],
+                "translation": [
+                    -8.025388717651367,
+                    -1.9890198707580569,
+                    -6.868650436401368
+                ]
+            }
+        },
+        "name": "Cylinder00",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder01_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder01_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank/materials/Material_21.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808994054794312,
+                    0.7204577922821045,
+                    0.780899167060852
+                ],
+                "translation": [
+                    -10.186762809753418,
+                    -1.9567248821258547,
+                    -6.868649959564209
+                ]
+            }
+        },
+        "name": "Cylinder01",
+        "nodeType": "Mesh",
+        "ref": "FullTank/entities/Cylinder01_0.entity"
+    },
+    "FullTank/entities/Cylinder02_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder02_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Material_39.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0.0
+                ],
+                "scale": [
+                    1.0000003576278687,
+                    0.8236396312713624,
+                    0.9999998807907107
+                ],
+                "translation": [
+                    -8.025388717651367,
+                    -1.9890198707580569,
+                    9.570683479309082
+                ]
+            }
+        },
+        "name": "Cylinder02",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder03_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder03_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Material_21_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    -89.99999614410349,
+                    -89.99999454693904,
+                    0.0
+                ],
+                "scale": [
+                    -0.780899167060852,
+                    -0.7204577922821045,
+                    -0.780899465084076
+                ],
+                "translation": [
+                    10.608777046203613,
+                    -1.9567248821258547,
+                    -6.868649959564209
+                ]
+            }
+        },
+        "name": "Cylinder03",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder04_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder04_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Material_21_2.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    -89.99999614410349,
+                    -89.99999454693904,
+                    0.0
+                ],
+                "scale": [
+                    -0.780899167060852,
+                    -0.7204577922821045,
+                    -0.780899465084076
+                ],
+                "translation": [
+                    10.608777046203613,
+                    -1.9567248821258547,
+                    9.389081954956055
+                ]
+            }
+        },
+        "name": "Cylinder04",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder05_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder05_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank/materials/Material_21.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808994054794312,
+                    0.7204577922821045,
+                    0.780899167060852
+                ],
+                "translation": [
+                    -10.186762809753418,
+                    -1.9567248821258547,
+                    9.389083862304688
+                ]
+            }
+        },
+        "name": "Cylinder05",
+        "nodeType": "Mesh",
+        "ref": "FullTank/entities/Cylinder05_0.entity"
+    },
+    "FullTank/entities/Cylinder06_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder06_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Cylinder06Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    90.00000933466734,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.08551365137100221,
+                    0.05810777097940444,
+                    0.08551365137100221
+                ],
+                "translation": [
+                    0.32877254486083984,
+                    10.670642852783203,
+                    -9.088193893432617
+                ]
+            }
+        },
+        "name": "Cylinder06",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder07_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder07_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Cylinder07Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    90.00000192794838,
+                    -89.9999912016366,
+                    0.0
+                ],
+                "scale": [
+                    0.11675191670656204,
+                    0.08256242424249649,
+                    0.11675196141004564
+                ],
+                "translation": [
+                    4.15342140197754,
+                    9.762618064880371,
+                    6.202873706817628
+                ]
+            }
+        },
+        "name": "Cylinder07",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Cylinder08_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Cylinder08_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Cylinder08Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    81.88677498876989,
+                    -89.99998771482899,
+                    0.0
+                ],
+                "scale": [
+                    0.11675193905830383,
+                    0.11675193905830387,
+                    0.11675193905830385
+                ],
+                "translation": [
+                    -6.23990821838379,
+                    12.190746307373049,
+                    -5.730038642883301
+                ]
+            }
+        },
+        "name": "Cylinder08",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "FullTank/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "FullTank/entities/Object001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Object001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -0.4182472229003907,
+                    -8.629205703735352,
+                    -1.0243033170700073
+                ]
+            }
+        },
+        "name": "Object001",
+        "nodeType": "Mesh",
+        "ref": "FullTank/entities/Object001_0.entity"
+    },
+    "FullTank/entities/Object002_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank/meshes/Object002_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    180.0,
+                    5.008956327514124e-06,
+                    180.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.7389898300170898,
+                    -8.602459907531738,
+                    7.3090295791625985
+                ]
+            }
+        },
+        "name": "Object002",
+        "nodeType": "Mesh"
+    },
+    "FullTank/entities/Omni001.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "intensity": 1.0,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0.0,
+                    "far": 1000,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "type": "PointLight"
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -11.996765136718752,
+                    7.563739776611329,
+                    -17.182250976562504
+                ]
+            }
+        },
+        "name": "Omni001",
+        "nodeType": "Light"
+    },
+    "FullTank/entities/Omni002.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1.0,
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "intensity": 1.0,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0.0,
+                    "far": 1000,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "type": "PointLight"
+            },
+            "transform": {
+                "parentRef": "FullTank/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -28.968315124511722,
+                    31.313325881958008,
+                    4.226650238037109
+                ]
+            }
+        },
+        "name": "Omni002",
+        "nodeType": "Light"
+    },
+    "FullTank/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "FullTank",
+        "nodeType": "Null",
+        "ref": "FullTank/entities/RootNode.entity"
+    },
+    "FullTank/materials/Box001Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Box001Mat",
+        "ref": "FullTank/materials/Box001Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank/materials/Box004Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Box004Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "FullTank/materials/Cylinder06Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Cylinder06Mat",
+        "ref": "FullTank/materials/Cylinder06Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank/materials/Cylinder07Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Cylinder07Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "FullTank/materials/Cylinder08Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Cylinder08Mat",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "FullTank/materials/Material_2.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #2",
+        "ref": "FullTank/materials/Material_2.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.15294118225574493,
+                    0.15294118225574493,
+                    0.15294118225574493,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.15294118225574493,
+                    0.15294118225574493,
+                    0.15294118225574493,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.9579085174884672,
+                    0.9579085174884672,
+                    0.9579085174884672,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank/materials/Material_21.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #21",
+        "ref": "FullTank/materials/Material_21.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": null
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank/materials/Material_3.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #3",
+        "ref": "FullTank/materials/Material_3.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.5986928145090739,
+                    0.5986928145090739,
+                    0.5986928145090739,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank/materials/Material_38.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #38",
+        "ref": "FullTank/materials/Material_38.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.7184314059587867,
+                    0.7184314059587867,
+                    0.7184314059587867,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank/materials/Material_39.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #39",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    1.9637124144610234,
+                    1.9637124144610234,
+                    1.9637124144610234,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "FullTank/materials/hjul.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "hjul",
+        "renderQueue": -1,
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "FullTank/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 147.03341859796174
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "FullTank/meshes/Box001_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.5,
+                5.0,
+                12.5
+            ],
+            "min": [
+                -7.5,
+                0.0,
+                -12.5
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            252
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            226436,
+            252,
+            "uint8"
+        ],
+        "name": "Box001",
+        "normals": [
+            227948,
+            315,
+            "float32"
+        ],
+        "tangents": [
+            229208,
+            420,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                230888,
+                210,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 105,
+        "vertices": [
+            226688,
+            315,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Box002_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.5,
+                7.050453815609217,
+                12.49999988079071
+            ],
+            "min": [
+                -7.5,
+                0.0,
+                -12.50000011920929
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1824
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            91896,
+            1824,
+            "uint16"
+        ],
+        "name": "Box002",
+        "normals": [
+            107580,
+            3009,
+            "float32"
+        ],
+        "tangents": [
+            119616,
+            4012,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                135664,
+                2006,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 1003,
+        "vertices": [
+            95544,
+            3009,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Box003_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                2.3561942130327225,
+                4.0,
+                9.856194496154785
+            ],
+            "min": [
+                -2.3561943024396896,
+                0.0,
+                -9.856194496154785
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            324
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            61020,
+            324,
+            "uint8"
+        ],
+        "name": "Box003",
+        "normals": [
+            62592,
+            312,
+            "float32"
+        ],
+        "tangents": [
+            63840,
+            416,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                65504,
+                208,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 104,
+        "vertices": [
+            61344,
+            312,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Box004_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                5.338668710451884,
+                16.2182503109182,
+                9.685675744633443
+            ],
+            "min": [
+                -22.394218829715882,
+                1.621299087079409,
+                -6.9641258667342925
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            732
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            66336,
+            732,
+            "uint16"
+        ],
+        "name": "Box004",
+        "normals": [
+            73824,
+            1506,
+            "float32"
+        ],
+        "tangents": [
+            79848,
+            2008,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                87880,
+                1004,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 502,
+        "vertices": [
+            67800,
+            1506,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder00_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.49999996023722204,
+                20.0000011885924,
+                0.4874639342314451
+            ],
+            "min": [
+                -0.4504846304583605,
+                -2.9174145765864523e-08,
+                -0.48746397396785235
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            84
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            298436,
+            84,
+            "uint8"
+        ],
+        "name": "Cylinder00",
+        "normals": [
+            298940,
+            105,
+            "float32"
+        ],
+        "tangents": [
+            299360,
+            140,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                299920,
+                70,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 35,
+        "vertices": [
+            298520,
+            105,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder01_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085721134503,
+                3.000000817933815,
+                4.148234273589278
+            ],
+            "min": [
+                -4.171085759100684,
+                0.33961523117423553,
+                -4.148234311555316
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1704
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            197396,
+            1704,
+            "uint16"
+        ],
+        "name": "Cylinder01",
+        "normals": [
+            207212,
+            1602,
+            "float32"
+        ],
+        "tangents": [
+            213620,
+            2136,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                222164,
+                1068,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 534,
+        "vertices": [
+            200804,
+            1602,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder02_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.49999996023722204,
+                20.0000011885924,
+                0.48746393423144485
+            ],
+            "min": [
+                -0.4504842330677743,
+                -2.917412622593929e-08,
+                -0.4874639739679376
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            84
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            300200,
+            84,
+            "uint8"
+        ],
+        "name": "Cylinder02",
+        "normals": [
+            300704,
+            105,
+            "float32"
+        ],
+        "tangents": [
+            301124,
+            140,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                301684,
+                70,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 35,
+        "vertices": [
+            300284,
+            105,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder03_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085715877492,
+                3.0000008179340973,
+                4.148234660019201
+            ],
+            "min": [
+                -4.1710857538436965,
+                0.3396152311743972,
+                -4.148234392673464
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1704
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            31980,
+            1704,
+            "uint16"
+        ],
+        "name": "Cylinder03",
+        "normals": [
+            41796,
+            1602,
+            "float32"
+        ],
+        "tangents": [
+            48204,
+            2136,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                56748,
+                1068,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 534,
+        "vertices": [
+            35388,
+            1602,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder04_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085715877491,
+                3.0000008179340973,
+                4.14823466001934
+            ],
+            "min": [
+                -4.1710863644693745,
+                0.3396152311744238,
+                -4.148234392673603
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1704
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            269396,
+            1704,
+            "uint16"
+        ],
+        "name": "Cylinder04",
+        "normals": [
+            279212,
+            1602,
+            "float32"
+        ],
+        "tangents": [
+            285620,
+            2136,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                294164,
+                1068,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 534,
+        "vertices": [
+            272804,
+            1602,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder05_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085721134504,
+                3.000000817933813,
+                4.148234273589232
+            ],
+            "min": [
+                -4.171086369726362,
+                0.3396152311742071,
+                -4.148234311555363
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1704
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            231728,
+            1704,
+            "uint16"
+        ],
+        "name": "Cylinder05",
+        "normals": [
+            241544,
+            1602,
+            "float32"
+        ],
+        "tangents": [
+            247952,
+            2136,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                256496,
+                1068,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 534,
+        "vertices": [
+            235136,
+            1602,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder06_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                9.01873796335213,
+                128.49264611465082,
+                9.018741000907767
+            ],
+            "min": [
+                -9.018736569314015,
+                17.932359113056407,
+                -9.018739395090634
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1392
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            1392,
+            "uint16"
+        ],
+        "name": "Cylinder06",
+        "normals": [
+            9012,
+            1557,
+            "float32"
+        ],
+        "tangents": [
+            15240,
+            2076,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                23544,
+                1038,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 519,
+        "vertices": [
+            2784,
+            1557,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder07_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.271135539440017,
+                92.64860013423137,
+                7.2711374868625995
+            ],
+            "min": [
+                -7.27113426586638,
+                -1.016127889386098e-06,
+                -7.271137330656387
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            420
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            260768,
+            420,
+            "uint8"
+        ],
+        "name": "Cylinder07",
+        "normals": [
+            263240,
+            513,
+            "float32"
+        ],
+        "tangents": [
+            265292,
+            684,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                268028,
+                342,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 171,
+        "vertices": [
+            261188,
+            513,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Cylinder08_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                123.47865493564683,
+                -16.759103859424926,
+                39.88504920630645
+            ],
+            "min": [
+                -60.50329828127042,
+                -92.22285558213203,
+                -10.17828108294431
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            3015
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            143688,
+            3015,
+            "uint16"
+        ],
+        "name": "Cylinder08",
+        "normals": [
+            160352,
+            2658,
+            "float32"
+        ],
+        "tangents": [
+            170984,
+            3544,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                185160,
+                1772,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 886,
+        "vertices": [
+            149720,
+            2658,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Object001_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                -4.664146423339844,
+                14.09092903137207,
+                12.500000834465027
+            ],
+            "min": [
+                -7.5,
+                8.722249031066895,
+                -4.166667103767395
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            204
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            192248,
+            204,
+            "uint8"
+        ],
+        "name": "Object001",
+        "normals": [
+            193688,
+            309,
+            "float32"
+        ],
+        "tangents": [
+            194924,
+            412,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                196572,
+                206,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 103,
+        "vertices": [
+            192452,
+            309,
+            "float32"
+        ]
+    },
+    "FullTank/meshes/Object002_0.mesh": {
+        "binaryRef": "FullTank/binaries/1384082446_data.bin",
+        "boundingVolume": {
+            "max": [
+                -4.664146271027742,
+                14.09092903137207,
+                12.500001132468523
+            ],
+            "min": [
+                -7.500000324525208,
+                8.722249031066895,
+                -4.16666680576395
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            204
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            27696,
+            204,
+            "uint8"
+        ],
+        "name": "Object002",
+        "normals": [
+            28920,
+            255,
+            "float32"
+        ],
+        "tangents": [
+            29940,
+            340,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                31300,
+                170,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 85,
+        "vertices": [
+            27900,
+            255,
+            "float32"
+        ]
+    },
+    "FullTank/textures/HJUL.texture": {
+        "anisotropy": 1,
+        "fileName": "HJUL.png",
+        "flipY": true,
+        "magFilter": "Bilinear",
+        "minFilter": "Trilinear",
+        "name": "HJUL",
+        "offset": [
+            0,
+            0
+        ],
+        "realUrl": "/tmp/HJUL.PNG",
+        "ref": "FullTank/textures/HJUL.texture",
+        "repeat": [
+            1,
+            1
+        ],
+        "url": "FullTank/images/hjul.png",
+        "wrapU": "Repeat",
+        "wrapV": "Repeat"
+    },
+    "FullTank2/FullTank2.group": {
+        "libraryRefs": [
+            "FullTank2/entities/Cylinder00_0.entity",
+            "FullTank2/entities/Object004_0.entity",
+            "FullTank2/materials/Material_3.material",
+            "FullTank2/textures/HJUL.texture",
+            "FullTank2/materials/Cylinder07Mat.material",
+            "FullTank2/meshes/Cylinder03_0.mesh",
+            "FullTank2/materials/hjul.material",
+            "FullTank2/materials/Material_38.material",
+            "FullTank2/meshes/Cylinder02_0.mesh",
+            "FullTank2/entities/Cylinder06_0.entity",
+            "FullTank2/entities/Cylinder08_0.entity",
+            "FullTank2/meshes/Cylinder04_0.mesh",
+            "FullTank2/materials/Material_2_1.material",
+            "FullTank2/meshes/Cylinder07_0.mesh",
+            "FullTank2/meshes/Cylinder06_0.mesh",
+            "FullTank2/meshes/Box004_0.mesh",
+            "FullTank2/entities/Cylinder05_0.entity",
+            "FullTank2/entities/RootNode.entity",
+            "FullTank2/meshes/Box002_0.mesh",
+            "FullTank2/materials/Box004Mat.material",
+            "FullTank2/meshes/Object006_0.mesh",
+            "FullTank2/entities/Object006_0.entity",
+            "FullTank2/entities/Fbx_Root.entity",
+            "FullTank2/entities/Box004_0.entity",
+            "FullTank2/meshes/Box003_0.mesh",
+            "FullTank2/entities/Cylinder02_0.entity",
+            "FullTank2/meshes/Cylinder00_0.mesh",
+            "FullTank2/entities/Cylinder01_0.entity",
+            "FullTank2/meshes/Object004_0.mesh",
+            "FullTank2/entities/Box003_0.entity",
+            "FullTank2/meshes/Object003_0.mesh",
+            "FullTank2/entities/Omni002.entity",
+            "FullTank2/entities/Cylinder04_0.entity",
+            "FullTank2/entities/Object002_0.entity",
+            "FullTank2/meshes/Cylinder01_0.mesh",
+            "FullTank2/entities/Cylinder03_0.entity",
+            "FullTank2/entities/Box002_0.entity",
+            "FullTank2/meshes/Cylinder08_0.mesh",
+            "FullTank2/entities/Omni001.entity",
+            "FullTank2/meshes/Object001_0.mesh",
+            "FullTank2/materials/Cylinder06Mat.material",
+            "FullTank2/entities/Object003_0.entity",
+            "FullTank2/entities/Object005_0.entity",
+            "FullTank2/materials/Cylinder08Mat.material",
+            "FullTank2/meshes/Object002_0.mesh",
+            "FullTank2/materials/Material_2.material",
+            "FullTank2/meshes/Object005_0.mesh",
+            "FullTank2/entities/Cylinder07_0.entity",
+            "FullTank2/materials/hjul_1.material",
+            "FullTank2/entities/Object001_0.entity",
+            "FullTank2/materials/Material_39.material",
+            "FullTank2/meshes/Cylinder05_0.mesh",
+            "FullTank2/binaries/1384083484_data.bin",
+            "FullTank2/images/hjul.png",
+            "FullTank2/states/Machine.machine",
+            "FullTank2/states/Machine_0.machine",
+            "FullTank2/states/Machine_1.machine",
+            "FullTank2/states/Machine_2.machine",
+            "FullTank2/states/Machine_3.machine",
+            "FullTank2/states/Machine_4.machine",
+            "FullTank2/states/Machine_5.machine",
+            "FullTank2/states/Machine_6.machine",
+            "FullTank2/states/Machine_7.machine",
+            "FullTank2/states/Machine_8.machine",
+            "FullTank2/states/Machine_9.machine"
+        ],
+        "name": "FullTank2",
+        "ref": "FullTank2/FullTank2.group"
+    },
+    "FullTank2/entities/Box002_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Box002_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0.26163721084594727,
+                    0.0015190504491329195,
+                    0.3689948320388794
+                ]
+            }
+        },
+        "name": "Box002",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Box002_0.entity"
+    },
+    "FullTank2/entities/Box003_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Box003_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Material_38.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.21100740134716034,
+                    -3.989020109176636,
+                    1.8651180267333984
+                ]
+            }
+        },
+        "name": "Box003",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Box004_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Box004_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Box004Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    90.00000192794838,
+                    -89.9999912016366,
+                    0.0
+                ],
+                "scale": [
+                    0.11675193905830385,
+                    0.16395485401153567,
+                    0.14373984932899475
+                ],
+                "translation": [
+                    1.7912178039550783,
+                    10.866239547729494,
+                    -13.417209625244142
+                ]
+            }
+        },
+        "name": "Box004",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Cylinder00_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder00_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Material_39.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0.0
+                ],
+                "scale": [
+                    1.0000003576278687,
+                    0.8236396312713624,
+                    0.9999998807907107
+                ],
+                "translation": [
+                    -8.025388717651367,
+                    -1.9890198707580569,
+                    -6.868650436401368
+                ]
+            }
+        },
+        "name": "Cylinder00",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Cylinder01_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder01_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/hjul.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_3.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808994054794312,
+                    0.7204577922821045,
+                    0.780899167060852
+                ],
+                "translation": [
+                    -10.186762809753418,
+                    -1.9567248821258547,
+                    -6.868649959564209
+                ]
+            }
+        },
+        "name": "Cylinder01",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Cylinder01_0.entity"
+    },
+    "FullTank2/entities/Cylinder02_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder02_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Material_39.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0.0
+                ],
+                "scale": [
+                    1.0000003576278687,
+                    0.8236396312713624,
+                    0.9999998807907107
+                ],
+                "translation": [
+                    -8.025388717651367,
+                    -1.9890198707580569,
+                    9.570683479309082
+                ]
+            }
+        },
+        "name": "Cylinder02",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Cylinder03_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder03_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/hjul_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_1.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    -89.99999614410349,
+                    -89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    -0.780899167060852,
+                    -0.7204577922821045,
+                    -0.780899465084076
+                ],
+                "translation": [
+                    10.608777046203613,
+                    -1.9567248821258547,
+                    -6.868649959564209
+                ]
+            }
+        },
+        "name": "Cylinder03",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Cylinder03_0.entity"
+    },
+    "FullTank2/entities/Cylinder04_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder04_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Material_2.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_4.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    -89.99999614410349,
+                    -89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    -0.780899167060852,
+                    -0.7204577922821045,
+                    -0.780899465084076
+                ],
+                "translation": [
+                    10.608777046203613,
+                    -1.9567248821258547,
+                    9.389081954956055
+                ]
+            }
+        },
+        "name": "Cylinder04",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Cylinder04_0.entity"
+    },
+    "FullTank2/entities/Cylinder05_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder05_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/hjul_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_8.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808994054794312,
+                    0.7204577922821045,
+                    0.780899167060852
+                ],
+                "translation": [
+                    -10.186762809753418,
+                    -1.9567248821258547,
+                    9.389083862304688
+                ]
+            }
+        },
+        "name": "Cylinder05",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Cylinder05_0.entity"
+    },
+    "FullTank2/entities/Cylinder06_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder06_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Cylinder06Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    90.00000933466734,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    0.08551365137100221,
+                    0.05810777097940444,
+                    0.08551365137100221
+                ],
+                "translation": [
+                    0.32877254486083984,
+                    10.670642852783203,
+                    -9.088193893432617
+                ]
+            }
+        },
+        "name": "Cylinder06",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Cylinder07_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder07_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Cylinder07Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    90.00000192794838,
+                    -89.9999912016366,
+                    0.0
+                ],
+                "scale": [
+                    0.11675191670656204,
+                    0.08256242424249649,
+                    0.11675196141004564
+                ],
+                "translation": [
+                    4.15342140197754,
+                    9.762618064880371,
+                    6.202873706817628
+                ]
+            }
+        },
+        "name": "Cylinder07",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Cylinder08_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Cylinder08_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Cylinder08Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    81.88677498876989,
+                    -89.99998771482899,
+                    0
+                ],
+                "scale": [
+                    0.11675193905830383,
+                    0.11675193905830387,
+                    0.11675193905830385
+                ],
+                "translation": [
+                    -6.23990821838379,
+                    12.190746307373049,
+                    -5.730038642883301
+                ]
+            }
+        },
+        "name": "Cylinder08",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Cylinder08_0.entity"
+    },
+    "FullTank2/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "FullTank2/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "FullTank2/entities/Object001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Object001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.4182472229003907,
+                    -8.629205703735352,
+                    -1.0243033170700073
+                ]
+            }
+        },
+        "name": "Object001",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Object002_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Object002_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "FullTank2/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    180.0,
+                    5.008956327514124e-06,
+                    180.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.7389898300170898,
+                    -8.602459907531738,
+                    7.3090295791625985
+                ]
+            }
+        },
+        "name": "Object002",
+        "nodeType": "Mesh"
+    },
+    "FullTank2/entities/Object003_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Object003_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Material_2_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_7.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808992266654968,
+                    0.7204577922821045,
+                    0.7808994054794312
+                ],
+                "translation": [
+                    -10.586607933044434,
+                    -1.9567248821258547,
+                    9.389083862304688
+                ]
+            }
+        },
+        "name": "Object003",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Object003_0.entity"
+    },
+    "FullTank2/entities/Object004_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Object004_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Material_2_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_2.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808992266654968,
+                    0.7204577922821045,
+                    0.7808994054794312
+                ],
+                "translation": [
+                    -10.586666107177736,
+                    -1.9567248821258547,
+                    -6.868649959564209
+                ]
+            }
+        },
+        "name": "Object004",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Object004_0.entity"
+    },
+    "FullTank2/entities/Object005_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Object005_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Material_2_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine_6.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808992266654968,
+                    0.7204577922821045,
+                    0.7808994054794312
+                ],
+                "translation": [
+                    7.656678676605225,
+                    -1.9567248821258547,
+                    9.389083862304688
+                ]
+            }
+        },
+        "name": "Object005",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Object005_0.entity"
+    },
+    "FullTank2/entities/Object006_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "FullTank2/meshes/Object006_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "FullTank2/materials/Material_2_1.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "stateMachine": {
+                "machineRefs": [
+                    "FullTank2/states/Machine.machine"
+                ]
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    89.99999614410349,
+                    89.99999454693904,
+                    0
+                ],
+                "scale": [
+                    0.7808992266654968,
+                    0.7204577922821045,
+                    0.7808994054794312
+                ],
+                "translation": [
+                    7.6586036682128915,
+                    -1.9567248821258547,
+                    -6.868649959564209
+                ]
+            }
+        },
+        "name": "Object006",
+        "nodeType": "Mesh",
+        "ref": "FullTank2/entities/Object006_0.entity"
+    },
+    "FullTank2/entities/Omni001.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1.13,
+                "lightCookie": null,
+                "range": 1000,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 1000,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "type": "PointLight"
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    48.534210205078125,
+                    208.0248565673828,
+                    48.50382995605469
+                ]
+            }
+        },
+        "name": "Omni001",
+        "nodeType": "Light",
+        "ref": "FullTank2/entities/Omni001.entity"
+    },
+    "FullTank2/entities/Omni002.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1,
+                "lightCookie": null,
+                "range": 100,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 100,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "type": "PointLight"
+            },
+            "transform": {
+                "parentRef": "FullTank2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    -25.40443229675293,
+                    212.42678833007812,
+                    4.226649761199951
+                ]
+            }
+        },
+        "name": "Omni002",
+        "nodeType": "Light",
+        "ref": "FullTank2/entities/Omni002.entity"
+    },
+    "FullTank2/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    13.851333618164062,
+                    0
+                ]
+            }
+        },
+        "name": "FullTank2",
+        "nodeType": "Null",
+        "ref": "FullTank2/entities/RootNode.entity"
+    },
+    "FullTank2/materials/Box004Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Box004Mat",
+        "ref": "FullTank2/materials/Box004Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Cylinder06Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Cylinder06Mat",
+        "ref": "FullTank2/materials/Cylinder06Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Cylinder07Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Cylinder07Mat",
+        "ref": "FullTank2/materials/Cylinder07Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Cylinder08Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Cylinder08Mat",
+        "ref": "FullTank2/materials/Cylinder08Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Material_2.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #2",
+        "ref": "FullTank2/materials/Material_2.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": null
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Material_2_1.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Hjultextur",
+        "ref": "FullTank2/materials/Material_2_1.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "FullTank2/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Material_3.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #3",
+        "ref": "FullTank2/materials/Material_3.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    0.11764705926179886,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.5986928145090739,
+                    0.5986928145090739,
+                    0.5986928145090739,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/Material_38.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #38",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.7184314059587867,
+                    0.7184314059587867,
+                    0.7184314059587867,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "FullTank2/materials/Material_39.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #39",
+        "ref": "FullTank2/materials/Material_39.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    0.2823529541492462,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    1.9637124144610234,
+                    1.9637124144610234,
+                    1.9637124144610234,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/hjul.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "hjul",
+        "ref": "FullTank2/materials/hjul.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "FullTank2/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 147.03341859796174
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/materials/hjul_1.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "hjul",
+        "ref": "FullTank2/materials/hjul_1.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": null
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 147.03341859796174
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "FullTank2/meshes/Box002_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.5,
+                7.050453815609217,
+                12.49999988079071
+            ],
+            "min": [
+                -7.5,
+                0.0,
+                -12.50000011920929
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1824
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            122808,
+            1824,
+            "uint16"
+        ],
+        "name": "Box002",
+        "normals": [
+            138492,
+            3009,
+            "float32"
+        ],
+        "tangents": [
+            150528,
+            4012,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                166576,
+                2006,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 1003,
+        "vertices": [
+            126456,
+            3009,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Box003_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                2.3561942130327225,
+                4.0,
+                9.856194496154785
+            ],
+            "min": [
+                -2.3561943024396896,
+                0.0,
+                -9.856194496154785
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            324
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            178020,
+            324,
+            "uint8"
+        ],
+        "name": "Box003",
+        "normals": [
+            179592,
+            312,
+            "float32"
+        ],
+        "tangents": [
+            180840,
+            416,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                182504,
+                208,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 104,
+        "vertices": [
+            178344,
+            312,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Box004_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                5.338668710451884,
+                16.2182503109182,
+                9.685675744633443
+            ],
+            "min": [
+                -22.394218829715882,
+                1.621299087079409,
+                -6.9641258667342925
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            732
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            97248,
+            732,
+            "uint16"
+        ],
+        "name": "Box004",
+        "normals": [
+            104736,
+            1506,
+            "float32"
+        ],
+        "tangents": [
+            110760,
+            2008,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                118792,
+                1004,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 502,
+        "vertices": [
+            98712,
+            1506,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder00_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.49999996023722204,
+                20.0000011885924,
+                0.4874639342314451
+            ],
+            "min": [
+                -0.4504846304583605,
+                -2.9174145765864523e-08,
+                -0.48746397396785235
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            84
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            183336,
+            84,
+            "uint8"
+        ],
+        "name": "Cylinder00",
+        "normals": [
+            183840,
+            105,
+            "float32"
+        ],
+        "tangents": [
+            184260,
+            140,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                184820,
+                70,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 35,
+        "vertices": [
+            183420,
+            105,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder01_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085721134503,
+                3.000000817933815,
+                4.148234273589278
+            ],
+            "min": [
+                -4.171085759100684,
+                0.33961523117423553,
+                -4.148234311555316
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1716
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            191940,
+            1716,
+            "uint16"
+        ],
+        "name": "Cylinder01",
+        "normals": [
+            202044,
+            1668,
+            "float32"
+        ],
+        "tangents": [
+            208716,
+            2224,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                217612,
+                1112,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 556,
+        "vertices": [
+            195372,
+            1668,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder02_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.49999996023722204,
+                20.0000011885924,
+                0.48746393423144485
+            ],
+            "min": [
+                -0.4504842330677743,
+                -2.917412622593929e-08,
+                -0.4874639739679376
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            84
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            30120,
+            84,
+            "uint8"
+        ],
+        "name": "Cylinder02",
+        "normals": [
+            30624,
+            105,
+            "float32"
+        ],
+        "tangents": [
+            31044,
+            140,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                31604,
+                70,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 35,
+        "vertices": [
+            30204,
+            105,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder03_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085715877492,
+                3.0000008179340973,
+                4.148234660019201
+            ],
+            "min": [
+                -4.1710857538436965,
+                0.3396152311743972,
+                -4.148234392673464
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1716
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            1716,
+            "uint16"
+        ],
+        "name": "Cylinder03",
+        "normals": [
+            10104,
+            1668,
+            "float32"
+        ],
+        "tangents": [
+            16776,
+            2224,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                25672,
+                1112,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 556,
+        "vertices": [
+            3432,
+            1668,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder04_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085715877491,
+                3.0000008179340973,
+                4.14823466001934
+            ],
+            "min": [
+                -4.1710863644693745,
+                0.3396152311744238,
+                -4.148234392673603
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1704
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            31884,
+            1704,
+            "uint16"
+        ],
+        "name": "Cylinder04",
+        "normals": [
+            41700,
+            1602,
+            "float32"
+        ],
+        "tangents": [
+            48108,
+            2136,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                56652,
+                1068,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 534,
+        "vertices": [
+            35292,
+            1602,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder05_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.171085721134504,
+                3.000000817933813,
+                4.148234273589232
+            ],
+            "min": [
+                -4.171086369726362,
+                0.3396152311742071,
+                -4.148234311555363
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1716
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            283472,
+            1716,
+            "uint16"
+        ],
+        "name": "Cylinder05",
+        "normals": [
+            293576,
+            1668,
+            "float32"
+        ],
+        "tangents": [
+            300248,
+            2224,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                309144,
+                1112,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 556,
+        "vertices": [
+            286904,
+            1668,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder06_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                9.01873796335213,
+                128.49264611465082,
+                9.018741000907767
+            ],
+            "min": [
+                -9.018736569314015,
+                17.932359113056407,
+                -9.018739395090634
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1392
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            69552,
+            1392,
+            "uint16"
+        ],
+        "name": "Cylinder06",
+        "normals": [
+            78564,
+            1557,
+            "float32"
+        ],
+        "tangents": [
+            84792,
+            2076,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                93096,
+                1038,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 519,
+        "vertices": [
+            72336,
+            1557,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder07_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.271135539440017,
+                92.64860013423137,
+                7.2711374868625995
+            ],
+            "min": [
+                -7.27113426586638,
+                -1.016127889386098e-06,
+                -7.271137330656387
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            420
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            60924,
+            420,
+            "uint8"
+        ],
+        "name": "Cylinder07",
+        "normals": [
+            63396,
+            513,
+            "float32"
+        ],
+        "tangents": [
+            65448,
+            684,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                68184,
+                342,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 171,
+        "vertices": [
+            61344,
+            513,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Cylinder08_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                123.47865493564683,
+                -16.759103859424926,
+                39.88504920630645
+            ],
+            "min": [
+                -60.50329828127042,
+                -92.22285558213203,
+                -10.17828108294431
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            3015
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            222060,
+            3015,
+            "uint16"
+        ],
+        "name": "Cylinder08",
+        "normals": [
+            238724,
+            2658,
+            "float32"
+        ],
+        "tangents": [
+            249356,
+            3544,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                263532,
+                1772,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 886,
+        "vertices": [
+            228092,
+            2658,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Object001_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                -4.664146423339844,
+                14.09092903137207,
+                12.500000834465027
+            ],
+            "min": [
+                -7.5,
+                8.722249031066895,
+                -4.166667103767395
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            204
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            270620,
+            204,
+            "uint8"
+        ],
+        "name": "Object001",
+        "normals": [
+            272060,
+            309,
+            "float32"
+        ],
+        "tangents": [
+            273296,
+            412,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                274944,
+                206,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 103,
+        "vertices": [
+            270824,
+            309,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Object002_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                -4.664146271027742,
+                14.09092903137207,
+                12.500001132468523
+            ],
+            "min": [
+                -7.500000324525208,
+                8.722249031066895,
+                -4.16666680576395
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            204
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            275768,
+            204,
+            "uint8"
+        ],
+        "name": "Object002",
+        "normals": [
+            276992,
+            255,
+            "float32"
+        ],
+        "tangents": [
+            278012,
+            340,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                279372,
+                170,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 85,
+        "vertices": [
+            275972,
+            255,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Object003_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                3.5140542653221623,
+                3.557216191473744,
+                3.478287086285251
+            ],
+            "min": [
+                -3.5140532475616855,
+                1.0981176088821982,
+                -3.478285877727668
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            252
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            188520,
+            252,
+            "uint8"
+        ],
+        "name": "Object003",
+        "normals": [
+            189564,
+            198,
+            "float32"
+        ],
+        "tangents": [
+            190356,
+            264,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                191412,
+                132,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 66,
+        "vertices": [
+            188772,
+            198,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Object004_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                3.5140536546964842,
+                3.5572165189788976,
+                3.4782870862852513
+            ],
+            "min": [
+                -3.514053858187367,
+                1.0981176088822249,
+                -3.478285877727668
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            252
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            185100,
+            252,
+            "uint8"
+        ],
+        "name": "Object004",
+        "normals": [
+            186144,
+            198,
+            "float32"
+        ],
+        "tangents": [
+            186936,
+            264,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                187992,
+                132,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 66,
+        "vertices": [
+            185352,
+            198,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Object005_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                3.514054265322134,
+                3.5572158571259127,
+                3.47828708628528
+            ],
+            "min": [
+                -3.5140532475617157,
+                1.098117850526684,
+                -3.4782858777276386
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            252
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            280052,
+            252,
+            "uint8"
+        ],
+        "name": "Object005",
+        "normals": [
+            281096,
+            198,
+            "float32"
+        ],
+        "tangents": [
+            281888,
+            264,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                282944,
+                132,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 66,
+        "vertices": [
+            280304,
+            198,
+            "float32"
+        ]
+    },
+    "FullTank2/meshes/Object006_0.mesh": {
+        "binaryRef": "FullTank2/binaries/1384083484_data.bin",
+        "boundingVolume": {
+            "max": [
+                3.5140536546964842,
+                3.557216518978896,
+                3.478287086285251
+            ],
+            "min": [
+                -3.514053858187367,
+                1.0981176088822249,
+                -3.4782858777276675
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            252
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            174600,
+            252,
+            "uint8"
+        ],
+        "name": "Object006",
+        "normals": [
+            175644,
+            198,
+            "float32"
+        ],
+        "tangents": [
+            176436,
+            264,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                177492,
+                132,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 66,
+        "vertices": [
+            174852,
+            198,
+            "float32"
+        ]
+    },
+    "FullTank2/states/Machine.machine": {
+        "id": "LTg5MTY5MTIyMw==",
+        "initialState": "LTIwMjIwNTYyMzI=",
+        "name": "Rullande",
+        "ref": "FullTank2/states/Machine.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "LTEwMDI0Mzk4NjE=",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "LTIwMjIwNTYyMzI=",
+                "machineRefs": [],
+                "name": "RollingState",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_0.machine": {
+        "id": "MTAxNDUxMTA2Ng==",
+        "initialState": "NTM0Njk1Njg3",
+        "name": "Behavior 1",
+        "ref": "FullTank2/states/Machine_0.machine",
+        "states": [
+            {
+                "actions": [],
+                "id": "NTM0Njk1Njg3",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_1.machine": {
+        "id": "LTc5Mjk0MzM5Nw==",
+        "initialState": "MjQxNjE1MTA=",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_1.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "LTE1MzgzODg2OTE=",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "MjQxNjE1MTA=",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_2.machine": {
+        "id": "MTY5NDU2OTQzNg==",
+        "initialState": "LTQ4NjM3MjY2Nw==",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_2.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "MTkxOTYwNTM2Mw==",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "LTQ4NjM3MjY2Nw==",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_3.machine": {
+        "id": "LTExMjg4NTAyNw==",
+        "initialState": "LTk5NjkwNjg0NA==",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_3.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "MTEyOTM0MTk2OA==",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "LTk5NjkwNjg0NA==",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_4.machine": {
+        "id": "LTE5MjAzMzk0OTA=",
+        "initialState": "LTE1MDc0NDEwMjE=",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_4.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "LTE3NTIzOTg0NDQ=",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "LTE1MDc0NDEwMjE=",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_5.machine": {
+        "id": "NTY3MTczMzQz",
+        "initialState": "LTIwMTc5NzUxOTg=",
+        "name": "Behavior 1",
+        "ref": "FullTank2/states/Machine_5.machine",
+        "states": [
+            {
+                "actions": [],
+                "id": "LTIwMTc5NzUxOTg=",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_6.machine": {
+        "id": "LTEyNDAyODExMjA=",
+        "initialState": "MTc2NjQ1NzkyMQ==",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_6.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "LTE3NDQ1MDUyMzA=",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "MTc2NjQ1NzkyMQ==",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_7.machine": {
+        "id": "MTI0NzIzMTcxMw==",
+        "initialState": "MTI1NTkyMzc0NA==",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_7.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "NjUyMjA3OTkw",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "MTI1NTkyMzc0NA==",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_8.machine": {
+        "id": "LTU2MDIyMjc1MA==",
+        "initialState": "NzQ1Mzg5NTY3",
+        "name": "Behavior 0",
+        "ref": "FullTank2/states/Machine_8.machine",
+        "states": [
+            {
+                "actions": [
+                    {
+                        "id": "NzgyMDY2NzY3",
+                        "name": "Rotate",
+                        "options": {
+                            "everyFrame": true,
+                            "relative": true,
+                            "rotation": [
+                                0,
+                                -200,
+                                0
+                            ],
+                            "transitions": {}
+                        },
+                        "type": "Rotate"
+                    }
+                ],
+                "id": "NzQ1Mzg5NTY3",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/states/Machine_9.machine": {
+        "id": "MTkyNzI5MDA4Mw==",
+        "initialState": "MjM0ODU1Mzkw",
+        "name": "Behavior 1",
+        "ref": "FullTank2/states/Machine_9.machine",
+        "states": [
+            {
+                "actions": [],
+                "id": "MjM0ODU1Mzkw",
+                "machineRefs": [],
+                "name": "Default",
+                "transitions": []
+            }
+        ]
+    },
+    "FullTank2/textures/HJUL.texture": {
+        "anisotropy": 1,
+        "fileName": "HJUL.png",
+        "flipY": true,
+        "magFilter": "Bilinear",
+        "minFilter": "Trilinear",
+        "name": "HJUL",
+        "offset": [
+            0,
+            0
+        ],
+        "realUrl": "/tmp/HJUL.PNG",
+        "ref": "FullTank2/textures/HJUL.texture",
+        "repeat": [
+            1,
+            1
+        ],
+        "url": "FullTank2/images/hjul.png",
+        "wrapU": "Repeat",
+        "wrapV": "Repeat"
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-10T11:17:44.601537",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "FullTank2/entities/Cylinder00_0.entity",
+            "FullTank2/entities/Object004_0.entity",
+            "FullTank2/entities/Cylinder06_0.entity",
+            "FullTank2/entities/Cylinder08_0.entity",
+            "FullTank2/entities/Cylinder05_0.entity",
+            "FullTank2/entities/Object006_0.entity",
+            "FullTank2/entities/Box004_0.entity",
+            "FullTank2/entities/Cylinder02_0.entity",
+            "FullTank2/entities/Cylinder01_0.entity",
+            "FullTank2/entities/Box003_0.entity",
+            "FullTank2/entities/Cylinder04_0.entity",
+            "FullTank2/entities/Object002_0.entity",
+            "FullTank2/entities/Cylinder03_0.entity",
+            "FullTank2/entities/Box002_0.entity",
+            "FullTank2/entities/Object003_0.entity",
+            "FullTank2/entities/Object005_0.entity",
+            "FullTank2/entities/Cylinder07_0.entity",
+            "FullTank2/entities/Object001_0.entity",
+            "FullTank2/entities/Fbx_Root.entity",
+            "FullTank2/entities/RootNode.entity",
+            "FullTank2/entities/Omni002.entity",
+            "FullTank2/entities/Omni001.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "FullTank/FullTank.group",
+            "FullTank2/FullTank2.group"
+        ],
+        "id": "Ts22tk7dQgOEHkx6vMu6CA",
+        "licenseType": "CC0",
+        "modified": "2013-11-10T11:17:44.601537",
+        "name": "Tank med rullande hjul",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    }
+}

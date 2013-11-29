@@ -13,7 +13,9 @@ import java.util.LinkedList;
  * To change this template use File | Settings | File Templates.
  */
 
-//GetInputA default node, mostly for testing. It's a logic node that only passes on the single input channel to the output.
+/**
+ * Dummy node that simply passes the input to the output.
+ */
 public class DefaultNode extends Node
 {
 
@@ -22,18 +24,18 @@ public class DefaultNode extends Node
         _isUpdated = false;
         _numInput = 1;
         _numOutput = 1;
-        _output = new boolean[_numOutput];
+        //_output = new boolean[_numOutput];
         _connectionToInput = new int[_numInput];
         _category = NodeCategory.Logic;
-        _type = NodeType.L_Default;
+        _type = NodeType.Default;
         _ownerIndex = ownerIndex;
     }
 
     @Override
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (input == null) _output[0] = false;
-        else _output[0] = input[0];
+        if (input == null) _output = false;
+        else _output = input[0];
         _isUpdated = true;
     }
 }

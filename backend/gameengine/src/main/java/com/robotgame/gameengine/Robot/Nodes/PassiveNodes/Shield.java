@@ -9,6 +9,9 @@ package com.robotgame.gameengine.Robot.Nodes.PassiveNodes;
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Not implemented.
+ */
 public class Shield //implements Node
 {
 

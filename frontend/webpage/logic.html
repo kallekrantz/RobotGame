@@ -1,0 +1,78 @@
+<!-- JAVASCRIPT -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.jsPlumb-1.4.1-all.js"></script>
+
+<!-- OWN JAVASCRIPT -->
+<script type="text/javascript" src="js/logic.js" ></script>
+<script type="text/javascript" src="js/popup.js" ></script>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/nodeStyle.css">
+
+
+<div id="menuHeader">
+	<table>
+		<tr>
+			<td><p>Menu Header</p></td>
+		    <td><button id="garageButton" onclick="openpopup('settingsPopup')" >Settings</button></td>
+			<!--<td><button id="garageButton" onclick="printNodes()" >Print Nodes</button></td>-->
+		</tr>
+	</table>
+</div>
+
+<div id="myCanvas"></div>
+
+<div id="tableOfContent">
+
+
+<table id="tableId">
+<tr><td><h3>Sensor Nodes</h3></td></tr>
+<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '1','Angle','true')" >Sector Sensor</button></td></tr>
+<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '1','Distance','true')" >Distance Sensor</button></td></tr>
+<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '1','Distance','true')" >Mirrored Sector Sensor</button></td></tr>
+
+<tr><td><h3>Logic Nodes</h3></td></tr>
+
+<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
+<tr><td><button class="logicButton" onclick="addNode('logicNode','And','2','1','','false')" >And</button></td></tr>
+
+<tr><td><h3>Action Nodes</h3></td></tr>
+<!-------addNode kommer att ha 4 variabler in, dessa är (1:Nodtyp, 2:Namn på nod, 3:Maximala inputs, 4: Maximala outputs) [OBS!!!! -1 = INF CONNECTIONS]----->
+<tr><td><button class="weaponButton" onclick="addNode('weaponNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
+
+</table>
+
+</div>
+
+<div id="robotInformation">Robot Information</div>
+
+<div id="changeView">
+	<button class="changeScreen" onclick="return parent.changeFrame('garage.html');" >To Garage</button>
+	
+</div>
+
+<div id="toBattle">
+	<button class="toBattle" onclick="return parent.changeFrame('connection.html');" >Go</button>
+</div>
+
+<div id="robotView">Robot View</div>
+
+<div id="settingsPopup" class="popup">
+
+	<h2>Settings</h2>
+	
+	<form> 
+		Change Password:
+		<input class="design1" size="35" value="Old Password" name="textfield" type="text" /> 
+		<input class="design1" size="35" value="New Password" name="textfield" type="text" />
+		<button onclick="closepopup('settingsPopup')">Change</button>
+	</form>
+
+	<button onclick="closepopup('settingsPopup')">Back</button>
+	<button onclick="return parent.changeFrame('login.html');" >Logout</button>
+</div>
+
+<div id="bg" class="popup_bg">
+</div>

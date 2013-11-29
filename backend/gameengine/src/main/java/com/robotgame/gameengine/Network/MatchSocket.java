@@ -32,6 +32,7 @@ public class MatchSocket {
 	Session _session;
 	String _user;
 	MatchHandler _handler;
+	int _playerIndex;
 	public boolean ready;
 	@OnWebSocketClose
     public void onClose(int statusCode, String reason) {
@@ -67,7 +68,8 @@ public class MatchSocket {
             joinRequest req = g.fromJson(message.substring(1), joinRequest.class);
             _user = req.user;
             _handler = MatchMaker.getInstance().getHandler(req.port);
-            if (_handler.join(this)) {
+            _playerIndex=_handler.join(this);
+            if (_playerIndex>=0) {
             	_handler.requestStartState(this);
             } else {
                 System.out.println("halp " + _user);
@@ -80,7 +82,11 @@ public class MatchSocket {
 
         } else if (s.equals(KEYPRESS)) {
             _handler.sendToAll(_user + " pressed " + message.substring(1));
-
+            if(message.substring(1).equals('A')){
+            	_handler.setA(_playerIndex);
+            }else if(message.substring(1).equals('B')){
+            	_handler.setB(_playerIndex);
+            }
         } else {
             System.out.println("nope");
 

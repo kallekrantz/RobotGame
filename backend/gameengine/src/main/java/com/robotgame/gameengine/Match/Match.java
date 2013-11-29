@@ -47,6 +47,8 @@ public class Match implements Runnable
     private Robot[] _robots;
     private int _numRobots;
     private boolean _running;
+    private boolean[] _Ainputs;
+    private boolean[] _Binputs;
     private MatchContext _context;
     private int _clock;
     private IMatchHandler _matchHandler;
@@ -93,8 +95,10 @@ public class Match implements Runnable
             _robots[n].SetStartPos(new Vector2(-1 + 2 * n, 0));
             _robots[n].SetStartDir((float)Math.PI*n);
         }
-
+        
         _context = new MatchContext(_numRobots);
+        _Ainputs = new boolean[_numRobots];
+        _Binputs = new boolean[_numRobots];
         _matchState = new MatchState(_matchId, _numRobots);
         _matchResult = new MatchResult(_numRobots);
         _matchHandler.SendFirstMatchState(_matchState);
@@ -205,7 +209,8 @@ public class Match implements Runnable
         for (int n = 0; n < _numRobots; n++)
         {
             _context.robotStates[n] = _robots[n].GetCurrentState();
-            //_context.A[n] = _networkInterface.GetInputA(n);
+            _context.A[n] = getInputA(n);
+            _context.B[n] = getInputB(n);
             //_context.B[n] = _networkInterface.GetInputB(n);
         }
 
@@ -214,11 +219,34 @@ public class Match implements Runnable
     }
 
 
-    //Creates a MatchState object that contains the information that is to be sent to the players
+    private boolean getInputB(int n) {
+		if(_Binputs[n]){
+			_Binputs[n]=false;
+			return true;
+		}
+		return false;
+	}
+
+	private boolean getInputA(int n) {
+		if(_Ainputs[n]){
+			_Ainputs[n]=false;
+			return true;
+		}
+		return false;
+	}
+
+	//Creates a MatchState object that contains the information that is to be sent to the players
     private void CreateMatchState()
     {
         for (int n = 0; n < _numRobots; n++)
             _matchState.robotStates[n] = _robots[n].GetCurrentState();
     }
+
+	public void setA(int index) {
+		_Ainputs[index]=true;	
+	}
+	public void setB(int index) {
+		_Binputs[index]=true;	
+	}
 
 }

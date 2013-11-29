@@ -6,6 +6,18 @@
 <script type="text/javascript" src="js/garage.js" ></script>
 <script type="text/javascript" src="js/popup.js" ></script>
 
+<script>
+
+ $(function() {
+$( "#accordion" ).accordion({
+		heightStyle: "content",
+		collapsible: true
+	}
+);
+});
+
+</script>
+
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
 <link rel="stylesheet" type="text/css" href="Style/nodeStyle.css">
@@ -34,16 +46,29 @@
 
 <div id="tableOfContent">
 
-	<table id="tableId">
-		<tr><td><p>Weapons</p><td></tr>
-		<tr><td><div id="Laser" class = "weapon">Laser</div></td></tr>
-		<tr><td><p>Chassis</p></td></tr>
-		<!--Note that TankGroup2 is a temporary name until we've established the names of the 3d models-->
-		<tr><td><div id="Chassi1" class = "chassi">Original</div></td></tr>
-		<tr><td><div id="Chassi2" class = "chassi">Awsome</div></td></tr>
-		<tr><td><p>Wheels</p></td></tr>
-		<tr><td><div id="Wheels" class="wheels">Wheels</div></td></tr>
-	</table>
+	<div id="accordion">
+		<h3>Weapons</h3>
+		<div>
+		<table>
+			<tr><td><div id="Laser" class = "weapon">Laser</div></td></tr>
+		</table>
+		</div>
+		
+		<h3>Chassis</h3>
+		<div>
+		<table>
+			<tr><td><div id="Chassi1" class = "chassi">Original</div></td></tr>
+			<tr><td><div id="Chassi2" class = "chassi">Awsome</div></td></tr>
+		</table>
+		</div>
+		
+		<h3>Wheels</h3>
+		<div>
+		<table>
+			<tr><td><div id="Wheels" class="wheels">Wheels</div></td></tr>
+		</table>
+		</div>
+	</div>
 
 </div>
 

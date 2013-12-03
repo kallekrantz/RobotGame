@@ -1,5 +1,5 @@
-var robots = new Array(new NetworkRobot(0,0,0,0),new NetworkRobot(0,0,0,0));
-match = new NetworkMatch(robots);
+//var robots = new Array(new NetworkRobot(0,0,0,0),new NetworkRobot(0,0,0,0));
+//match = new NetworkMatch(robots);
 
 /*
 function loadMyRobot(){
@@ -290,6 +290,8 @@ require([
 							ent.transformComponent.setTranslation(0,-19,0);
 						}
 						
+						parent.setReady();
+						
 					})
 					.then(null, function(e) {
 					// The second parameter of 'then' is an error handling function.
@@ -303,8 +305,31 @@ require([
 		
 		// Runtime translations and rotations to the "robot"
 		robot.setComponent(new ScriptComponent({
-			 run: function (entity) {
-				 if(moveForward){
+			 run: runfunction(entity, 0)
+		}));
+		var runfunction=function (entity, index) {
+				
+				if(cameraMode.getView()=="sideView")
+					cameraMode.lookAtRobot();
+	 			
+				var currentT = (new Date).getTime();
+				var dT = (currentT - T)/1000;
+				T = currentT;
+				//for( var i=0;i<parent.currentMatchState.robots.length;i++){
+					// console.log("en");
+					var i=index;
+					parent.currentMatchState.robots[i].setdX(parent.nextMatchState.robots[i].getdX());
+					parent.currentMatchState.robots[i].setdZ(parent.nextMatchState.robots[i].getdZ());
+					parent.currentMatchState.robots[i].setAngularVelocity(parent.nextMatchState.robots[i].getAngularVelocity());
+					parent.currentMatchState.robots[i].setX(parent.currentMatchState.robots[i].getX()+dT*parent.currentMatchState.robots[i].getdX());
+					parent.currentMatchState.robots[i].setZ(parent.currentMatchState.robots[i].getZ()+dT*parent.currentMatchState.robots[i].getdZ());
+					parent.currentMatchState.robots[i].setRotation(parent.currentMatchState.robots[i].getRotation()*dT*parent.currentMatchState.robots[i].getAngularVelocity());
+					entity.transformComponent.setTranslation(parent.currentMatchState.robots[i].getX(),parent.currentMatchState.robots[i].getY(),parent.currentMatchState.robots[i].getZ());
+					entity.transformComponent.setRotation(0,parent.currentMatchState.robots[i].getRotation(),0);
+					entity.transformComponent.setUpdated();
+				//} 
+			 
+		/* 		 if(moveForward){
 					 entity.transformComponent.setTranslation(
 					 robotPos.x,
 					 robotPos.y,
@@ -353,10 +378,8 @@ require([
 
 					 robotRotation = robotRotation-(rotationSpeed);
 					 entity.transformComponent.setUpdated();
-				 }
+				 } */
 			}
-		}));
-		
 		//var camScript = new OrbitCamControlScript();
 		//cameraEntity.setComponent(new ScriptComponent(camScript));
 		

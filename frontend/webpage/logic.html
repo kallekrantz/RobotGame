@@ -1,0 +1,140 @@
+<!-- JAVASCRIPT -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery.jsPlumb-1.4.1-all.js"></script>
+
+<!-- OWN JAVASCRIPT -->
+<script type="text/javascript" src="js/logic.js" ></script>
+<script type="text/javascript" src="js/popup.js" ></script>
+
+<script>
+
+ $(function() {
+$( "#accordion" ).accordion({
+		heightStyle: "content",
+		collapsible: true
+	}
+);
+});
+
+</script>
+
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/popup.css">
+<link rel="stylesheet" type="text/css" href="Style/nodeStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/logicAndGarageStyle.css">
+
+
+<div id="menuHeader">
+	<table>
+		<tr>
+			<td id="menuHeaderLeft"><p>Menu Header</p></td>
+		    <td id="menuHeaderRight"><button id="settingButton" onclick="openpopup('settingsPopup')" ></button></td>
+		</tr>
+	</table>
+</div>
+
+<div id="outerCanvas">
+<div id="myCanvas"></div>
+</div>
+
+<div id="tableOfContent">
+
+	<div id="accordion">
+		
+		<h3>Logic Nodes</h3>
+		<div>
+			<table>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','And','-1','1','','false')" >And</button></td></tr>
+			</table>
+		</div>
+		
+		<h3>Sensor Nodes</h3>
+		<div>
+			<table>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '-1','Angle','true')" >Sector Sensor</button></td></tr>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '-1','Distance','true')" >Distance Sensor</button></td></tr>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '-1','Angle','true')" >Mirrored Sector Sensor</button></td></tr>
+			</table>
+		</div>
+		
+		<h3>Action Nodes</h3>
+		<div>
+			<table>
+				<tr><td><button class="weaponButton" 	onclick="addNode('actionNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnLeft','1','0','','false')" >Turn Left</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnRight','1','0','','false')" >Turn Right</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveForward','1','0','','false')" >Move Forward</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveBackwards','1','0','','false')" >Move Backwards</button></td></tr>
+			</table>
+		</div>
+
+	</div>
+
+</div>
+
+<div id="robotInformation"></div>
+
+<div id="changeView">
+	<button id="toGarageButton" onclick="return parent.changeFrame('garage.html');" ></button>
+	
+</div>
+
+<div id="toBattle">
+	<button id="battleButton" onclick="return parent.changeFrame('connection.html');" ></button>
+</div>
+
+<div id="robotView"></div>
+
+<div id="settingsPopup" class="popup">
+
+	<h2>Settings</h2>
+	
+	<p>Change Password:<p>
+	<input class="txtFieldClass" size="35" value="Old Password" name="textfield" type="text" />
+	</br></br>
+	<input class="txtFieldClass" size="35" value="New Password" name="textfield" type="text" />
+	</br></br>
+	<button id="changeButton" onclick="closepopup('settingsPopup')"></button>
+	</br></br>
+	<button id="backButton" onclick="closepopup('settingsPopup')"></button>
+	<button id="logoutButton" onclick="return parent.changeFrame('login.html');" ></button>
+	
+</div>
+
+<div id="bg" class="popup_bg">
+</div>
+
+
+<!--
+<table id="tableId">
+			<tr><td><p>Sensor Nodes</p></td></tr>
+		<div>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '-1','Angle','true')" >Sector Sensor</button></td></tr>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '-1','Distance','true')" >Distance Sensor</button></td></tr>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '-1','Angle','true')" >Mirrored Sector Sensor</button></td></tr>
+		</div>
+		
+		
+		<tr><td><p>Logic Nodes</p></td></tr>
+		<div>
+			<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
+			<tr><td><button class="logicButton" onclick="addNode('logicNode','And','-1','1','','false')" >And</button></td></tr>
+		</div>
+		
+		
+		<tr><td><p>Action Nodes</p></td></tr>
+		<div>
+			
+			<tr><td><button class="weaponButton" 	onclick="addNode('actionNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
+			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnLeft','1','0','','false')" >Turn Left</button></td></tr>
+			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnRight','1','0','','false')" >Turn Right</button></td></tr>
+			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveForward','1','0','','false')" >Move Forward</button></td></tr>
+			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveBackwards','1','0','','false')" >Move Backwards</button></td></tr>
+		</div>
+</table>
+-->
+

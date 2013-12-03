@@ -1,0 +1,111 @@
+<!-- JAVASCRIPT -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<!-- OWN JAVASCRIPT -->
+<script type="text/javascript" src="js/garage.js" ></script>
+<script type="text/javascript" src="js/popup.js" ></script>
+
+<script>
+
+ $(function() {
+$( "#accordion" ).accordion({
+		heightStyle: "content",
+		collapsible: true
+	}
+);
+});
+
+</script>
+
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/nodeStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/logicAndGarageStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/popup.css">
+
+
+<div id="menuHeader">
+	<table>
+		<tr>
+			<td id="menuHeaderLeft"><p>Menu Header</p></td>
+		    <td id="menuHeaderRight"><button id="settingButton" onclick="openpopup('settingsPopup')" ></button></td>
+		</tr>
+	</table>
+</div>
+
+<div id="outerCanvas">
+	<div id="myCanvas">
+		<iframe id="robot3D" style="position:relative;" width = "100%" height = "100%" src="../3d/garage3d/index.html">
+		</iframe>
+		<div id="weaponBox"></div>
+		<div id="chassiBox"></div>
+		<div id="wheelsBox"></div>
+	</div>
+</div>
+
+<div id="tableOfContent">
+
+	<div id="accordion">
+		<h3>Weapons</h3>
+		<div>
+		<table>
+			<tr><td><div id="Laser" class = "weapon">Laser</div></td></tr>
+		</table>
+		</div>
+		
+		<h3>Chassis</h3>
+		<div>
+		<table>
+			<tr><td><div id="Chassi1" class = "chassi" >Original</div></td></tr>
+			<tr><td><div id="Chassi2" class = "chassi" >Awesome</div></td></tr>
+		</table>
+		</div>
+		
+		<h3>Wheels</h3>
+		<div>
+		<table>
+			<tr><td><div id="Wheels" class="wheels">Wheels</div></td></tr>
+		</table>
+		</div>
+	</div>
+
+</div>
+
+
+<div id="robotInformation">
+	<table id="robotInfoTable">
+		<tr><td><p>Defensive</p><td></tr>
+		<tr><td><p>Armor 463</p></td></tr>
+		<tr><td><p>Weapon atk </p></td></tr>
+		<tr><td><p>Wheels</p></td></tr>
+	</table>
+</div>
+
+<div id="changeView">
+	<button id="toLogicButton" onclick="return parent.changeFrame('logic.html');" ></button>
+</div>
+
+<div id="toBattle">
+	<button id="battleButton"  onclick="return parent.changeFrame('connection.html');" ></button>
+</div>
+
+<div id="robotView"></div>
+
+<div id="settingsPopup" class="popup">
+
+	<h2>Settings</h2>
+	
+	<p>Change Password:<p>
+	<input class="txtFieldClass" size="35" value="Old Password" name="textfield" type="text" />
+	</br></br>
+	<input class="txtFieldClass" size="35" value="New Password" name="textfield" type="text" />
+	</br></br>
+	<button id="changeButton" onclick="closepopup('settingsPopup')"></button>
+	</br></br>
+	<button id="backButton" onclick="closepopup('settingsPopup')"></button>
+	<button id="logoutButton" onclick="return parent.changeFrame('login.html');" ></button>
+</div>
+
+<div id="bg" class="popup_bg">
+</div>

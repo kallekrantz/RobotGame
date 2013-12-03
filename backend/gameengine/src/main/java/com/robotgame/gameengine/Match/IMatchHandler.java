@@ -29,8 +29,7 @@ public interface IMatchHandler
      */
     public void SendMatchState(MatchState matchState);
 
-    //Implement these in MatchHandler
-    //public boolean GetInputA(int playerNumber);
-    //public boolean GetInputB(int playerNumber);
+
+	public void SendFirstMatchState(MatchState _matchState);
 
 }

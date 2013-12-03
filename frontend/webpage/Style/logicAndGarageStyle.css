@@ -270,41 +270,57 @@ margin-top: 30px;
 /*Only Garage Screen*/
 
 #chassiBox, #weaponBox, #wheelsBox{
-
-width: 100;
-height: 100;
-border:1px solid black;
-background-color: green;
-margin-left: 20;
-margin-top: 30;
-margin-bottom: 20;
-box-shadow: 5px 5px 20px black;
-float:left;
+	width: 100;
+	height: 100;
+	border:1px solid black;
+	margin-left: 20;
+	margin-top: 30;
+	margin-bottom: 20;
+	box-shadow: 5px 5px 20px black;
+	float:left;
 }
 
 .chassi, .weapon, .wheels{
-width:100;
-height:30;
-margin-top:5px;
-padding-top: 5px;
-border: 1px solid black;
-position: relative;
-cursor:pointer;
-font-size: 20px;
-vertical-align: center;
+	width:100;
+	height:30;
+	margin-top:5px;
+	padding-top: 5px;
+	border: 1px solid black;
+	position: relative;
+	cursor:pointer;
+	font-size: 20px;
+	vertical-align: center;
 }
 
 .chassi{
 	background-color: #4560E0;
 }
 
+#chassiBox{
+	background:url(chassiDefault.jpg);
+	background-size: 100% 100%;
+}
+
 .weapon{
-	background-color:#BA2309;
+	background-color:#d40000;
+}
+
+#weaponBox{
+	background:url(weaponDefault.jpg);
+	background-size: 100% 100%;
 }
 
 .wheels{
-	background-color:#4DB031;
+	background-color:#009904;
 }
+
+#wheelsBox{
+	background:url(wheelsDefault.jpg);
+	background-size: 100% 100%;
+
+}
+
+
 
 #robot3D{
 width: 450;

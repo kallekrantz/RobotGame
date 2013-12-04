@@ -8,7 +8,7 @@ import org.eclipse.jetty.websocket.servlet.WebSocketServletFactory;
 
 /**
  * The main handler for network communication. 
- * @author Rickard Gräntzelius
+ * @author Rickard Grantzelius
  *
  */
 public class MatchMaker {

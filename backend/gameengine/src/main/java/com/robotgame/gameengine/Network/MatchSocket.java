@@ -12,7 +12,7 @@ import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import com.google.gson.Gson;
 /**
  * Websocket for matches. 
- * @author Rickard Gräntzelius
+ * @author Rickard Grantzelius
  *
  */
 @WebSocket
@@ -99,7 +99,7 @@ public class MatchSocket {
 	}
 	/**
 	 * Class used to interpret the clients json-object
-	 * @author Rickard Gräntzelius
+	 * @author Rickard Grantzelius
 	 *
 	 */
 	private class joinRequest{

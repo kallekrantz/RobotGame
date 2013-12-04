@@ -12,7 +12,7 @@ import com.robotgame.gameengine.Robot.RobotState;
 import com.robotgame.gameengine.Robot.Builder.*;
 /**
  * Handler for network-communication during a match. 
- * @author Rickard Gräntzelius
+ * @author Rickard Grantzelius
  *
  */
 public class MatchHandler implements IMatchHandler {
@@ -132,7 +132,7 @@ public class MatchHandler implements IMatchHandler {
 	public void MatchEnded(MatchResult _matchResult) {
 		Gson gson= new Gson();
 		sendToAll("MatchEnded::"+gson.toJson(_matchResult));
-		/*MatchMaker.getInstance().closeGameServer(id);   Fungerar dåligt just nu*/
+		/*MatchMaker.getInstance().closeGameServer(id); Doesn't work right now*/
 	}
 	/**
 	 * Temporary solution to initating the robots states. Should be changed to work with the initation of the match instead

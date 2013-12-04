@@ -15,7 +15,7 @@ import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import com.google.gson.Gson;
 /**
  * Websocket for the lobby system. 
- * @author Rickard Gräntzelius
+ * @author Rickard Grantzelius
  *
  */
 @WebSocket
@@ -73,7 +73,7 @@ public class MatchMakerSocket {
 
     /**
      * Used for the interpretation of the clients json object.
-     * @author Rickard Gräntzelius
+     * @author Rickard Grantzelius
      *
      */
 	private class joinRequest{

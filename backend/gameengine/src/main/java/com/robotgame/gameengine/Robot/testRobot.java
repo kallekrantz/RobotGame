@@ -8,7 +8,7 @@ import com.robotgame.gameengine.Robot.Nodes.NodeType;
 import java.util.Vector;
 /**
  * Creates a robot for testing purposes only.
- * @author Rickard Gräntzelius
+ * @author Rickard Grantzelius
  *
  */
 public class testRobot {

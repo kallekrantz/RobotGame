@@ -140,8 +140,8 @@ require([
 		// The Loader takes care of loading data from a URL...
 		var loader = new DynamicLoader({world: goo.world, rootPath: 'res'});
 		goo.renderer.domElement.id = 'goo';
-						document.body.appendChild(goo.renderer.domElement);
-						goo.startGameLoop();
+		document.body.appendChild(goo.renderer.domElement);
+		goo.startGameLoop();
 		var loaderModule = (function() {
 	
 		var loadedEntities = []; // private array with the loaded entities

@@ -8,12 +8,18 @@
 	*
 */
 
+//stringObject handles the information about each component in the garage, the information is either here, or could be stored in a textfile/database.
+var stringObject = new Array();
+stringObject[0] = {id:"Laser",string:"<h3>Laser</h3><p>This is an awesome laser</p>"};
+stringObject[1] = {id:"Chassi1",string:"<h3>Standard Chassi</h3><p>This is your standard Chassi, nothing special...</p>"}
+stringObject[2] = {id:"Chassi2",string:"<h3>Awesome Chassi</h3><p>WOW THIS CHASSI IS AWESOME!!!</p>"}
+stringObject[3] = {id:"Wheels",string:"<h3>Wheels</h3><p>meh,wheels, who cares?</p>"}
+
+//stringObject[] = {id:"",string:"<p></p>"}
 $(document).ready(function() {
 
 	addComponents();
 	
-	//TODO - fix so this works with correct variable names, maybe make a function with an array 
-	//that contains {'chassi', 'wheels' ......} etc.
 	$("#weaponBox").droppable({
 		accept: ".weapon",
 		drop: function (event, ui) {
@@ -68,40 +74,94 @@ $(document).ready(function() {
     });
 	
 	//Hover Functionality for part information
+	/*******DIVS**********/
+	$('#weaponBox').hover(
+		function(){
+		if(parent.components[2] != null){
+			showThisInfo(parent.components[2]);
+		}
+		else{
+			$("#robotView").text("");
+			$("#robotView").append("<p>This box should contain the robot's main weapon</p>");
+		}},
+		function(){
+			$("#robotView").text("");
+		}
+	);
+	
+	$('#chassiBox').hover(
+		function(){
+		if(parent.components[0] != null){
+			showThisInfo(parent.components[0]);
+		}
+		else{
+			$("#robotView").text("");
+			$("#robotView").append("<p>This box should contain the robot's chassi.</p>");
+		}},
+		function(){
+			$("#robotView").text("");
+		}
+	);
+	
+	$('#wheelsBox').hover(
+		function(){
+		if(parent.components[1] != null){
+			showThisInfo(parent.components[1]);
+		}
+		else{
+			$("#robotView").text("");
+			$("#robotView").append("<p>This box should contain the robot's wheels</p>");
+		}},
+		function(){
+			$("#robotView").text("");
+		}
+	);
+	/*********************/
+	
 	/*******WEAPONS*******/
-	$('#Laser2_2').hover(
+	$('.weapon').hover(
+		function(e){
+			showThisInfo(e.currentTarget.id);
+		},
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("<p>This is your standard futuristic awesome lazer. It shoots huge holes in the enemy armor and is awesome. </p>");
-	});
-	$('#weapon2').hover(
-		function(){
-			$("#robotView").text("");
-			$("#robotView").append("<p>PLACEHOLDER</p>");
-	});
+		}
+	);
+	/*********************/
 	
 	/*******CHASSIS*******/
-	$('#TankGroup2').hover(
+	$('.chassi').hover(
+		function(e){
+			showThisInfo(e.currentTarget.id);
+		},
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("<p>This is your standard robot chassi.</p>");
-	});
-	$('#chassi2').hover(
-		function(){
-			$("#robotView").text("");
-			$("#robotView").append("<p>PLACEHOLDER</p>");
-	});
+		}
+	);
+	/**********************/
 	
 	/*******MOBILITY*******/
-	$('#wheels1').hover(
+	$('.wheels').hover(
+		function(e){
+			showThisInfo(e.currentTarget.id);
+		},
 		function(){
 			$("#robotView").text("");
-			$("#robotView").append("<p>PLACEHOLDER</p>");
-	});
-	
+		}
+	);
+	/**********************/
 });
 
-
+function showThisInfo(comp){
+	for(var i=0;i<stringObject.length;i++){
+		if(stringObject[i].id == comp){
+			$("#robotView").text("");
+			$("#robotView").append(stringObject[i].string);
+			return true;
+		}
+	}
+	return false;
+}
 function addComponents(){
 	if(parent.components[0] != null){
 		parent.maxNrOfSensorNodes = 3;

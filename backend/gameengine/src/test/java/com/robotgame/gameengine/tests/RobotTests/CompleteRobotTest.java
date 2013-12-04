@@ -106,6 +106,13 @@ public class CompleteRobotTest implements IMatchHandler
 		
 	}
 
+    public boolean GetInputA(int playerNumber) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public boolean GetInputB(int playerNumber) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 
 
     @Test

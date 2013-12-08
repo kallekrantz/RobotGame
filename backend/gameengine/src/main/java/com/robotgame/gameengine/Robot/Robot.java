@@ -20,7 +20,7 @@ public class Robot
 {
     private NodeSystem _nodeSystem;
     private int _numNodes;
-    private  int _index;
+    private int _index;
     private RobotState _currentState; //, _futureState;
     private LinkedList<NodeAction> _actions;
     private float _boost;
@@ -32,7 +32,7 @@ public class Robot
 
 
     /**
-     * Constructor should not be used directly. Robot objects are best created by
+     * Constructor should not be used directly. Robot objects are best created by using RobotFactory.CreateRobot()
      * @param nodes
      * @param connections
      * @param index
@@ -49,6 +49,8 @@ public class Robot
         _maxThrust = 12;
         _maxTurn = 1;
         _impulse = new Vector2(0, 0);
+        _radius = 0.4f;
+        _currentState.health = 100;
     }
 
     /**
@@ -128,6 +130,8 @@ public class Robot
     public float GetMaxThrust() {return _maxThrust;}
 
     public float GetMaxTurn() {return _maxTurn;}
+
+    public int GetIndex() {return _index; }
 
     public void AddSpeed(float v, float relativeDirection)
     {

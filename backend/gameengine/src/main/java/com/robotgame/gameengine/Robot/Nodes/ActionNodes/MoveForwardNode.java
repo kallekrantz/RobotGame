@@ -47,7 +47,7 @@ public class MoveForwardNode extends Node
 
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        actions.add(new ImpulseAction(1, 0));
+        if (input[0]) actions.add(new ImpulseAction(1, 0));
         _isUpdated = true;
     }
 }

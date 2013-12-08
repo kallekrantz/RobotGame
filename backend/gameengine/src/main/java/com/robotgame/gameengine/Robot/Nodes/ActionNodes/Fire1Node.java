@@ -1,7 +1,8 @@
 package com.robotgame.gameengine.Robot.Nodes.ActionNodes;
 
 import com.robotgame.gameengine.Robot.MatchContext;
-import com.robotgame.gameengine.Robot.Nodes.Actions.ImpulseAction;
+import com.robotgame.gameengine.Robot.Nodes.Actions.FireAction;
+import com.robotgame.gameengine.Robot.Nodes.Actions.SetBoostAction;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeCategory;
@@ -18,12 +19,13 @@ import java.util.LinkedList;
  */
 
 /**
- * When activated this node adds backwards movement to the robot using ImpulseAction.
+ * When activated this node amplifies the movement of the robot.
+ * Uses the Action SetBoostAction.
  * This node accepts 1 input.
- * @see ImpulseAction
- * @see Node
+ * @see com.robotgame.gameengine.Robot.Nodes.Actions.SetBoostAction
+ * @see com.robotgame.gameengine.Robot.Nodes.Node
  */
-public class MoveBackwardsNode extends Node
+public class Fire1Node extends Node
 {
     /*
     Members of parent class Node to be defined in constructor:
@@ -34,19 +36,28 @@ public class MoveBackwardsNode extends Node
     _ownerIndex = ownerIndex;
     */
 
-    public MoveBackwardsNode(int ownerIndex)
+    private int _reloadTimer;
+
+    public Fire1Node(int ownerIndex)
     {
         _maxInputs = 1;
         _connectionToInput = new int[_maxInputs];  //If _maxInputs > 0
         _category = NodeCategory.Action;
-        _type = NodeType.MoveBackwards;
+        _type = NodeType.FireWeapon1;
         _ownerIndex = ownerIndex;
+
+        _reloadTimer = 0;
     }
 
 
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        if (input[0]) actions.add(new ImpulseAction(0.8f, (float)Math.toRadians(180)));
+        if (_reloadTimer > 0) _reloadTimer--;
+        else if (input[0])
+        {
+            _reloadTimer = 30;
+            actions.add(new FireAction(_ownerIndex, 1));
+        }
         _isUpdated = true;
     }
 }

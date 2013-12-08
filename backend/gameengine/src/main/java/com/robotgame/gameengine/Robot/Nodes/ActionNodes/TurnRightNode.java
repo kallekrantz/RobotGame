@@ -46,7 +46,7 @@ public class TurnRightNode extends Node
 
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        actions.add(new RotationalImpulseAction(-1));
+        if (input[0]) actions.add(new RotationalImpulseAction(-1));
         _isUpdated = true;
     }
 }

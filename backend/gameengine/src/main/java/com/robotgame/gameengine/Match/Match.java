@@ -3,6 +3,7 @@ package com.robotgame.gameengine.Match;
 import com.robotgame.gameengine.Network.MatchState;
 import com.robotgame.gameengine.Network.NetworkInterface;
 import com.robotgame.gameengine.Network.MatchHandler;
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.MatchContext;
@@ -58,7 +59,7 @@ public class Match implements Runnable
     private MatchResult _matchResult;
     private MatchState _matchState;
     private int _matchId;
-    //private ProjectileSystem _projectileSystem;
+    private ProjectileSystem _projectileSystem;
 
 
 
@@ -77,6 +78,7 @@ public class Match implements Runnable
         _numRobots = 0;
         _running = false;
         _matchHandler = matchHandler;
+        _projectileSystem = new ProjectileSystem(10);
     }
 
     /**
@@ -170,7 +172,7 @@ public class Match implements Runnable
         {
             LinkedList<NodeAction> actions = _robots[n].GetActions();
             for (NodeAction a : actions)
-                a.PerformAction(_robots[n]);
+                a.PerformAction(_robots[n], _projectileSystem);
 
             //System.out.println("Hot connections: " + _robots[n].GetHotConnections());
         }
@@ -185,6 +187,9 @@ public class Match implements Runnable
         //Todo Fysiksimulering
 
 
+//      4.1 Update projectiles
+        _projectileSystem.Update(_robots, _numRobots);
+
 
 //      5. Create a MatchState object containing all information needed by the clients.
         CreateMatchState();
@@ -195,9 +200,20 @@ public class Match implements Runnable
 
 
 //      7. Check if match has ended, if so call the MatchEnded() in match handler.
-        if (_clock > 120)
+        float minHealth = _robots[0].GetCurrentState().health;
+        int minHealthRobot = 0;
+        for (int n = 1; n < _numRobots; n++)
+            if (_robots[n].GetCurrentState().health < minHealth)
+            {
+                minHealth = _robots[n].GetCurrentState().health;
+                minHealthRobot = n;
+            }
+
+        if (_clock > 600 || minHealth <= 0)
         {
-            _matchResult.winningTeam = 2;
+            if (_robots[0].GetCurrentState().health == _robots[1].GetCurrentState().health) _matchResult.winningTeam = 0; //Draw
+            else if (minHealthRobot == 0) _matchResult.winningTeam = 2;
+            else _matchResult.winningTeam = 1;
             _running = false;
             _matchHandler.MatchEnded(_matchResult);
         }

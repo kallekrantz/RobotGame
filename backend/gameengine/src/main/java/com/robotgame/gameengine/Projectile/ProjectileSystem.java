@@ -34,7 +34,7 @@ public class ProjectileSystem
                         _projectiles[n] = new Potato(startPos, startVel, height, verticalVel, creatorId);
 
                 }
-
+                break;
             }
     }
 

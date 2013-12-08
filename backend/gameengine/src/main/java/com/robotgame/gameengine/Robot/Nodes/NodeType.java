@@ -13,12 +13,12 @@ import com.robotgame.gameengine.Robot.Robot;
 public enum NodeType
 {
     //Sensor nodes
-    DistanceSensor, // SectorSensor, MirroredSectorSensor, CollisionSensor, FrontCollisionSensor, RearCollisionSensor, (TurretSensor)
+    DistanceSensor, SectorSensor, // MirroredSectorSensor, CollisionSensor, FrontCollisionSensor, RearCollisionSensor, (TurretSensor)
 
     //Logic nodes
     And, Or, Not, Delay, True, False, Default, TicTac, Clock, Majority, //ProlongTrue, ProlongFalse
 
     //Action nodes
-    Debug, MoveForward, MoveBackwards, TurnLeft, TurnRight, Boost  //, FireWeapon1, FireWeapon2, FireWeapon3, TurnTurretLeft, TurnTurretRight
+    Debug, MoveForward, MoveBackwards, TurnLeft, TurnRight, Boost, FireWeapon1  //, FireWeapon1, FireWeapon2, FireWeapon3, TurnTurretLeft, TurnTurretRight
 
 }

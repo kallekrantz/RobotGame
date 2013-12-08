@@ -23,6 +23,7 @@ public class Potato extends Projectile
         vVel = verticalVel;
         this.creatorId = creatorId;
         alive = true;
+        type = ProjectileType.Potato;
     }
 
     @Override
@@ -39,7 +40,7 @@ public class Potato extends Projectile
                 if (n != creatorId)
                     if (pos.DistanceToIsCloserThan(robots[n].GetCurrentState().pos, robots[n].GetRadius()))
                     {
-                        robots[n].ApplyDamage(3);
+                        robots[n].ApplyDamage(30);
                         alive = false;
                         break;
                     }

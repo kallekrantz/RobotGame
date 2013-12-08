@@ -1,5 +1,6 @@
 package com.robotgame.gameengine.Projectile;
 
+import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Robot.Robot;
 import com.robotgame.gameengine.Util.Vector2;
 
@@ -16,6 +17,7 @@ public class Projectile
     public float h, vVel;
     public int creatorId;
     boolean alive;
+    ProjectileType type;
 
     public Projectile()
     {

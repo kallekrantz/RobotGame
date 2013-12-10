@@ -1,0 +1,492 @@
+{
+    "CogWheel/CogWheel.group": {
+        "libraryRefs": [
+            "CogWheel/entities/RootNode.entity",
+            "CogWheel/entities/Fbx_Root.entity",
+            "CogWheel/entities/Cylinder00_0.entity",
+            "CogWheel/materials/Cylinder00Mat.material",
+            "CogWheel/meshes/Cylinder00_0.mesh",
+            "CogWheel/binaries/1385024937_data.bin",
+            "CogWheel/entities/DirectionalLight.entity"
+        ],
+        "name": "CogWheel",
+        "ref": "CogWheel/CogWheel.group"
+    },
+    "CogWheel/entities/Cylinder00_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "CogWheel/meshes/Cylinder00_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "CogWheel/materials/Cylinder00Mat.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "CogWheel/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.013271331787109375,
+                    0.29618728160858154,
+                    -0.06904588639736177
+                ]
+            }
+        },
+        "name": "Cylinder00",
+        "nodeType": "Mesh"
+    },
+    "CogWheel/entities/DirectionalLight.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 0.28,
+                "lightCookie": null,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 1000,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Parallel",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 4.13,
+                "type": "DirectionalLight"
+            },
+            "transform": {
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    0.33,
+                    0.37,
+                    0.29
+                ],
+                "translation": [
+                    0,
+                    97.80195617675781,
+                    2.784399526741042e-15
+                ]
+            }
+        },
+        "name": "DirectionalLight",
+        "ref": "CogWheel/entities/DirectionalLight.entity"
+    },
+    "CogWheel/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "CogWheel/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "CogWheel/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1.5,
+                    1.5,
+                    1.5
+                ],
+                "translation": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "name": "CogWheel",
+        "nodeType": "Null",
+        "ref": "CogWheel/entities/RootNode.entity"
+    },
+    "CogWheel/materials/Cylinder00Mat.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Cylinder00Mat",
+        "ref": "CogWheel/materials/Cylinder00Mat.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.8,
+                    0.8,
+                    0.8,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.2,
+                    0.2,
+                    0.2,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 20
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "CogWheel/meshes/Cylinder00_0.mesh": {
+        "binaryRef": "CogWheel/binaries/1385024937_data.bin",
+        "boundingVolume": {
+            "max": [
+                16.003990173339844,
+                0.0,
+                16.003990039229393
+            ],
+            "min": [
+                -16.003990173339844,
+                -2.0,
+                -16.003990307450294
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1344
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            1344,
+            "uint16"
+        ],
+        "name": "Cylinder00",
+        "normals": [
+            10152,
+            1866,
+            "float32"
+        ],
+        "tangents": [
+            17616,
+            2488,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                27568,
+                1244,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 622,
+        "vertices": [
+            2688,
+            1866,
+            "float32"
+        ]
+    },
+    "entities/PointLight.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1,
+                "lightCookie": null,
+                "range": 100,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 100,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 1,
+                "type": "PointLight"
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    49.42266845703125,
+                    0
+                ]
+            }
+        },
+        "name": "PointLight",
+        "ref": "entities/PointLight.entity"
+    },
+    "entities/SpotLight.entity": {
+        "components": {
+            "light": {
+                "angle": 46,
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 0.94,
+                "lightCookie": null,
+                "penumbra": 10,
+                "range": 200,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 200,
+                    "fov": 46,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 1.78,
+                "type": "SpotLight"
+            },
+            "transform": {
+                "rotation": [
+                    -90,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1.9570528268814087,
+                    1.5894756317138672,
+                    1.1569457054138184
+                ],
+                "translation": [
+                    0,
+                    115.40937805175781,
+                    -1.9553313012650583e-15
+                ]
+            }
+        },
+        "name": "SpotLight",
+        "ref": "entities/SpotLight.entity"
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-21T09:08:01.945435",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "CogWheel/entities/Cylinder00_0.entity",
+            "CogWheel/entities/Fbx_Root.entity",
+            "CogWheel/entities/RootNode.entity",
+            "entities/SpotLight.entity",
+            "entities/PointLight.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "CogWheel/CogWheel.group",
+            "root.group"
+        ],
+        "id": "nc7BHb2_QRCt6TGqvBoAaw",
+        "licenseType": "CC0",
+        "modified": "2013-11-21T09:08:01.945435",
+        "name": "CogWheel",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    },
+    "root.group": {
+        "libraryRefs": [
+            "entities/SpotLight.entity",
+            "entities/PointLight.entity"
+        ],
+        "name": "root",
+        "ref": "root.group"
+    }
+}

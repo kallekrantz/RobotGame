@@ -247,7 +247,6 @@ require([
 		EntityUtils.hide(boxEntity);
 		boxEntity.setComponent(new ScriptComponent({
 					run: function (boxEntity) {
-						
 							if(changeInProgress){
 								//alert("oldPart: "+oldPart);
 								//alert("changedPart: "+changedPart);

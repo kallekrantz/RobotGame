@@ -20,9 +20,12 @@ function closepopup(id){
 }
 
 function changeFrame(id){
+//temporär inloggning
+/*
+var iFrame = $("#frame").contents().find("#usrName").value;
+console.log(iFrame);*/
+//if(usrName == DBUSERNAME WRERSW>RG
 	document.getElementById('frame').src = id;
-	
-	$('#frame').css("background-image", "weapon1.jpg");
 	
 	return false;
 } 

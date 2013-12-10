@@ -1,0 +1,1023 @@
+{
+    "Chassi2/Chassi2.group": {
+        "libraryRefs": [
+            "Chassi2/materials/Material_39.material",
+            "Chassi2/meshes/Box001_Material7_0.mesh",
+            "Chassi2/entities/Box001_Material6_0.entity",
+            "Chassi2/materials/Material_5.material",
+            "Chassi2/materials/Material_6.material",
+            "Chassi2/materials/Material_51.material",
+            "Chassi2/entities/RootNode.entity",
+            "Chassi2/materials/Material_4.material",
+            "Chassi2/materials/Material_8.material",
+            "Chassi2/materials/Material_2.material",
+            "Chassi2/meshes/Box001_Material6_0.mesh",
+            "Chassi2/meshes/Box001_Material0_0.mesh",
+            "Chassi2/materials/Material_7.material",
+            "Chassi2/entities/Box001_Material0_0.entity",
+            "Chassi2/entities/Box001_Material7_0.entity",
+            "Chassi2/entities/Fbx_Root.entity",
+            "Chassi2/binaries/1385713586_data.bin"
+        ],
+        "name": "Chassi2",
+        "ref": "Chassi2/Chassi2.group"
+    },
+    "Chassi2/entities/Box001_Material0_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Chassi2/meshes/Box001_Material0_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Chassi2/materials/Material_51.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Chassi2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.010776996612548828,
+                    1.1440277099609375,
+                    -0.04134273529052735
+                ]
+            }
+        },
+        "name": "Box001_Material0",
+        "nodeType": "Mesh"
+    },
+    "Chassi2/entities/Box001_Material6_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Chassi2/meshes/Box001_Material6_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Chassi2/materials/Material_2.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Chassi2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.010776996612548828,
+                    1.1440277099609375,
+                    -0.04134273529052735
+                ]
+            }
+        },
+        "name": "Box001_Material6",
+        "nodeType": "Mesh"
+    },
+    "Chassi2/entities/Box001_Material7_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Chassi2/meshes/Box001_Material7_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Chassi2/materials/Material_39.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Chassi2/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.010776996612548828,
+                    1.1440277099609375,
+                    -0.04134273529052735
+                ]
+            }
+        },
+        "name": "Box001_Material7",
+        "nodeType": "Mesh"
+    },
+    "Chassi2/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "Chassi2/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "Chassi2/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Chassi2",
+        "nodeType": "Null"
+    },
+    "Chassi2/materials/Material_2.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "CustomBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #2",
+        "ref": "Chassi2/materials/Material_2.material",
+        "renderQueue": 2000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.07272727272727275,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.17272727272727273,
+                    0.018842975206611576,
+                    0.018842975206611576,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.21818181818181814,
+                    0.2102479338842975,
+                    0.2102479338842975,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 0.77
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "Chassi2/materials/Material_39.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "GULD!",
+        "ref": "Chassi2/materials/Material_39.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.4727272727272728,
+                    0.3026949435801998,
+                    0.08165289256198348,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.7,
+                    0.39565219191130435,
+                    0,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    1.161464094405081,
+                    1.161464094405081,
+                    1.161464094405081,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "Chassi2/materials/Material_4.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #4",
+        "renderQueue": -1,
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Chassi2/materials/Material_5.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #5",
+        "renderQueue": -1,
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Chassi2/materials/Material_51.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
+        "name": "Material #51",
+        "ref": "Chassi2/materials/Material_51.material",
+        "renderQueue": 1000,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.3909090909090909,
+                    0.3909090909090909,
+                    0.3909090909090909,
+                    1
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.8454545454545455,
+                    0.8454545454545455,
+                    0.8454545454545455,
+                    1
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0
+            }
+        }
+    },
+    "Chassi2/materials/Material_6.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #6",
+        "renderQueue": -1,
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Chassi2/materials/Material_7.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #7",
+        "renderQueue": -1,
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Chassi2/materials/Material_8.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #8",
+        "renderQueue": -1,
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Chassi2/meshes/Box001_Material0_0.mesh": {
+        "binaryRef": "Chassi2/binaries/1385713586_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.5,
+                7.190680503845215,
+                12.5
+            ],
+            "min": [
+                -7.5,
+                -0.0006263256072998047,
+                -14.230830192565918
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            7704
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            75768,
+            7704,
+            "uint16"
+        ],
+        "name": "Box001_Material0",
+        "normals": [
+            152364,
+            15297,
+            "float32"
+        ],
+        "tangents": [
+            213552,
+            20396,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                295136,
+                10198,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 5099,
+        "vertices": [
+            91176,
+            15297,
+            "float32"
+        ]
+    },
+    "Chassi2/meshes/Box001_Material6_0.mesh": {
+        "binaryRef": "Chassi2/binaries/1385713586_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.5,
+                7.190680503845215,
+                12.5
+            ],
+            "min": [
+                -7.5,
+                -0.0006263256072998047,
+                -14.230830192565918
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            432
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            55560,
+            432,
+            "uint16"
+        ],
+        "name": "Box001_Material6",
+        "normals": [
+            61260,
+            1209,
+            "float32"
+        ],
+        "tangents": [
+            66096,
+            1612,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                72544,
+                806,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 403,
+        "vertices": [
+            56424,
+            1209,
+            "float32"
+        ]
+    },
+    "Chassi2/meshes/Box001_Material7_0.mesh": {
+        "binaryRef": "Chassi2/binaries/1385713586_data.bin",
+        "boundingVolume": {
+            "max": [
+                7.5,
+                7.190680503845215,
+                12.5
+            ],
+            "min": [
+                -7.5,
+                -0.0006263256072998047,
+                -14.230830192565918
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            1308
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            1308,
+            "uint16"
+        ],
+        "name": "Box001_Material7",
+        "normals": [
+            15852,
+            3309,
+            "float32"
+        ],
+        "tangents": [
+            29088,
+            4412,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                46736,
+                2206,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 1103,
+        "vertices": [
+            2616,
+            3309,
+            "float32"
+        ]
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-29T08:26:25.202367",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "Chassi2/entities/Box001_Material6_0.entity",
+            "Chassi2/entities/Box001_Material0_0.entity",
+            "Chassi2/entities/Box001_Material7_0.entity",
+            "Chassi2/entities/Fbx_Root.entity",
+            "Chassi2/entities/RootNode.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "Chassi2/Chassi2.group"
+        ],
+        "id": "IaHr6rXvTfeRf_njuJ111Q",
+        "licenseType": "CC0",
+        "modified": "2013-11-29T08:26:25.202367",
+        "name": "Chassi2",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    }
+}

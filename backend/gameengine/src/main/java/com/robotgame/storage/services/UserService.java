@@ -49,7 +49,7 @@ public class UserService {
         List<User> userList = (List<User>) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override
             public Object request(Session session) {
-                return session.createQuery("from User").list();
+                return session.createQuery("from com.robotgame.storage.entities.User").list();
             }
         });
         return userList;

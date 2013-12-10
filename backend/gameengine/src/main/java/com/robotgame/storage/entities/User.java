@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 
 @Entity
-@Table(name="Users")
+@Table(name="User")
 @XmlRootElement
 public class User{
     private String _username, _firstname, _lastname;

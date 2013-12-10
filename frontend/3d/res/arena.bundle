@@ -18,8 +18,9 @@
             "Arena/meshes/Box002_0.mesh",
             "Arena/materials/Box005Mat.material",
             "Arena/materials/Box003Mat.material",
-            "Arena/binaries/1384331055_data.bin",
-            "Arena/entities/PointLight.entity"
+            "Arena/binaries/1383566629_data.bin",
+            "Arena/binaries/1383566630_data.bin",
+            "Arena/entities/DirectionalLight.entity"
         ],
         "name": "Arena",
         "ref": "Arena/Arena.group"
@@ -168,6 +169,67 @@
         "name": "Box005",
         "nodeType": "Mesh"
     },
+    "Arena/entities/DirectionalLight.entity": {
+        "components": {
+            "light": {
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1,
+                "lightCookie": null,
+                "shadowCaster": false,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 1000,
+                    "fov": 55,
+                    "near": 1,
+                    "projection": "Parallel",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 1,
+                "type": "DirectionalLight"
+            },
+            "transform": {
+                "rotation": [
+                    0,
+                    0,
+                    0
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    0,
+                    529.1083984375,
+                    0
+                ]
+            }
+        },
+        "name": "DirectionalLight",
+        "ref": "Arena/entities/DirectionalLight.entity"
+    },
     "Arena/entities/Fbx_Root.entity": {
         "components": {
             "transform": {
@@ -243,13 +305,13 @@
                     0,
                     0
                 ],
-                "intensity": 1.31,
+                "intensity": 1,
                 "lightCookie": null,
-                "range": 1000,
+                "range": 550,
                 "shadowCaster": false,
                 "shadowSettings": {
                     "darkness": 0,
-                    "far": 1000,
+                    "far": 550,
                     "fov": 55,
                     "near": 1,
                     "projection": "Perspective",
@@ -266,7 +328,7 @@
                         0
                     ]
                 },
-                "specularIntensity": 0.62,
+                "specularIntensity": 1,
                 "type": "PointLight"
             },
             "transform": {
@@ -281,9 +343,9 @@
                     1
                 ],
                 "translation": [
-                    17.326873779296875,
-                    538.0458984375,
-                    0
+                    0,
+                    304.243408203125,
+                    11.38885498046875
                 ]
             }
         },
@@ -304,9 +366,9 @@
                     1
                 ],
                 "translation": [
-                    -0.18231201171875,
-                    -13.895702362060547,
-                    0
+                    -33.7872314453125,
+                    0,
+                    8.871932983398438
                 ]
             }
         },
@@ -321,19 +383,29 @@
             "blendSrc": "SrcAlphaFactor",
             "blending": "NoBlending"
         },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
         "name": "Box002Mat",
-        "renderQueue": -1,
+        "ref": "Arena/materials/Box002Mat.material",
+        "renderQueue": 1000,
         "shaderRef": "GOO_ENGINE_SHADERS/uber",
         "texturesMapping": {},
         "type": "Phong",
         "uniforms": {
             "discardThreshold": {
                 "enabled": false,
-                "value": 0.0
+                "value": 0
             },
             "fresnel": {
                 "enabled": true,
-                "value": 0.0
+                "value": 0
             },
             "materialAmbient": {
                 "enabled": true,
@@ -341,7 +413,7 @@
                     0.2,
                     0.2,
                     0.2,
-                    1.0
+                    1
                 ]
             },
             "materialDiffuse": {
@@ -350,16 +422,16 @@
                     0.8,
                     0.8,
                     0.8,
-                    1.0
+                    1
                 ]
             },
             "materialEmissive": {
                 "enabled": true,
                 "value": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
+                    0,
+                    0,
+                    0,
+                    1
                 ]
             },
             "materialSpecular": {
@@ -368,24 +440,24 @@
                     0.2,
                     0.2,
                     0.2,
-                    1.0
+                    1
                 ]
             },
             "materialSpecularPower": {
                 "enabled": true,
-                "value": 20.0
+                "value": 20
             },
             "normalMultiplier": {
                 "enabled": true,
-                "value": 1.0
+                "value": 1
             },
             "opacity": {
                 "enabled": true,
-                "value": 1.0
+                "value": 1
             },
             "reflectivity": {
                 "enabled": true,
-                "value": 0.0
+                "value": 0
             }
         }
     },
@@ -546,19 +618,29 @@
             "blendSrc": "SrcAlphaFactor",
             "blending": "NoBlending"
         },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
+        },
         "name": "Box005Mat",
-        "renderQueue": -1,
+        "ref": "Arena/materials/Box005Mat.material",
+        "renderQueue": 1000,
         "shaderRef": "GOO_ENGINE_SHADERS/uber",
         "texturesMapping": {},
         "type": "Phong",
         "uniforms": {
             "discardThreshold": {
                 "enabled": false,
-                "value": 0.0
+                "value": 0
             },
             "fresnel": {
                 "enabled": true,
-                "value": 0.0
+                "value": 0
             },
             "materialAmbient": {
                 "enabled": true,
@@ -566,7 +648,7 @@
                     0.2,
                     0.2,
                     0.2,
-                    1.0
+                    1
                 ]
             },
             "materialDiffuse": {
@@ -575,16 +657,16 @@
                     0.8,
                     0.8,
                     0.8,
-                    1.0
+                    1
                 ]
             },
             "materialEmissive": {
                 "enabled": true,
                 "value": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
+                    0,
+                    0,
+                    0,
+                    1
                 ]
             },
             "materialSpecular": {
@@ -593,24 +675,24 @@
                     0.2,
                     0.2,
                     0.2,
-                    1.0
+                    1
                 ]
             },
             "materialSpecularPower": {
                 "enabled": true,
-                "value": 20.0
+                "value": 20
             },
             "normalMultiplier": {
                 "enabled": true,
-                "value": 1.0
+                "value": 1
             },
             "opacity": {
                 "enabled": true,
-                "value": 1.0
+                "value": 1
             },
             "reflectivity": {
                 "enabled": true,
-                "value": 0.0
+                "value": 0
             }
         }
     },
@@ -619,21 +701,31 @@
             "blendDst": "OneMinusSrcAlphaFactor",
             "blendEquation": "AddEquation",
             "blendSrc": "SrcAlphaFactor",
-            "blending": "NoBlending"
+            "blending": "CustomBlending"
+        },
+        "cullState": {
+            "cullFace": "Back",
+            "enabled": true,
+            "frontFace": "CCW"
+        },
+        "depthState": {
+            "enabled": true,
+            "write": true
         },
         "name": "Gengon001Mat",
-        "renderQueue": -1,
+        "ref": "Arena/materials/Gengon001Mat.material",
+        "renderQueue": 2000,
         "shaderRef": "GOO_ENGINE_SHADERS/uber",
         "texturesMapping": {},
         "type": "Phong",
         "uniforms": {
             "discardThreshold": {
                 "enabled": false,
-                "value": 0.0
+                "value": 0
             },
             "fresnel": {
                 "enabled": true,
-                "value": 0.0
+                "value": 0
             },
             "materialAmbient": {
                 "enabled": true,
@@ -641,7 +733,7 @@
                     0.2,
                     0.2,
                     0.2,
-                    1.0
+                    1
                 ]
             },
             "materialDiffuse": {
@@ -650,16 +742,16 @@
                     0.8,
                     0.8,
                     0.8,
-                    1.0
+                    1
                 ]
             },
             "materialEmissive": {
                 "enabled": true,
                 "value": [
-                    0.0,
-                    0.0,
-                    0.0,
-                    1.0
+                    0,
+                    0,
+                    0,
+                    1
                 ]
             },
             "materialSpecular": {
@@ -668,29 +760,29 @@
                     0.2,
                     0.2,
                     0.2,
-                    1.0
+                    1
                 ]
             },
             "materialSpecularPower": {
                 "enabled": true,
-                "value": 20.0
+                "value": 20
             },
             "normalMultiplier": {
                 "enabled": true,
-                "value": 1.0
+                "value": 1
             },
             "opacity": {
                 "enabled": true,
-                "value": 1.0
+                "value": 1
             },
             "reflectivity": {
                 "enabled": true,
-                "value": 0.0
+                "value": 0
             }
         }
     },
     "Arena/meshes/Box002_0.mesh": {
-        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "binaryRef": "Arena/binaries/1383566630_data.bin",
         "boundingVolume": {
             "max": [
                 12.095244748644546,
@@ -743,7 +835,7 @@
         ]
     },
     "Arena/meshes/Box003_0.mesh": {
-        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "binaryRef": "Arena/binaries/1383566630_data.bin",
         "boundingVolume": {
             "max": [
                 12.095248236233584,
@@ -796,7 +888,7 @@
         ]
     },
     "Arena/meshes/Box004_0.mesh": {
-        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "binaryRef": "Arena/binaries/1383566630_data.bin",
         "boundingVolume": {
             "max": [
                 12.095248236233584,
@@ -849,7 +941,7 @@
         ]
     },
     "Arena/meshes/Box005_0.mesh": {
-        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "binaryRef": "Arena/binaries/1383566630_data.bin",
         "boundingVolume": {
             "max": [
                 12.09524474864456,
@@ -902,7 +994,7 @@
         ]
     },
     "Arena/meshes/Gengon001_0.mesh": {
-        "binaryRef": "Arena/binaries/1384331055_data.bin",
+        "binaryRef": "Arena/binaries/1383566630_data.bin",
         "boundingVolume": {
             "max": [
                 130.00000438485355,
@@ -954,6 +1046,134 @@
             "float32"
         ]
     },
+    "entities/SpotLight.entity": {
+        "components": {
+            "light": {
+                "angle": 45,
+                "attenuate": true,
+                "color": [
+                    1,
+                    1,
+                    1,
+                    1
+                ],
+                "direction": [
+                    0,
+                    0,
+                    0
+                ],
+                "intensity": 1,
+                "lightCookie": null,
+                "penumbra": 5,
+                "range": 1000,
+                "shadowCaster": true,
+                "shadowSettings": {
+                    "darkness": 0,
+                    "far": 1000,
+                    "fov": 45,
+                    "near": 1,
+                    "projection": "Perspective",
+                    "resolution": [
+                        256,
+                        256
+                    ],
+                    "shadowType": "VSM",
+                    "size": 400,
+                    "type": "Blur",
+                    "upVector": [
+                        0,
+                        1,
+                        0
+                    ]
+                },
+                "specularIntensity": 1.03,
+                "type": "SpotLight"
+            },
+            "transform": {
+                "rotation": [
+                    -40.945703413757066,
+                    -0.3445521210128931,
+                    0.20868003496768894
+                ],
+                "scale": [
+                    1,
+                    1,
+                    1
+                ],
+                "translation": [
+                    14.032066345214844,
+                    546.5245971679688,
+                    572.2838745117188
+                ]
+            }
+        },
+        "name": "SpotLight",
+        "ref": "entities/SpotLight.entity"
+    },
+    "posteffects/Bleach.posteffect": {
+        "enabled": false,
+        "name": "Bleach",
+        "options": {
+            "opacity": 1
+        },
+        "ref": "posteffects/Bleach.posteffect"
+    },
+    "posteffects/Bloom.posteffect": {
+        "enabled": false,
+        "name": "Bloom",
+        "options": {
+            "brightness": 0,
+            "contrast": 0,
+            "opacity": 100,
+            "size": 2
+        },
+        "ref": "posteffects/Bloom.posteffect"
+    },
+    "posteffects/Contrast.posteffect": {
+        "enabled": false,
+        "name": "Contrast",
+        "options": {
+            "brightness": 0,
+            "contrast": 0
+        },
+        "ref": "posteffects/Contrast.posteffect"
+    },
+    "posteffects/Grain.posteffect": {
+        "enabled": false,
+        "name": "Grain",
+        "options": {
+            "nIntensity": 50,
+            "sCount": 1024,
+            "sIntensity": 50
+        },
+        "ref": "posteffects/Grain.posteffect"
+    },
+    "posteffects/RgbShift.posteffect": {
+        "enabled": false,
+        "name": "RgbShift",
+        "options": {
+            "amount": 0.005,
+            "angle": 0
+        },
+        "ref": "posteffects/RgbShift.posteffect"
+    },
+    "posteffects/Sepia.posteffect": {
+        "enabled": false,
+        "name": "Sepia",
+        "options": {
+            "amount": 100
+        },
+        "ref": "posteffects/Sepia.posteffect"
+    },
+    "posteffects/Vignette.posteffect": {
+        "enabled": false,
+        "name": "Vignette",
+        "options": {
+            "darkness": 1.5,
+            "offset": 1
+        },
+        "ref": "posteffects/Vignette.posteffect"
+    },
     "project.project": {
         "backgroundColor": [
             0.75,
@@ -961,7 +1181,7 @@
             0.78,
             1
         ],
-        "created": "2013-11-13T08:23:44.694685",
+        "created": "2013-11-04T12:03:24.971425",
         "deleted": false,
         "edit": [],
         "entityRefs": [
@@ -971,14 +1191,16 @@
             "Arena/entities/Gengon001_0.entity",
             "Arena/entities/Box005_0.entity",
             "Arena/entities/Fbx_Root.entity",
-            "Arena/entities/RootNode.entity"
+            "Arena/entities/RootNode.entity",
+            "Arena/entities/PointLight.entity",
+            "entities/SpotLight.entity"
         ],
         "fogColor": [
             1,
             1,
             1
         ],
-        "fogFar": 1000,
+        "fogFar": 10000,
         "fogNear": 0,
         "globalAmbient": [
             0,
@@ -986,17 +1208,27 @@
             0
         ],
         "groupRefs": [
-            "Arena/Arena.group"
+            "Arena/Arena.group",
+            "root.group"
         ],
-        "id": "Pm1zJ_iaTYu1KOrMHooK4g",
+        "id": "sYwd2XzdTny5fLqd_ICTlw",
         "licenseType": "CC0",
-        "modified": "2013-11-13T08:23:44.694685",
-        "name": "Default Goo Project",
+        "modified": "2013-11-04T12:03:24.971425",
+        "name": "Arena",
         "originalLicenseType": null,
         "own": [
             "jvrKbg9pT_afcqvuzlv5Ag"
         ],
         "parent": null,
+        "posteffectRefs": [
+            "posteffects/Sepia.posteffect",
+            "posteffects/Bloom.posteffect",
+            "posteffects/Grain.posteffect",
+            "posteffects/Contrast.posteffect",
+            "posteffects/RgbShift.posteffect",
+            "posteffects/Vignette.posteffect",
+            "posteffects/Bleach.posteffect"
+        ],
         "public": true,
         "ref": "project.project",
         "skybox": {
@@ -1014,5 +1246,20 @@
         },
         "useFog": false,
         "view": []
+    },
+    "root.group": {
+        "libraryRefs": [
+            "posteffects/Sepia.posteffect",
+            "posteffects/Bloom.posteffect",
+            "posteffects/Grain.posteffect",
+            "posteffects/Contrast.posteffect",
+            "posteffects/RgbShift.posteffect",
+            "posteffects/Vignette.posteffect",
+            "posteffects/Bleach.posteffect",
+            "entities/SpotLight.entity",
+            "Arena/entities/PointLight.entity"
+        ],
+        "name": "root",
+        "ref": "root.group"
     }
 }

@@ -1,25 +1,27 @@
 //var robots = new Array(new NetworkRobot(0,0,0,0),new NetworkRobot(0,0,0,0));
 //match = new NetworkMatch(robots);
 
-/*
-function loadMyRobot(){
-//eventuellt chassi = parent.parent.robot.component[0];
 
-chassi = parent.parent.component[0];
-wheels = parent.parent.component[1];
-weapon = parent.parent.component[2];
+var chassi = parent.parent.components[0];
+var wheels = parent.parent.components[1];
+var weapon = parent.parent.components[2];
 
-makeMyRobot3d(chassi,wheels,weapon);
-}
+var opponentChassi = parent.parent.oppenentComponents[0];
+var opponentWheels = parent.parent.oppenentComponents[1];
+var opponentWeapon = parent.parent.oppenentComponents[2];
 
-function loadOpponentRobot(){
+//function loadMyRobot(){
+//makeMyRobot3d(chassi,wheels,weapon);
+//}
+
+/*function loadOpponentRobot(){
 chassi = parent.parent.opponentComponent[0];
 wheels = parent.parent.opponentComponent[1];
 weapon = parent.parent.opponentComponent[2];
 
 makeOpponentRobot3d(chassi,wheels,weapon);
-}
-*/
+}*/
+
 
 require([
 	'goo/entities/GooRunner',
@@ -64,6 +66,8 @@ require([
 	'use strict';
 
 	function init() {
+	
+		//loadMyRobot();
 
 		// If you try to load a scene without a server, you're gonna have a bad time
 		if (window.location.protocol==='file:') {
@@ -118,6 +122,13 @@ require([
 		robot.meshRendererComponent.materials.push(material); 
 		robot.addToWorld();
 		EntityUtils.hide(robot);
+		
+		var meshData2 = ShapeCreator.createBox(1, 1, 1); 
+		var robot2 = EntityUtils.createTypicalEntity(goo.world, meshData2); 
+		var material2 = Material.createMaterial(ShaderLib.texturedLit, 'BoxMaterial'); 
+		robot2.meshRendererComponent.materials.push(material2); 
+		robot2.addToWorld();
+		EntityUtils.hide(robot2);
 		// ------------------------------------------------------------------------------
 		
 		var speed = 1.5;
@@ -125,8 +136,8 @@ require([
 		var turnRight = false;
 		var turnLeft = false;
 		var moveBackward = false;
-		//var robotPos = new Vector3(0,0,0);
-		var robotPos = new Vector3(match.robots[0].getX(), 0, match.robots[0].getY());
+		var robotPos = new Vector3(0,0,0);
+		//var robotPos = new Vector3(match.robots[0].getX(), 0, match.robots[0].getY());
 		var robotLookAt = new Vector3(0,0,-10);
 		var camLookAt = new Vector3(robotPos.x,robotPos.y,robotPos.z-200);
 		var audienceCameraPos = new Vector3(500,200,0);
@@ -135,6 +146,7 @@ require([
 		var worldUp = new Vector3(0,1,0);
 		var robotRotation = 0;
 		var rotationSpeed = 0.01;
+		var T = (new Date).getTime();
 		
 		// 		Creating the Camera
 		var camera = new Camera(35, 1, 0.1, 1000);
@@ -147,8 +159,10 @@ require([
 		document.onkeydown = function() {
 			switch (window.event.keyCode) {
 				case 49:
-					if(moveForward)
+					if(moveForward){
+						console.log(moveForward);
 						moveForward = false;
+						}
 					else
 						moveForward = true;
 					break;
@@ -284,13 +298,32 @@ require([
 						
 						
 						var ent = loader.getCachedObjectForRef(entityName + "/entities/RootNode.entity");
+						var ent2 = EntityUtils.clone(goo.world, ent);
+						ent2.addToWorld();
+						
+						robot2.transformComponent.attachChild(ent2.getComponent('transformComponent'));	
+						
 						robot.transformComponent.attachChild(ent.getComponent('transformComponent'));	
+						
+						//Show only the components that has been added to robot #1
+						if(entityName == chassi || entityName == weapon || entityName == wheels || entityName == "Arena")
+							EntityUtils.show(ent);
+						else
+							EntityUtils.hide(ent);
+
+						//Show only the components that has been added to robot #2
+						if(entityName == opponentChassi || entityName == opponentWeapon || entityName == opponentWheels)
+							EntityUtils.show(ent2);
+						else
+							EntityUtils.hide(ent2);
+							
 						if(entityName == "Arena"){
 							robot.transformComponent.detachChild(ent.getComponent('transformComponent'));
 							ent.transformComponent.setTranslation(0,-19,0);
 						}
 						
-						parent.setReady();
+						if(entityName == "Wheels")
+							parent.parent.setReady();
 						
 					})
 					.then(null, function(e) {
@@ -304,90 +337,106 @@ require([
 		
 		
 		// Runtime translations and rotations to the "robot"
-		robot.setComponent(new ScriptComponent({
-			 run: runfunction(entity, 0)
-		}));
-		var runfunction=function (entity, index) {
-				
-				if(cameraMode.getView()=="sideView")
-					cameraMode.lookAtRobot();
-	 			
-				var currentT = (new Date).getTime();
-				var dT = (currentT - T)/1000;
-				T = currentT;
-				//for( var i=0;i<parent.currentMatchState.robots.length;i++){
-					// console.log("en");
-					var i=index;
-					parent.currentMatchState.robots[i].setdX(parent.nextMatchState.robots[i].getdX());
-					parent.currentMatchState.robots[i].setdZ(parent.nextMatchState.robots[i].getdZ());
-					parent.currentMatchState.robots[i].setAngularVelocity(parent.nextMatchState.robots[i].getAngularVelocity());
-					parent.currentMatchState.robots[i].setX(parent.currentMatchState.robots[i].getX()+dT*parent.currentMatchState.robots[i].getdX());
-					parent.currentMatchState.robots[i].setZ(parent.currentMatchState.robots[i].getZ()+dT*parent.currentMatchState.robots[i].getdZ());
-					parent.currentMatchState.robots[i].setRotation(parent.currentMatchState.robots[i].getRotation()*dT*parent.currentMatchState.robots[i].getAngularVelocity());
-					entity.transformComponent.setTranslation(parent.currentMatchState.robots[i].getX(),parent.currentMatchState.robots[i].getY(),parent.currentMatchState.robots[i].getZ());
-					entity.transformComponent.setRotation(0,parent.currentMatchState.robots[i].getRotation(),0);
-					entity.transformComponent.setUpdated();
-				//} 
-			 
-		/* 		 if(moveForward){
-					 entity.transformComponent.setTranslation(
-					 robotPos.x,
-					 robotPos.y,
-					 robotPos.z);
-					
-					 if(cameraMode.getView()=="sideView")
-						cameraMode.lookAtRobot();
-					 
-					 robotPos.z = robotPos.z-(speed*Math.cos(robotRotation));
-					 robotPos.x = robotPos.x-(speed*Math.sin(robotRotation));
-					 entity.transformComponent.setUpdated();
 		
-				 }
-					 
-				 if(moveBackward){
-					 entity.transformComponent.setTranslation(
-					 robotPos.x,
-					 robotPos.y,
-					 robotPos.z);
-					
-					 if(cameraMode.getView()=="sideView")
-						cameraMode.lookAtRobot();
-
-					 robotPos.z = robotPos.z+(speed*Math.cos(robotRotation));
-					 robotPos.x = robotPos.x+(speed*Math.sin(robotRotation));
-					 entity.transformComponent.setUpdated();
-
-				 }
-				 
-				 if(turnRight){
-					 entity.transformComponent.setRotation(
-					 0,
-					 robotRotation,
-					 0); 
-
-					 robotRotation = robotRotation+(rotationSpeed);
-					 entity.transformComponent.setUpdated();
-				 }
-				 
-				 if(turnLeft){
-					
-					 entity.transformComponent.setRotation(
-					 0,
-					 robotRotation,
-					 0);
-
-					 robotRotation = robotRotation-(rotationSpeed);
-					 entity.transformComponent.setUpdated();
-				 } */
-			}
 		//var camScript = new OrbitCamControlScript();
 		//cameraEntity.setComponent(new ScriptComponent(camScript));
+
 		
 		
 		// Load all entitys
 		for(var i = 0; i < entityStrings.length; i++){
 			loaderModule.importEntity(entityStrings[i]);
 		}
+
+		
+		robot.setComponent(new ScriptComponent({
+			 run: function (entity) { 
+					
+					if(cameraMode.getView()=="sideView"){
+						cameraMode.lookAtRobot();
+					}
+					
+					var currentT = (new Date).getTime();
+					var dT = (currentT - T)/1000;
+					T = currentT;
+					
+					for( var i=0;i<parent.parent.currentMatchState.robots.length;i++){
+						// console.log("en");
+						parent.parent.currentMatchState.robots[i].setdX(parent.parent.nextMatchState.robots[i].getdX()/100);
+						parent.parent.currentMatchState.robots[i].setdZ(parent.parent.nextMatchState.robots[i].getdZ()/100);
+						parent.parent.currentMatchState.robots[i].setAngularVelocity(parent.parent.nextMatchState.robots[i].getAngularVelocity());
+						parent.parent.currentMatchState.robots[i].setX(parent.parent.currentMatchState.robots[i].getX()+dT*parent.parent.currentMatchState.robots[i].getdX());
+						parent.parent.currentMatchState.robots[i].setZ(parent.parent.currentMatchState.robots[i].getZ()+dT*parent.parent.currentMatchState.robots[i].getdZ());
+						parent.parent.currentMatchState.robots[i].setRotation(parent.parent.currentMatchState.robots[i].getRotation()*dT*parent.parent.currentMatchState.robots[i].getAngularVelocity());
+						
+
+						if(i==parent.parent.yourIndex){
+
+							entity = robot;
+						}
+						else{
+							entity = robot2;
+						}
+							
+						entity.transformComponent.setTranslation(parent.parent.currentMatchState.robots[i].getX(),parent.parent.currentMatchState.robots[i].getY(),parent.parent.currentMatchState.robots[i].getZ());
+						entity.transformComponent.setRotation(0,parent.parent.currentMatchState.robots[i].getRotation(),0);
+						entity.transformComponent.setUpdated();
+						
+					} 
+				 /*
+					 if(moveForward){
+						 entity.transformComponent.setTranslation(
+						 robotPos.x,
+						 robotPos.y,
+						 robotPos.z);
+						
+						 if(cameraMode.getView()=="sideView")
+							cameraMode.lookAtRobot();
+						 
+						 robotPos.z = robotPos.z-(speed*Math.cos(robotRotation));
+						 robotPos.x = robotPos.x-(speed*Math.sin(robotRotation));
+						 entity.transformComponent.setUpdated();
+			
+					 }
+						 
+					 if(moveBackward){
+						 entity.transformComponent.setTranslation(
+						 robotPos.x,
+						 robotPos.y,
+						 robotPos.z);
+						
+						 if(cameraMode.getView()=="sideView")
+							cameraMode.lookAtRobot();
+
+						 robotPos.z = robotPos.z+(speed*Math.cos(robotRotation));
+						 robotPos.x = robotPos.x+(speed*Math.sin(robotRotation));
+						 entity.transformComponent.setUpdated();
+
+					 }
+					 
+					 if(turnRight){
+						 entity.transformComponent.setRotation(
+						 0,
+						 robotRotation,
+						 0); 
+
+						 robotRotation = robotRotation+(rotationSpeed);
+						 entity.transformComponent.setUpdated();
+					 }
+					 
+					 if(turnLeft){
+						
+						 entity.transformComponent.setRotation(
+						 0,
+						 robotRotation,
+						 0);
+
+						 robotRotation = robotRotation-(rotationSpeed);
+						 entity.transformComponent.setUpdated();
+					 } */
+				}				
+			}));
+		
 	}
 
 	init();

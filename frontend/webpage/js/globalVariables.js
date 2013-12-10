@@ -4,6 +4,13 @@ var components = new Array();
 components.splice(0,0, null,null,null,null,null);
 var createdNodes=0;
 
+var oppenentComponents = new Array();
+
+//Symboliserar att vi läst in detta värden från databasen
+oppenentComponents[0] = "";
+oppenentComponents[1] = "";
+oppenentComponents[2] = "Laser";
+
 var json;
 
 var nrOfSensorNodes=0;

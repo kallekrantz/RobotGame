@@ -1,4 +1,4 @@
-matchMakerSocket = new WebSocket("ws://127.0.0.1:61989/");
+matchMakerSocket = new WebSocket("ws://localhost:8088/gameengine/gameengine/");
 userName = "bla";
 /**
  * Called when the websocket has connected to the server. 

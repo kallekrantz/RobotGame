@@ -51,7 +51,9 @@ function startNewMatch (port){
 		if(evt.data.indexOf("NetworkError::")!=-1){
 			
 		}else if(evt.data.indexOf("StartingState::")!=-1){
-			var startingState = JSON.parse(evt.data.replace("StartingState::",""));
+			var tmp = evt.data.replace("StartingState::","");
+			yourIndex = tmp[0];
+			var startingState = JSON.parse(tmp.replace(tmp[0],""));
 			currentMatchState = new NetworkMatch(startingState);
 			nextMatchState = new NetworkMatch(startingState);
 			console.log(window.frames[0].document);

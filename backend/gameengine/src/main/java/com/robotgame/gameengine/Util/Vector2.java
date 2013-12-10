@@ -29,7 +29,15 @@ public class Vector2
     {
 
     }
-
+    
+    public float AngleBetweenRobots(Vector2 b)
+    {
+    	float dx = b.x - x;
+    	float dy = b.y - y;
+    	
+    	return (float) Math.acos(dx/dy);  //Watch out for dividing with zero
+    }
+    
     /**
      * Checks if this vector is closer to the vector b than a certain limit.
      * @param b

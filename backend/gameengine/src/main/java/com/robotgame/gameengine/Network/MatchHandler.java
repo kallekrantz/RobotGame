@@ -144,7 +144,7 @@ public class MatchHandler implements IMatchHandler {
 			_firstState.robotStates[robots] = new RobotState();
 		}
 		Gson gson = new Gson();
-		socket._session.getRemote().sendStringByFuture("StartingState::"+gson.toJson(_firstState));
+		socket._session.getRemote().sendStringByFuture("StartingState::"+socket._playerIndex+gson.toJson(_firstState));
 	}
 	public void SendFirstMatchState(MatchState _matchState) {
 		// TODO Auto-generated method stub

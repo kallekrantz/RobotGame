@@ -51,7 +51,9 @@ function startNewMatch (port){
 		if(evt.data.indexOf("NetworkError::")!=-1){
 			
 		}else if(evt.data.indexOf("StartingState::")!=-1){
-			var startingState = JSON.parse(evt.data.replace("StartingState::",""));
+			var tmp = evt.data.replace("StartingState::","");
+			yourIndex = tmp[0];
+			var startingState = JSON.parse(tmp.replace(tmp[0],""));
 			currentMatchState = new NetworkMatch(startingState);
 			nextMatchState = new NetworkMatch(startingState);
 			console.log(window.frames[0].document);
@@ -63,7 +65,7 @@ function startNewMatch (port){
 		}else if(evt.data.indexOf("UpdateState::")!=-1){
 			var newState = JSON.parse(evt.data.replace("UpdateState::",""));
 			nextMatchState = new NetworkMatch(newState);
-			window.frames[0].document.getElementById("debug").innerHTML+=" x: " + nextMatchState.robots[0].getX() +" dx: " + nextMatchState.robots[0].getdX() + " y: " + nextMatchState.robots[0].getZ() + " dY: " + nextMatchState.robots[0].getdZ()+"<br>"+" rot: "+nextMatchState.robots[0].getRotation()+" angVel: "+nextMatchState.robots[0].getAngularVelocity()+"<br>";
+			window.frames[0].document.getElementById("debug").innerHTML+=" x: " + nextMatchState.robots[1].getX() +" dx: " + nextMatchState.robots[1].getdX() + " y: " + nextMatchState.robots[1].getZ() + " dY: " + nextMatchState.robots[1].getdZ()+"<br>"+" rot: "+nextMatchState.robots[1].getRotation()+" angVel: "+nextMatchState.robots[1].getAngularVelocity()+"<br>";
 			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game is on man!!!";
 		}else if(evt.data.indexOf("MatchEnded::")!=-1){
 			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game over man, game over";

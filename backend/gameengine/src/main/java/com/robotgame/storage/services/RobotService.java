@@ -4,12 +4,13 @@ import com.robotgame.storage.database.DatabaseRequest;
 import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.entities.RobotEntity;
 import com.robotgame.storage.entities.User;
+import com.robotgame.storage.restserver.exceptions.BadRequestException;
+import com.sun.jersey.api.NotFoundException;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Session;
 
-import javax.ws.rs.BadRequestException;
-import javax.ws.rs.NotFoundException;
+
 import java.util.List;
 
 /**

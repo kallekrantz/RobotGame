@@ -1,7 +1,8 @@
-package com.robotgame.storage.restserver.User.Robot;
+package com.robotgame.storage.restserver.Path.User.Robot;
 
 import com.robotgame.storage.entities.RobotEntity;
 import com.robotgame.storage.services.RobotService;
+import com.sun.jersey.api.NotFoundException;
 import org.codehaus.jettison.json.JSONObject;
 
 import javax.ws.rs.*;

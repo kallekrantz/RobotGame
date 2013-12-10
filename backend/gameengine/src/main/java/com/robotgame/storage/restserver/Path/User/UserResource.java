@@ -1,7 +1,8 @@
-package com.robotgame.storage.restserver.User;
+package com.robotgame.storage.restserver.Path.User;
 
 import com.robotgame.storage.entities.User;
 import com.robotgame.storage.services.UserService;
+import com.sun.jersey.api.NotFoundException;
 import org.codehaus.jettison.json.JSONObject;
 
 import javax.ws.rs.*;
@@ -13,7 +14,7 @@ import java.util.List;
  * Endpoint that manages all users. Including creating a single one.
  */
 
-@Path("/user")
+@Path("user")
 public class UserResource {
 
     @POST

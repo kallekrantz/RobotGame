@@ -1,10 +1,11 @@
 package com.robotgame.storage.database;
 
 
+import com.robotgame.storage.restserver.exceptions.InternalServerErrorException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
-import javax.ws.rs.InternalServerErrorException;
+
 import javax.ws.rs.WebApplicationException;
 
 /**

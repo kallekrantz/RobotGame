@@ -1,7 +1,8 @@
-package com.robotgame.storage.restserver.User;
+package com.robotgame.storage.restserver.Path.User;
 
 import com.robotgame.storage.entities.User;
 import com.robotgame.storage.services.UserService;
+import com.sun.jersey.api.NotFoundException;
 import org.codehaus.jettison.json.JSONObject;
 
 import javax.ws.rs.*;
@@ -12,7 +13,7 @@ import javax.ws.rs.core.Response;
 /**
  * Resource that manages all UserEndpoints that require an id.
  */
-@Path("/user/{userid}")
+@Path("user/{userid}")
 public class UserIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)

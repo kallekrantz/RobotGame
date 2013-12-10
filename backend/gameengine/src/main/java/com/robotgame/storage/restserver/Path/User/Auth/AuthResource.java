@@ -1,11 +1,13 @@
-package com.robotgame.storage.restserver.User.Auth;
+package com.robotgame.storage.restserver.Path.User.Auth;
 
 import com.robotgame.storage.database.DatabaseRequest;
 import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.entities.AuthToken;
 import com.robotgame.storage.entities.User;
+import com.robotgame.storage.restserver.exceptions.InternalServerErrorException;
 import com.robotgame.storage.restserver.exceptions.UnauthorizedException;
+import com.sun.jersey.api.NotFoundException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Session;
 
@@ -25,7 +27,7 @@ public class AuthResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response authenticate(@PathParam("userid") final int userid, final JSONObject jsonObj){
         if(!jsonObj.has("password")){
-            throw new BadRequestException();
+            throw new InternalServerErrorException();
         }
         AuthToken token = (AuthToken) DatabaseUtil.runRequest(new DatabaseRequest() {
             @Override

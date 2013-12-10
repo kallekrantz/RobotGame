@@ -1,4 +1,4 @@
-/*
+/**
 	*Author: Mikael Pettersson & Christoffer Wern
 	*
 	*
@@ -13,7 +13,7 @@ var stringObject = new Array();
 stringObject[0] = {id:"Laser",string:"<h3>Laser</h3><p>This is an awesome laser</p>"};
 stringObject[1] = {id:"Chassi1",string:"<h3>Standard Chassi</h3><p>This is your standard Chassi, nothing special...</p>"}
 stringObject[2] = {id:"Chassi2",string:"<h3>Awesome Chassi</h3><p>WOW THIS CHASSI IS AWESOME!!!</p>"}
-stringObject[3] = {id:"Wheels",string:"<h3>Wheels</h3><p>meh,wheels, who cares?</p>"}
+stringObject[3] = {id:"Wheels",string:"<h3>Wheels</h3><p>Who care about wheels?</p>"}
 
 //stringObject[] = {id:"",string:"<p></p>"}
 $(document).ready(function() {

@@ -369,7 +369,9 @@ require([
 						parent.parent.currentMatchState.robots[i].setZ(parent.parent.currentMatchState.robots[i].getZ()+dT*parent.parent.currentMatchState.robots[i].getdZ());
 						parent.parent.currentMatchState.robots[i].setRotation(parent.parent.currentMatchState.robots[i].getRotation()*dT*parent.parent.currentMatchState.robots[i].getAngularVelocity());
 						
-						if(i==0){
+
+						if(i==parent.parent.yourIndex){
+
 							entity = robot;
 						}
 						else{

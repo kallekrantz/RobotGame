@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @Entity
-@Table(name = "Robots")
+@Table(name = "Robot")
 @XmlRootElement
 public class RobotEntity {
     private String robotName;

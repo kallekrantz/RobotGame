@@ -10,6 +10,7 @@ float:left;
 width:25%;
 height:30%;
 background-image: url('miniMap.png');
+
 }
 
 #robotInfo{
@@ -24,4 +25,5 @@ float:right;
 width:25%;
 height:30%;
 background-image: url('miniMap.png');
+overflow-y: scroll;
 }

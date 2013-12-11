@@ -131,7 +131,7 @@ public class CompleteRobotTest implements IMatchHandler
 
 
         Robot robot = RobotFactory.CreateRobot(blueprint, 0);
-        //assertNull(robot);
+        assertNull(robot);
 
 
         //Todo: Skriv test för indexpackaren.

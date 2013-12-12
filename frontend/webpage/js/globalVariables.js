@@ -19,24 +19,26 @@ var maxNrOfSensorNodes=0;
 var actionNodes = new Array();
 
 function saveFile(){
-var obj = 	{	
-	nodes : nodes,
-	connections : connections,
-	components : components
-};
-json = JSON.stringify(obj);
 
-console.log(json);
+	var obj = 	{	
+		nodes : nodes,
+		connections : connections,
+		components : components
+	};
+	
+	json = JSON.stringify(obj);
 
-connections.splice(0,connections.length);
-nodes.splice(0,nodes.length);
-components.splice(0,components.length);
-createdNodes=0;
-actionNodes.splice(0,actionNodes.length);
-nrOfSensorNodes=0;
-maxNrOfSensorNodes =0;
+	console.log(json);
 
-loadJSONfile(json);
+	connections.splice(0,connections.length);
+	nodes.splice(0,nodes.length);
+	components.splice(0,components.length);
+	createdNodes=0;
+	actionNodes.splice(0,actionNodes.length);
+	nrOfSensorNodes=0;
+	maxNrOfSensorNodes =0;
+
+	loadJSONfile(json);
 }
 
 //Loads the JSON object into the global variables of the page, thus having your logic stored.

@@ -162,6 +162,7 @@ function showThisInfo(comp){
 	}
 	return false;
 }
+
 function addComponents(){
 	if(parent.components[0] != null){
 		parent.maxNrOfSensorNodes = 3;

@@ -39,6 +39,7 @@ height:25px;
 
 background-color:grey;
 z-index:2000;
+box-shadow: 5px 5px 20px black;
 }
 #myBar{
 float:right;
@@ -58,6 +59,7 @@ height:25px;
 
 background-color:grey;
 z-index:2000;
+box-shadow: 5px 5px 20px black;
 }
 
 #theirBar{

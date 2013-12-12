@@ -19,7 +19,6 @@ $( "#accordion" ).accordion({
 
 </script>
 
-
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
 <link rel="stylesheet" type="text/css" href="Style/popup.css">
@@ -47,17 +46,23 @@ $( "#accordion" ).accordion({
 		<h3>Logic Nodes</h3>
 		<div>
 			<table>
-				<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
 				<tr><td><button class="logicButton" onclick="addNode('logicNode','And','-1','1','','false')" >And</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','True','0','1','','false')" >True</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','False','0','1','','false')" >False</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','Not','-1','1','','false')" >Not</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','Majority','-1','1','','false')" >Majority</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','Delay','1','-1','Time','true')" >Delay</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','Clock','1','-1','Time','true')" >Clock</button></td></tr>
+				<tr><td><button class="logicButton" onclick="addNode('logicNode','TicTac','1','-1','Time','true')" >TicTac</button></td></tr>
 			</table>
 		</div>
 		
 		<h3>Sensor Nodes</h3>
 		<div>
 			<table>
-			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '-1','Angle','true')" >Sector Sensor</button></td></tr>
-			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '-1','Distance','true')" >Distance Sensor</button></td></tr>
-			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '-1','Angle','true')" >Mirrored Sector Sensor</button></td></tr>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '-1','Angle','true')" >SectorSensor</button></td></tr>
+			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '-1','Distance','true')" >DistanceSensor</button></td></tr>
 			</table>
 		</div>
 		
@@ -65,10 +70,11 @@ $( "#accordion" ).accordion({
 		<div>
 			<table>
 				<tr><td><button class="weaponButton" 	onclick="addNode('actionNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
-				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnLeft','1','0','','false')" >Turn Left</button></td></tr>
-				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnRight','1','0','','false')" >Turn Right</button></td></tr>
-				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveForward','1','0','','false')" >Move Forward</button></td></tr>
-				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveBackwards','1','0','','false')" >Move Backwards</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'Boost','1','0','','false')" >Boost</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnLeft','1','0','','false')" >TurnLeft</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnRight','1','0','','false')" >TurnRight</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveForward','1','0','','false')" >MoveForward</button></td></tr>
+				<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveBackwards','1','0','','false')" >MoveBackwards</button></td></tr>
 			</table>
 		</div>
 
@@ -107,34 +113,3 @@ $( "#accordion" ).accordion({
 
 <div id="bg" class="popup_bg">
 </div>
-
-
-<!--
-<table id="tableId">
-			<tr><td><p>Sensor Nodes</p></td></tr>
-		<div>
-			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','SectorSensor','0', '-1','Angle','true')" >Sector Sensor</button></td></tr>
-			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','DistanceSensor','0', '-1','Distance','true')" >Distance Sensor</button></td></tr>
-			<tr><td><button class="sensorButton" onclick="addNode('sensorNode','MirroredSectorSensor','0', '-1','Angle','true')" >Mirrored Sector Sensor</button></td></tr>
-		</div>
-		
-		
-		<tr><td><p>Logic Nodes</p></td></tr>
-		<div>
-			<tr><td><button class="logicButton" onclick="addNode('logicNode','Or','-1','1','','false')" >Or</button></td></tr>
-			<tr><td><button class="logicButton" onclick="addNode('logicNode','And','-1','1','','false')" >And</button></td></tr>
-		</div>
-		
-		
-		<tr><td><p>Action Nodes</p></td></tr>
-		<div>
-			
-			<tr><td><button class="weaponButton" 	onclick="addNode('actionNode', 'Fire','1','0','','false')" >Fire</button></td></tr>
-			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnLeft','1','0','','false')" >Turn Left</button></td></tr>
-			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'TurnRight','1','0','','false')" >Turn Right</button></td></tr>
-			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveForward','1','0','','false')" >Move Forward</button></td></tr>
-			<tr><td><button class="wheelButton" 	onclick="addNode('actionNode', 'MoveBackwards','1','0','','false')" >Move Backwards</button></td></tr>
-		</div>
-</table>
--->
-

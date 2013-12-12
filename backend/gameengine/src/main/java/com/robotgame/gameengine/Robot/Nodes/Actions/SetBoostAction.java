@@ -1,5 +1,6 @@
 package com.robotgame.gameengine.Robot.Nodes.Actions;
 
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Robot;
 
@@ -30,7 +31,7 @@ public class SetBoostAction extends NodeAction
 
 
 
-    public void PerformAction(Robot robot)
+    public void PerformAction(Robot robot, ProjectileSystem _projectileSystem)
     {
         robot.SetBoost(_boost);
     }

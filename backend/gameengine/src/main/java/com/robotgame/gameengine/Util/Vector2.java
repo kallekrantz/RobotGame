@@ -21,6 +21,11 @@ public class Vector2
         this.y = y;
     }
 
+    public static Vector2 VectorFromPolarValues(float length, float angle)
+    {
+        return new Vector2(length * (float)Math.cos((double)angle), length * (float)Math.sin((double)angle));
+    }
+
     /**
      * Rotates the vector counter clockwise around origin.
      * @param angle in radians
@@ -78,5 +83,10 @@ public class Vector2
     {
         x *= a;
         y *= a;
+    }
+
+    public static Vector2 Multiply(Vector2 v, float a)
+    {
+        return new Vector2(v.x * a, v.y * a);
     }
 }

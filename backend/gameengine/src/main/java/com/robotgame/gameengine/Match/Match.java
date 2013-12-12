@@ -3,6 +3,7 @@ package com.robotgame.gameengine.Match;
 import com.robotgame.gameengine.Network.MatchState;
 import com.robotgame.gameengine.Network.NetworkInterface;
 import com.robotgame.gameengine.Network.MatchHandler;
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
 import com.robotgame.gameengine.Robot.Builder.RobotFactory;
 import com.robotgame.gameengine.Robot.MatchContext;
@@ -44,6 +45,9 @@ import java.util.Vector;
  */
 public class Match implements Runnable
 {
+    public static final float DT = 0.04f;
+    public static final int DT_MS = (int)(DT*1000);
+
     private Robot[] _robots;
     private int _numRobots;
     private boolean _running;
@@ -55,8 +59,8 @@ public class Match implements Runnable
     private MatchResult _matchResult;
     private MatchState _matchState;
     private int _matchId;
-    //private ProjectileSystem _projectileSystem;
-
+    private ProjectileSystem _projectileSystem;
+    private int _timeLimit;
 
 
     //Public methods
@@ -74,6 +78,8 @@ public class Match implements Runnable
         _numRobots = 0;
         _running = false;
         _matchHandler = matchHandler;
+        _projectileSystem = new ProjectileSystem(10);
+        _timeLimit = 500;
     }
 
     /**
@@ -105,6 +111,11 @@ public class Match implements Runnable
         return true;
     }
 
+    public void SetMatchLength(int seconds)
+    {
+        _timeLimit = (int)(seconds/DT);
+    }
+
 
     //Obsolete
     public void SetRunning(boolean v)
@@ -129,13 +140,20 @@ public class Match implements Runnable
         if (_robots == null) _running = false;
         else _running = true;
 
+        long clock, elapsedTime;
 
         while(_running)
         {
+            clock = System.currentTimeMillis();
             Update();
+            System.out.println(_clock * DT);
+            elapsedTime = System.currentTimeMillis() - clock;
 
-            try { Thread.sleep(33); //Max 30 updates per sec
-            } catch(InterruptedException e) {};
+            if (DT_MS - elapsedTime > 0)
+            {
+                try { Thread.sleep(DT_MS - elapsedTime); //Keeps a constant update freq.
+                } catch(InterruptedException e) {};
+            }
         }
     }
 
@@ -164,7 +182,7 @@ public class Match implements Runnable
         {
             LinkedList<NodeAction> actions = _robots[n].GetActions();
             for (NodeAction a : actions)
-                a.PerformAction(_robots[n]);
+                a.PerformAction(_robots[n], _projectileSystem);
 
             //System.out.println("Hot connections: " + _robots[n].GetHotConnections());
         }
@@ -176,8 +194,40 @@ public class Match implements Runnable
 
             _robots[n].UpdateState();
         }
-        //Todo Fysiksimulering
 
+
+
+//      4.1 Physics
+        float radSum, dx, dy, radSq;
+        Vector2 pos;
+
+        for (int n = 0; n < _numRobots; n++)
+        {
+            pos = _robots[n].GetCurrentState().pos;
+            if (pos.x >  3) _robots[n].GetCurrentState().pos.x =  3;
+            if (pos.x < -3) _robots[n].GetCurrentState().pos.x = -3;
+            if (pos.y >  3) _robots[n].GetCurrentState().pos.y =  3;
+            if (pos.y < -3) _robots[n].GetCurrentState().pos.y = -3;
+
+            for (int m = n + 1; m < _numRobots; m++)
+            {
+                radSum = _robots[n].GetRadius() + _robots[m].GetRadius();
+                dx = _robots[n].GetCurrentState().pos.x - _robots[m].GetCurrentState().pos.x;
+                dy = _robots[n].GetCurrentState().pos.y - _robots[m].GetCurrentState().pos.y;
+
+                radSq = dx * dx + dy * dy;
+                if (radSq < radSum * radSum)
+                {
+                    //Add separating impulses.
+
+                }
+            }
+
+        }
+
+
+//      4.2 Update projectiles
+        _projectileSystem.Update(_robots, _numRobots);
 
 
 //      5. Create a MatchState object containing all information needed by the clients.
@@ -189,9 +239,24 @@ public class Match implements Runnable
 
 
 //      7. Check if match has ended, if so call the MatchEnded() in match handler.
-        if (_clock > 120)
+        float minHealth = _robots[0].GetCurrentState().health;
+        int minHealthRobot = 0;
+        for (int n = 1; n < _numRobots; n++)
+            if (_robots[n].GetCurrentState().health < minHealth)
+            {
+                minHealth = _robots[n].GetCurrentState().health;
+                minHealthRobot = n;
+            }
+
+        if (_clock > _timeLimit || minHealth <= 0)
         {
-            _matchResult.winningTeam = 2;
+            if (_numRobots > 0)
+            {
+                if (_robots[0].GetCurrentState().health == _robots[1].GetCurrentState().health) _matchResult.winningTeam = 0; //Draw
+                else if (minHealthRobot == 0) _matchResult.winningTeam = 2;
+                else _matchResult.winningTeam = 1;
+            }
+            else _matchResult.winningTeam = 1;
             _running = false;
             _matchHandler.MatchEnded(_matchResult);
         }
@@ -209,9 +274,9 @@ public class Match implements Runnable
         for (int n = 0; n < _numRobots; n++)
         {
             _context.robotStates[n] = _robots[n].GetCurrentState();
+
             _context.A[n] = getInputA(n);
             _context.B[n] = getInputB(n);
-            //_context.B[n] = _networkInterface.GetInputB(n);
         }
 
 
@@ -238,6 +303,7 @@ public class Match implements Runnable
 	//Creates a MatchState object that contains the information that is to be sent to the players
     private void CreateMatchState()
     {
+
         for (int n = 0; n < _numRobots; n++)
             _matchState.robotStates[n] = _robots[n].GetCurrentState();
     }

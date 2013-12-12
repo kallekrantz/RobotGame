@@ -1,5 +1,6 @@
 package com.robotgame.gameengine.Robot.Nodes;
 
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Robot;
 
 /**
@@ -19,6 +20,6 @@ public abstract class NodeAction
     }
 
 
-    public abstract void PerformAction(Robot robot);
+    public abstract void PerformAction(Robot robot, ProjectileSystem _projectileSystem);
 
 }

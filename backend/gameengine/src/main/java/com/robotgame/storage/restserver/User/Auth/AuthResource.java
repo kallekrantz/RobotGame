@@ -28,7 +28,7 @@ public class AuthResource {
             throw new BadRequestException();
         }
         AuthToken token = (AuthToken) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+           
             public Object request(Session session) {
                 User user = (User) session.get(User.class, userid);
                 if (user == null) {

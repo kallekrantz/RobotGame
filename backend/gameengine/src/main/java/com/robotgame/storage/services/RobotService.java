@@ -21,7 +21,7 @@ public class RobotService {
 
     public List<RobotEntity> getAllRobots(final int userId){
         return (List<RobotEntity>) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+           
             public Object request(Session session) {
                 return session.createQuery("select r from com.robotgame.storage.entities.RobotEntity r where r.user.id = :userid").setInteger("userid", userId).list();
             }
@@ -29,7 +29,7 @@ public class RobotService {
     }
     public RobotEntity getRobot(final int userId, final int robotId){
         return (RobotEntity) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+           
             public Object request(Session session) {
                 RobotEntity r = (RobotEntity) session.createQuery("from com.robotgame.storage.entities.RobotEntity r where r.user.id = :userid and r.id = :robotid")
                         .setInteger("userid", userId)
@@ -41,7 +41,7 @@ public class RobotService {
     }
     public RobotEntity editRobot(final int userId, final int robotId, final JSONObject jsonObj){
         return (RobotEntity) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+            
             public Object request(Session session) {
                 RobotEntity r = getRobot(userId, robotId);
                 if(r == null){
@@ -67,7 +67,7 @@ public class RobotService {
             throw new BadRequestException();
         }
         return (RobotEntity) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+          
             public Object request(Session session) {
                 User u = (User) session.get(User.class, userId);
                 r.setUser(u);

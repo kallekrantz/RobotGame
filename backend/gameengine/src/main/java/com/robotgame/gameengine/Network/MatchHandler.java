@@ -70,7 +70,7 @@ public class MatchHandler implements IMatchHandler {
 		}
 		_match = new Match(this,id);
 		_match.BuildRobots(_robots);
-		
+		_firstState = _match.getMatchState();
 	}
 	/**
 	 * Not yet implemented
@@ -139,22 +139,19 @@ public class MatchHandler implements IMatchHandler {
 	 * @param socket
 	 */
 	public void requestStartState(MatchSocket socket) {
-		
-		for(int robots = 0; robots<_robots.size(); robots++){
-			_firstState.robotStates[robots] = new RobotState();
-		}
 		Gson gson = new Gson();
 		socket._session.getRemote().sendStringByFuture("StartingState::"+socket._playerIndex+gson.toJson(_firstState));
-	}
-	public void SendFirstMatchState(MatchState _matchState) {
-		// TODO Auto-generated method stub
-		_firstState=_matchState;
+		socket._session.getRemote().sendStringByFuture("Robots::"+gson.toJson(_robots));
 	}
 	public void setA(int index) {
 		_match.setA(index);
 	}
 	public void setB(int index) {
 		_match.setB(index);	
+	}
+	public void SendFirstMatchState(MatchState _matchState) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

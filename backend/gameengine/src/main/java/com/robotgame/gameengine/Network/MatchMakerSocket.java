@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import com.robotgame.gameengine.Robot.testRobot;
 import com.robotgame.gameengine.Robot.Builder.RobotBlueprint;
+import com.robotgame.storage.entities.RobotEntity;
+import com.robotgame.storage.services.RobotService;
 
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
@@ -64,10 +66,12 @@ public class MatchMakerSocket {
      */
     private RobotBlueprint constructRobot(int robotId) {
 		// koppla till databas och tolka dess JSON
+    	RobotService service = new RobotService();
+    	RobotEntity rob = service.getRobot(1, robotId);
     	testRobot test= new testRobot();
     	Gson g=new Gson();
     	
-    	RobotBlueprint robot = g.fromJson(test.json, RobotBlueprint.class);
+    	RobotBlueprint robot = g.fromJson(rob.getRobotDesign(), RobotBlueprint.class);
 		return robot;
 	}
 

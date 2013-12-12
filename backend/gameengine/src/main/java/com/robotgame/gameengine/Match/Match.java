@@ -314,5 +314,9 @@ public class Match implements Runnable
 	public void setB(int index) {
 		_Binputs[index]=true;	
 	}
+	public MatchState getMatchState(){
+		CreateMatchState();
+		return _matchState;
+	}
 
 }

@@ -71,6 +71,8 @@ function startNewMatch (port){
 			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game over man, game over";
 			window.frames[0].document.getElementById("debug").innerHTML+="</br>"+evt.data;
 			matchSocket.close();
+		}else if(evt.data.indexOf("Robots::")!=-1){
+			allRobotBluePrints = JSON.parse(evt.data.replace("Robots::",""));
 		}
 		//document.getElementById("debug").innerHTML+="   "+evt.data;
 	}

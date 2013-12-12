@@ -178,18 +178,24 @@ $(document).ready(function() {
 	//When a connection is added duplicately, it will instantly be removed, AS IF IT NEVER EXISTED.
 	logicInstance.bind("jsPlumbConnection", function(conn){
 		var idxbool = true;
-		for(var i=0;i<parent.connections.length;i++){
-			if( (parent.connections[i].sourceId == conn.sourceId) && (parent.connections[i].targetId == conn.targetId)){
-				idxbool = false;
-				logicInstance.detach(conn);
+		
+		if(conn.sourceId!=conn.targetId){
+			for(var i=0;i<parent.connections.length;i++){
+				if( (parent.connections[i].sourceId == conn.sourceId) && (parent.connections[i].targetId == conn.targetId)){
+					idxbool = false;
+					logicInstance.detach(conn);
+				}
+			}
+			if(idxbool==true){
+				var myConn = {
+					sourceId : conn.sourceId,
+					targetId : conn.targetId
+				}
+				parent.connections.push(myConn);
 			}
 		}
-		if(idxbool==true){
-			var myConn = {
-				sourceId : conn.sourceId,
-				targetId : conn.targetId
-			}
-			parent.connections.push(myConn);
+		else{
+			logicInstance.detach(conn);
 		}
 	});
 	
@@ -206,7 +212,7 @@ $(document).ready(function() {
 			parent.connections.splice(idx,1);
 		}
 		else{
-			alert("Error, something went wrong!");
+			//alert("Error, something went wrong!");
 		}
 	});
 	
@@ -260,7 +266,7 @@ $(document).ready(function() {
 	/**HOOVER STUFF**/
 		
 		/***NODER***/
-		//FUNKAR INTE----------------------
+		
 		/**********/
 		
 		

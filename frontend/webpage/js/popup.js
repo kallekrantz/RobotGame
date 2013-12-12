@@ -20,7 +20,6 @@ function closepopup(id){
 }
 
 function changeFrame(id){
-console.log("awal");
 //temporär inloggning
 /*
 var username = window.frames[0].document.getElementById("username").value;

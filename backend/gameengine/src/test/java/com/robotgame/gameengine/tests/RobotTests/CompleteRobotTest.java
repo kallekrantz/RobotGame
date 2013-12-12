@@ -77,12 +77,13 @@ public class CompleteRobotTest implements IMatchHandler
 
         Vector<RobotBlueprint> blueprints = new Vector<RobotBlueprint>();
         blueprints.add(blueprint);
+        blueprints.add(blueprint);
 
         Gson gson = new Gson();
         System.out.println(gson.toJson(blueprint));
 
         rt.match.BuildRobots(blueprints);
-
+        rt.match.SetMatchLength(3);
 
 
         rt.match.SetRunning(true);
@@ -92,7 +93,7 @@ public class CompleteRobotTest implements IMatchHandler
 
     public void MatchEnded(MatchResult results)
     {
-        assertThat(results.winningTeam, is(2));
+        assertThat(results.winningTeam, is(0));
         assertThat(results.winningTeam, not(is(1)));
     }
 

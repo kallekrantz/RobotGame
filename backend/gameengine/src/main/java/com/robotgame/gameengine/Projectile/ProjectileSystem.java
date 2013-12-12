@@ -20,6 +20,8 @@ public class ProjectileSystem
     {
         _maxProjectiles = maxProjectiles;
         _projectiles = new Projectile[_maxProjectiles];
+        for (int n = 0; n < _maxProjectiles; n++)
+            _projectiles[n] = new Projectile();
         _nextProjectileIndex = 0;
     }
 

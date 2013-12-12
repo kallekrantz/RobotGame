@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.util.Vector;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
@@ -117,23 +118,45 @@ public class CompleteRobotTest implements IMatchHandler
 
 
     @Test
-    public void TestRobotFactory()
+    public void TestRobotFactoryIdentifyIllegal()
     {
-        RobotBlueprint blueprint = new RobotBlueprint(3, 3);
+        RobotBlueprint illegalBlueprint = new RobotBlueprint(3, 3);
 
-        blueprint.AddNode(NodeType.Or, 0, 0);
-        blueprint.AddNode(NodeType.Or, 0, 1);
-        blueprint.AddNode(NodeType.Or, 0, 2);
+        illegalBlueprint.AddNode(NodeType.Or, 0, 0);
+        illegalBlueprint.AddNode(NodeType.Or, 0, 1);
+        illegalBlueprint.AddNode(NodeType.Or, 0, 2);
 
         //From node, From channel, index
-        blueprint.AddConnection(0, 1, 0);
-        blueprint.AddConnection(1, 2, 1);
-        blueprint.AddConnection(2, 0, 2);
+        illegalBlueprint.AddConnection(0, 1, 0);
+        illegalBlueprint.AddConnection(1, 2, 1);
+        illegalBlueprint.AddConnection(2, 0, 2);
 
 
-        Robot robot = RobotFactory.CreateRobot(blueprint, 0);
+        Robot robot = RobotFactory.CreateRobot(illegalBlueprint, 0);
         assertNull(robot);
 
+
+
+        //Todo: Skriv test för indexpackaren.
+    }
+
+    @Test
+    public void TestRobotFactoryPassLegal()
+    {
+        RobotBlueprint legalBlueprint = new RobotBlueprint(3, 2);
+
+        legalBlueprint.AddNode(NodeType.Or, 0, 0);
+        legalBlueprint.AddNode(NodeType.Or, 0, 1);
+        legalBlueprint.AddNode(NodeType.Or, 0, 2);
+
+        //From node, From channel, index
+        legalBlueprint.AddConnection(0, 1, 0);
+        legalBlueprint.AddConnection(1, 2, 1);
+
+        Robot robot = RobotFactory.CreateRobot(legalBlueprint, 0);
+        assertNotNull(robot);
+
+        robot.UpdateNodes(null);
 
         //Todo: Skriv test för indexpackaren.
     }

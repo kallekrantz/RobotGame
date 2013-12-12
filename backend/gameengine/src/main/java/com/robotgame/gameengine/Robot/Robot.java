@@ -89,6 +89,8 @@ public class Robot
 
         //Add changes to pos and rot
         _currentState.rot += _currentState.w * Match.DT;
+        while (_currentState.rot < 0) _currentState.rot += 2 * Math.PI;
+        while (_currentState.rot >= 2 * Math.PI) _currentState.rot -= 2 * Math.PI;
         _currentState.pos.Add(Vector2.Multiply(_currentState.vel, Match.DT));
     }
 

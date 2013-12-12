@@ -92,6 +92,8 @@ public class CompleteRobotTest implements IMatchHandler
     }
 
 
+
+
     public void MatchEnded(MatchResult results)
     {
         assertThat(results.winningTeam, is(0));
@@ -159,5 +161,16 @@ public class CompleteRobotTest implements IMatchHandler
         robot.UpdateNodes(null);
 
         //Todo: Skriv test för indexpackaren.
+    }
+
+    //@Test
+    public void TestCollisions()
+    {
+        Match match = new Match(this, 2);
+        match.SetMatchLength(1);
+        match.BuildRobots(RobotBlueprint.GetDummyBlueprintVector());
+
+
+
     }
 }

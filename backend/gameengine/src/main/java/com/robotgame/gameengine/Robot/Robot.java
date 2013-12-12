@@ -49,7 +49,7 @@ public class Robot
         _maxThrust = 12;
         _maxTurn = 1;
         _impulse = new Vector2(0, 0);
-        _radius = 0.4f;
+        _radius = 0.2f;
         _currentState.health = 100;
     }
 

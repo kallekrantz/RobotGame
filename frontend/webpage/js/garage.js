@@ -150,6 +150,10 @@ $(document).ready(function() {
 		}
 	);
 	/**********************/
+	
+	
+	document.getElementById("menuHeaderLeft").innerHTML="<p>"+parent.user.username+"</p>";	
+	
 });
 
 function showThisInfo(comp){
@@ -190,6 +194,15 @@ function addComponents(){
 		//parent.actionNodes.push("weaponButton3"); tills vidare
 		$("#weaponBox").text("");
 		$("#weaponBox").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
+	}
+	if(parent.robotList.length != 0){
+		var dropDownList = document.getElementById('robotList');
+		for(var i=0; i<parent.robotList.length; i++)
+		{
+			var option = document.createElement("option");
+			option.text = parent.robotList[i].robotName;
+			dropDownList.add(option, null);
+		}
 	}
 }
 

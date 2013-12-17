@@ -22,7 +22,6 @@ function closepopup(id){
 function changeFrame(id){
 	//temporär inloggning
 	//setUserName(window.frames[0].document.getElementById("username").value);
-	setUserName('1');
 	
 	document.getElementById('frame').src = id;
 	return false;

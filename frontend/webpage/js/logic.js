@@ -455,7 +455,9 @@ window.onbeforeunload = function (e) {
 			parent.nodes[i].val = document.getElementById('val'+parent.nodes[i].id).value;
 		}
 	}
-	parent.saveFile();
+	parent.robot.robotDesign = parent.robotDesign;
+	//Saves the robot, NOT FUNCTIONAL!!!
+	//parent.updateRobot(parent.user, parent.robot);
 	
 }
 

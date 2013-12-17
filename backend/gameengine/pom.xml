@@ -12,10 +12,7 @@
       <id>java.net</id>
       <url>http://download.java.net/maven/2/</url>
     </repository>
-    <repository>
-      <id>hibernatesqlite-maven</id>
-      <url>https://hibernate-sqlite.googlecode.com/svn/trunk/mavenrepo</url>
-    </repository>
+
   </repositories>
   <dependencyManagement>
     <dependencies>

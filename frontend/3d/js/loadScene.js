@@ -166,7 +166,7 @@ require([
 		
 		
 		// This switch case is to test driving the robot
-		document.onkeydown = function() {
+		/*document.onkeydown = function() {
 			switch (window.event.keyCode) {
 				case 49:
 					if(moveForward){
@@ -211,7 +211,7 @@ require([
 					break
 					
 			}
-		}
+		}*/
 		
 		//@cameraMode
 		//A class that allows changing between different camera views

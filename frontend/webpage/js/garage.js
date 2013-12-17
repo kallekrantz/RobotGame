@@ -1,4 +1,4 @@
-/*
+/**
 	*Author: Mikael Pettersson & Christoffer Wern
 	*
 	*
@@ -13,7 +13,7 @@ var stringObject = new Array();
 stringObject[0] = {id:"Laser",string:"<h3>Laser</h3><p>This is an awesome laser</p>"};
 stringObject[1] = {id:"Chassi1",string:"<h3>Standard Chassi</h3><p>This is your standard Chassi, nothing special...</p>"}
 stringObject[2] = {id:"Chassi2",string:"<h3>Awesome Chassi</h3><p>WOW THIS CHASSI IS AWESOME!!!</p>"}
-stringObject[3] = {id:"Wheels",string:"<h3>Wheels</h3><p>meh,wheels, who cares?</p>"}
+stringObject[3] = {id:"Wheels",string:"<h3>Wheels</h3><p>Who care about wheels?</p>"}
 
 //stringObject[] = {id:"",string:"<p></p>"}
 $(document).ready(function() {
@@ -150,6 +150,10 @@ $(document).ready(function() {
 		}
 	);
 	/**********************/
+	
+	
+	document.getElementById("menuHeaderLeft").innerHTML="<p>"+parent.user.username+"</p>";	
+	
 });
 
 function showThisInfo(comp){
@@ -162,6 +166,7 @@ function showThisInfo(comp){
 	}
 	return false;
 }
+
 function addComponents(){
 	if(parent.components[0] != null){
 		parent.maxNrOfSensorNodes = 3;
@@ -189,6 +194,15 @@ function addComponents(){
 		//parent.actionNodes.push("weaponButton3"); tills vidare
 		$("#weaponBox").text("");
 		$("#weaponBox").append("<img src='Style/"+parent.components[3]+".jpg' height='100px' width='100px'>");
+	}
+	if(parent.robotList.length != 0){
+		var dropDownList = document.getElementById('robotList');
+		for(var i=0; i<parent.robotList.length; i++)
+		{
+			var option = document.createElement("option");
+			option.text = parent.robotList[i].robotName;
+			dropDownList.add(option, null);
+		}
 	}
 }
 

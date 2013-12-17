@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name="User")
 @XmlRootElement
-public class User{
+public class    User{
     private String _username, _firstname, _lastname;
     private int _userId;
     private String _pwdHash;

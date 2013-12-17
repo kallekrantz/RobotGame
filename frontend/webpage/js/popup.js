@@ -20,18 +20,10 @@ function closepopup(id){
 }
 
 function changeFrame(id){
-//temporär inloggning
-/*
-var username = window.frames[0].document.getElementById("username").value;
-console.log(username);
-//Code to get username from DB...
-
-if(username.toLowerCase() == "lorb"){
+	//temporär inloggning
+	//setUserName(window.frames[0].document.getElementById("username").value);
+	setUserName('1');
 	
-}
-else{
-	alert("Wrong username or Password");
-}*/
 	document.getElementById('frame').src = id;
 	return false;
 } 

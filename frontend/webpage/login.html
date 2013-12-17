@@ -1,3 +1,4 @@
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
 <link rel="stylesheet" type="text/css" href="Style/loginStyle.css">
@@ -5,6 +6,7 @@
 
 <!-- JAVASCRIPT -->
 <script type="text/javascript" src="js/popup.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
 
 <div id="settingsPopup" class="popup">
 
@@ -12,14 +14,16 @@
 	<h2>Create Account</h2>
 	
 	<p>Username</p>
-	<input class="txtFieldClass" value="" maxlength="20" name="textfield" type="text" /><br/>
+	<input id="newUserName" class="txtFieldClass" value="" maxlength="20" name="textfield" type="text" /><br/>
 	<p>Password</p>
-	<input class="txtFieldClass" value="" maxlength="20" name="textfield" type="text" /><br/>
-	<p>E-Mail</p>
-	<input class="txtFieldClass" value="" maxlength="30" name="textfield" type="text" /><br/>
+	<input id="newPassword" class="txtFieldClass" value="" maxlength="20" name="textfield" type="password" /><br/>
+	<p>Firstname</p>
+	<input id="newFirstname" class="txtFieldClass" value="" maxlength="30" name="textfield" type="text" /><br/>
+	<p>Lastname</p>
+	<input id="newLastname" class="txtFieldClass" value="" maxlength="30" name="textfield" type="text" /><br/>
 	<br/>
 	<button id ="backButton" onclick="closepopup('settingsPopup')"></button>
-	<button id ="signupButton" onclick="return parent.changeFrame('login.html');" ></button>
+	<button id ="signupButton" onclick="createNewUser()" ></button>
 </div>
 
 <div id="loginBox">

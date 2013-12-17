@@ -29,15 +29,20 @@ public class Vector2
     {
 
     }
-    
-    public float AngleBetweenRobots(Vector2 b)
+    //dela upp anglebetween i en funktion som returnar en
+    //ny vektor typ static vector2 diff
+    //sen använda det i atan2
+    public float Angle(Vector2 a)
     {
-    	float dx = b.x - x;
-    	float dy = b.y - y;
-    	
-    	return (float) Math.acos(dx/dy);  //Watch out for dividing with zero
+    	//är det rätt x och y?
+    	return (float) Math.atan2(a.x,a.y);
     }
     
+    public static Vector2 Diff(Vector2 a, Vector2 b)
+    {
+        Vector2 c = new Vector2(a.x - b.x, a.y - b.y);
+        return c;
+    }
     /**
      * Checks if this vector is closer to the vector b than a certain limit.
      * @param b

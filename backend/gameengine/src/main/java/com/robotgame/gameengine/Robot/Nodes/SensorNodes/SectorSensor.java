@@ -68,7 +68,8 @@ public class SectorSensor extends Node
             	
                 if (n != _ownerIndex) //Only check distance to other robots, not to the owner.
                 {
-                	float angleBetween =  myPos.AngleBetweenRobots(context.robotStates[n].pos);
+                	Vector2 diff =  Vector2.Diff(context.robotStates[n].pos, context.robotStates[0].pos);
+                	float angleBetween = myPos.Angle(diff);
                 	if(totRot >= (2*Math.PI)){
                 		if( ( (0 <= angleBetween)&&(angleBetween <= (totRot%2*Math.PI)) ) || ( (myRot <=angleBetween)&&(angleBetween <= (2*Math.PI) ) ) )
                 			_output = true;

@@ -6,9 +6,19 @@ var chassi = parent.parent.components[0];
 var wheels = parent.parent.components[1];
 var weapon = parent.parent.components[2];
 
-var opponentChassi = parent.parent.oppenentComponents[0];
-var opponentWheels = parent.parent.oppenentComponents[1];
-var opponentWeapon = parent.parent.oppenentComponents[2];
+if(parent.parent.yourIndex == 0){
+	var opponentChassi = parent.parent.allRobotBluePrints[1].components[0];
+	var opponentWheels = parent.parent.allRobotBluePrints[1].components[1];
+	var opponentWeapon = parent.parent.allRobotBluePrints[1].components[2];
+}
+else{
+	var opponentChassi = parent.parent.allRobotBluePrints[0].components[0];
+	var opponentWheels = parent.parent.allRobotBluePrints[0].components[1];
+	var opponentWeapon = parent.parent.allRobotBluePrints[0].components[2];
+
+}
+
+
 
 //function loadMyRobot(){
 //makeMyRobot3d(chassi,wheels,weapon);

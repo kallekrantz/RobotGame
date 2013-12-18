@@ -91,7 +91,7 @@ public class RobotEntity {
     }
 
     public static RobotEntity merge(RobotEntity r, JSONObject obj) throws JSONException {
-        RobotEntity merge = new RobotEntity(r);
+        RobotEntity merge = r;
         if(obj.has("robotDesign")){
             merge.setRobotDesign(obj.getString("robotDesign"));
         }

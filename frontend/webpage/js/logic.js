@@ -7,7 +7,27 @@
 **/
 var logicInstance;
 var selectedList = new Array();
-	
+
+var stringObject = new Array();
+
+stringObject[0] =  {id:"And",			string:"<h3>And</h3><p>Information yay</p>"};
+stringObject[1] =  {id:"Or",			string:"<h3>Or</h3><p>Information yay</p>"};
+stringObject[2] =  {id:"True",			string:"<h3>True</h3><p>Information yay</p>"};
+stringObject[3] =  {id:"False",			string:"<h3>False</h3><p>Information yay</p>"};
+stringObject[4] =  {id:"Not",			string:"<h3>Not</h3><p>Information yay</p>"};
+stringObject[5] =  {id:"Majority",		string:"<h3>Majority</h3><p>Information yay</p>"};
+stringObject[6] =  {id:"Delay",			string:"<h3>Delay</h3><p>Information yay</p>"};
+stringObject[7] =  {id:"Clock",			string:"<h3>Clock</h3><p>Information yay</p>"};
+stringObject[8] =  {id:"TicTac",		string:"<h3>TicTac</h3><p>Information yay</p>"};
+stringObject[9] =  {id:"SectorSensor",	string:"<h3>Sector Sensor</h3><p>Information yay</p>"};
+stringObject[10] = {id:"DistanceSensor",string:"<h3>Distance Sensor</h3><p>Information yay</p>"};
+stringObject[11] = {id:"Fire",			string:"<h3>Fire</h3><p>Information yay</p>"};
+stringObject[12] = {id:"Boost",			string:"<h3>Boost</h3><p>Information yay</p>"};
+stringObject[13] = {id:"MoveForward",	string:"<h3>Move Forward</h3><p>Information yay</p>"};
+stringObject[14] = {id:"MoveBackwards",	string:"<h3>Move Backwards</h3><p>Information yay</p>"};
+stringObject[15] = {id:"TurnLeft",		string:"<h3>Turn Left</h3><p>Information yay</p>"};
+stringObject[16] = {id:"TurnRight",		string:"<h3>Turn Right</h3><p>Information yay</p>"};
+
 //Function to create nodes so that it is similar to a class.
 function addNode(nodeType,name,maxInput,maxOutput,txtFieldLabel,txtFieldBool){
 	Node.createNode(nodeType,name,maxInput,maxOutput,txtFieldLabel,txtFieldBool);
@@ -158,18 +178,24 @@ $(document).ready(function() {
 	//When a connection is added duplicately, it will instantly be removed, AS IF IT NEVER EXISTED.
 	logicInstance.bind("jsPlumbConnection", function(conn){
 		var idxbool = true;
-		for(var i=0;i<parent.connections.length;i++){
-			if( (parent.connections[i].sourceId == conn.sourceId) && (parent.connections[i].targetId == conn.targetId)){
-				idxbool = false;
-				logicInstance.detach(conn);
+		
+		if(conn.sourceId!=conn.targetId){
+			for(var i=0;i<parent.connections.length;i++){
+				if( (parent.connections[i].sourceId == conn.sourceId) && (parent.connections[i].targetId == conn.targetId)){
+					idxbool = false;
+					logicInstance.detach(conn);
+				}
+			}
+			if(idxbool==true){
+				var myConn = {
+					sourceId : conn.sourceId,
+					targetId : conn.targetId
+				}
+				parent.connections.push(myConn);
 			}
 		}
-		if(idxbool==true){
-			var myConn = {
-				sourceId : conn.sourceId,
-				targetId : conn.targetId
-			}
-			parent.connections.push(myConn);
+		else{
+			logicInstance.detach(conn);
 		}
 	});
 	
@@ -186,7 +212,7 @@ $(document).ready(function() {
 			parent.connections.splice(idx,1);
 		}
 		else{
-			alert("Error, something went wrong!");
+			//alert("Error, something went wrong!");
 		}
 	});
 	
@@ -196,6 +222,7 @@ $(document).ready(function() {
 	
 	$('#myCanvas').click(function(event){
 		var tar = '#'+event.target.id;
+	
 		if(tar!='#myCanvas' && event.target.className!='textFieldClass' ){
 			//Om diven redan är selectad och man klickar på den igen,
 			//så ska den inte bli selectad längre
@@ -234,6 +261,52 @@ $(document).ready(function() {
 		   return false;
 		}
 	});
+	
+	
+	/**HOOVER STUFF**/
+		
+		/***NODER***/
+		
+		/**********/
+		
+		
+		/*******BUTTONS*******/
+		$('.logicButton').hover(
+			function(e){
+				showThisInfo(e.currentTarget.innerHTML);
+			},
+			function(){
+				$("#robotView").text("");
+			}
+		);
+		$('.sensorButton').hover(
+			function(e){
+				showThisInfo(e.currentTarget.innerHTML);
+			},
+			function(){
+				$("#robotView").text("");
+			}
+		);
+		$('.weaponButton').hover(
+			function(e){
+				showThisInfo(e.currentTarget.innerHTML);
+			},
+			function(){
+				$("#robotView").text("");
+			}
+		);
+		$('.wheelButton').hover(
+			function(e){
+				showThisInfo(e.currentTarget.innerHTML);
+			},
+			function(){
+				$("#robotView").text("");
+			}
+		);
+		/*********************/
+		
+	
+	/****************/
 	
 	
 	
@@ -361,6 +434,18 @@ function addSavedDivs(){
 	parent.setCreatedNodes(parent.nodes[parent.nodes.length-1].id);	
 	}
 	
+}
+
+//Change information in "hoover-div", bottom-left
+function showThisInfo(comp){
+	for(var i=0;i<stringObject.length;i++){
+		if(stringObject[i].id == comp){
+			$("#robotView").text("");
+			$("#robotView").append(stringObject[i].string);
+			return true;
+		}
+	}
+	return false;
 }
 
 //When the user leaves the page

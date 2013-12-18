@@ -5,8 +5,9 @@ import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.database.PasswordHasher;
 import com.robotgame.storage.entities.AuthToken;
 import com.robotgame.storage.entities.User;
-import com.robotgame.storage.restserver.exceptions.UnauthorizedException;
 import org.codehaus.jettison.json.JSONObject;
+import com.robotgame.storage.restserver.exceptions.NotFoundException;
+
 import org.hibernate.Session;
 
 import javax.ws.rs.*;
@@ -40,7 +41,7 @@ public class AuthResource {
                     session.save(token);
                     return token;
                 } else {
-                    throw new UnauthorizedException();
+                    throw new com.robotgame.storage.restserver.exceptions.NotFoundException();
                 }
             }
         });

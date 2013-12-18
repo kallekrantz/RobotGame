@@ -34,7 +34,7 @@ public class RobotEntity {
         user = robotEntity.getUser();
         robotDesign = robotEntity.getRobotDesign();
     }
-
+    @Column(length = 2048)
     public String getRobotName() {
         return robotName;
     }

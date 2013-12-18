@@ -57,8 +57,8 @@ public class SectorSensor extends Node
         else
         {
             Vector2 myPos = context.robotStates[_ownerIndex].pos;
-            float myRot = (float) (context.robotStates[_ownerIndex].rot%(2*Math.PI)); //If rotated more than 2 pi
-            float totRot = myRot+_angle; // robot rotation + sensor angle
+            float myRot = (float) (context.robotStates[_ownerIndex].rot); 
+            float totRot = (myRot+_angle); // robot rotation + sensor angle
             _output = false;
             
             
@@ -70,23 +70,27 @@ public class SectorSensor extends Node
                 {
                 	Vector2 diff =  Vector2.Diff(context.robotStates[n].pos, context.robotStates[0].pos);
                 	float angleBetween = myPos.Angle(diff);
-                	if(totRot >= (2*Math.PI)){
-                		if( ( (0 <= angleBetween)&&(angleBetween <= (totRot%2*Math.PI)) ) || ( (myRot <=angleBetween)&&(angleBetween <= (2*Math.PI) ) ) )
-                			_output = true;
+                	if(totRot >= myRot){
+	                	if(totRot >= (2*Math.PI)){
+	                		
+	                		if( ( (0 <= angleBetween)&&(angleBetween <= (totRot%2*Math.PI)) ) || ( (myRot <= angleBetween)&&(angleBetween <= (2*Math.PI) ) ) )
+	                			_output = true;
+	                	}  
+	                	else{
+		            			if((myRot <= angleBetween)&&(angleBetween <= totRot))
+		            				_output = true;
+	                	}
                 	}
                 	else{
+                		if(totRot < 0){
+                			if( ( (2*Math.PI+totRot)<=angleBetween && angleBetween <= 2*Math.PI) || (0 <= angleBetween && angleBetween <=myRot) )
+	                			_output = true;
+                		}
                 		
-                		if(totRot > myRot)
-                		{
-                			if((myRot <= angleBetween)&&(angleBetween <= totRot))
-                				_output = true;
-                		}
-                		else
-                		{
-                			if((totRot <= angleBetween)&&(angleBetween <= myRot))
-                				_output = true;
-                		}
-                	}	
+                		if((totRot <= angleBetween)&&(angleBetween <= myRot))
+            				_output = true;
+                		
+                	}
                 }
             }
 

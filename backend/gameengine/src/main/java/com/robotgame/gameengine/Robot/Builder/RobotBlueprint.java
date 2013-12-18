@@ -126,7 +126,7 @@ public class RobotBlueprint
         RobotBlueprint dummy = new RobotBlueprint(2, 1);
 
         dummy.AddNode(NodeType.True, 0, 0);
-        dummy.AddNode(NodeType.Or, 0, 1);
+        dummy.AddNode(NodeType.TurnLeft, 0, 1);
         dummy.AddConnection(0, 1, 0);
 
         return dummy;

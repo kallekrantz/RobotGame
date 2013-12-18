@@ -1,5 +1,6 @@
 package com.robotgame.gameengine.Robot;
 
+import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Nodes.NodeConnection;
@@ -19,7 +20,7 @@ public class Robot
 {
     private NodeSystem _nodeSystem;
     private int _numNodes;
-    private  int _index;
+    private int _index;
     private RobotState _currentState; //, _futureState;
     private LinkedList<NodeAction> _actions;
     private float _boost;
@@ -27,10 +28,11 @@ public class Robot
     private float _maxThrust;
     private float _maxTurn;
     private Vector2 _impulse;
+    private float _radius;
 
 
     /**
-     * Constructor should not be used directly. Robot objects are best created by
+     * Constructor should not be used directly. Robot objects are best created by using RobotFactory.CreateRobot()
      * @param nodes
      * @param connections
      * @param index
@@ -47,6 +49,8 @@ public class Robot
         _maxThrust = 12;
         _maxTurn = 1;
         _impulse = new Vector2(0, 0);
+        _radius = 0.4f;
+        _currentState.health = 100;
     }
 
     /**
@@ -76,7 +80,7 @@ public class Robot
     public void UpdateState()
     {
         _impulse.Multiply(_boost);
-        _currentState.vel.Add(_impulse);
+        _currentState.vel.Add(Vector2.Multiply(_impulse, Match.DT));
 
         //Apply dampening
         _currentState.w *= 0.9;
@@ -84,8 +88,8 @@ public class Robot
         _currentState.vel.y *= 0.9;
 
         //Add changes to pos and rot
-        _currentState.rot += _currentState.w;
-        _currentState.pos.Add(_currentState.vel);
+        _currentState.rot += _currentState.w * Match.DT;
+        _currentState.pos.Add(Vector2.Multiply(_currentState.vel, Match.DT));
     }
 
     public LinkedList<NodeAction> GetActions()
@@ -114,11 +118,20 @@ public class Robot
         else _boost = 1;
     }
 
+    public void ApplyDamage(float amount)
+    {
+        _currentState.health -= amount;
+    }
+
     public float GetMass() {return _mass;}
+
+    public float GetRadius() {return _radius;}
 
     public float GetMaxThrust() {return _maxThrust;}
 
     public float GetMaxTurn() {return _maxTurn;}
+
+    public int GetIndex() {return _index; }
 
     public void AddSpeed(float v, float relativeDirection)
     {

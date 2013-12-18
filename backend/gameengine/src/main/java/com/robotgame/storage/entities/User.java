@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name="User")
 @XmlRootElement
-public class User{
+public class    User{
     private String _username, _firstname, _lastname;
     private int _userId;
     private String _pwdHash;
@@ -111,7 +111,7 @@ public class User{
 
 
     public static User merge(User u,JSONObject obj) throws JSONException{
-        User merge = new User(u);
+        User merge =  u;
         if(obj.has("username")){
             merge.setUsername(obj.getString("username"));
         }

@@ -1,8 +1,8 @@
 package com.robotgame.gameengine.Robot.Nodes.Actions;
 
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Robot;
-import com.robotgame.gameengine.Util.Vector2;
 
 /**
  * Created with IntelliJ IDEA.
@@ -37,7 +37,7 @@ public class ImpulseAction extends NodeAction
 
 
 
-    public void PerformAction(Robot robot)
+    public void PerformAction(Robot robot, ProjectileSystem _projectileSystem)
     {
         robot.AddSpeed(_thrust / robot.GetMass() * robot.GetMaxThrust(), _relativeAngle);
     }

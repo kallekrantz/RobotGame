@@ -1,0 +1,143 @@
+/*ALLT I CONNECTION SCREEN*/
+#leftRobotView{
+float:left;
+border: none;
+width:100%;
+height:60%;
+}
+
+#rightRobotView{
+float:right;
+border: none;
+width:50%;
+height:60%;
+}
+
+#leftRobotInfo{
+float:left;
+width:25%;
+height:40%;
+background-image: url('leftConnection.png');
+text-align: center;
+}
+
+#connectionInfo{
+float:left;
+width:50%;
+height:40%;
+}
+
+#rightRobotInfo{
+float:right;
+width:25%;
+height:40%;
+background-image: url('leftConnection.png');
+text-align: center;
+
+}
+
+table
+{
+ text-align: center;
+ width: 100%;
+ height: 100%;
+}
+
+
+#connectButton{
+	background:url(connect1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	height:150px;
+	width:300px;
+	outline: none;
+}
+
+#connectButton:hover{
+
+	background: url(connect21.png) no-repeat;
+	
+	animation: myfirst 0.8s;
+	-webkit-animation:myfirst 0.8s; /* Safari and Chrome */
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes myfirst
+{
+	0%   {background: url(connect21.png) no-repeat;}
+	20%  {background: url(connect24.png) no-repeat;}
+	40%  {background: url(connect22.png) no-repeat;}
+	60%  {background: url(connect25.png) no-repeat;}
+	80%  {background: url(connect23.png) no-repeat;}
+	100%  {background: url(connect26.png) no-repeat;}
+}
+
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+	0%   {background: url(connect21.png) no-repeat;}
+	20%  {background: url(connect24.png) no-repeat;}
+	40%  {background: url(connect22.png) no-repeat;}
+	60%  {background: url(connect25.png) no-repeat;}
+	80%  {background: url(connect23.png) no-repeat;}
+	100%  {background: url(connect26.png) no-repeat;}
+}
+
+#toLogicButton{
+	background:url(logic1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	height:100px;
+	width:100px;
+	
+	outline: none;
+}
+
+
+#toLogicButton:hover{
+     background:url(logic2.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
+#toLogicButton:active{
+     background:url(logic3.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
+#toGarageButton{
+	background:url(garage1.png) no-repeat;
+	background-size: 100% 100%;
+	cursor:pointer;
+    border:none;
+	height:100px;
+	width:100px;
+	outline: none;
+}
+
+
+
+#toGarageButton:hover{
+     background:url(garage2.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
+#toGarageButton:active{
+     background:url(garage3.png) no-repeat;
+	 background-size: 100% 100%;
+}
+
+p{
+	font-size: 18px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+h3{
+	font-family: "subtitleFont";
+	font-size: 15px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	text-align: center;
+}

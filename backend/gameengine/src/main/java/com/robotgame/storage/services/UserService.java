@@ -3,12 +3,12 @@ package com.robotgame.storage.services;
 import com.robotgame.storage.database.DatabaseRequest;
 import com.robotgame.storage.database.DatabaseUtil;
 import com.robotgame.storage.entities.User;
+import com.robotgame.storage.restserver.exceptions.BadRequestException;
+import com.robotgame.storage.restserver.exceptions.NotFoundException;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
 import org.hibernate.Session;
 
-import javax.ws.rs.BadRequestException;
-import javax.ws.rs.NotFoundException;
 import java.util.List;
 
 
@@ -18,7 +18,7 @@ import java.util.List;
 public class UserService {
     public User getUser(final int userId){
         return (User) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+           
             public Object request(Session session) {
                 return session.get(User.class, userId);
             }
@@ -27,7 +27,7 @@ public class UserService {
 
     public User editUser(final int userId, final JSONObject jsonObj){
         User u = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+            
             public Object request(Session session) {
                 User u = (User) session.get(User.class, userId);
                 if (u == null) {
@@ -47,7 +47,7 @@ public class UserService {
 
     public List<User> getAllUsers(){
         List<User> userList = (List<User>) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+            
             public Object request(Session session) {
                 return session.createQuery("from com.robotgame.storage.entities.User").list();
             }
@@ -65,7 +65,7 @@ public class UserService {
         }
 
         return (User) DatabaseUtil.runRequest(new DatabaseRequest() {
-            @Override
+            
             public Object request(Session session) {
                 User merged = (User) session.merge(u);
                 session.saveOrUpdate(merged);

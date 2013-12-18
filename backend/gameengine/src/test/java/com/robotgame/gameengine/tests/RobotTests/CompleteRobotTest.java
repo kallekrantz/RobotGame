@@ -77,12 +77,13 @@ public class CompleteRobotTest implements IMatchHandler
 
         Vector<RobotBlueprint> blueprints = new Vector<RobotBlueprint>();
         blueprints.add(blueprint);
+        blueprints.add(blueprint);
 
         Gson gson = new Gson();
         System.out.println(gson.toJson(blueprint));
 
         rt.match.BuildRobots(blueprints);
-
+        rt.match.SetMatchLength(3);
 
 
         rt.match.SetRunning(true);
@@ -92,7 +93,7 @@ public class CompleteRobotTest implements IMatchHandler
 
     public void MatchEnded(MatchResult results)
     {
-        assertThat(results.winningTeam, is(2));
+        assertThat(results.winningTeam, is(0));
         assertThat(results.winningTeam, not(is(1)));
     }
 
@@ -106,6 +107,13 @@ public class CompleteRobotTest implements IMatchHandler
 		
 	}
 
+    public boolean GetInputA(int playerNumber) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
+
+    public boolean GetInputB(int playerNumber) {
+        return false;  //To change body of implemented methods use File | Settings | File Templates.
+    }
 
 
     @Test
@@ -124,7 +132,7 @@ public class CompleteRobotTest implements IMatchHandler
 
 
         Robot robot = RobotFactory.CreateRobot(blueprint, 0);
-        //assertNull(robot);
+        assertNull(robot);
 
 
         //Todo: Skriv test för indexpackaren.

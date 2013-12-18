@@ -10,10 +10,11 @@ import javax.ws.rs.ext.Provider;
 @Provider
 public class OutgoingInterceptor implements ContainerResponseFilter {
 
-    @Override
+    
     public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext)
             throws IOException {
         responseContext.getHeaders().add("Access-Control-Allow-Origin", "*");
         responseContext.getHeaders().add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        responseContext.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS, HEAD");
     }
 }

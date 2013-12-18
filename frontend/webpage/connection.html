@@ -4,6 +4,7 @@
 
 <!-- CSS 		-->
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/connectionStyle.css">
 
 <iframe id="leftRobotView" style="position:relative;" width = "100%" height = "100%" src="../3d/garage3d/index.html">
 		</iframe>
@@ -11,44 +12,62 @@
 <!--<div id="rightRobotView">Right Robot</div>
 -->
 <div id="leftRobotInfo">
-<div id='content'>
-			<div id = 'interaction'>
-			<div><p>username:<input id ="username"></p></div>
-			<select id = "matchtype">
+	<div id='content'>
+				
+		<h3>Connection Settings</h3>
+		
+		<div><p>username:<input id ="username"></p></div>
+
+		<button onClick="parent.sendKey('w');">w</button>
+		<button onClick="parent.sendKey('a');">a</button>
+		<button onClick="parent.sendKey('s');">s</button>
+		<button onClick="parent.sendKey('d');">d</button>
+				
+		<select id = "matchtype">
 			  <option value='1v1'>1v1</option>
 			  <option value='2v2'>2v2</option>
 			  <option value='2v1'>2v1</option>
 			  <option value='Battle Royale'>Battle Royale</option>
-			</select>
-			<button onClick="parent.makeMatchMakerRequest();">Connect!</button>
-			<button onClick="parent.sendKey('w');">w</button>
-			<button onClick="parent.sendKey('a');">a</button>
-			<button onClick="parent.sendKey('s');">s</button>
-			<button onClick="parent.sendKey('d');">d</button>
-			
-			<p id="messages"> Messages:  </p>
-			</div>
-			<div id = 'arena'></div>
-</div>
+		</select>
+	</div>
 </div>
 
 <div id="connectionInfo">
-	Connection Info
-	<button class="changeScreen" onclick="return parent.changeFrame('garage.html');" >Garage</button>
-	<button class="changeScreen" onclick="return parent.changeFrame('logic.html');" >Logic</button>
-	<!--<button class="toBattle" onclick="return parent.changeFrame('battle.html');" >Battle</button>-->
+	<table>
 	
-	<select id = "matchtype">
-			  <option value='1v1'>1v1</option>
-			  <option value='2v2'>2v2</option>
-			  <option value='2v1'>2v1</option>
-			  <option value='Battle Royale'>Battle Royale</option>
-	</select>
+			<tr>
+				<td colspan="2"> 
+					<button id="connectButton" onClick="console.log(parent);parent.makeMatchMakerRequest();"></button>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<button id="toLogicButton" onclick="return parent.changeFrame('garage.html');" ></button>
+				</td>
+				<td>
+					<button id="toGarageButton" onclick="return parent.changeFrame('garage.html');" ></button>
+				</td>
+			
+			</tr>
+
+	</table>
+	
+	<!--<button class="toBattle" onclick="return parent.changeFrame('battle.html');" >Battle</button>--
+				<tr><button onClick="console.log(parent);parent.makeMatchMakerRequest();">Connect!</button></tr>
+			<tr><button id="toGarageButton" onclick="return parent.changeFrame('garage.html');" ></button></tr>
+			<tr><button id="toLogicButton" onclick="return parent.changeFrame('logic.html');" ></button></tr>
+	-->
+	
 </div>
+
+
 
 <div id="rightRobotInfo">
 	<div id='debugbox'>
-		<p id="debug"> Debug:  </p>
+		<h3>Connection Status</h3>
+		
+		<p id="messages"> Not started a connection request yet!</p>
 	</div>
 </div>
 

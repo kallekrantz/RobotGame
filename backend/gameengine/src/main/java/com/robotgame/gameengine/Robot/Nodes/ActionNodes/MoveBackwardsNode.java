@@ -46,7 +46,7 @@ public class MoveBackwardsNode extends Node
 
     public void Update(MatchContext context, LinkedList<NodeAction> actions,  boolean[] input)
     {
-        actions.add(new ImpulseAction(0.8f, (float)Math.toRadians(180)));
+        if (input[0]) actions.add(new ImpulseAction(0.8f, (float)Math.toRadians(180)));
         _isUpdated = true;
     }
 }

@@ -1,5 +1,6 @@
 /*ALLT I BATTLE SCREEN*/
 #battleScreen{
+margin:0px auto;
 width:100%;
 height:70%;
 background-color:cyan;
@@ -25,5 +26,51 @@ float:right;
 width:25%;
 height:30%;
 background-image: url('miniMap.png');
-overflow-y: scroll;
+overflow-y: auto;
 }
+
+#myCurrentHealth{
+position:absolute;
+margin-top:5px;
+margin-left:300px;
+border: 2px solid black;
+width:200px;
+height:25px;
+
+background-color:grey;
+z-index:2000;
+box-shadow: 5px 5px 20px black;
+}
+#myBar{
+float:right;
+width:70%;
+height:100%;
+background-color:green;
+text-align:right;
+}
+
+#theirCurrentHealth{
+position:absolute;
+margin-top:5px;
+margin-left:528px;
+border: 2px solid black;
+width:200px;
+height:25px;
+
+background-color:grey;
+z-index:2000;
+box-shadow: 5px 5px 20px black;
+}
+
+#theirBar{
+float:left;
+width:30%;
+height:100%;
+background-color:red;
+text-align:left;
+}
+
+#theirBar p,#myBar p{
+
+	margin-top:0px;
+} 

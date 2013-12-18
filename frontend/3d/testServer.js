@@ -1,6 +1,9 @@
 var domain = "kallekrantz.com";
 matchMakerSocket = new WebSocket("ws://"+domain+":61989/");
 userName = "bla";
+userName = parent.user.username;
+robotId = parent.robot.id;
+
 /**
  * Called when the websocket has connected to the server. 
  * @method onopen
@@ -118,9 +121,9 @@ matchMakerSocket.onerror = function(err) {
  * @return 
  */
 function makeMatchMakerRequest(){
-	userName = window.frames[0].document.getElementById("username").value;
+	userName = user.username; //window.frames[0].document.getElementById("username").value;
 	matchType  = window.frames[0].document.getElementById("matchtype").selectedIndex;
-	var message=JSON.stringify(new request(userName,6,matchType));
+	var message=JSON.stringify(new request(userName,robot.id,matchType));
 	matchMakerSocket.send(message);
 	window.frames[0].document.getElementById("messages").innerHTML="Messages: Entering "+window.frames[0].document.getElementById("matchtype").options[window.frames[0].document.getElementById("matchtype").selectedIndex].value+" lobby";
 }

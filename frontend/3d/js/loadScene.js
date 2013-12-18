@@ -410,7 +410,7 @@ require([
 						parent.parent.currentMatchState.robots[i].setZ(parent.parent.currentMatchState.robots[i].getZ()+dT*parent.parent.currentMatchState.robots[i].getdZ());
 						parent.parent.currentMatchState.robots[i].setRotation(parent.parent.currentMatchState.robots[i].getRotation()*dT*parent.parent.currentMatchState.robots[i].getAngularVelocity());
 						
-						if(parent.parent.currentMatchState.robots[i].getFire)
+						if(parent.parent.currentMatchState.robots[i].getFire())
 							fire(parent.parent.currentMatchState.robots[i]);
 						
 						if(i==parent.parent.yourIndex){

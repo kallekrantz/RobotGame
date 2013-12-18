@@ -38,7 +38,7 @@ public class Main {
 
         //Configures SessionCreator for the database sessions.
         //Sort of singleton-dependencyInjection. Could probably be made cleaner.
-        SessionCreator.setConfig(hibernateConfig);
+        //SessionCreator.setConfig(hibernateConfig);
 
         // create and start a new instance of grizzly http server
         // exposing the Jersey application at BASE_URI

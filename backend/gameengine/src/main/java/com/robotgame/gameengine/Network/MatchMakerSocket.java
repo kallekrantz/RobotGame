@@ -70,7 +70,7 @@ public class MatchMakerSocket {
     	RobotEntity rob = service.getRobot(1, robotId);
     	testRobot test= new testRobot();
     	Gson g=new Gson();
-    	
+    	System.out.println("design"+rob.getRobotDesign());
     	RobotBlueprint robot = g.fromJson(rob.getRobotDesign(), RobotBlueprint.class);
 		return robot;
 	}

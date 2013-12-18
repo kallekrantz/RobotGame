@@ -58,7 +58,6 @@ function startNewMatch (port){
 			nextMatchState = new NetworkMatch(startingState);
 			console.log(window.frames[0].document);
 			
-			parent.changeFrame('battle.html');
 			console.log(window.frames[0].document);
 			
 			//window.frames[0].document.getElementById('arena').innerHTML="<iframe src='../3d/arena.html' width='600px' height='500px'></iframe>";
@@ -73,6 +72,8 @@ function startNewMatch (port){
 			matchSocket.close();
 		}else if(evt.data.indexOf("Robots::")!=-1){
 			allRobotBluePrints = JSON.parse(evt.data.replace("Robots::",""));
+			console.log(allRobotBluePrints);
+			parent.changeFrame('battle.html');
 		}
 		//document.getElementById("debug").innerHTML+="   "+evt.data;
 	}
@@ -117,7 +118,7 @@ matchMakerSocket.onerror = function(err) {
 function makeMatchMakerRequest(){
 	userName = window.frames[0].document.getElementById("username").value;
 	matchType  = window.frames[0].document.getElementById("matchtype").selectedIndex;
-	var message=JSON.stringify(new request(userName,12,matchType));
+	var message=JSON.stringify(new request(userName,6,matchType));
 	matchMakerSocket.send(message);
 	window.frames[0].document.getElementById("messages").innerHTML="Messages: Entering "+window.frames[0].document.getElementById("matchtype").options[window.frames[0].document.getElementById("matchtype").selectedIndex].value+" lobby";
 }

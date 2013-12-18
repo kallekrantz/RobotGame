@@ -20,8 +20,7 @@ import com.robotgame.gameengine.Util.Vector2;
  */
 public class NodeData
 {
-    public String className, nodeType, valueTitle;
-    public double x, y;
+    public String className, nodeType, valueTitle, x, y;
     public int id, maxInputs, maxOutputs, val;
 
 

@@ -1,6 +1,7 @@
 package com.robotgame.gameengine.Robot.Nodes.LogicNodes;
 
 
+import com.robotgame.gameengine.Match.Match;
 import com.robotgame.gameengine.Robot.MatchContext;
 import com.robotgame.gameengine.Robot.Nodes.Node;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
@@ -50,9 +51,9 @@ public class DelayNode extends Node
         _ownerIndex = ownerIndex;
 
         _timer = 0;
-        _delay = delay/33;
+        _delay = delay / Match.DT_MS;
         if (_delay <= 0) _delay = 1;
-        _delayBank = new boolean[delay + 1];
+        _delayBank = new boolean[_delay + 1];
 
     }
 

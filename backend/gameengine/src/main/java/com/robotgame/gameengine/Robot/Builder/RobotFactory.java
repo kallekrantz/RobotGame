@@ -31,6 +31,9 @@ public class RobotFactory
      */
     public static Robot CreateRobot(RobotBlueprint blueprint, int robotIndex)
     {
+        //Comment this line unless CheckIfLegal is working correctly.
+        //if (!blueprint.CheckIfLegal()) return null;
+
         PackIndices(blueprint);
         int numNodes = blueprint.GetNumNodes();
         Node[] nodes = new Node[numNodes];

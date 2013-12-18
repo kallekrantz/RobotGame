@@ -9,7 +9,7 @@ package com.robotgame.gameengine.Robot.Builder;
  */
 
 import com.robotgame.gameengine.Robot.Nodes.*;
-import java.util.*;
+import java.util.Vector;
 import com.google.gson.Gson;
 
 /**
@@ -119,6 +119,25 @@ public class RobotBlueprint
     {
         Gson gson = new Gson();
         return gson.toJson(this);
+    }
+
+    public static RobotBlueprint GetDummyBlueprint()
+    {
+        RobotBlueprint dummy = new RobotBlueprint(2, 1);
+
+        dummy.AddNode(NodeType.True, 0, 0);
+        dummy.AddNode(NodeType.Or, 0, 1);
+        dummy.AddConnection(0, 1, 0);
+
+        return dummy;
+    }
+
+    public static Vector<RobotBlueprint> GetDummyBlueprintVector()
+    {
+        Vector<RobotBlueprint> dummyVector = new Vector<RobotBlueprint>();
+        dummyVector.add(GetDummyBlueprint());
+        dummyVector.add(GetDummyBlueprint());
+        return dummyVector;
     }
 
 }

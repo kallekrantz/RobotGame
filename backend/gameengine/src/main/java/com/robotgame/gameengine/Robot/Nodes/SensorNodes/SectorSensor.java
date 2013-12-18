@@ -37,7 +37,7 @@ public class SectorSensor extends Node
     /**
      * Creates a sector sensor.
      * @param ownerIndex
-     * @param maxDist    The radius in cm within which the sensor checks for other robots.
+     * @param angle    The angle in radians within which the sensor checks for other robots.
      */
     public SectorSensor(int ownerIndex, float angle)
     {

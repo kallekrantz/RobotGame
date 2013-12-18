@@ -7,6 +7,7 @@ import com.robotgame.gameengine.Robot.Nodes.ActionNodes.*;
 import com.robotgame.gameengine.Robot.Nodes.*;
 import com.robotgame.gameengine.Robot.Nodes.NodeProperties;
 import com.robotgame.gameengine.Robot.Nodes.SensorNodes.DistanceSensor;
+import com.robotgame.gameengine.Robot.Nodes.SensorNodes.SectorSensor;
 
 /**
  * Created with IntelliJ IDEA.
@@ -47,6 +48,9 @@ public class NodeFactory
             //Sensor nodes
             case DistanceSensor:
                 return new DistanceSensor(ownerIndex, properties.val);
+
+            case SectorSensor:
+                return new SectorSensor(ownerIndex, properties.val);
 
 
             //Logic Nodes

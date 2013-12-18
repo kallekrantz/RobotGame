@@ -31,8 +31,14 @@ public class RobotFactory
      */
     public static Robot CreateRobot(RobotBlueprint blueprint, int robotIndex)
     {
-        //Comment this line unless CheckIfLegal is working correctly.
-        //if (!blueprint.CheckIfLegal()) return null;
+
+        //If the blueprint has issues it is replaced with a working but inactive dummy blueprint.
+        if (blueprint.nodes == null || blueprint.components == null)
+            blueprint = RobotBlueprint.GetDummyBlueprint();
+        else if (blueprint.GetNumNodes() < 2 || blueprint.GetNumConnections() < 1)
+            blueprint = RobotBlueprint.GetDummyBlueprint();
+        //else if (!blueprint.CheckIfLegal())  //Comment this line unless CheckIfLegal is working correctly.
+          //  blueprint = RobotBlueprint.GetDummyBlueprint();
 
         PackIndices(blueprint);
         int numNodes = blueprint.GetNumNodes();

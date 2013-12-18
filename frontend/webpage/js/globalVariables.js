@@ -26,12 +26,6 @@ var robot = {
 
 var robotList = new Array();
 
-var oppenentComponents = new Array();
-//Symboliserar att vi läst in detta värden från databasen
-oppenentComponents[0] = "";
-oppenentComponents[1] = "";
-oppenentComponents[2] = "Laser";
-
 var nrOfSensorNodes=0;
 var maxNrOfSensorNodes=0;
 

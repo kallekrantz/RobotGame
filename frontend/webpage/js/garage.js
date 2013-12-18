@@ -154,6 +154,17 @@ $(document).ready(function() {
 	
 	document.getElementById("menuHeaderLeft").innerHTML="<p>"+parent.user.username+"</p>";	
 	
+	var eSelect = document.getElementById('robotList');
+    eSelect.onchange = function() {
+	
+		parent.loadOtherRobot(eSelect.value);
+		eSelect.selectedIndex = eSelect.value;
+		
+		document.getElementById("robot3D").contentWindow.hasChanged();
+		setDefault();
+		addComponents();
+	}
+	
 });
 
 function showThisInfo(comp){
@@ -167,7 +178,14 @@ function showThisInfo(comp){
 	return false;
 }
 
+function setDefault(){
+	$("#chassiBox").text("");
+	$("#wheelsBox").text("");
+	$("#weaponBox").text("");
+}
+
 function addComponents(){
+	console.log('addcomp');
 	if(parent.components[0] != null){
 		parent.maxNrOfSensorNodes = 3;
 		//to show continuation with other chassis.
@@ -197,11 +215,15 @@ function addComponents(){
 	}
 	if(parent.robotList.length != 0){
 		var dropDownList = document.getElementById('robotList');
-		for(var i=0; i<parent.robotList.length; i++)
-		{
-			var option = document.createElement("option");
-			option.text = parent.robotList[i].robotName;
-			dropDownList.add(option, null);
+		
+		if(dropDownList.length<parent.robotList.length){
+			for(var i=0; i<parent.robotList.length; i++)
+			{
+				var option = document.createElement("option");
+				option.text = parent.robotList[i].robotName;
+				option.value = i;
+				dropDownList.add(option, null);
+			}
 		}
 	}
 }

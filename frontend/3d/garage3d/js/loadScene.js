@@ -2,42 +2,12 @@ var changeInProgress = false;
 var chassi = parent.parent.components[0];
 var wheel = parent.parent.components[1];
 var weapon = parent.parent.components[2];
-var changedPart;
-var oldPart;
+var changedParts = parent.parent.components;
 
-function updatedPart(){
-		//HÄMTAR IN DATAN FRÅN GLOBAL VARIABLES
-		if(chassi != parent.parent.components[0]){
-			oldPart = chassi;
-			chassi = parent.parent.components[0];
-			return ;
-		}
-		if(wheel != parent.parent.components[1]){
-			oldPart = wheel;
-			wheel = parent.parent.components[1];
-			return ;
-		}
-		if(weapon != parent.parent.components[2]){
-			oldPart = weapon;
-			weapon = parent.parent.components[2];
-			return ;
-		}
-		//alert(changed);
-		//if(changed == "body")
-		//changeInProgress = false;
-}
-
-function hasChanged(changedVal){
-	updatedPart();
-	changedPart = changedVal;
+function hasChanged(){
+	changedParts = parent.parent.components;
 	changeInProgress = true;
 }
-
-function getGoo(goo){
-	globalGoo = goo;
-	//console.log(globalGoo.entityManager.getEntities());
-}
-
 
 require([
 	'goo/entities/GooRunner',
@@ -161,7 +131,6 @@ require([
 						
 						//gets the entity by its referance
 						var objectReference = "entities/Cylinder.entity";
-						getGoo(goo.world);
 						var cog = loader.getCachedObjectForRef("CogWheel/entities/RootNode.entity");
 						if(entityName == "CogWheel"){
 							cog.setComponent(new ScriptComponent({
@@ -248,18 +217,17 @@ require([
 		boxEntity.setComponent(new ScriptComponent({
 					run: function (boxEntity) {
 							if(changeInProgress){
-								//alert("oldPart: "+oldPart);
-								//alert("changedPart: "+changedPart);
-								if(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity").hidden){
-									
-									EntityUtils.show(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
-									if(oldPart != null){
-										EntityUtils.hide(loader.getCachedObjectForRef(oldPart+"/entities/RootNode.entity"));
-									}
+								
+								//Remove all but the cogwheel
+								for(var i=0; i<entityStrings.length;i++){
+									if(entityStrings[i]!='CogWheel')
+										EntityUtils.hide(loader.getCachedObjectForRef(entityStrings[i]+"/entities/RootNode.entity"));
 								}
-								else{
-									//EntityUtils.hide(loader.getCachedObjectForRef(changedPart+"/entities/RootNode.entity"));
-									//alert("wrong input");
+								
+								for(var i=0;i<changedParts.length;i++){
+									if(changedParts[i] != null){
+										EntityUtils.show(loader.getCachedObjectForRef(changedParts[i]+"/entities/RootNode.entity"));
+									}
 								}
 								changeInProgress = false;
 							}

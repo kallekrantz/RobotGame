@@ -36,7 +36,7 @@ public class Vector2
     }
     //dela upp anglebetween i en funktion som returnar en
     //ny vektor typ static vector2 diff
-    //sen använda det i atan2
+    //sen anvanda det i atan2
     public float Angle(Vector2 a)
     {
     	float angle = (float)Math.atan2(a.x,a.y);

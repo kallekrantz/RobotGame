@@ -19,6 +19,7 @@ public class RobotEntity {
     private String robotName;
     private User user;
     private int id;
+    @Column(length = 10000)
     private String robotDesign;
     public RobotEntity(String robotName, User user, String robotDesign){
         this.robotName = robotName;

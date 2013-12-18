@@ -64,51 +64,6 @@ public class RobotBlueprint
     }
 
 
-    /**
-     * Not implemented!
-     * @return True if the blueprint is a legit working robot.
-     */
-    public boolean CheckIfLegal()
-    {
-        int numNodes = nodes.length;
-
-        for (NodeData n : nodes)
-        {
-            //if (n.get_id() < 0 || n.get_id() >= numNodes) return false;
-
-        }
-
-        //Todo: Check for circular dependencies and illegal connections.
-        //Since I'm not sure where to begin i started off writing some code
-        //that I hope will make sure the test work. The idea is to let nodeTested
-        //being the node that is tested and nextNode to go through all the targets
-        //in all the connections and then return true/false depending on circularity or not.
-        //However I'm not certain what will happen if a node have two or more connections, and how
-        //to make it work once i > 0, since i = 1 and j = 0 should return false..
-
-        int nodeTested, nextNode;
-
-        for(int i =0; i<connections.length; i++){
-
-            nodeTested = connections[i].sourceId;
-
-            for(int j=0; j<connections.length; j++)
-            {
-                nextNode = connections[j].targetId;
-
-                if(nextNode == nodeTested)
-                {
-                    return false;
-                }
-            }
-
-
-        }
-
-        return true;
-    }
-
-
     public static RobotBlueprint BlueprintFromJson(String json)
     {
         Gson gson = new Gson();

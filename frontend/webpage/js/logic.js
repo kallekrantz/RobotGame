@@ -309,7 +309,6 @@ $(document).ready(function() {
 	/****************/
 	
 	
-	
 });
 
 function arrayContains(array,obj){
@@ -456,8 +455,8 @@ window.onbeforeunload = function (e) {
 		}
 	}
 	parent.robot.robotDesign = parent.robotDesign;
-	//Saves the robot, NOT FUNCTIONAL!!!
-	//parent.updateRobot(parent.user, parent.robot);
+	//Saves the robot
+	parent.updateRobot(parent.user, parent.robot);
 	
 }
 

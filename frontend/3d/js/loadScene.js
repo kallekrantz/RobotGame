@@ -371,6 +371,8 @@ require([
 					projectilePos.x = projectilePos.x-(projectileSpeed*Math.sin(projectileRotation));
 				}
 			}));
+			
+			robot.setFire(false);
 	
 			//EntityUtils.hide(projectile);
 		}

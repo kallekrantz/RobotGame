@@ -28,7 +28,7 @@ $( "#accordion" ).accordion({
 <div id="menuHeader">
 	<table>
 		<tr>
-			<td id="menuHeaderLeft"><p>Menu Header</p></td>
+			<td id="menuHeaderLeft"></td>
 		    <td id="menuHeaderRight"><button id="settingButton" onclick="openpopup('settingsPopup')" ></button></td>
 		</tr>
 	</table>
@@ -74,13 +74,25 @@ $( "#accordion" ).accordion({
 
 
 <div id="robotInformation">
+
 	<table id="robotInfoTable">
-		<tr><td><p>Defensive</p><td></tr>
-		<tr><td><p>Armor 463</p></td></tr>
-		<tr><td><p>Weapon atk </p></td></tr>
-		<tr><td><p>Wheels</p></td></tr>
+	
+		<tr><td id="robotName"></td></tr>
+		<tr><td>
+			Choose Robot:
+			<select id="robotList">
+			</select> 
+		
+		</td></tr>
+		
+
+		
 	</table>
+	
 </div>
+
+
+
 
 <div id="changeView">
 	<button id="toLogicButton" onclick="return parent.changeFrame('logic.html');" ></button>

@@ -228,4 +228,13 @@ function addComponents(){
 	}
 }
 
+//When the user leaves the page
+window.onbeforeunload = function (e) {
+
+	parent.robot.robotDesign = parent.robotDesign;
+	//Saves the robot, NOT FUNCTIONAL!!!
+	parent.updateRobot(parent.user, parent.robot);
+	
+}
+
 

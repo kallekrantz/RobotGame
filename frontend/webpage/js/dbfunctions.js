@@ -14,9 +14,9 @@ function updateRobot(user, robot)
 		robotDesign: JSON.stringify(robot.robotDesign),
 		robotName: 	 robot.robotName
 	}
-
+	console.log(putRobotObj);
 	storage.putRobot(user.id, robot.id, putRobotObj, function(data){
-
+		console.log(data);
 	});
 }
 

@@ -1,4 +1,5 @@
-matchMakerSocket = new WebSocket("ws://127.0.0.1:61989/");
+var domain = "kallekrantz.com";
+matchMakerSocket = new WebSocket("ws://"+domain+":61989/");
 userName = "bla";
 /**
  * Called when the websocket has connected to the server. 
@@ -6,7 +7,7 @@ userName = "bla";
  * @return 
  */
 matchMakerSocket.onopen = function() {
-	window.frames[0].document.getElementById("messages").innerHTML+="Welcome!";
+	console.log("Opened socket");
 };
 
 /**
@@ -16,7 +17,7 @@ matchMakerSocket.onopen = function() {
  * @return 
  */
 matchMakerSocket.onmessage = function (evt) {
-    window.frames[0].document.getElementById("debug").innerHTML+="<br>"+evt.data;
+	console.log(evt);
 	if(evt.data.indexOf("port:") !== -1){
 		start = evt.data.indexOf(":")+1;
 		PORT=evt.data.substring(start,start+5);
@@ -30,7 +31,7 @@ matchMakerSocket.onmessage = function (evt) {
  * @return 
  */
 function startNewMatch (port){
-	matchSocket = new WebSocket("ws://127.0.0.1:"+port);
+	matchSocket = new WebSocket("ws://"+domain+":"+port);
 	/**
 	 * When the socket is connected, responds with a request to join a matchhandler
 	 * @method onopen
@@ -64,11 +65,12 @@ function startNewMatch (port){
 		}else if(evt.data.indexOf("UpdateState::")!=-1){
 			var newState = JSON.parse(evt.data.replace("UpdateState::",""));
 			nextMatchState = new NetworkMatch(newState);
-			window.frames[0].document.getElementById("debug").innerHTML+=" x: " + nextMatchState.robots[0].getX() +" dx: " + nextMatchState.robots[0].getdX() + " y: " + nextMatchState.robots[0].getZ() + " dY: " + nextMatchState.robots[0].getdZ()+"<br>"+" rot: "+nextMatchState.robots[0].getRotation()+" angVel: "+nextMatchState.robots[0].getAngularVelocity()+"<br>";
-			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game is on man!!!";
+			/*console.log(" x: " + nextMatchState.robots[0].getX() +" dx: " + nextMatchState.robots[0].getdX() + " y: " + nextMatchState.robots[0].getZ() + " dY: " + nextMatchState.robots[0].getdZ());
+                    console.log(" rot: "+nextMatchState.robots[0].getRotation()+" angVel: "+nextMatchState.robots[0].getAngularVelocity()));
+			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game is on man!!!";*/
 		}else if(evt.data.indexOf("MatchEnded::")!=-1){
-			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game over man, game over";
-			window.frames[0].document.getElementById("debug").innerHTML+="</br>"+evt.data;
+			console.log("Messages: Game over man, game over");
+			//window.frames[0].document.getElementById("debug").innerHTML+="</br>"+evt.data;
 			matchSocket.close();
 		}else if(evt.data.indexOf("Robots::")!=-1){
 			allRobotBluePrints = JSON.parse(evt.data.replace("Robots::",""));
@@ -173,6 +175,6 @@ function sendKey(key){
  * @return 
  */
 function setReady(){
-	window.frames[0].document.getElementById("messages").innerHTML="Messages: Waiting for other players";
+	console.log("Messages: Waiting for other players");
 	matchSocket.send("1");
 }

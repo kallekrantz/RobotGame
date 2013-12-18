@@ -147,6 +147,7 @@ require([
 		// ------------------------------------------------------------------------------
 		
 		var speed = 1.5;
+		var projectileSpeed = 10;
 		var moveForward = false;
 		var turnRight = false;
 		var turnLeft = false;

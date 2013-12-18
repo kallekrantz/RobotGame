@@ -2,16 +2,21 @@
 //match = new NetworkMatch(robots);
 
 
-var chassi = parent.parent.components[0];
-var wheels = parent.parent.components[1];
-var weapon = parent.parent.components[2];
+
 
 if(parent.parent.yourIndex == 0){
+
+	var chassi = parent.parent.allRobotBluePrints[0].components[0];
+	var wheels = parent.parent.allRobotBluePrints[0].components[0];
+	var weapon = parent.parent.allRobotBluePrints[0].components[0];
 	var opponentChassi = parent.parent.allRobotBluePrints[1].components[0];
 	var opponentWheels = parent.parent.allRobotBluePrints[1].components[1];
 	var opponentWeapon = parent.parent.allRobotBluePrints[1].components[2];
 }
 else{
+	var chassi = parent.parent.allRobotBluePrints[1].components[0];
+	var wheels = parent.parent.allRobotBluePrints[1].components[1];
+	var weapon = parent.parent.allRobotBluePrints[1].components[2];
 	var opponentChassi = parent.parent.allRobotBluePrints[0].components[0];
 	var opponentWheels = parent.parent.allRobotBluePrints[0].components[1];
 	var opponentWeapon = parent.parent.allRobotBluePrints[0].components[2];

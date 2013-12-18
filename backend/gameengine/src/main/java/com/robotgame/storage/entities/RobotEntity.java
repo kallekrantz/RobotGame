@@ -63,7 +63,8 @@ public class RobotEntity {
     public void setId(int robotId) {
         this.id = robotId;
     }
-
+    
+    @Column(length = 2048)
     public String getRobotDesign() {
         return robotDesign;
     }

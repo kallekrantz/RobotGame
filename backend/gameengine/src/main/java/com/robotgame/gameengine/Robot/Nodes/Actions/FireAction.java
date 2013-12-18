@@ -39,6 +39,7 @@ public class FireAction extends NodeAction
     public void PerformAction(Robot robot, ProjectileSystem projectileSystem)
     {
         RobotState state = robot.GetCurrentState();
+        robot.GetCurrentState().fire = true;
         projectileSystem.CreateProjectile(ProjectileType.Potato, Vector2.Add(state.pos, Vector2.VectorFromPolarValues(0.4f, state.rot)) , Vector2.VectorFromPolarValues(8, state.rot), 0.4f, 0.2f, robot.GetIndex());
     }
 

@@ -35,28 +35,28 @@ $.putJSON = function(url, data, callback) {
 var storageConnector = function(uri){
     return {
         getUserById: function(id, callback){
-            jQuery.getJSON("http://localhost:8080/user/"+id,callback);
+            jQuery.getJSON("http://"+uri+":8080/user/"+id,callback);
         },
         getUserList: function(callback){
-            jQuery.getJSON("http://localhost:8080/user", callback);
+            jQuery.getJSON("http://"+uri+":8080/user", callback);
         },
         getRobotById: function(userId, robotId,callback){
-            jQuery.getJSON("http://localhost:8080/user/"+userId+"/robot/"+robotId, callback);
+            jQuery.getJSON("http://"+uri+":8080/user/"+userId+"/robot/"+robotId, callback);
         },
         getRobotList: function(userId, callback){
-            jQuery.getJSON("http://localhost:8080/user/"+userId+"/robot/", callback);
+            jQuery.getJSON("http://"+uri+":8080/user/"+userId+"/robot/", callback);
         },
         postUser: function(postObject, callback){
-            jQuery.postJSON("http://localhost:8080/user", postObject, callback);
+            jQuery.postJSON("http://"+uri+":8080/user", postObject, callback);
         },
         postRobot: function(userId, postObject, callback){
-            jQuery.postJSON("http://localhost:8080/user/"+userId+"/robot", postObject, callback);
+            jQuery.postJSON("http://"+uri+":8080/user/"+userId+"/robot", postObject, callback);
         },
         putUser: function(userId, patchObject, callback){
-            jQuery.putJSON("http://localhost:8080/user/"+userId, patchObject, callback);
+            jQuery.putJSON("http://"+uri+":8080/user/"+userId, patchObject, callback);
         },
         putRobot: function(userId, robotId, patchObject, callback){
-            jQuery.putJSON("http://localhost:8080/user/"+userId+"/robot/"+robotId, patchObject, callback);
+            jQuery.putJSON("http://"+uri+":8080/user/"+userId+"/robot/"+robotId, patchObject, callback);
         },
     };
 }

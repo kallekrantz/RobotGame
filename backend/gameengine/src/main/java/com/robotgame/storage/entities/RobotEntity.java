@@ -64,6 +64,7 @@ public class RobotEntity {
         this.id = robotId;
     }
 
+    @Column(length = 65535, columnDefinition="Text")
     public String getRobotDesign() {
         return robotDesign;
     }

@@ -34,7 +34,22 @@ public class Vector2
     {
 
     }
-
+    //dela upp anglebetween i en funktion som returnar en
+    //ny vektor typ static vector2 diff
+    //sen anvanda det i atan2
+    public float Angle(Vector2 a)
+    {
+    	float angle = (float)Math.atan2(a.x,a.y);
+    	if(angle < 0)
+    		angle += 2*Math.PI;
+    	return angle; 
+    }
+    
+    public static Vector2 Diff(Vector2 a, Vector2 b)
+    {
+        Vector2 c = new Vector2(a.x - b.x, a.y - b.y);
+        return c;
+    }
     /**
      * Checks if this vector is closer to the vector b than a certain limit.
      * @param b

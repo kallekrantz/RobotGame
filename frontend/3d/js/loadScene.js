@@ -1,28 +1,37 @@
 //var robots = new Array(new NetworkRobot(0,0,0,0),new NetworkRobot(0,0,0,0));
 //match = new NetworkMatch(robots);
 
+var chassi;
+var wheels;
+var weapon;
+var opponentChassi;
+var opponentWheels;
+var opponentWeapon;
 
 
 
 if(parent.parent.yourIndex == 0){
 
-	var chassi = parent.parent.allRobotBluePrints[0].components[0];
-	var wheels = parent.parent.allRobotBluePrints[0].components[0];
-	var weapon = parent.parent.allRobotBluePrints[0].components[0];
-	var opponentChassi = parent.parent.allRobotBluePrints[1].components[0];
-	var opponentWheels = parent.parent.allRobotBluePrints[1].components[1];
-	var opponentWeapon = parent.parent.allRobotBluePrints[1].components[2];
+	chassi = parent.parent.allRobotBluePrints[0].components[0];
+	wheels = parent.parent.allRobotBluePrints[0].components[0];
+	weapon = parent.parent.allRobotBluePrints[0].components[0];
+	opponentChassi = parent.parent.allRobotBluePrints[1].components[0];
+	opponentWheels = parent.parent.allRobotBluePrints[1].components[1];
+	opponentWeapon = parent.parent.allRobotBluePrints[1].components[2];
 }
 else{
-	var chassi = parent.parent.allRobotBluePrints[1].components[0];
-	var wheels = parent.parent.allRobotBluePrints[1].components[1];
-	var weapon = parent.parent.allRobotBluePrints[1].components[2];
-	var opponentChassi = parent.parent.allRobotBluePrints[0].components[0];
-	var opponentWheels = parent.parent.allRobotBluePrints[0].components[1];
-	var opponentWeapon = parent.parent.allRobotBluePrints[0].components[2];
+	chassi = parent.parent.allRobotBluePrints[1].components[0];
+	wheels = parent.parent.allRobotBluePrints[1].components[1];
+	weapon = parent.parent.allRobotBluePrints[1].components[2];
+	opponentChassi = parent.parent.allRobotBluePrints[0].components[0];
+	opponentWheels = parent.parent.allRobotBluePrints[0].components[1];
+	opponentWeapon = parent.parent.allRobotBluePrints[0].components[2];
 
 }
 
+console.log(chassi);
+console.log(wheels);
+console.log(weapon);
 
 
 //function loadMyRobot(){
@@ -147,6 +156,7 @@ require([
 		// ------------------------------------------------------------------------------
 		
 		var speed = 1.5;
+		var projectileSpeed = 10;
 		var moveForward = false;
 		var turnRight = false;
 		var turnLeft = false;
@@ -351,6 +361,31 @@ require([
 		}());
 		
 		
+		function fire(robot){
+			
+			var projectileRotation = robot.getRotation();
+			var projectilePos = new Vector3(robot.getX()-(35*Math.sin(projectileRotation)), robot.getY()+27, robot.getZ()-(35*Math.cos(projectileRotation)));
+			var meshData = ShapeCreator.createSphere(50, 50, 2, 0); 
+			var projectile = EntityUtils.createTypicalEntity(goo.world, meshData); 
+			var material = Material.createMaterial(ShaderLib.texturedLit, 'BoxMaterial'); 
+			projectile.meshRendererComponent.materials.push(material); 
+			projectile.transformComponent.setTranslation(projectilePos);
+			projectile.addToWorld();
+			
+			projectile.setComponent(new ScriptComponent({
+				run: function (entity) {
+					entity.transformComponent.setTranslation(projectilePos.x,projectilePos.y,projectilePos.z)
+					
+					projectilePos.z = projectilePos.z-(projectileSpeed*Math.cos(projectileRotation));
+					projectilePos.x = projectilePos.x-(projectileSpeed*Math.sin(projectileRotation));
+				}
+			}));
+			
+			robot.setFire(false);
+	
+			//EntityUtils.hide(projectile);
+		}
+		
 		// Runtime translations and rotations to the "robot"
 		
 		//var camScript = new OrbitCamControlScript();
@@ -384,7 +419,9 @@ require([
 						parent.parent.currentMatchState.robots[i].setZ(parent.parent.currentMatchState.robots[i].getZ()+dT*parent.parent.currentMatchState.robots[i].getdZ());
 						parent.parent.currentMatchState.robots[i].setRotation(parent.parent.currentMatchState.robots[i].getRotation()*dT*parent.parent.currentMatchState.robots[i].getAngularVelocity());
 						
-
+						if(parent.parent.currentMatchState.robots[i].getFire())
+							fire(parent.parent.currentMatchState.robots[i]);
+						
 						if(i==parent.parent.yourIndex){
 
 							entity = robot;

@@ -49,7 +49,7 @@ public class Robot
         _maxThrust = 12;
         _maxTurn = 1;
         _impulse = new Vector2(0, 0);
-        _radius = 0.4f;
+        _radius = 0.2f;
         _currentState.health = 100;
     }
 
@@ -89,6 +89,8 @@ public class Robot
 
         //Add changes to pos and rot
         _currentState.rot += _currentState.w * Match.DT;
+        while (_currentState.rot < 0) _currentState.rot += 2 * Math.PI;
+        while (_currentState.rot >= 2 * Math.PI) _currentState.rot -= 2 * Math.PI;
         _currentState.pos.Add(Vector2.Multiply(_currentState.vel, Match.DT));
     }
 

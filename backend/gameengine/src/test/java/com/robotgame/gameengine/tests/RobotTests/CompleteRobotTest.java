@@ -13,6 +13,7 @@ import org.junit.Test;
 import java.util.Vector;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
@@ -77,9 +78,11 @@ public class CompleteRobotTest implements IMatchHandler
 
         Vector<RobotBlueprint> blueprints = new Vector<RobotBlueprint>();
         blueprints.add(blueprint);
-        blueprints.add(blueprint);
-
+        String json = "{\"nodes\":[{\"nodeType\":\"And\",\"x\":\"573.203125px\",\"y\":\"283px\",\"id\":\"1\",\"maxInputs\":\"-1\",\"maxOutputs\":\"1\",\"val\":0,\"valLabel\":\"\",\"className\":\"logicNode\"},{\"nodeType\":\"True\",\"x\":\"474.203125px\",\"y\":\"72px\",\"id\":\"2\",\"maxInputs\":\"0\",\"maxOutputs\":\"1\",\"val\":0,\"valLabel\":\"\",\"className\":\"logicNode\"},{\"nodeType\":\"Clock\",\"x\":\"695.203125px\",\"y\":\"84px\",\"id\":\"3\",\"maxInputs\":\"1\",\"maxOutputs\":\"-1\",\"val\":\"0\",\"valLabel\":\"Time\",\"className\":\"logicNode\"},{\"nodeType\":\"TicTac\",\"x\":\"588.203125px\",\"y\":\"164px\",\"id\":\"4\",\"maxInputs\":\"1\",\"maxOutputs\":\"-1\",\"val\":\"0\",\"valLabel\":\"Time\",\"className\":\"logicNode\"},{\"nodeType\":\"Delay\",\"x\":\"464.203125px\",\"y\":\"168px\",\"id\":\"5\",\"maxInputs\":\"1\",\"maxOutputs\":\"-1\",\"val\":\"0\",\"valLabel\":\"Time\",\"className\":\"logicNode\"}],\"connections\":[{\"sourceId\":\"2\",\"targetId\":\"5\"},{\"sourceId\":\"5\",\"targetId\":\"1\"}],\"components\":[\"Chassi2\",\"Wheels\",\"Laser\",null,null]}";
         Gson gson = new Gson();
+        blueprints.add(gson.fromJson(json, RobotBlueprint.class));
+
+
         System.out.println(gson.toJson(blueprint));
 
         rt.match.BuildRobots(blueprints);
@@ -89,6 +92,8 @@ public class CompleteRobotTest implements IMatchHandler
         rt.match.SetRunning(true);
         rt.match.run();
     }
+
+
 
 
     public void MatchEnded(MatchResult results)
@@ -117,24 +122,57 @@ public class CompleteRobotTest implements IMatchHandler
 
 
     @Test
-    public void TestRobotFactory()
+    public void TestRobotFactoryIdentifyIllegal()
     {
-        RobotBlueprint blueprint = new RobotBlueprint(3, 3);
+        RobotBlueprint illegalBlueprint = new RobotBlueprint(3, 3);
 
-        blueprint.AddNode(NodeType.Or, 0, 0);
-        blueprint.AddNode(NodeType.Or, 0, 1);
-        blueprint.AddNode(NodeType.Or, 0, 2);
+        illegalBlueprint.AddNode(NodeType.Or, 0, 0);
+        illegalBlueprint.AddNode(NodeType.Or, 0, 1);
+        illegalBlueprint.AddNode(NodeType.Or, 0, 2);
 
         //From node, From channel, index
-        blueprint.AddConnection(0, 1, 0);
-        blueprint.AddConnection(1, 2, 1);
-        blueprint.AddConnection(2, 0, 2);
+        illegalBlueprint.AddConnection(0, 1, 0);
+        illegalBlueprint.AddConnection(1, 2, 1);
+        illegalBlueprint.AddConnection(2, 0, 2);
 
 
-        Robot robot = RobotFactory.CreateRobot(blueprint, 0);
+        Robot robot = RobotFactory.CreateRobot(illegalBlueprint, 0);
         assertNull(robot);
 
 
+
         //Todo: Skriv test för indexpackaren.
+    }
+
+    @Test
+    public void TestRobotFactoryPassLegal()
+    {
+        RobotBlueprint legalBlueprint = new RobotBlueprint(3, 2);
+
+        legalBlueprint.AddNode(NodeType.Or, 0, 0);
+        legalBlueprint.AddNode(NodeType.Or, 0, 1);
+        legalBlueprint.AddNode(NodeType.Or, 0, 2);
+
+        //From node, From channel, index
+        legalBlueprint.AddConnection(0, 1, 0);
+        legalBlueprint.AddConnection(1, 2, 1);
+
+        Robot robot = RobotFactory.CreateRobot(legalBlueprint, 0);
+        assertNotNull(robot);
+
+        robot.UpdateNodes(null);
+
+        //Todo: Skriv test för indexpackaren.
+    }
+
+    //@Test
+    public void TestCollisions()
+    {
+        Match match = new Match(this, 2);
+        match.SetMatchLength(1);
+        match.BuildRobots(RobotBlueprint.GetDummyBlueprintVector());
+
+
+
     }
 }

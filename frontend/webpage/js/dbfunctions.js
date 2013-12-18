@@ -4,7 +4,7 @@
 *
 */
 
-var storage = storageConnector("");
+var storage = storageConnector("kallekrantz.com");
 
 //Put
 function updateRobot(user, robot)

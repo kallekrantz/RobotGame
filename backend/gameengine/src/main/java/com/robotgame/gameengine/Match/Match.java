@@ -174,6 +174,8 @@ public class Match implements Runnable
         {
             _robots[n].UpdateNodes(_context);
 
+            //Set fire = false to avoid strings of bullets.
+            _robots[n].GetCurrentState().fire = false;
         }
 
 

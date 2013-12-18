@@ -17,7 +17,7 @@ public class RobotState
 
     public float rot;
     public float w;
-    public boolean[] firedWeapon = new boolean[3];
+    public boolean fire;
     public float health;
     public float turretAngle;
 
@@ -25,7 +25,7 @@ public class RobotState
     {
         pos = new Vector2(0, 0);
         vel = new Vector2(0, 0);
-
+        fire = false;
         rot = 0;
         w = 0;
     }

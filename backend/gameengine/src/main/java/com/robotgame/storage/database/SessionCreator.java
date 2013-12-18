@@ -11,15 +11,26 @@ import org.hibernate.service.ServiceRegistryBuilder;
  */
 
 public class SessionCreator {
-    private static Configuration config = null;
-    public static void setConfig(Configuration config){
-        SessionCreator.config = config.configure();
+    private static SessionFactory sessionFactory;
+
+    static
+    {
+        try
+        {
+            Configuration config = new Configuration().configure();
+            ServiceRegistryBuilder serviceRegistryBuilder = new ServiceRegistryBuilder().applySettings(config
+                    .getProperties());
+            sessionFactory = config
+                    .buildSessionFactory(serviceRegistryBuilder.buildServiceRegistry());
+        }
+        catch (HibernateException he)
+        {
+            System.err.println("Error creating Session: " + he);
+            throw new ExceptionInInitializerError(he);
+        }
     }
     public static SessionFactory getSessionFactory() throws HibernateException {
-        ServiceRegistryBuilder serviceRegistryBuilder = new ServiceRegistryBuilder().applySettings(config
-                .getProperties());
-        SessionFactory sessionFactory = config
-                .buildSessionFactory(serviceRegistryBuilder.buildServiceRegistry());
         return sessionFactory;
     }
+
 }

@@ -2,6 +2,7 @@ package com.robotgame.storage.restserver.User;
 
 import com.robotgame.storage.entities.User;
 import com.robotgame.storage.services.UserService;
+import com.robotgame.storage.restserver.exceptions.NotFoundException;
 import org.codehaus.jettison.json.JSONObject;
 
 import javax.ws.rs.*;

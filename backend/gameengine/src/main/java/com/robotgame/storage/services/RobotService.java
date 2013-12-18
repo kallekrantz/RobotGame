@@ -48,7 +48,7 @@ public class RobotService {
                     throw new NotFoundException();
                 }
                 try {
-                    RobotEntity.merge(r, jsonObj);
+                    r = RobotEntity.merge(r, jsonObj);
                 } catch (JSONException e1) {
                     e1.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
                 }

@@ -20,12 +20,10 @@ function closepopup(id){
 }
 
 function changeFrame(id){
-//temporär inloggning
-/*
-var iFrame = $("#frame").contents().find("#usrName").value;
-console.log(iFrame);*/
-//if(usrName == DBUSERNAME WRERSW>RG
-	document.getElementById('frame').src = id;
+	//temporär inloggning
+	//setUserName(window.frames[0].document.getElementById("username").value);
+	setUserName('1');
 	
+	document.getElementById('frame').src = id;
 	return false;
 } 

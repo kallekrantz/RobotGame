@@ -111,7 +111,7 @@ public class    User{
 
 
     public static User merge(User u,JSONObject obj) throws JSONException{
-        User merge = new User(u);
+        User merge =  u;
         if(obj.has("username")){
             merge.setUsername(obj.getString("username"));
         }

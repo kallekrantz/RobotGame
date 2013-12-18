@@ -3,6 +3,8 @@ package com.robotgame.storage.restserver.User.Robot;
 import com.robotgame.storage.entities.RobotEntity;
 import com.robotgame.storage.services.RobotService;
 import org.codehaus.jettison.json.JSONObject;
+import com.robotgame.storage.restserver.exceptions.NotFoundException;
+
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;

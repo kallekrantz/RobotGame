@@ -34,7 +34,7 @@ public class RobotEntity {
         user = robotEntity.getUser();
         robotDesign = robotEntity.getRobotDesign();
     }
-    @Column(length = 2048)
+
     public String getRobotName() {
         return robotName;
     }
@@ -63,8 +63,8 @@ public class RobotEntity {
     public void setId(int robotId) {
         this.id = robotId;
     }
-    
-    @Column(length = 2048)
+
+    @Column(length = 65535, columnDefinition="Text")
     public String getRobotDesign() {
         return robotDesign;
     }

@@ -1,10 +1,3 @@
-/*ALLT I HEADER*/
-header{	
-	height:50px;
-	width:100%;
-	margin:0px auto;
-	background-color:blue;
-}
 
 /*BODY*/
 html, body {
@@ -14,12 +7,13 @@ html, body {
     width: 100%;
     height: 100%;
 	font-family: textFont;
-	
+	overflow:hidden;
 }
 
 #container{
-	 background-image: url('bg1.gif');
-	 height: 100%;
+	background-image: url('bg1.gif');
+	height: 100%;
+	overflow:auto;
 }
 
 #frame{
@@ -37,7 +31,7 @@ html, body {
 	margin:0px;
 	width: 70%;
 	height: 40;
-	border-radius: 20%;
+	border-radius: 5px;
 	border: 1px solid;
 	text-align: center;
 	font-family: "textFont";
@@ -61,78 +55,6 @@ html, body {
 h2{
   font-family: "subtitleFont";
 }
-
-
-
-
-
-
-
-
-/*ALLT I CONNECTION SCREEN*/
-#leftRobotView{
-float:left;
-width:50%;
-height:60%;
-background-color:red;
-}
-
-#rightRobotView{
-float:right;
-width:50%;
-height:60%;
-background-color:orange;
-}
-
-#leftRobotInfo{
-float:left;
-width:35%;
-height:40%;
-background-color:blue;
-}
-
-#connectionInfo{
-float:left;
-width:30%;
-height:40%;
-background-color:green;
-}
-
-#rightRobotInfo{
-float:right;
-width:35%;
-height:40%;
-background-color:cyan;
-}
-
-/*ALLT I BATTLE SCREEN*/
-#battleScreen{
-width:100%;
-height:70%;
-background-color:cyan;
-}
-
-#nodeMap{
-float:left;
-width:25%;
-height:30%;
-background-color:blue;
-}
-
-#robotInfo{
-float:left;
-width:50%;
-height:30%;
-background-color:red;
-}
-
-#miniMap{
-float:right;
-width:25%;
-height:30%;
-background-color:yellow;
-}
-
 
 /*SETTINGS POPUP*/
 .popup {
@@ -170,27 +92,6 @@ background-color:yellow;
 
 
 
-
-.weaponButton{
-width:100px;
-font-size:16px;
-background-color: #771d17;
-color: white;
-font-family: textFont;
-border-radius:25%;
-border:solid 1px black;
-}
-
-.logicButton{
-width:100px;
-font-size:16px;
-background-color: #381c46;
-color: white;
-font-family: textFont;
-border-radius:50%;
-border:solid 1px black;
-margin: 0 auto;
-}
 
 
 

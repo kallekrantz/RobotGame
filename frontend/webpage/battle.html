@@ -1,12 +1,33 @@
+<!-- JAVASCRIPT -->
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+
 <link rel="stylesheet" type="text/css" href="Style/myStyle.css">
+<link rel="stylesheet" type="text/css" href="Style/battleStyle.css">
 
-<div id="battleScreen"> Battlescreen!!</div>
+<script>
+$(document).ready(function() {
+$("#battleScreen").append("<iframe src='../3d/arena.html' width='100%' height='100%'></iframe>");
+});
+</script>
 
-<div id="nodeMap"> Node Map</div>
+<div id="battleScreen">
+<div id="myCurrentHealth"><div id="myBar"><p>PLAYER</p></div></div>
+<div id="theirCurrentHealth"><div id="theirBar"><p>OPPONENT</p></div></div>
+</div>
+
+<div id="nodeMap">
+<p id="messages"> Messages:  </p>
+</div>
 
 <div id="robotInfo"> 
 	Robot Info 
 	<button id="garageButton" onclick="return parent.changeFrame('garage.html');" >Garage</button>
 </div>
 
-<div id="miniMap"> Mini Map</div>
+<div id="miniMap">
+<div id='debugbox'>
+		<p id="debug"> Debug:  </p>
+	</div>
+</div>

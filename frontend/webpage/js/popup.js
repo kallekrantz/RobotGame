@@ -20,9 +20,9 @@ function closepopup(id){
 }
 
 function changeFrame(id){
+	//temporär inloggning
+	//setUserName(window.frames[0].document.getElementById("username").value);
+	
 	document.getElementById('frame').src = id;
-	
-	$('#frame').css("background-image", "weapon1.jpg");
-	
 	return false;
 } 

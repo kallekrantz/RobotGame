@@ -1,8 +1,8 @@
 package com.robotgame.gameengine.Robot.Nodes.Actions;
 
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Robot;
-import com.robotgame.gameengine.Util.Vector2;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,20 +12,34 @@ import com.robotgame.gameengine.Util.Vector2;
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Adds an impulse to the robot.
+ * @see NodeAction
+ */
 public class ImpulseAction extends NodeAction
 {
-    private Vector2 _force, _pointOfAttack;
+    private float _thrust, _relativeAngle;
 
-    public ImpulseAction(Vector2 force, Vector2 pointOfAttack)
+    /**
+     * Creates an impulse.
+     * @param thrust Relative power of the impulse.
+     *               Values between 0 and 1.
+     *               1 represents the max power of the robot.
+     * @param angle  The direction of the impulse.
+     *               Defined in radians.
+     *               0 is straight forward.
+     */
+    public ImpulseAction(float thrust, float angle)
     {
-
+        _relativeAngle = angle;
+        _thrust = thrust;
     }
 
 
-    //Ska verka på roboten med en impuls. Just nu skapar den bara en statisk rotation.
-    public void PerformAction(Robot robot)
+
+    public void PerformAction(Robot robot, ProjectileSystem _projectileSystem)
     {
-        robot.GetCurrentState().rot += 0.01f;
+        robot.AddSpeed(_thrust / robot.GetMass() * robot.GetMaxThrust(), _relativeAngle);
     }
 
 

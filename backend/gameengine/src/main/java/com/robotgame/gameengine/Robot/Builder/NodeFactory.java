@@ -17,62 +17,85 @@ import com.robotgame.gameengine.Robot.Nodes.SensorNodes.DistanceSensor;
  */
 
 
-
+/**
+ * Helper class for creating Node objects
+ */
 public class NodeFactory
 {
-
-    public static Node Create(NodeProperties properties, int ownerIndex)
+    /**
+     * A factory method for creating Node objects och various sub classes
+     * @param properties The description of the node to be created
+     * @param ownerIndex The index of the parent Robot
+     * @return A node as described by properties
+     * @see Node
+     * @see NodeData
+     *
+     */
+    public static Node Create(NodeData properties, int ownerIndex)
     {
-        switch (properties.get_type())
+        NodeType type;
+        try { type = NodeType.valueOf(properties.nodeType); }
+        catch (Exception e)
+        {
+            type = NodeType.Default;
+        }
+
+
+        switch (type)
         {
 
             //Sensor nodes
-            case S_DistanceSensor:
-                return new DistanceSensor(properties.get_propertyValue1(), properties.get_propertyValue2(), ownerIndex);
+            case DistanceSensor:
+                return new DistanceSensor(ownerIndex, properties.val);
 
 
             //Logic Nodes
-            case L_And:
+            case And:
                 return new AndNode(ownerIndex);
 
-            case L_And3:
-                return new And3Node(ownerIndex);
-
-            case L_Or:
+            case Or:
                 return new OrNode(ownerIndex);
 
-            case L_Or3:
-                return new Or3Node(ownerIndex);
-
-            case L_True:
+            case True:
                 return new TrueNode(ownerIndex);
 
-            case L_False:
+            case False:
                 return new FalseNode(ownerIndex);
 
-            case L_Not:
+            case Not:
                 return new NotNode(ownerIndex);
 
-            case L_Delay:
-                return new DelayNode(ownerIndex, properties.get_propertyValue1());
+            case Delay:
+                return new DelayNode(ownerIndex, properties.val);
 
-            case L_Default:
+            case Default:
                 return new DefaultNode(ownerIndex);
 
-            case L_Clock:
-                return new ClockNode(ownerIndex, properties.get_propertyValue1());
+            case Clock:
+                return new ClockNode(ownerIndex, properties.val);
 
-            case L_TicTac:
-                return new TicTacNode(ownerIndex, properties.get_propertyValue1());
+            case TicTac:
+                return new TicTacNode(ownerIndex, properties.val);
 
-            case L_MajorityOf3:
-                return new MajorityOf3Node(ownerIndex);
+            case Majority:
+                return new MajorityNode(ownerIndex);
 
 
             //Action nodes
-            case A_Debug:
+            case Debug:
                 return new DebugNode(ownerIndex);
 
+            case MoveForward:
+                return new MoveForwardNode(ownerIndex);
+
+            case MoveBackwards:
+                return new MoveBackwardsNode(ownerIndex);
+
+            case TurnLeft:
+                return new TurnLeftNode(ownerIndex);
+
+            case TurnRight:
+                return new TurnRightNode(ownerIndex);
 
 
             //Passive nodes

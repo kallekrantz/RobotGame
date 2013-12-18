@@ -1,0 +1,1721 @@
+{
+    "Wheels/Wheels.group": {
+        "libraryRefs": [
+            "Wheels/meshes/Box001_0.mesh",
+            "Wheels/entities/RootNode.entity",
+            "Wheels/meshes/Cylinder01_Material3_0.mesh",
+            "Wheels/entities/Cylinder00_Material1_0.entity",
+            "Wheels/entities/Box001_0.entity",
+            "Wheels/entities/Fbx_Root.entity",
+            "Wheels/entities/Sphere001_0.entity",
+            "Wheels/meshes/Cylinder01_Material1_0.mesh",
+            "Wheels/entities/Cylinder01_Material3_0.entity",
+            "Wheels/entities/Cylinder01_Material2_0.entity",
+            "Wheels/entities/Cylinder00_Material3_0.entity",
+            "Wheels/meshes/Cylinder00_Material3_0.mesh",
+            "Wheels/materials/Material_2.material",
+            "Wheels/entities/Cylinder01_Material1_0.entity",
+            "Wheels/meshes/Sphere001_0.mesh",
+            "Wheels/meshes/Cylinder01_Material0_0.mesh",
+            "Wheels/materials/hjul.material",
+            "Wheels/meshes/Cylinder00_Material1_0.mesh",
+            "Wheels/meshes/Cylinder00_Material2_0.mesh",
+            "Wheels/materials/Material_5.material",
+            "Wheels/entities/Cylinder01_Material4_0.entity",
+            "Wheels/materials/Material_3.material",
+            "Wheels/materials/Material_38.material",
+            "Wheels/textures/HJUL.texture",
+            "Wheels/meshes/Cylinder01_Material4_0.mesh",
+            "Wheels/meshes/Cylinder00_Material0_0.mesh",
+            "Wheels/entities/Cylinder01_Material0_0.entity",
+            "Wheels/entities/Cylinder00_Material4_0.entity",
+            "Wheels/meshes/Cylinder01_Material2_0.mesh",
+            "Wheels/materials/Material_4.material",
+            "Wheels/entities/Cylinder00_Material0_0.entity",
+            "Wheels/meshes/Cylinder00_Material4_0.mesh",
+            "Wheels/entities/Cylinder00_Material2_0.entity",
+            "Wheels/binaries/1385714060_data.bin"
+        ],
+        "name": "Wheels",
+        "ref": "Wheels/Wheels.group"
+    },
+    "Wheels/entities/Box001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Box001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_38.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.001681327819824219,
+                    7.493981257766791e-08,
+                    0.15069496631622314
+                ]
+            }
+        },
+        "name": "Box001",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder00_Material0_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder00_Material0_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    -8.072844505310059
+                ]
+            }
+        },
+        "name": "Cylinder00_Material0",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder00_Material1_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder00_Material1_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_4.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    -8.072844505310059
+                ]
+            }
+        },
+        "name": "Cylinder00_Material1",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder00_Material2_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder00_Material2_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_5.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    -8.072844505310059
+                ]
+            }
+        },
+        "name": "Cylinder00_Material2",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder00_Material3_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder00_Material3_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_2.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    -8.072844505310059
+                ]
+            }
+        },
+        "name": "Cylinder00_Material3",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder00_Material4_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder00_Material4_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/hjul.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    -8.072844505310059
+                ]
+            }
+        },
+        "name": "Cylinder00_Material4",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder01_Material0_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder01_Material0_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_3.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    8.669556617736816
+                ]
+            }
+        },
+        "name": "Cylinder01_Material0",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder01_Material1_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder01_Material1_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_4.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    8.669556617736816
+                ]
+            }
+        },
+        "name": "Cylinder01_Material1",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder01_Material2_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder01_Material2_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "Wheels/materials/Material_5.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    -0.33982989897547555,
+                    149.99999734394112,
+                    90.00000250447816
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    8.669556617736816
+                ]
+            }
+        },
+        "name": "Cylinder01_Material2",
+        "nodeType": "Mesh",
+        "ref": "Wheels/entities/Cylinder01_Material2_0.entity"
+    },
+    "Wheels/entities/Cylinder01_Material3_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder01_Material3_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_2.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    8.669556617736816
+                ]
+            }
+        },
+        "name": "Cylinder01_Material3",
+        "nodeType": "Mesh"
+    },
+    "Wheels/entities/Cylinder01_Material4_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Cylinder01_Material4_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "hidden": false,
+                "materialRefs": [
+                    "Wheels/materials/hjul.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    179.9999983461513,
+                    -29.99999611009355,
+                    90.00000617224822
+                ],
+                "scale": [
+                    -0.7808994054794312,
+                    -0.42043042182922374,
+                    -0.780899167060852
+                ],
+                "translation": [
+                    7.958913803100586,
+                    2.0322952270507812,
+                    8.669556617736816
+                ]
+            }
+        },
+        "name": "Cylinder01_Material4",
+        "nodeType": "Mesh",
+        "ref": "Wheels/entities/Cylinder01_Material4_0.entity"
+    },
+    "Wheels/entities/Fbx_Root.entity": {
+        "components": {
+            "transform": {
+                "parentRef": "Wheels/entities/RootNode.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    2.54,
+                    2.54,
+                    2.54
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Fbx_Root",
+        "nodeType": "Null"
+    },
+    "Wheels/entities/RootNode.entity": {
+        "components": {
+            "transform": {
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    0.0,
+                    0.0,
+                    0.0
+                ]
+            }
+        },
+        "name": "Wheels",
+        "nodeType": "Null"
+    },
+    "Wheels/entities/Sphere001_0.entity": {
+        "components": {
+            "meshData": {
+                "meshRef": "Wheels/meshes/Sphere001_0.mesh"
+            },
+            "meshRenderer": {
+                "castShadows": true,
+                "cullMode": "Dynamic",
+                "materialRefs": [
+                    "Wheels/materials/Material_38.material"
+                ],
+                "receiveShadows": true,
+                "reflectable": false
+            },
+            "transform": {
+                "parentRef": "Wheels/entities/Fbx_Root.entity",
+                "rotation": [
+                    0.0,
+                    -0.0,
+                    0.0
+                ],
+                "scale": [
+                    1.0,
+                    1.0,
+                    1.0
+                ],
+                "translation": [
+                    -0.03868424892425538,
+                    1.9767674207687378,
+                    -5.712871551513673
+                ]
+            }
+        },
+        "name": "Sphere001",
+        "nodeType": "Mesh"
+    },
+    "Wheels/materials/Material_2.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #2",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "Wheels/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Wheels/materials/Material_3.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #3",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "Wheels/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Wheels/materials/Material_38.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #38",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {},
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    0.007843137718737125,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.7184314059587867,
+                    0.7184314059587867,
+                    0.7184314059587867,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 1024.0
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Wheels/materials/Material_4.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #4",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "Wheels/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Wheels/materials/Material_5.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "Material #5",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "Wheels/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    0.5843137502670288,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 4.000000082629584
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Wheels/materials/hjul.material": {
+        "blendState": {
+            "blendDst": "OneMinusSrcAlphaFactor",
+            "blendEquation": "AddEquation",
+            "blendSrc": "SrcAlphaFactor",
+            "blending": "NoBlending"
+        },
+        "name": "hjul",
+        "renderQueue": -1,
+        "shaderRef": "GOO_ENGINE_SHADERS/uber",
+        "texturesMapping": {
+            "DIFFUSE_MAP": {
+                "enabled": true,
+                "textureRef": "Wheels/textures/HJUL.texture"
+            }
+        },
+        "type": "Phong",
+        "uniforms": {
+            "discardThreshold": {
+                "enabled": false,
+                "value": 0.0
+            },
+            "fresnel": {
+                "enabled": true,
+                "value": 0.0
+            },
+            "materialAmbient": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1.0
+                ]
+            },
+            "materialDiffuse": {
+                "enabled": true,
+                "value": [
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    0.0117647061124444,
+                    1.0
+                ]
+            },
+            "materialEmissive": {
+                "enabled": true,
+                "value": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    1.0
+                ]
+            },
+            "materialSpecular": {
+                "enabled": true,
+                "value": [
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    0.13171241847829881,
+                    1.0
+                ]
+            },
+            "materialSpecularPower": {
+                "enabled": true,
+                "value": 147.03341859796174
+            },
+            "normalMultiplier": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "opacity": {
+                "enabled": true,
+                "value": 1.0
+            },
+            "reflectivity": {
+                "enabled": true,
+                "value": 0.0
+            }
+        }
+    },
+    "Wheels/meshes/Box001_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                1.853957176208496,
+                3.5736879553031073,
+                9.818958163261414
+            ],
+            "min": [
+                -1.853957176208496,
+                0.0,
+                -9.566012501716614
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            744
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            0,
+            744,
+            "uint8"
+        ],
+        "name": "Box001",
+        "normals": [
+            3168,
+            606,
+            "float32"
+        ],
+        "tangents": [
+            5592,
+            808,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                8824,
+                404,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 202,
+        "vertices": [
+            744,
+            606,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder00_Material0_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.03897437028724,
+                4.1482337161608855
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236595177115
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            57
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            207728,
+            57,
+            "uint8"
+        ],
+        "name": "Cylinder00_Material0",
+        "normals": [
+            208472,
+            171,
+            "float32"
+        ],
+        "tangents": [
+            209156,
+            228,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                210068,
+                114,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 57,
+        "vertices": [
+            207788,
+            171,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder00_Material1_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.03897437028724,
+                4.1482337161608855
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236595177115
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            57
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            34392,
+            57,
+            "uint8"
+        ],
+        "name": "Cylinder00_Material1",
+        "normals": [
+            35136,
+            171,
+            "float32"
+        ],
+        "tangents": [
+            35820,
+            228,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                36732,
+                114,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 57,
+        "vertices": [
+            34452,
+            171,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder00_Material2_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.03897437028724,
+                4.1482337161608855
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236595177115
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            42
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            37188,
+            42,
+            "uint8"
+        ],
+        "name": "Cylinder00_Material2",
+        "normals": [
+            37736,
+            126,
+            "float32"
+        ],
+        "tangents": [
+            38240,
+            168,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                38912,
+                84,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 42,
+        "vertices": [
+            37232,
+            126,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder00_Material3_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.03897437028724,
+                4.1482337161608855
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236595177115
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            120
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            19116,
+            120,
+            "uint8"
+        ],
+        "name": "Cylinder00_Material3",
+        "normals": [
+            20676,
+            360,
+            "float32"
+        ],
+        "tangents": [
+            22116,
+            480,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                24036,
+                240,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 120,
+        "vertices": [
+            19236,
+            360,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder00_Material4_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.03897437028724,
+                4.1482337161608855
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236595177115
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            4080
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            212584,
+            4080,
+            "uint16"
+        ],
+        "name": "Cylinder00_Material4",
+        "normals": [
+            260884,
+            10035,
+            "float32"
+        ],
+        "tangents": [
+            301024,
+            13380,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                354544,
+                6690,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 3345,
+        "vertices": [
+            220744,
+            10035,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder01_Material0_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.038974370287185,
+                4.148234107142384
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236838982168
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            57
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            31644,
+            57,
+            "uint8"
+        ],
+        "name": "Cylinder01_Material0",
+        "normals": [
+            32376,
+            168,
+            "float32"
+        ],
+        "tangents": [
+            33048,
+            224,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                33944,
+                112,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 56,
+        "vertices": [
+            31704,
+            168,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder01_Material1_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.038974370287185,
+                4.148234107142384
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236838982168
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            57
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            16320,
+            57,
+            "uint8"
+        ],
+        "name": "Cylinder01_Material1",
+        "normals": [
+            17064,
+            171,
+            "float32"
+        ],
+        "tangents": [
+            17748,
+            228,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                18660,
+                114,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 57,
+        "vertices": [
+            16380,
+            171,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder01_Material2_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.038974370287185,
+                4.148234107142384
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236838982168
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            42
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            210524,
+            42,
+            "uint8"
+        ],
+        "name": "Cylinder01_Material2",
+        "normals": [
+            211072,
+            126,
+            "float32"
+        ],
+        "tangents": [
+            211576,
+            168,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                212248,
+                84,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 42,
+        "vertices": [
+            210568,
+            126,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder01_Material3_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.038974370287185,
+                4.148234107142384
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236838982168
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            120
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            10440,
+            120,
+            "uint8"
+        ],
+        "name": "Cylinder01_Material3",
+        "normals": [
+            12000,
+            360,
+            "float32"
+        ],
+        "tangents": [
+            13440,
+            480,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                15360,
+                240,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 120,
+        "vertices": [
+            10560,
+            360,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Cylinder01_Material4_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                4.1710887114609445,
+                33.038974370287185,
+                4.148234107142384
+            ],
+            "min": [
+                -4.171085592868156,
+                -1.6698074340820312,
+                -4.148236838982168
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            4080
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            39248,
+            4080,
+            "uint16"
+        ],
+        "name": "Cylinder01_Material4",
+        "normals": [
+            87488,
+            10020,
+            "float32"
+        ],
+        "tangents": [
+            127568,
+            13360,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                181008,
+                6680,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 3340,
+        "vertices": [
+            47408,
+            10020,
+            "float32"
+        ]
+    },
+    "Wheels/meshes/Sphere001_0.mesh": {
+        "binaryRef": "Wheels/binaries/1385714060_data.bin",
+        "boundingVolume": {
+            "max": [
+                0.9144425988197327,
+                0.9620805978775024,
+                0.9379591941833496
+            ],
+            "min": [
+                -0.9144424796104431,
+                -0.9620804786682129,
+                -0.9379591941833496
+            ],
+            "type": "BoundingBox"
+        },
+        "colors": [],
+        "indexLengths": [
+            504
+        ],
+        "indexModes": [
+            "Triangles"
+        ],
+        "indices": [
+            24996,
+            504,
+            "uint8"
+        ],
+        "name": "Sphere001",
+        "normals": [
+            27036,
+            384,
+            "float32"
+        ],
+        "tangents": [
+            28572,
+            512,
+            "float32"
+        ],
+        "textureCoords": [
+            [
+                30620,
+                256,
+                "float32"
+            ]
+        ],
+        "type": "Mesh",
+        "vertexCount": 128,
+        "vertices": [
+            25500,
+            384,
+            "float32"
+        ]
+    },
+    "Wheels/textures/HJUL.texture": {
+        "fileName": "HJUL.png",
+        "magFilter": "Bilinear",
+        "minFilter": "Trilinear",
+        "name": "HJUL",
+        "offset": [
+            0.0,
+            0.0
+        ],
+        "realUrl": "/tmp/HJUL.PNG",
+        "repeat": [
+            1.0,
+            1.0
+        ],
+        "wrapU": "Repeat",
+        "wrapV": "Repeat"
+    },
+    "project.project": {
+        "backgroundColor": [
+            0.75,
+            0.76,
+            0.78,
+            1
+        ],
+        "created": "2013-11-29T08:34:23.562431",
+        "deleted": false,
+        "edit": [],
+        "entityRefs": [
+            "Wheels/entities/Cylinder00_Material1_0.entity",
+            "Wheels/entities/Box001_0.entity",
+            "Wheels/entities/Sphere001_0.entity",
+            "Wheels/entities/Cylinder01_Material3_0.entity",
+            "Wheels/entities/Cylinder01_Material2_0.entity",
+            "Wheels/entities/Cylinder00_Material3_0.entity",
+            "Wheels/entities/Cylinder01_Material1_0.entity",
+            "Wheels/entities/Cylinder01_Material4_0.entity",
+            "Wheels/entities/Cylinder01_Material0_0.entity",
+            "Wheels/entities/Cylinder00_Material4_0.entity",
+            "Wheels/entities/Cylinder00_Material0_0.entity",
+            "Wheels/entities/Cylinder00_Material2_0.entity",
+            "Wheels/entities/Fbx_Root.entity",
+            "Wheels/entities/RootNode.entity"
+        ],
+        "fogColor": [
+            1,
+            1,
+            1
+        ],
+        "fogFar": 1000,
+        "fogNear": 0,
+        "globalAmbient": [
+            0,
+            0,
+            0
+        ],
+        "groupRefs": [
+            "Wheels/Wheels.group"
+        ],
+        "id": "pc7uPT1_SMm_ebeCs25OyQ",
+        "licenseType": "CC0",
+        "modified": "2013-11-29T08:34:23.562431",
+        "name": "Wheels",
+        "originalLicenseType": null,
+        "own": [
+            "jvrKbg9pT_afcqvuzlv5Ag"
+        ],
+        "parent": null,
+        "public": true,
+        "ref": "project.project",
+        "skybox": {
+            "environmentType": 1,
+            "imageUrls": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "rotation": 0,
+            "shape": "Box"
+        },
+        "useFog": false,
+        "view": []
+    }
+}

@@ -1,5 +1,6 @@
 package com.robotgame.gameengine.Robot.Nodes.Actions;
 
+import com.robotgame.gameengine.Projectile.ProjectileSystem;
 import com.robotgame.gameengine.Robot.Nodes.NodeAction;
 import com.robotgame.gameengine.Robot.Robot;
 
@@ -11,6 +12,12 @@ import com.robotgame.gameengine.Robot.Robot;
  * To change this template use File | Settings | File Templates.
  */
 
+/**
+ * Used for testing only.
+ * This action prints a message string using System.out.println().
+ * @see com.robotgame.gameengine.Robot.Nodes.ActionNodes.DebugNode
+ * @see NodeAction
+ */
 public class DebugAction extends NodeAction
 {
     private String _message;
@@ -22,7 +29,7 @@ public class DebugAction extends NodeAction
 
 
 
-    public void PerformAction(Robot robot)
+    public void PerformAction(Robot robot, ProjectileSystem _projectileSystem)
     {
         System.out.println(_message);
     }

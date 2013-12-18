@@ -26,6 +26,7 @@ this.velY = 0;
 this.velZ = robotState.vel.y;
 this.rotation = robotState.rot;
 this.angularVelocity = robotState.w;
+this.fire = robotState.fire;
 /**
  * Returns the x coordinate of this robot.
  * @method getX
@@ -129,6 +130,21 @@ this.setAngularVelocity = function(angVel){this.angularVelocity = angVel;};
  * @method getAngularVelocity
  * @return MemberExpression
  */
+ 
+ /**
+ * Set to true if the robot is firing
+ * @method setFire
+ * @param {} f
+ */
+this.setFire = function(f){this.fire = f;};
+
+ /**
+ * Set to true if the robot is firing
+ * @method getFire
+ * @return MemberExpression
+ */
+this.getFire = function(){return this.fire;};
+ 
 this.getAngularVelocity = function(){return this.angularVelocity;};
 }
 /**

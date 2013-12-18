@@ -351,6 +351,29 @@ require([
 		}());
 		
 		
+		function fire(robot){
+			
+			var projectileRotation = robot.getRotation();
+			var projectilePos = new Vector3(robot.getX()-(35*Math.sin(projectileRotation)), robot.getY()+27, robot.getZ()-(35*Math.cos(projectileRotation)));
+			var meshData = ShapeCreator.createSphere(50, 50, 2, 0); 
+			var projectile = EntityUtils.createTypicalEntity(goo.world, meshData); 
+			var material = Material.createMaterial(ShaderLib.texturedLit, 'BoxMaterial'); 
+			projectile.meshRendererComponent.materials.push(material); 
+			projectile.transformComponent.setTranslation(projectilePos);
+			projectile.addToWorld();
+			
+			projectile.setComponent(new ScriptComponent({
+				run: function (entity) {
+					entity.transformComponent.setTranslation(projectilePos.x,projectilePos.y,projectilePos.z)
+					
+					projectilePos.z = projectilePos.z-(projectileSpeed*Math.cos(projectileRotation));
+					projectilePos.x = projectilePos.x-(projectileSpeed*Math.sin(projectileRotation));
+				}
+			}));
+	
+			//EntityUtils.hide(projectile);
+		}
+		
 		// Runtime translations and rotations to the "robot"
 		
 		//var camScript = new OrbitCamControlScript();
@@ -384,7 +407,9 @@ require([
 						parent.parent.currentMatchState.robots[i].setZ(parent.parent.currentMatchState.robots[i].getZ()+dT*parent.parent.currentMatchState.robots[i].getdZ());
 						parent.parent.currentMatchState.robots[i].setRotation(parent.parent.currentMatchState.robots[i].getRotation()*dT*parent.parent.currentMatchState.robots[i].getAngularVelocity());
 						
-
+						if(parent.parent.currentMatchState.robots[i].getFire)
+							fire(parent.parent.currentMatchState.robots[i]);
+						
 						if(i==parent.parent.yourIndex){
 
 							entity = robot;

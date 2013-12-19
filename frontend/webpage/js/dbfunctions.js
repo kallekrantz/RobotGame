@@ -4,7 +4,7 @@
 *
 */
 
-var storage = storageConnector("kallekrantz.com");
+var storage = storageConnector("localhost");
 
 //Put
 function updateRobot(user, robot)
@@ -49,7 +49,7 @@ function loadFirstRobot(userId)
 			
 			}
 		else{
-			robot.robotName = "Default Robot Name";
+			robot.robotName = "DefaultBot";
 			createRobot(userId, robot);
 			changeFrame('garage.html');
 		}

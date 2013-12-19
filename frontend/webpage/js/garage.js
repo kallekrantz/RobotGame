@@ -185,7 +185,7 @@ function setDefault(){
 }
 
 function addComponents(){
-	console.log('addcomp');
+	console.log("addcomp");
 	if(parent.components[0] != null){
 		parent.maxNrOfSensorNodes = 3;
 		//to show continuation with other chassis.
@@ -215,8 +215,9 @@ function addComponents(){
 	}
 	if(parent.robotList.length != 0){
 		var dropDownList = document.getElementById('robotList');
+		$("#robotList").empty();
+		$("#robotTagName").append("<p>"+parent.robot.robotName+"</p>");
 		
-		if(dropDownList.length<parent.robotList.length){
 			for(var i=0; i<parent.robotList.length; i++)
 			{
 				var option = document.createElement("option");
@@ -224,15 +225,27 @@ function addComponents(){
 				option.value = i;
 				dropDownList.add(option, null);
 			}
-		}
 	}
 }
 
+function changeRobotName(){
+	var newName = document.getElementById('newName').value;
+	parent.robot.robotName = newName;
+	parent.updateRobot(parent.user, parent.robot);
+	addComponents();
+}
+
+/*
+*Non-tested function, should work..
+function addRobot(){
+	
+}
+*/
 //When the user leaves the page
 window.onbeforeunload = function (e) {
 
 	parent.robot.robotDesign = parent.robotDesign;
-	//Saves the robot, NOT FUNCTIONAL!!!
+	//Saves the robot
 	parent.updateRobot(parent.user, parent.robot);
 	
 }

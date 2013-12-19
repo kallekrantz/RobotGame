@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 public class MatchMakerSocket {
 	Session _session;
 	String _user;
+    int _id;
 	RobotBlueprint _robot;
 	@OnWebSocketClose
     public void onClose(int statusCode, String reason) {
@@ -52,8 +53,9 @@ public class MatchMakerSocket {
     @OnWebSocketMessage
     public void onMessage(String message) {
     	Gson g=new Gson();
+        _id = Integer.parseInt(message.substring(0,1));
     	System.out.println("Message: "+message);
-    	joinRequest req=g.fromJson(message, joinRequest.class);
+    	joinRequest req=g.fromJson(message.substring(1), joinRequest.class);
     	_robot = constructRobot(req.robotId);
     	_user = req.user;
       	MatchMaker.getInstance().queue(this, req.type);
@@ -67,7 +69,7 @@ public class MatchMakerSocket {
     private RobotBlueprint constructRobot(int robotId) {
 		// koppla till databas och tolka dess JSON
     	RobotService service = new RobotService();
-    	RobotEntity rob = service.getRobot(1, robotId);
+    	RobotEntity rob = service.getRobot(_id, robotId);
     	testRobot test= new testRobot();
     	Gson g=new Gson();
     	System.out.println("design"+rob.getRobotDesign());

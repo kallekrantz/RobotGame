@@ -1,4 +1,5 @@
-var domain = "kallekrantz.com";
+var domain = "localhost";
+//var domain = "kallekrantz.com";
 matchMakerSocket = new WebSocket("ws://"+domain+":61989/");
 userName = "bla";
 userName = parent.user.username;
@@ -58,6 +59,7 @@ function startNewMatch (port){
 			var tmp = evt.data.replace("StartingState::","");
 			yourIndex = tmp[0];
 			var startingState = JSON.parse(tmp.replace(tmp[0],""));
+			console.log(startingState);
 			currentMatchState = new NetworkMatch(startingState);
 			nextMatchState = new NetworkMatch(startingState);
 			console.log(window.frames[0].document);
@@ -68,6 +70,7 @@ function startNewMatch (port){
 		}else if(evt.data.indexOf("UpdateState::")!=-1){
 			var newState = JSON.parse(evt.data.replace("UpdateState::",""));
 			nextMatchState = new NetworkMatch(newState);
+			console.log(nextMatchState);
 			/*console.log(" x: " + nextMatchState.robots[0].getX() +" dx: " + nextMatchState.robots[0].getdX() + " y: " + nextMatchState.robots[0].getZ() + " dY: " + nextMatchState.robots[0].getdZ());
                     console.log(" rot: "+nextMatchState.robots[0].getRotation()+" angVel: "+nextMatchState.robots[0].getAngularVelocity()));
 			window.frames[0].document.getElementById("messages").innerHTML="Messages: Game is on man!!!";*/
@@ -122,8 +125,9 @@ matchMakerSocket.onerror = function(err) {
  */
 function makeMatchMakerRequest(){
 	userName = user.username; //window.frames[0].document.getElementById("username").value;
+	console.log(robot.id);
 	matchType  = window.frames[0].document.getElementById("matchtype").selectedIndex;
-	var message=JSON.stringify(new request(userName,robot.id,matchType));
+	var message=user.id+JSON.stringify(new request(userName,robot.id,matchType));
 	matchMakerSocket.send(message);
 	window.frames[0].document.getElementById("messages").innerHTML="Messages: Entering "+window.frames[0].document.getElementById("matchtype").options[window.frames[0].document.getElementById("matchtype").selectedIndex].value+" lobby";
 }

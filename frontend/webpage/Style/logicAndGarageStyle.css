@@ -320,7 +320,27 @@ margin-top: 30px;
 
 }
 
+#robotTagName{
+	position:absolute;
+	margin-top:380px;
+	margin-left:250px;
+	width:250px;
+	height:100px;
+	z-index:2000;
+	background:url(robotDogTag.png);
+	background-size: 100% 100%;
+	transform:rotate(7deg);
+	-ms-transform:rotate(7deg); /* IE 9 */
+	-webkit-transform:rotate(7deg); /* Safari and Chrome */
+	text-align: center;
+}
 
+#robotTagName p{
+	font-size: 15px;
+	font-family:"subtitleFont";
+	font-weight:bold;
+	margin-top: 33px;
+}
 
 #robot3D{
 width: 450;

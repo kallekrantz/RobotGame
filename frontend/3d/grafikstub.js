@@ -111,7 +111,7 @@ this.setdZ = function(dz){this.velZ=dz;};
  * @param {} rot
  * @return 
  */
-this.setRotation = function(rot){this.rotation = rot;};
+this.setRotation = function(rot){rotation = rot;};
 /**
  * Returns the angle of rotation of this robot
  * @method getRotation
@@ -124,7 +124,7 @@ this.getRotation = function(){return this.rotation;};
  * @param {} angVel
  * @return 
  */
-this.setAngularVelocity = function(angVel){this.angularVelocity = angVel;};
+this.setAngularVelocity = function(angVel){angularVelocity = angVel;};
 /**
  * Returns the angular velocity of this robot
  * @method getAngularVelocity

@@ -431,6 +431,7 @@ require([
 						}
 							
 						entity.transformComponent.setTranslation(parent.parent.currentMatchState.robots[i].getX(),parent.parent.currentMatchState.robots[i].getY(),parent.parent.currentMatchState.robots[i].getZ());
+						console.log(parent.parent.currentMatchState);
 						entity.transformComponent.setRotation(0,parent.parent.currentMatchState.robots[i].getRotation(),0);
 						entity.transformComponent.setUpdated();
 						

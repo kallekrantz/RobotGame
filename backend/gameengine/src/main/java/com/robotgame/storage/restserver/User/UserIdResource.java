@@ -2,6 +2,7 @@ package com.robotgame.storage.restserver.User;
 
 import com.robotgame.storage.entities.User;
 import com.robotgame.storage.restserver.exceptions.NotFoundException;
+import com.robotgame.storage.restserver.exceptions.NotImplementedException;
 import com.robotgame.storage.services.UserService;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -41,7 +42,19 @@ public class UserIdResource {
     @DELETE
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response delete(@PathParam("userid") final int userid){
-        return Response.ok().build();
+    public Response delete(@PathParam("userid") final String userVar){
+        UserService service = new UserService();
+        boolean result;
+        try{
+            result = service.deleteUser(Integer.parseInt(userVar));
+        }
+        catch(NumberFormatException nfe){
+            throw new NotImplementedException();
+            //result = service.deleteUser(userVar);
+        }
+        if(!result){
+            throw new InternalServerErrorException();
+        }
+        return Response.noContent().build();
     }
 }

@@ -9,6 +9,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.util.List;
 
 /**
  * User Entity class contains everything that's needed for a single user.
@@ -21,6 +22,7 @@ public class    User{
     private String _username, _firstname, _lastname;
     private int _userId;
     private String _pwdHash;
+    List<RobotEntity> robots;
 
     public User()
     {
@@ -96,6 +98,15 @@ public class    User{
     }
     public void setId(int userId){
         this._userId = userId;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    public List<RobotEntity> getRobots() {
+        return robots;
+    }
+
+    public void setRobots(List<RobotEntity> robots) {
+        this.robots = robots;
     }
 
     @Override

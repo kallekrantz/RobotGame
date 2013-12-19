@@ -75,10 +75,21 @@ public class UserService {
     }
 
     public boolean deleteUser(final int userId){
-        return false;
+        User u = getUser(userId);
+        return deleteUser(u);
     }
 
-    public boolean deleteUser(final String userId){
+    /*public boolean deleteUser(final String userId){
         return false;
+    }*/
+    private boolean deleteUser(final User u){
+        boolean result = (boolean) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                session.delete(u);
+                return true;
+            }
+        });
+        return result;
     }
 }

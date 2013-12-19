@@ -78,6 +78,20 @@ public class RobotService {
     }
 
     public boolean deleteRobot(final int userId, final int robotId){
+        RobotEntity re = getRobot(userId, robotId);
+        return deleteRobot(re);
+    }
+    /*public boolean deleteRobot(final String username, final int robotId){
         return false;
+    }*/
+    private boolean deleteRobot(final RobotEntity rb){
+        boolean result = (boolean) DatabaseUtil.runRequest(new DatabaseRequest() {
+            @Override
+            public Object request(Session session) {
+                session.delete(rb);
+                return true;
+            }
+        });
+        return result;
     }
 }

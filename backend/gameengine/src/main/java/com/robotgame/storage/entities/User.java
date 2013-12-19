@@ -55,6 +55,7 @@ public class    User{
     {
         this._pwdHash = pwdHash;
     }
+
     @Column(unique = true)
     public String getUsername()
     {

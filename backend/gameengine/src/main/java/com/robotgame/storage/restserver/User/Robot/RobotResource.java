@@ -1,6 +1,7 @@
 package com.robotgame.storage.restserver.User.Robot;
 
 import com.robotgame.storage.entities.RobotEntity;
+import com.robotgame.storage.entities.User;
 import com.robotgame.storage.services.RobotService;
 import org.codehaus.jettison.json.JSONObject;
 import com.robotgame.storage.restserver.exceptions.NotFoundException;
@@ -21,22 +22,32 @@ public class RobotResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("userid") final int userid){
+    public Response get(@PathParam("userid") final String userVar){
         RobotService service = new RobotService();
-        List<RobotEntity> robotEntityList = service.getAllRobots(userid);
-        if(robotEntityList == null){
-            throw new NotFoundException();
+        List<RobotEntity> robotEntityList;
+        try
+        {
+            robotEntityList = service.getAllRobots(Integer.parseInt(userVar));
+        }
+        catch (NumberFormatException nfe)
+        {
+            robotEntityList = service.getAllRobots(userVar);
         }
         return Response.ok(robotEntityList.toArray(new RobotEntity[robotEntityList.size()])).build();
     }
 
-
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response post(@PathParam("userid") final int userid, JSONObject jsonObj){
+    public Response post(@PathParam("userid") final String userVar, JSONObject jsonObj){
         RobotService service = new RobotService();
-        RobotEntity r = service.createRobot(userid, jsonObj);
+        RobotEntity r;
+        try{
+            r = service.createRobot(Integer.parseInt(userVar), jsonObj);
+        }
+        catch(NumberFormatException nfe){
+            r = service.createRobot(userVar, jsonObj);
+        }
         return Response.ok(r).build();
     }
 

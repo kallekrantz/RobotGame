@@ -20,21 +20,29 @@ public class UserService {
 
 
     public User getUser(final String username){
-        return (User) DatabaseUtil.runRequest(new DatabaseRequest() {
+        User u =  (User) DatabaseUtil.runRequest(new DatabaseRequest() {
            
             public Object request(Session session) {
                 return session.createCriteria(User.class).add(Restrictions.eq("username", username)).uniqueResult();
             }
         });
+        if(u == null){
+            throw new NotFoundException();
+        }
+        return u;
     }
 
     public User getUser(final int userId){
-        return (User) DatabaseUtil.runRequest(new DatabaseRequest() {
+        User u = (User) DatabaseUtil.runRequest(new DatabaseRequest() {
 
             public Object request(Session session) {
                 return session.get(User.class, userId);
             }
         });
+        if(u == null){
+            throw new NotFoundException();
+        }
+        return u;
     }
 
     public User editUser(final String username, final JSONObject jsonObj){
@@ -42,9 +50,6 @@ public class UserService {
             
             public Object request(Session session) {
                 User u = getUser(username);
-                if (u == null) {
-                    throw new NotFoundException();
-                }
                 User merged;
                 try {
                     merged = (User) session.merge(User.merge(u, jsonObj));
@@ -62,9 +67,6 @@ public class UserService {
 
             public Object request(Session session) {
                 User u = getUser(userId);
-                if (u == null) {
-                    throw new NotFoundException();
-                }
                 User merged;
                 try {
                     merged = (User) session.merge(User.merge(u, jsonObj));

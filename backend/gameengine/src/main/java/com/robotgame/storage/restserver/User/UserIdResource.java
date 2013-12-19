@@ -28,9 +28,6 @@ public class UserIdResource {
         {
             u = service.getUser(userVar);
         }
-        if(u == null){
-            throw new NotFoundException();
-        }
         return Response.ok(u).build();
     }
 
@@ -42,15 +39,13 @@ public class UserIdResource {
         User u;
         try
         {
-            u = service.getUser(Integer.parseInt(userVar));
+            u = service.editUser(Integer.parseInt(userVar), jsonObj);
         }
         catch (NumberFormatException nfe)
         {
-            u = service.getUser(userVar);
+            u = service.editUser(userVar, jsonObj);
         }
-        if(u == null){
-            throw new NotFoundException();
-        }
+
         return Response.ok(u).build();
     }
 }

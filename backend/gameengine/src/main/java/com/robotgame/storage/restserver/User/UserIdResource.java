@@ -17,9 +17,17 @@ import javax.ws.rs.core.Response;
 public class UserIdResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response get(@PathParam("userid") final int userid) {
+    public Response get(@PathParam("userid") final String userVar) {
         UserService service = new UserService();
-        User u = service.getUser(userid);
+        User u;
+        try
+        {
+            u = service.getUser(Integer.parseInt(userVar));
+        }
+        catch (NumberFormatException nfe)
+        {
+            u = service.getUser(userVar);
+        }
         if(u == null){
             throw new NotFoundException();
         }
@@ -29,9 +37,17 @@ public class UserIdResource {
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response put(@PathParam("userid") final int userid, final JSONObject jsonObj){
+    public Response put(@PathParam("userid") final String userVar, final JSONObject jsonObj){
         UserService service = new UserService();
-        User u = service.editUser(userid, jsonObj);
+        User u;
+        try
+        {
+            u = service.getUser(Integer.parseInt(userVar));
+        }
+        catch (NumberFormatException nfe)
+        {
+            u = service.getUser(userVar);
+        }
         if(u == null){
             throw new NotFoundException();
         }

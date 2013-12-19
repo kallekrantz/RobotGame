@@ -34,4 +34,11 @@ public class RobotIdResource {
         RobotEntity r = service.editRobot(userid, robotid, jsonObj);
         return Response.ok(r).build();
     }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("userid") final int userid, @PathParam("robotid") final int robotid){
+        return Response.noContent().build();
+    }
 }

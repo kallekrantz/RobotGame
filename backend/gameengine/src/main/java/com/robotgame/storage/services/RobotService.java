@@ -76,4 +76,8 @@ public class RobotService {
             }
         });
     }
+
+    public boolean deleteRobot(final int userId, final int robotId){
+        return false;
+    }
 }

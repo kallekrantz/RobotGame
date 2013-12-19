@@ -37,4 +37,11 @@ public class UserIdResource {
         }
         return Response.ok(u).build();
     }
+
+    @DELETE
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response delete(@PathParam("userid") final int userid){
+        return Response.ok().build();
+    }
 }

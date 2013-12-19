@@ -74,4 +74,11 @@ public class UserService {
         });
     }
 
+    public boolean deleteUser(final int userId){
+        return false;
+    }
+
+    public boolean deleteUser(final String userId){
+        return false;
+    }
 }

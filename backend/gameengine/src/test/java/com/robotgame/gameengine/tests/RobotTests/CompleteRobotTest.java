@@ -95,6 +95,15 @@ public class CompleteRobotTest implements IMatchHandler
 
 
 
+    @Test
+    public void InteractiveTest()
+    {
+
+
+    }
+
+
+
 
     public void MatchEnded(MatchResult results)
     {

@@ -15,6 +15,15 @@ stringObject[1] = {id:"Chassi1",string:"<h3>Standard Chassi</h3><p>This is your 
 stringObject[2] = {id:"Chassi2",string:"<h3>Awesome Chassi</h3><p>WOW THIS CHASSI IS AWESOME!!!</p>"}
 stringObject[3] = {id:"Wheels",string:"<h3>Wheels</h3><p>Who care about wheels?</p>"}
 
+function indexOfObjectId(array, obj){
+	for(var i=0;i<array.length;i++){
+		if(array[i].id==obj){
+			return i;
+		}
+	}
+	return -1;
+}
+
 //stringObject[] = {id:"",string:"<p></p>"}
 $(document).ready(function() {
 
@@ -155,6 +164,7 @@ $(document).ready(function() {
 	document.getElementById("menuHeaderLeft").innerHTML="<p>"+parent.user.username+"</p>";	
 	
 	var eSelect = document.getElementById('robotList');
+
     eSelect.onchange = function() {
 	
 		parent.loadOtherRobot(eSelect.value);
@@ -185,7 +195,6 @@ function setDefault(){
 }
 
 function addComponents(){
-	console.log("addcomp");
 	if(parent.components[0] != null){
 		parent.maxNrOfSensorNodes = 3;
 		//to show continuation with other chassis.
@@ -216,6 +225,7 @@ function addComponents(){
 	if(parent.robotList.length != 0){
 		var dropDownList = document.getElementById('robotList');
 		$("#robotList").empty();
+		$("#robotTagName").text("");
 		$("#robotTagName").append("<p>"+parent.robot.robotName+"</p>");
 		
 			for(var i=0; i<parent.robotList.length; i++)
@@ -225,6 +235,9 @@ function addComponents(){
 				option.value = i;
 				dropDownList.add(option, null);
 			}
+			
+		var eSelect = document.getElementById('robotList');
+		eSelect.selectedIndex = indexOfObjectId(parent.robotList, parent.robot.id);
 	}
 }
 
@@ -235,12 +248,14 @@ function changeRobotName(){
 	addComponents();
 }
 
-/*
-*Non-tested function, should work..
-function addRobot(){
-	
+function copyRobot(){
+	var newName = document.getElementById('newName').value;
+	var newBot = {};
+	jQuery.extend(newBot, parent.robot);
+	newBot.robotName = newName;
+	parent.createRobot(parent.user, newBot);
 }
-*/
+
 //When the user leaves the page
 window.onbeforeunload = function (e) {
 

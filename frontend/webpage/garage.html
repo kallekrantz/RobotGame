@@ -78,22 +78,23 @@ $( "#accordion" ).accordion({
 
 	<table id="robotInfoTable" height="80%" >
 	
-		<tr><td colspan="2">
-			<p>Choose Robot:</p>
-			<select id="robotList">
-			</select> 
-		
-		</td></tr>
-		
 		<tr>
-		<td><input id = "newName" type="text"></td>
-		<td><button onclick="changeRobotName();" >Change Robot Name</button></td>
+			<td colspan="3">
+				Choose Robot:
+				<select id="robotList">
+				</select> 
+			</td>
 		</tr>
 		
 		<tr>
-		<td><button onclick="" >Add Robot</button></td>
-		<td><button onclick="" >Copy Robot</button></td>
-		<td><button onclick="" >Remove Robot</button></td>
+			<td colspan="2"><input id = "newName" type="text"></td>
+			<td><button onclick="changeRobotName();" >Change Robot Name</button></td>
+		</tr>
+		
+		<tr>
+			<td><button onclick="" >Add Robot</button></td>
+			<td><button onclick="copyRobot();" >Copy Robot</button></td>
+			<td><button onclick="" >Remove Robot</button></td>
 		</tr>
 
 		

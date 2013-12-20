@@ -5,6 +5,7 @@
 */
 
 var storage = storageConnector("localhost");
+//var storage = storageConnector("kallekrantz.com");
 
 //Put
 function updateRobot(user, robot)
@@ -16,6 +17,7 @@ function updateRobot(user, robot)
 	}
 	console.log(putRobotObj);
 	storage.putRobot(user.id, robot.id, putRobotObj, function(data){
+		updateRobotList(data);
 		console.log(data);
 	});
 }
@@ -36,20 +38,22 @@ function loadFirstRobot(userId)
 		
 			robot.id = data[0].id;
 			robot.robotName = data[0].robotName;
-			robot.robotDesign = data[0].robotDesign;
-			updateRobotDesign(robot.robotDesign);
-			console.log(data.length);
+			robot.robotDesign = JSON.parse(data[0].robotDesign);
+			updateRobotDesign(data[0].robotDesign);
+			console.log(data);
 			changeFrame('garage.html');
 			
 			for(var i=0; i<data.length; i++)
 			{
-				robotList.push(data[i]);
+				var pushObject = data[i];
+				pushObject.robotDesign = JSON.parse(data[i].robotDesign);
+				robotList.push(pushObject);
 			}
-			console.log(robotList);
 			
 			}
 		else{
 			robot.robotName = "DefaultBot";
+			robot.robotDesign = robotDesign;
 			createRobot(userId, robot);
 			changeFrame('garage.html');
 		}
@@ -60,13 +64,17 @@ function loadFirstRobot(userId)
 function createRobot(userId, robot)
 {
 	postRobotObj = {
-		robotDesign: robot.robotDesign,
+		robotDesign: JSON.stringify(robot.robotDesign),
 		robotName: 	 robot.robotName
 	}
 	
 	storage.postRobot(user.id, postRobotObj, function(data){
 		//Check if something actually did get posted
+		var robObject = data;
+		robObject.robotDesign = JSON.parse(data.robotDesign);
+		updateRobotList(robObject);
 		console.log('robot created!');
+		console.log(robObject);
 	});
 }
 
@@ -92,7 +100,6 @@ function loadUser(id)
 		user.username = data.username;
 		user.firstname = data.firstname;
 		user.lastname = data.lastname;
-		console.log(user);
 		loadFirstRobot(user.id);
 	});
 }

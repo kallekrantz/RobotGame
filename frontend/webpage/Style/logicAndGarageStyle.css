@@ -326,7 +326,7 @@ margin-top: 30px;
 	margin-left:250px;
 	width:250px;
 	height:100px;
-	z-index:2000;
+	z-index:2;
 	background:url(robotDogTag.png);
 	background-size: 100% 100%;
 	transform:rotate(7deg);

@@ -307,7 +307,8 @@ $(document).ready(function() {
 		
 	
 	/****************/
-	
+	//Adds username at menuheader.
+	document.getElementById("menuHeaderLeft").innerHTML="<p>"+parent.user.username+"</p>";	
 	
 });
 

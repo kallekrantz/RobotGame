@@ -22,7 +22,9 @@ function closepopup(id){
 function changeFrame(id){
 	//temporär inloggning
 	//setUserName(window.frames[0].document.getElementById("username").value);
-	
+	if(id == "login.html"){
+		clearAll();
+	}
 	document.getElementById('frame').src = id;
 	return false;
 } 

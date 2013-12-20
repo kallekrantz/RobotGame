@@ -2,7 +2,9 @@ var nodes = new Array();
 var connections = new Array();
 var components = new Array();
 components.splice(0,0, null,null,null,null,null);
+var robotList = new Array();
 var createdNodes=0;
+
 
 var user = {
 	id 			: "",
@@ -24,7 +26,6 @@ var robot = {
 	robotDesign	: robotDesign
 }	
 
-var robotList = new Array();
 
 var nrOfSensorNodes=0;
 var maxNrOfSensorNodes=0;
@@ -33,13 +34,30 @@ var actionNodes = new Array();
 
 function loadOtherRobot(Index){
 	robot = robotList[Index];
-	var obj = JSON.parse(robot.robotDesign);
+	var obj = robot.robotDesign;
 	nodes = obj.nodes;
 	connections = obj.connections;
 	components = obj.components;
 	robotDesign = obj;
-	console.log(robotDesign);
 	document.getElementById("frame").contentWindow.addComponents();
+}
+
+function updateRobotList(updatedRobot){
+var robotExists = false;
+	for(var i=0; i<robotList.length; i++){
+		if(robotList[i].id == updatedRobot.id){
+			robotExists = true;
+			robotList[i].robotName = robot.robotName;
+		}
+	}
+	if(!robotExists){
+		robotList.push(updatedRobot);
+		robot = updatedRobot;
+		document.getElementById("frame").contentWindow.addComponents();
+		var eSelect = window.frames[0].document.getElementById('robotList');
+		eSelect.selectedIndex = robotList.length-1;
+		window.frames[0].addComponents();
+	}
 }
 
 function getCreatedNodes(){
@@ -49,4 +67,24 @@ function getCreatedNodes(){
 
 function setCreatedNodes(object){
 	createdNodes = parseInt(object);
+}
+
+function clearAll(){
+	user.id = "";			
+	user.username = "";	
+	user.firstname= "";	
+	user.lastname = "";	
+	user.password = "";
+
+	robotDesign.nodes.length = 0;
+	robotDesign.connections.length = 0;
+	robotDesign.components.length = 0;
+
+	robot = {
+		id 			: "",
+		robotName 	: "",
+		robotDesign	: robotDesign
+	}	
+	robotList.length = 0;
+    createdNodes=0;
 }

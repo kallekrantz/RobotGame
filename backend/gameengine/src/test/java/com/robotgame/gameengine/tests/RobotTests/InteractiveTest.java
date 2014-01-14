@@ -31,12 +31,15 @@ public class InteractiveTest extends JFrame implements IMatchHandler
     {
         match = new Match(this, 0);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ImageIcon r1 = new ImageIcon("C:\\Users\\Oskar\\Documents\\GitHub\\RobotGame\\backend\\gameengine\\src\\resources\\robot.png");
+        ImageIcon r2 = new ImageIcon("C:\\Users\\Oskar\\Documents\\GitHub\\RobotGame\\backend\\gameengine\\src\\resources\\robot2.png");
 
 
-        client = new Client(new ImageIcon("robot.png").getImage(), new ImageIcon("robot2.png").getImage());
+        client = new Client(r1.getImage(), r2.getImage());
         add(client);
 
-        setSize(400, 300);
+
+        setSize(600, 500);
         setLocationRelativeTo(null);
         setTitle("LORB - the logical robot battle");
         setResizable(false);
@@ -84,7 +87,8 @@ public class InteractiveTest extends JFrame implements IMatchHandler
 
 
         test.match.BuildRobots(blueprints);
-        test.match.SetMatchLength(4);
+
+        test.match.SetMatchLength(7);
 
 
         test.match.SetRunning(true);
@@ -122,13 +126,13 @@ public class InteractiveTest extends JFrame implements IMatchHandler
         {
             setFocusable(true);
             setBackground(Color.BLACK);
-            setDoubleBuffered(true);
+            setDoubleBuffered(false);
 
             _robot1 = robot1;
             _robot2 = robot2;
 
             view = new AffineTransform();
-            view.setToScale(30, -30);
+            //view.setToScale(30, -30);
             view.translate(200, 150);
 
         }
@@ -148,12 +152,15 @@ public class InteractiveTest extends JFrame implements IMatchHandler
             super.paint(g);
 
             Graphics2D g2d = (Graphics2D)g;
+            //g2d.drawImage(_robot1, 100, 100, this);
+
             g2d.setTransform(view);
 
             for (int n = 0; n < _state.numRobots; n++)
             {
-                AffineTransform t = AffineTransform.getRotateInstance(_state.robotStates[1].rot, 30, 30);
-                t.translate(_state.robotStates[1].pos.x, _state.robotStates[1].pos.y);
+                AffineTransform t = AffineTransform.getScaleInstance(1, 1);
+                t.rotate(_state.robotStates[n].rot, -30, 36);
+                t.translate(_state.robotStates[n].pos.x * 50, _state.robotStates[n].pos.y * 50);
                 g2d.drawImage(n % 2 == 0 ? _robot1 : _robot2, t, null);
             }
 

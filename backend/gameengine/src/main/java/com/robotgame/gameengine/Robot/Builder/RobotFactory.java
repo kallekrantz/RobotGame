@@ -34,7 +34,9 @@ public class RobotFactory
 
 
         //If the blueprint has issues it is replaced with a working but inactive dummy blueprint.
-        if (blueprint.nodes == null || blueprint.components == null)
+        if (blueprint == null)
+            blueprint = RobotBlueprint.GetDummyBlueprint();
+        else if (blueprint.nodes == null || blueprint.components == null)
             blueprint = RobotBlueprint.GetDummyBlueprint();
         else if (blueprint.GetNumNodes() < 2 || blueprint.GetNumConnections() < 1)
             blueprint = RobotBlueprint.GetDummyBlueprint();

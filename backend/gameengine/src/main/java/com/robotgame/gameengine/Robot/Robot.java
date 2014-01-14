@@ -19,7 +19,7 @@ import java.util.LinkedList;
 public class Robot
 {
     private NodeSystem _nodeSystem;
-    private int _numNodes;
+    //private int _numNodes;
     private int _index;
     private RobotState _currentState; //, _futureState;
     private LinkedList<NodeAction> _actions;
@@ -46,7 +46,7 @@ public class Robot
         _actions = new LinkedList<NodeAction>();
         _boost = 1;
         _mass = 5;
-        _maxThrust = 12;
+        _maxThrust = 1;
         _maxTurn = 1;
         _impulse = new Vector2(0, 0);
         _radius = 0.2f;
@@ -83,7 +83,7 @@ public class Robot
         _currentState.vel.Add(Vector2.Multiply(_impulse, Match.DT));
 
         //Apply dampening
-        _currentState.w *= 0.9;
+        _currentState.w *= 0.8;
         _currentState.vel.x *= 0.9;
         _currentState.vel.y *= 0.9;
 
